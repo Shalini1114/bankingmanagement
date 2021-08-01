@@ -41,10 +41,20 @@ namespace bankingmanagement {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Panel^ panel1;
+	protected:
+	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Timer^ timer1;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::ComponentModel::IContainer^ components;
+
+
+
+
+
+
 
 
 
@@ -57,7 +67,7 @@ namespace bankingmanagement {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -66,107 +76,121 @@ namespace bankingmanagement {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(welcome::typeid));
+			this->components = (gcnew System::ComponentModel::Container());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->panel1->Cursor = System::Windows::Forms::Cursors::Default;
+			this->panel1->Location = System::Drawing::Point(3, 3);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(64, 18);
+			this->panel1->TabIndex = 0;
+			// 
+			// panel2
+			// 
+			this->panel2->Controls->Add(this->panel1);
+			this->panel2->Location = System::Drawing::Point(1, 325);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(599, 20);
+			this->panel2->TabIndex = 0;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
-				| System::Drawing::FontStyle::Underline)), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(307, 9);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->label1->Location = System::Drawing::Point(203, 146);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(588, 46);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"PIGGY MINI  BANK  OF INDIA";
-			this->label1->Click += gcnew System::EventHandler(this, &welcome::label1_Click);
-			// 
-			// button1
-			// 
-			this->button1->BackColor = System::Drawing::Color::Red;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(35, 479);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(136, 60);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"continue";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &welcome::button1_Click);
-			// 
-			// button2
-			// 
-			this->button2->BackColor = System::Drawing::Color::Red;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(881, 479);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(136, 60);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"exit";
-			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &welcome::button2_Click);
+			this->label1->Size = System::Drawing::Size(171, 31);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"LOADING...";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->label2->Location = System::Drawing::Point(561, 66);
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->label2->Location = System::Drawing::Point(12, 282);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(334, 26);
-			this->label2->TabIndex = 3;
-			this->label2->Text = L"ak hath do aur do hathon se lo";
+			this->label2->Size = System::Drawing::Size(274, 24);
+			this->label2->TabIndex = 1;
+			this->label2->Text = L"Created By : Amzad and Shalini";
+			// 
+			// timer1
+			// 
+			this->timer1->Enabled = true;
+			this->timer1->Interval = 15;
+			this->timer1->Tick += gcnew System::EventHandler(this, &welcome::timer1_Tick);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->label3->Location = System::Drawing::Point(107, 42);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(386, 31);
+			this->label3->TabIndex = 1;
+			this->label3->Text = L"PIGGI MINI BANK OF INDIA";
 			// 
 			// welcome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::White;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(56)),
+				static_cast<System::Int32>(static_cast<System::Byte>(79)));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1112, 560);
+			this->ClientSize = System::Drawing::Size(599, 345);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label1);
+			this->Controls->Add(this->panel2);
 			this->DoubleBuffered = true;
+			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(56)),
+				static_cast<System::Int32>(static_cast<System::Byte>(79)));
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"welcome";
-			this->Text = L"ok";
-			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-			this->Load += gcnew System::EventHandler(this, &welcome::welcome_Load);
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Welcome";
+			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void welcome_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	
+
+
+
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+
+	panel1->Width++;
+	if (panel1->Width >= 599)
+	{
+		timer1->Stop();
 		Mainmenu^ menu = gcnew Mainmenu;
 		menu->Show();
 		this->Hide();
 	}
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		if (MessageBox::Show("Are you sure want to exit ?", "Warning", MessageBoxButtons::YesNo,
-			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
-			Application::Exit();
-
-	}
-
-
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		
 }
 };
 }
