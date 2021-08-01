@@ -44,6 +44,7 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Button^ Thanksbtn;
 
 
 
@@ -68,6 +69,7 @@ namespace bankingmanagement {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->Thanksbtn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -123,6 +125,18 @@ namespace bankingmanagement {
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"ak hath do aur do hathon se lo";
 			// 
+			// Thanksbtn
+			// 
+			this->Thanksbtn->BackColor = System::Drawing::Color::Red;
+			this->Thanksbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Thanksbtn->Location = System::Drawing::Point(457, 479);
+			this->Thanksbtn->Name = L"Thanksbtn";
+			this->Thanksbtn->Size = System::Drawing::Size(136, 60);
+			this->Thanksbtn->TabIndex = 4;
+			this->Thanksbtn->Text = L"thanks";
+			this->Thanksbtn->UseVisualStyleBackColor = false;
+			// 
 			// welcome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -131,6 +145,7 @@ namespace bankingmanagement {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1112, 560);
+			this->Controls->Add(this->Thanksbtn);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
