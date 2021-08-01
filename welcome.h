@@ -1,6 +1,10 @@
 #pragma once
 #include"Mainmenu.h"
 
+/*
+Hii this is the project for banking management
+*/
+
 namespace bankingmanagement {
 
 	using namespace System;
