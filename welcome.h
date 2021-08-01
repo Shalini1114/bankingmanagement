@@ -152,7 +152,7 @@ namespace bankingmanagement {
 			this->Name = L"welcome";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Welcome";
-			this->Load += gcnew System::EventHandler(this, &welcome::welcome_Load);
+			//this->Load += gcnew System::EventHandler(this, &welcome::welcome_Load);
 			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
