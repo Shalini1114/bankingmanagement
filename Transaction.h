@@ -8,6 +8,7 @@ namespace bankingmanagement {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Summary for Transaction
@@ -15,6 +16,14 @@ namespace bankingmanagement {
 	public ref class Transaction : public System::Windows::Forms::Form
 	{
 	public:
+		Form^ ManagerMENu;
+		bool FromTransaction;
+	private: System::Windows::Forms::Button^ Oktransactionbtn;
+	private: System::Windows::Forms::TextBox^ DateandTimeTxt;
+	public:
+		String^ Data;
+
+
 		Transaction(void)
 		{
 			InitializeComponent();
@@ -23,6 +32,29 @@ namespace bankingmanagement {
 			//
 		}
 
+		Transaction(Form^ obj, bool temp)
+
+		{
+			ManagerMENu = obj;
+			FromTransaction = temp;
+			InitializeComponent();
+			
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		Transaction(Form^ obj, bool temp,String^ str)
+
+		{
+			ManagerMENu = obj;
+			FromTransaction = temp;
+			Data = str;
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -43,6 +75,20 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::TextBox^ Transactionidtxt;
+	private: System::Windows::Forms::TextBox^ BalanceTxt;
+
+	private: System::Windows::Forms::TextBox^ AmountTxt;
+	private: System::Windows::Forms::TextBox^ Descriptiontxt;
+
+
+	private: System::Windows::Forms::TextBox^ Typetxt;
+
+	private: System::Windows::Forms::TextBox^ AccountNotxt;
+
+
+
+
 
 	private:
 		/// <summary>
@@ -66,6 +112,14 @@ namespace bankingmanagement {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->Transactionidtxt = (gcnew System::Windows::Forms::TextBox());
+			this->BalanceTxt = (gcnew System::Windows::Forms::TextBox());
+			this->AmountTxt = (gcnew System::Windows::Forms::TextBox());
+			this->Descriptiontxt = (gcnew System::Windows::Forms::TextBox());
+			this->Typetxt = (gcnew System::Windows::Forms::TextBox());
+			this->AccountNotxt = (gcnew System::Windows::Forms::TextBox());
+			this->Oktransactionbtn = (gcnew System::Windows::Forms::Button());
+			this->DateandTimeTxt = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -77,7 +131,7 @@ namespace bankingmanagement {
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->label1->Location = System::Drawing::Point(354, 19);
+			this->label1->Location = System::Drawing::Point(311, 9);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(328, 39);
 			this->label1->TabIndex = 0;
@@ -90,7 +144,7 @@ namespace bankingmanagement {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(136, 72);
+			this->label2->Location = System::Drawing::Point(136, 60);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(178, 31);
 			this->label2->TabIndex = 1;
@@ -168,18 +222,92 @@ namespace bankingmanagement {
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label8->ForeColor = System::Drawing::Color::White;
-			this->label8->Location = System::Drawing::Point(136, 126);
+			this->label8->Location = System::Drawing::Point(123, 119);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(177, 31);
+			this->label8->Size = System::Drawing::Size(191, 31);
 			this->label8->TabIndex = 7;
-			this->label8->Text = L"DateandTime";
+			this->label8->Text = L"Date and Time";
+			this->label8->Click += gcnew System::EventHandler(this, &Transaction::label8_Click);
+			// 
+			// Transactionidtxt
+			// 
+			this->Transactionidtxt->Location = System::Drawing::Point(539, 71);
+			this->Transactionidtxt->Name = L"Transactionidtxt";
+			this->Transactionidtxt->Size = System::Drawing::Size(236, 20);
+			this->Transactionidtxt->TabIndex = 8;
+			this->Transactionidtxt->TextChanged += gcnew System::EventHandler(this, &Transaction::textBox1_TextChanged);
+			// 
+			// BalanceTxt
+			// 
+			this->BalanceTxt->Location = System::Drawing::Point(539, 399);
+			this->BalanceTxt->Name = L"BalanceTxt";
+			this->BalanceTxt->Size = System::Drawing::Size(236, 20);
+			this->BalanceTxt->TabIndex = 9;
+			// 
+			// AmountTxt
+			// 
+			this->AmountTxt->Location = System::Drawing::Point(539, 239);
+			this->AmountTxt->Name = L"AmountTxt";
+			this->AmountTxt->Size = System::Drawing::Size(236, 20);
+			this->AmountTxt->TabIndex = 10;
+			// 
+			// Descriptiontxt
+			// 
+			this->Descriptiontxt->Location = System::Drawing::Point(539, 345);
+			this->Descriptiontxt->Name = L"Descriptiontxt";
+			this->Descriptiontxt->Size = System::Drawing::Size(236, 20);
+			this->Descriptiontxt->TabIndex = 11;
+			// 
+			// Typetxt
+			// 
+			this->Typetxt->Location = System::Drawing::Point(539, 290);
+			this->Typetxt->Name = L"Typetxt";
+			this->Typetxt->Size = System::Drawing::Size(236, 20);
+			this->Typetxt->TabIndex = 12;
+			// 
+			// AccountNotxt
+			// 
+			this->AccountNotxt->Location = System::Drawing::Point(539, 177);
+			this->AccountNotxt->Name = L"AccountNotxt";
+			this->AccountNotxt->Size = System::Drawing::Size(236, 20);
+			this->AccountNotxt->TabIndex = 13;
+			// 
+			// Oktransactionbtn
+			// 
+			this->Oktransactionbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->Oktransactionbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Oktransactionbtn->ForeColor = System::Drawing::Color::Blue;
+			this->Oktransactionbtn->Location = System::Drawing::Point(379, 425);
+			this->Oktransactionbtn->Name = L"Oktransactionbtn";
+			this->Oktransactionbtn->Size = System::Drawing::Size(164, 49);
+			this->Oktransactionbtn->TabIndex = 14;
+			this->Oktransactionbtn->Text = L"OK";
+			this->Oktransactionbtn->UseVisualStyleBackColor = false;
+			this->Oktransactionbtn->Click += gcnew System::EventHandler(this, &Transaction::Oktransactionbtn_Click);
+			// 
+			// DateandTimeTxt
+			// 
+			this->DateandTimeTxt->Location = System::Drawing::Point(539, 119);
+			this->DateandTimeTxt->Name = L"DateandTimeTxt";
+			this->DateandTimeTxt->Size = System::Drawing::Size(236, 20);
+			this->DateandTimeTxt->TabIndex = 15;
 			// 
 			// Transaction
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(972, 475);
+			this->ClientSize = System::Drawing::Size(972, 489);
+			this->Controls->Add(this->DateandTimeTxt);
+			this->Controls->Add(this->Oktransactionbtn);
+			this->Controls->Add(this->AccountNotxt);
+			this->Controls->Add(this->Typetxt);
+			this->Controls->Add(this->Descriptiontxt);
+			this->Controls->Add(this->AmountTxt);
+			this->Controls->Add(this->BalanceTxt);
+			this->Controls->Add(this->Transactionidtxt);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
@@ -190,10 +318,93 @@ namespace bankingmanagement {
 			this->Controls->Add(this->label1);
 			this->Name = L"Transaction";
 			this->Text = L"Transaction";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &Transaction::Transaction_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+}
+private: System::Void Oktransactionbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	ManagerMENu->Show();
+	this->Close();
+
+}
+private: System::Void Transaction_Load(System::Object^ sender, System::EventArgs^ e) {
+	bool Dataexist = false;
+
+	if (FromTransaction)
+	{
+		
+		Oktransactionbtn->Visible = true;
+
+
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query;
+		Query = "select * from Banking.Transaction  where Accountno ='" + Data + "'";
+
+		// Checking data into database.
+		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+		MySqlDataReader^ reader;
+		try
+		{
+			Connect->Open();
+			reader = cmd->ExecuteReader();
+			while (reader->Read())
+			{
+
+				Transactionidtxt->Text = reader->GetString(0);
+				DateandTimeTxt->Text = reader->GetString(1);
+				AccountNotxt->Text = reader->GetString(2);
+				AmountTxt->Text = reader->GetString(3);
+				Typetxt->Text = reader->GetString(4);
+				Descriptiontxt->Text = reader->GetString(5);
+				BalanceTxt->Text = reader->GetString(6);
+				
+				Transactionidtxt->Enabled = false;
+				DateandTimeTxt->Enabled = false;
+				AccountNotxt->Enabled = false;
+				AmountTxt->Enabled = false;
+				Typetxt->Enabled = false;
+				Descriptiontxt->Enabled = false;
+				BalanceTxt->Enabled = false;
+				
+
+				Dataexist = true;
+				
+
+
+
+
+
+			}
+			Connect->Close();
+			if (!Dataexist)
+				MessageBox::Show("Data Not Found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+			ManagerMENu->Show();
+
+		}
+	}
+
+
+
+
+
+
+}
+};
 }

@@ -2,6 +2,7 @@
 #include"Addemployee.h"
 #include"AddCustomer.h"
 #include"Account.h"
+#include"Transaction.h"
    namespace bankingmanagement {
 
 	using namespace System;
@@ -17,7 +18,7 @@
 	public ref class ManagerMenu : public System::Windows::Forms::Form
 	{
 	public:
-		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit;
+		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction;
 	private: System::Windows::Forms::Panel^ Searchsuppcuspanel;
 	public:
 	private: System::Windows::Forms::Button^ Cancelcusbtn;
@@ -818,6 +819,7 @@
 			this->Detailsbtn->TabIndex = 4;
 			this->Detailsbtn->Text = L"Details";
 			this->Detailsbtn->UseVisualStyleBackColor = false;
+			this->Detailsbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Detailsbtn_Click);
 			// 
 			// Depositbtn
 			// 
@@ -1171,12 +1173,26 @@ private: System::Void Searchcustxtbox_TextChanged(System::Object^ sender, System
 private: System::Void Searchsuppcuspanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {                                                                                                        
 }
 private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	if(FromWithdraw==true||FromDeposit==true||FromAccount==true)
+	{
+		FromAccount = true;
+		Account^ Form = gcnew Account(this, FromAccount, Accountcustxt->Text, FromWithdraw, FromDeposit);
 
-	FromAccount = true;
-	Account^ Form = gcnew Account(this, FromAccount, Accountcustxt->Text, FromWithdraw,FromDeposit);
+		Form->Show();
+		this->Hide();
+	
+	}
+	else if(FromTransaction)
+	{
+		FromTransaction = true;
+		Transaction^ Form = gcnew Transaction(this, FromTransaction, Accountcustxt->Text);
+		Form->Show();
+		this->Hide();
 
-	Form->Show();
-	this->Hide();
+
+	}
+
+	
 }
 private: System::Void Accountcancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Managermenupanel->Visible = true;
@@ -1209,5 +1225,9 @@ private: System::Void Bycashdepositbtn_Click(System::Object^ sender, System::Eve
 private: System::Void Withdrawpanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 
+private: System::Void Detailsbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	FromTransaction = true;
+	Accountpanelcus->Visible = true;
+}
 };
 }

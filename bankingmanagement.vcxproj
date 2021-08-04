@@ -125,6 +125,7 @@
     <ClCompile Include="Addemployee.cpp" />
     <ClCompile Include="Mainmenu.cpp" />
     <ClCompile Include="ManagerMenu1.cpp" />
+    <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="welcome.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ManagerMenu1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Transaction.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="welcome.h">
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerMenu1.resx">
       <DependentUpon>ManagerMenu1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction.resx">
+      <DependentUpon>Transaction.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="welcome.resx">
       <DependentUpon>welcome.h</DependentUpon>
