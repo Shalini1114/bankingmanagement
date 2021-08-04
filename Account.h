@@ -1,4 +1,5 @@
-#pragma once
+#include <ctime>
+#include<cstdlib>
 
 namespace bankingmanagement {
 
@@ -28,6 +29,8 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::Button^ Cancelproceedbtn;
 	private: System::Windows::Forms::Button^ Proceedproceedbtn;
 	private: System::Windows::Forms::TextBox^ Ammounttxt;
+	private: System::Windows::Forms::TextBox^ DescriptionTxt;
+	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::Label^ label14;
 	public:
 
@@ -143,6 +146,8 @@ namespace bankingmanagement {
 			this->MICRCodetxt = (gcnew System::Windows::Forms::TextBox());
 			this->Addresstxt = (gcnew System::Windows::Forms::TextBox());
 			this->Proceedpanel = (gcnew System::Windows::Forms::Panel());
+			this->DescriptionTxt = (gcnew System::Windows::Forms::TextBox());
+			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->Cancelproceedbtn = (gcnew System::Windows::Forms::Button());
 			this->Proceedproceedbtn = (gcnew System::Windows::Forms::Button());
 			this->Ammounttxt = (gcnew System::Windows::Forms::TextBox());
@@ -459,15 +464,40 @@ namespace bankingmanagement {
 			// 
 			this->Proceedpanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Proceedpanel->Controls->Add(this->DescriptionTxt);
+			this->Proceedpanel->Controls->Add(this->label15);
 			this->Proceedpanel->Controls->Add(this->Cancelproceedbtn);
 			this->Proceedpanel->Controls->Add(this->Proceedproceedbtn);
 			this->Proceedpanel->Controls->Add(this->Ammounttxt);
 			this->Proceedpanel->Controls->Add(this->label14);
-			this->Proceedpanel->Location = System::Drawing::Point(266, 91);
+			this->Proceedpanel->Location = System::Drawing::Point(250, 91);
 			this->Proceedpanel->Name = L"Proceedpanel";
 			this->Proceedpanel->Size = System::Drawing::Size(413, 212);
 			this->Proceedpanel->TabIndex = 26;
 			this->Proceedpanel->Visible = false;
+			// 
+			// DescriptionTxt
+			// 
+			this->DescriptionTxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DescriptionTxt->Location = System::Drawing::Point(254, 92);
+			this->DescriptionTxt->Name = L"DescriptionTxt";
+			this->DescriptionTxt->Size = System::Drawing::Size(123, 30);
+			this->DescriptionTxt->TabIndex = 20;
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label15->ForeColor = System::Drawing::Color::Yellow;
+			this->label15->Location = System::Drawing::Point(30, 92);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(109, 25);
+			this->label15->TabIndex = 19;
+			this->label15->Text = L"Description";
 			// 
 			// Cancelproceedbtn
 			// 
@@ -503,7 +533,7 @@ namespace bankingmanagement {
 			// 
 			this->Ammounttxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Ammounttxt->Location = System::Drawing::Point(283, 29);
+			this->Ammounttxt->Location = System::Drawing::Point(280, 35);
 			this->Ammounttxt->Name = L"Ammounttxt";
 			this->Ammounttxt->Size = System::Drawing::Size(79, 30);
 			this->Ammounttxt->TabIndex = 16;
@@ -516,7 +546,7 @@ namespace bankingmanagement {
 			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label14->ForeColor = System::Drawing::Color::Yellow;
-			this->label14->Location = System::Drawing::Point(30, 29);
+			this->label14->Location = System::Drawing::Point(30, 35);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(147, 25);
 			this->label14->TabIndex = 9;
@@ -702,12 +732,65 @@ namespace bankingmanagement {
 					Connect->Open();
 					reader = cmd->ExecuteReader();
 					MessageBox::Show("Transaction Successfull", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                    Connect->Close();
 
-					Connect->Close();
+					// Setting Transactionid
+					String^ Transactionid = "8765";
+					int number = rand() % 10000;
+					Transactionid+= number.ToString();
 
+					//Setting Date and Time
+					String^ dateandTime = label1->Text;
+
+					// Setting account number
+					String^ Accountno = Accountnotxt->Text;
+
+					// Setting amount 
+					String^ Amount = Ammounttxt->Text;
+
+					// Setting Transaction Type
+					String^ Transactiontype = "Withdraw";
+
+					// Setting Description
+					String^ Description = DescriptionTxt->Text;
+
+					// Setting Remaining Balance
+					String^ Balance = Accountbalancetxt->Text;
+
+					// Connecting to database.
+					String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+
+					MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+					String^ Query;
+					Query = "insert into Banking.Transaction (Transactionid,DateandTime,Accountno,Amount,TransactionType,Description,Balance) values ('" +
+						Transactionid+ "','" + dateandTime + "','" +
+						 Accountno+ "','" + Amount+ "', '" +
+						Transactiontype+ "', '" + Description + "', '" +
+						Balance + "')";
+
+					// Inserting into database code...
+					MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+					MySqlDataReader^ reader;
+
+					try
+					{
+						Connect->Open();
+						reader = cmd->ExecuteReader();
+						MessageBox::Show("Data saved successfully", "Success" , MessageBoxButtons::OK, MessageBoxIcon::Information);
+						ManagerMEnu->Show();
+						this->Close();
+					}
+					catch (Exception^ ex)
+					{
+						MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					
+					
+					}
 					ManagerMEnu->Show();
 					this->Close();
+
 				}
+				
 				catch (Exception^ ex)
 				{
 					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
@@ -746,6 +829,65 @@ namespace bankingmanagement {
 				reader = cmd->ExecuteReader();
 				MessageBox::Show("Deposition Successfull", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 				Connect->Close();
+				// Setting Transactionid
+				String^ Transactionid = "8765";
+				int number = rand() % 10000;
+				Transactionid += number.ToString();
+
+				//Setting Date and Time
+				String^ dateandTime = label8->Text;
+
+				// Setting account number
+				String^ accountno = "2730";
+				number = rand() % 10000;
+				accountno += number.ToString();
+
+				// Setting amount 
+				String^ Amount = Ammounttxt->Text;
+
+				// Setting Transaction Type
+				String^ Transactiontype = "Deposit";
+
+				// Setting Description
+				String^ Description = DescriptionTxt->Text;
+
+				// Setting Remaining Balance
+				String^ Balance = Accountbalancetxt->Text;
+
+				// Connecting to database.
+				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+
+				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+				String^ Query;
+				Query = "insert into Banking.Transaction (Transactionid,DateandTime,Accountno,Amount,TransactionType,Description,Balance) values ('" +
+					Transactionid + "','" + dateandTime + "','" +
+					accountno + "','" + Amount + "', '" +
+					Transactiontype + "', '" + Description + "', '" +
+					Balance + "')";
+
+				// Inserting into database code...
+				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+				MySqlDataReader^ reader;
+
+				try
+				{
+					Connect->Open();
+					reader = cmd->ExecuteReader();
+					MessageBox::Show("Data saved successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					ManagerMEnu->Show();
+					this->Close();
+				}
+				catch (Exception^ ex)
+				{
+					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+
+
+				}
+				ManagerMEnu->Show();
+				this->Close();
+
+
+
 				ManagerMEnu->Show();
 				this->Close();
 			}

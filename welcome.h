@@ -101,6 +101,7 @@ namespace bankingmanagement {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(599, 20);
 			this->panel2->TabIndex = 0;
+			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &welcome::panel2_Paint);
 			// 
 			// label1
 			// 
@@ -176,6 +177,8 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 	}
 		
 		
+}
+private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }
