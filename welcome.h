@@ -47,6 +47,7 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Timer^ timer1;
+	private: System::Windows::Forms::Label^ label3;
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -81,6 +82,7 @@ namespace bankingmanagement {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -132,8 +134,21 @@ namespace bankingmanagement {
 			// timer1
 			// 
 			this->timer1->Enabled = true;
-			this->timer1->Interval = 15;
+			this->timer1->Interval = 1;
 			this->timer1->Tick += gcnew System::EventHandler(this, &welcome::timer1_Tick);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->label3->Location = System::Drawing::Point(107, 42);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(386, 31);
+			this->label3->TabIndex = 1;
+			this->label3->Text = L"PIGGI MINI BANK OF INDIA";
 			// 
 			// welcome
 			// 
@@ -144,6 +159,7 @@ namespace bankingmanagement {
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(599, 345);
 			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->panel2);
 			this->DoubleBuffered = true;
@@ -153,7 +169,6 @@ namespace bankingmanagement {
 			this->Name = L"welcome";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Welcome";
-			//this->Load += gcnew System::EventHandler(this, &welcome::welcome_Load);
 			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();

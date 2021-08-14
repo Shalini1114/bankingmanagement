@@ -112,7 +112,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    <Reference Include="MySql.Data, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -125,6 +125,7 @@
     <ClCompile Include="Addemployee.cpp" />
     <ClCompile Include="Mainmenu.cpp" />
     <ClCompile Include="ManagerMenu1.cpp" />
+    <ClCompile Include="Statement1.cpp" />
     <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="welcome.cpp" />
   </ItemGroup>
@@ -142,6 +143,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ManagerMenu1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Statement1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Transaction.h">

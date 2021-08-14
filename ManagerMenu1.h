@@ -53,6 +53,10 @@
 	private: System::Windows::Forms::Button^ Bycashdepositbtn;
 
 	private: System::Windows::Forms::Button^ Bycheckdepositbtn;
+	private: System::Windows::Forms::Panel^ ManagerMenuPanel;
+
+	private: System::Windows::Forms::Label^ label6;
+
 
 
 
@@ -77,7 +81,7 @@
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
+
 	protected:
 	private: System::Windows::Forms::Button^ Employeebtn;
 	private: System::Windows::Forms::Button^ Customerbtn;
@@ -111,7 +115,7 @@
 	private: System::Windows::Forms::TextBox^ Searchemptxtbox;
 	private: System::Windows::Forms::Label^ Searchemplabel;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Panel^ Managermenupanel;
+
 
 
 
@@ -129,11 +133,14 @@
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Employeebtn = (gcnew System::Windows::Forms::Button());
 			this->Customerbtn = (gcnew System::Windows::Forms::Button());
 			this->Employeepanel = (gcnew System::Windows::Forms::Panel());
 			this->Editemployeebtn = (gcnew System::Windows::Forms::Button());
+			this->Searchemppanel = (gcnew System::Windows::Forms::Panel());
+			this->Byempmobbtn = (gcnew System::Windows::Forms::Button());
+			this->Byidbtn = (gcnew System::Windows::Forms::Button());
+			this->Bynamebtn = (gcnew System::Windows::Forms::Button());
 			this->Searchemployeebtn = (gcnew System::Windows::Forms::Button());
 			this->Deleteemployeebtn = (gcnew System::Windows::Forms::Button());
 			this->Addemployeebtn = (gcnew System::Windows::Forms::Button());
@@ -143,10 +150,6 @@
 			this->Searchcustomerbtn = (gcnew System::Windows::Forms::Button());
 			this->Deletecustomerbtn = (gcnew System::Windows::Forms::Button());
 			this->Addcustomerbtn = (gcnew System::Windows::Forms::Button());
-			this->Searchemppanel = (gcnew System::Windows::Forms::Panel());
-			this->Byempmobbtn = (gcnew System::Windows::Forms::Button());
-			this->Byidbtn = (gcnew System::Windows::Forms::Button());
-			this->Bynamebtn = (gcnew System::Windows::Forms::Button());
 			this->Searchcuspanel = (gcnew System::Windows::Forms::Panel());
 			this->Bymobcusbtn = (gcnew System::Windows::Forms::Button());
 			this->Byidcusbtn = (gcnew System::Windows::Forms::Button());
@@ -157,7 +160,6 @@
 			this->Searchemptxtbox = (gcnew System::Windows::Forms::TextBox());
 			this->Searchemplabel = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->Managermenupanel = (gcnew System::Windows::Forms::Panel());
 			this->custransactionbtn = (gcnew System::Windows::Forms::Button());
 			this->Searchsuppcuspanel = (gcnew System::Windows::Forms::Panel());
 			this->Cancelcusbtn = (gcnew System::Windows::Forms::Button());
@@ -183,43 +185,31 @@
 			this->Depositpanel = (gcnew System::Windows::Forms::Panel());
 			this->Bycashdepositbtn = (gcnew System::Windows::Forms::Button());
 			this->Bycheckdepositbtn = (gcnew System::Windows::Forms::Button());
+			this->ManagerMenuPanel = (gcnew System::Windows::Forms::Panel());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->Employeepanel->SuspendLayout();
-			this->Customerpanel->SuspendLayout();
 			this->Searchemppanel->SuspendLayout();
+			this->Customerpanel->SuspendLayout();
 			this->Searchcuspanel->SuspendLayout();
 			this->Searchsuppemppanel->SuspendLayout();
-			this->Managermenupanel->SuspendLayout();
 			this->Searchsuppcuspanel->SuspendLayout();
 			this->Accountpanelcus->SuspendLayout();
 			this->transactionpanel->SuspendLayout();
 			this->Withdrawpanel->SuspendLayout();
 			this->Depositpanel->SuspendLayout();
+			this->ManagerMenuPanel->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Red;
-			this->label1->Location = System::Drawing::Point(365, 25);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(312, 39);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"MANAGER MENU";
 			// 
 			// Employeebtn
 			// 
-			this->Employeebtn->BackColor = System::Drawing::Color::Yellow;
+			this->Employeebtn->BackColor = System::Drawing::Color::SteelBlue;
+			this->Employeebtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Employeebtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Employeebtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Employeebtn->Location = System::Drawing::Point(18, 21);
+			this->Employeebtn->ForeColor = System::Drawing::Color::DarkBlue;
+			this->Employeebtn->Location = System::Drawing::Point(0, 36);
 			this->Employeebtn->Name = L"Employeebtn";
-			this->Employeebtn->Size = System::Drawing::Size(148, 39);
+			this->Employeebtn->Size = System::Drawing::Size(240, 52);
 			this->Employeebtn->TabIndex = 1;
 			this->Employeebtn->Text = L"EMPLOYEE";
 			this->Employeebtn->UseVisualStyleBackColor = false;
@@ -228,14 +218,14 @@
 			// 
 			// Customerbtn
 			// 
-			this->Customerbtn->BackColor = System::Drawing::Color::Yellow;
+			this->Customerbtn->BackColor = System::Drawing::Color::SteelBlue;
+			this->Customerbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Customerbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Customerbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Customerbtn->Location = System::Drawing::Point(381, 22);
+			this->Customerbtn->ForeColor = System::Drawing::Color::DarkBlue;
+			this->Customerbtn->Location = System::Drawing::Point(0, 244);
 			this->Customerbtn->Name = L"Customerbtn";
-			this->Customerbtn->Size = System::Drawing::Size(148, 39);
+			this->Customerbtn->Size = System::Drawing::Size(240, 39);
 			this->Customerbtn->TabIndex = 2;
 			this->Customerbtn->Text = L"CUSTOMER";
 			this->Customerbtn->UseVisualStyleBackColor = false;
@@ -244,45 +234,111 @@
 			// 
 			// Employeepanel
 			// 
+			this->Employeepanel->AutoScroll = true;
+			this->Employeepanel->AutoSize = true;
 			this->Employeepanel->Controls->Add(this->Editemployeebtn);
 			this->Employeepanel->Controls->Add(this->Searchemployeebtn);
 			this->Employeepanel->Controls->Add(this->Deleteemployeebtn);
 			this->Employeepanel->Controls->Add(this->Addemployeebtn);
-			this->Employeepanel->Location = System::Drawing::Point(12, 178);
+			this->Employeepanel->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Employeepanel->Location = System::Drawing::Point(0, 88);
 			this->Employeepanel->Name = L"Employeepanel";
-			this->Employeepanel->Size = System::Drawing::Size(200, 156);
+			this->Employeepanel->Size = System::Drawing::Size(240, 156);
 			this->Employeepanel->TabIndex = 3;
 			this->Employeepanel->Visible = false;
 			this->Employeepanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ManagerMenu::Employeepanel_Paint);
 			// 
 			// Editemployeebtn
 			// 
-			this->Editemployeebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Editemployeebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Editemployeebtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Editemployeebtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Editemployeebtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Editemployeebtn->Location = System::Drawing::Point(0, 115);
+			this->Editemployeebtn->Location = System::Drawing::Point(0, 117);
 			this->Editemployeebtn->Name = L"Editemployeebtn";
-			this->Editemployeebtn->Size = System::Drawing::Size(200, 39);
+			this->Editemployeebtn->Size = System::Drawing::Size(240, 39);
 			this->Editemployeebtn->TabIndex = 5;
 			this->Editemployeebtn->Text = L"Edit Employee";
 			this->Editemployeebtn->UseVisualStyleBackColor = false;
 			this->Editemployeebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Editemployeebtn_Click);
 			this->Editemployeebtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Editemployeebtn_MouseHover);
 			// 
+			// Searchemppanel
+			// 
+			this->Searchemppanel->AutoSize = true;
+			this->Searchemppanel->BackColor = System::Drawing::Color::Transparent;
+			this->Searchemppanel->Controls->Add(this->Byempmobbtn);
+			this->Searchemppanel->Controls->Add(this->Byidbtn);
+			this->Searchemppanel->Controls->Add(this->Bynamebtn);
+			this->Searchemppanel->Location = System::Drawing::Point(239, 127);
+			this->Searchemppanel->Name = L"Searchemppanel";
+			this->Searchemppanel->Size = System::Drawing::Size(216, 120);
+			this->Searchemppanel->TabIndex = 5;
+			this->Searchemppanel->Visible = false;
+			// 
+			// Byempmobbtn
+			// 
+			this->Byempmobbtn->BackColor = System::Drawing::Color::Olive;
+			this->Byempmobbtn->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Byempmobbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Byempmobbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Byempmobbtn->Location = System::Drawing::Point(0, 78);
+			this->Byempmobbtn->Name = L"Byempmobbtn";
+			this->Byempmobbtn->Size = System::Drawing::Size(216, 42);
+			this->Byempmobbtn->TabIndex = 4;
+			this->Byempmobbtn->Text = L"BY MOB NO";
+			this->Byempmobbtn->UseVisualStyleBackColor = false;
+			this->Byempmobbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::byempmobbtn_Click);
+			// 
+			// Byidbtn
+			// 
+			this->Byidbtn->BackColor = System::Drawing::Color::Olive;
+			this->Byidbtn->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Byidbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Byidbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Byidbtn->Location = System::Drawing::Point(0, 39);
+			this->Byidbtn->Name = L"Byidbtn";
+			this->Byidbtn->Size = System::Drawing::Size(216, 39);
+			this->Byidbtn->TabIndex = 3;
+			this->Byidbtn->Text = L"BY  ID";
+			this->Byidbtn->UseVisualStyleBackColor = false;
+			this->Byidbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Byidbtn_Click);
+			// 
+			// Bynamebtn
+			// 
+			this->Bynamebtn->BackColor = System::Drawing::Color::Olive;
+			this->Bynamebtn->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Bynamebtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Bynamebtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Bynamebtn->Location = System::Drawing::Point(0, 0);
+			this->Bynamebtn->Name = L"Bynamebtn";
+			this->Bynamebtn->Size = System::Drawing::Size(216, 39);
+			this->Bynamebtn->TabIndex = 2;
+			this->Bynamebtn->Text = L"BY NAME";
+			this->Bynamebtn->UseVisualStyleBackColor = false;
+			this->Bynamebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bynamebtn_Click);
+			// 
 			// Searchemployeebtn
 			// 
-			this->Searchemployeebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Searchemployeebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Searchemployeebtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Searchemployeebtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Searchemployeebtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Searchemployeebtn->Location = System::Drawing::Point(0, 76);
+			this->Searchemployeebtn->Location = System::Drawing::Point(0, 78);
 			this->Searchemployeebtn->Name = L"Searchemployeebtn";
-			this->Searchemployeebtn->Size = System::Drawing::Size(200, 39);
+			this->Searchemployeebtn->Size = System::Drawing::Size(240, 39);
 			this->Searchemployeebtn->TabIndex = 4;
 			this->Searchemployeebtn->Text = L"Search Employee";
 			this->Searchemployeebtn->UseVisualStyleBackColor = false;
@@ -291,15 +347,16 @@
 			// 
 			// Deleteemployeebtn
 			// 
-			this->Deleteemployeebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Deleteemployeebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Deleteemployeebtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Deleteemployeebtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Deleteemployeebtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Deleteemployeebtn->Location = System::Drawing::Point(0, 38);
+			this->Deleteemployeebtn->Location = System::Drawing::Point(0, 39);
 			this->Deleteemployeebtn->Name = L"Deleteemployeebtn";
-			this->Deleteemployeebtn->Size = System::Drawing::Size(200, 39);
+			this->Deleteemployeebtn->Size = System::Drawing::Size(240, 39);
 			this->Deleteemployeebtn->TabIndex = 3;
 			this->Deleteemployeebtn->Text = L"Delete Employee";
 			this->Deleteemployeebtn->UseVisualStyleBackColor = false;
@@ -308,15 +365,16 @@
 			// 
 			// Addemployeebtn
 			// 
-			this->Addemployeebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Addemployeebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Addemployeebtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Addemployeebtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Addemployeebtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->Addemployeebtn->Location = System::Drawing::Point(0, 0);
 			this->Addemployeebtn->Name = L"Addemployeebtn";
-			this->Addemployeebtn->Size = System::Drawing::Size(200, 39);
+			this->Addemployeebtn->Size = System::Drawing::Size(240, 39);
 			this->Addemployeebtn->TabIndex = 2;
 			this->Addemployeebtn->Text = L"Add Employee";
 			this->Addemployeebtn->UseVisualStyleBackColor = false;
@@ -324,29 +382,32 @@
 			// 
 			// Customerpanel
 			// 
+			this->Customerpanel->AutoSize = true;
 			this->Customerpanel->Controls->Add(this->Accountcus);
 			this->Customerpanel->Controls->Add(this->Editcustomerbtn);
 			this->Customerpanel->Controls->Add(this->Searchcustomerbtn);
 			this->Customerpanel->Controls->Add(this->Deletecustomerbtn);
 			this->Customerpanel->Controls->Add(this->Addcustomerbtn);
-			this->Customerpanel->Location = System::Drawing::Point(377, 178);
+			this->Customerpanel->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Customerpanel->Location = System::Drawing::Point(0, 283);
 			this->Customerpanel->Name = L"Customerpanel";
-			this->Customerpanel->Size = System::Drawing::Size(200, 189);
+			this->Customerpanel->Size = System::Drawing::Size(240, 195);
 			this->Customerpanel->TabIndex = 4;
 			this->Customerpanel->Visible = false;
 			this->Customerpanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ManagerMenu::Customerpanel_Paint);
 			// 
 			// Accountcus
 			// 
-			this->Accountcus->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Accountcus->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Accountcus->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Accountcus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Accountcus->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Accountcus->Location = System::Drawing::Point(0, 149);
+			this->Accountcus->Location = System::Drawing::Point(0, 156);
 			this->Accountcus->Name = L"Accountcus";
-			this->Accountcus->Size = System::Drawing::Size(200, 39);
+			this->Accountcus->Size = System::Drawing::Size(240, 39);
 			this->Accountcus->TabIndex = 6;
 			this->Accountcus->Text = L"Account Details";
 			this->Accountcus->UseVisualStyleBackColor = false;
@@ -355,15 +416,16 @@
 			// 
 			// Editcustomerbtn
 			// 
-			this->Editcustomerbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Editcustomerbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Editcustomerbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Editcustomerbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Editcustomerbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Editcustomerbtn->Location = System::Drawing::Point(0, 113);
+			this->Editcustomerbtn->Location = System::Drawing::Point(0, 117);
 			this->Editcustomerbtn->Name = L"Editcustomerbtn";
-			this->Editcustomerbtn->Size = System::Drawing::Size(200, 39);
+			this->Editcustomerbtn->Size = System::Drawing::Size(240, 39);
 			this->Editcustomerbtn->TabIndex = 5;
 			this->Editcustomerbtn->Text = L"Edit Customer";
 			this->Editcustomerbtn->UseVisualStyleBackColor = false;
@@ -372,15 +434,16 @@
 			// 
 			// Searchcustomerbtn
 			// 
-			this->Searchcustomerbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Searchcustomerbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Searchcustomerbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Searchcustomerbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Searchcustomerbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Searchcustomerbtn->Location = System::Drawing::Point(0, 76);
+			this->Searchcustomerbtn->Location = System::Drawing::Point(0, 78);
 			this->Searchcustomerbtn->Name = L"Searchcustomerbtn";
-			this->Searchcustomerbtn->Size = System::Drawing::Size(200, 39);
+			this->Searchcustomerbtn->Size = System::Drawing::Size(240, 39);
 			this->Searchcustomerbtn->TabIndex = 4;
 			this->Searchcustomerbtn->Text = L"Search Customer";
 			this->Searchcustomerbtn->UseVisualStyleBackColor = false;
@@ -389,15 +452,16 @@
 			// 
 			// Deletecustomerbtn
 			// 
-			this->Deletecustomerbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Deletecustomerbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Deletecustomerbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Deletecustomerbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Deletecustomerbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Deletecustomerbtn->Location = System::Drawing::Point(0, 38);
+			this->Deletecustomerbtn->Location = System::Drawing::Point(0, 39);
 			this->Deletecustomerbtn->Name = L"Deletecustomerbtn";
-			this->Deletecustomerbtn->Size = System::Drawing::Size(200, 39);
+			this->Deletecustomerbtn->Size = System::Drawing::Size(240, 39);
 			this->Deletecustomerbtn->TabIndex = 3;
 			this->Deletecustomerbtn->Text = L"Delete Customer";
 			this->Deletecustomerbtn->UseVisualStyleBackColor = false;
@@ -405,105 +469,45 @@
 			// 
 			// Addcustomerbtn
 			// 
-			this->Addcustomerbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Addcustomerbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Addcustomerbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Addcustomerbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Addcustomerbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->Addcustomerbtn->Location = System::Drawing::Point(0, 0);
 			this->Addcustomerbtn->Name = L"Addcustomerbtn";
-			this->Addcustomerbtn->Size = System::Drawing::Size(200, 39);
+			this->Addcustomerbtn->Size = System::Drawing::Size(240, 39);
 			this->Addcustomerbtn->TabIndex = 2;
 			this->Addcustomerbtn->Text = L"Add Customer";
 			this->Addcustomerbtn->UseVisualStyleBackColor = false;
 			this->Addcustomerbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Addcustomerbtn_Click);
 			// 
-			// Searchemppanel
-			// 
-			this->Searchemppanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->Searchemppanel->Controls->Add(this->Byempmobbtn);
-			this->Searchemppanel->Controls->Add(this->Byidbtn);
-			this->Searchemppanel->Controls->Add(this->Bynamebtn);
-			this->Searchemppanel->Location = System::Drawing::Point(218, 238);
-			this->Searchemppanel->Name = L"Searchemppanel";
-			this->Searchemppanel->Size = System::Drawing::Size(150, 116);
-			this->Searchemppanel->TabIndex = 5;
-			this->Searchemppanel->Visible = false;
-			// 
-			// Byempmobbtn
-			// 
-			this->Byempmobbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->Byempmobbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Byempmobbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Byempmobbtn->Location = System::Drawing::Point(0, 74);
-			this->Byempmobbtn->Name = L"Byempmobbtn";
-			this->Byempmobbtn->Size = System::Drawing::Size(150, 42);
-			this->Byempmobbtn->TabIndex = 4;
-			this->Byempmobbtn->Text = L"BY MOB NO";
-			this->Byempmobbtn->UseVisualStyleBackColor = false;
-			this->Byempmobbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::byempmobbtn_Click);
-			// 
-			// Byidbtn
-			// 
-			this->Byidbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->Byidbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Byidbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Byidbtn->Location = System::Drawing::Point(-1, 37);
-			this->Byidbtn->Name = L"Byidbtn";
-			this->Byidbtn->Size = System::Drawing::Size(151, 39);
-			this->Byidbtn->TabIndex = 3;
-			this->Byidbtn->Text = L"BY  ID";
-			this->Byidbtn->UseVisualStyleBackColor = false;
-			this->Byidbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Byidbtn_Click);
-			// 
-			// Bynamebtn
-			// 
-			this->Bynamebtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->Bynamebtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bynamebtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bynamebtn->Location = System::Drawing::Point(-1, 0);
-			this->Bynamebtn->Name = L"Bynamebtn";
-			this->Bynamebtn->Size = System::Drawing::Size(154, 39);
-			this->Bynamebtn->TabIndex = 2;
-			this->Bynamebtn->Text = L"BY NAME";
-			this->Bynamebtn->UseVisualStyleBackColor = false;
-			this->Bynamebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bynamebtn_Click);
-			// 
 			// Searchcuspanel
 			// 
-			this->Searchcuspanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Searchcuspanel->AutoSize = true;
+			this->Searchcuspanel->BackColor = System::Drawing::Color::Transparent;
 			this->Searchcuspanel->Controls->Add(this->Bymobcusbtn);
 			this->Searchcuspanel->Controls->Add(this->Byidcusbtn);
 			this->Searchcuspanel->Controls->Add(this->Bynamecusbtn);
-			this->Searchcuspanel->Location = System::Drawing::Point(573, 275);
+			this->Searchcuspanel->Location = System::Drawing::Point(240, 322);
 			this->Searchcuspanel->Name = L"Searchcuspanel";
-			this->Searchcuspanel->Size = System::Drawing::Size(150, 116);
+			this->Searchcuspanel->Size = System::Drawing::Size(156, 120);
 			this->Searchcuspanel->TabIndex = 6;
 			this->Searchcuspanel->Visible = false;
 			// 
 			// Bymobcusbtn
 			// 
-			this->Bymobcusbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->Bymobcusbtn->BackColor = System::Drawing::Color::Olive;
+			this->Bymobcusbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Bymobcusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Bymobcusbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bymobcusbtn->Location = System::Drawing::Point(0, 74);
+			this->Bymobcusbtn->Location = System::Drawing::Point(0, 78);
 			this->Bymobcusbtn->Name = L"Bymobcusbtn";
-			this->Bymobcusbtn->Size = System::Drawing::Size(150, 42);
+			this->Bymobcusbtn->Size = System::Drawing::Size(156, 42);
 			this->Bymobcusbtn->TabIndex = 4;
 			this->Bymobcusbtn->Text = L"BY MOB NO";
 			this->Bymobcusbtn->UseVisualStyleBackColor = false;
@@ -511,15 +515,15 @@
 			// 
 			// Byidcusbtn
 			// 
-			this->Byidcusbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->Byidcusbtn->BackColor = System::Drawing::Color::Olive;
+			this->Byidcusbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Byidcusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Byidcusbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Byidcusbtn->Location = System::Drawing::Point(-1, 37);
+			this->Byidcusbtn->Location = System::Drawing::Point(0, 39);
 			this->Byidcusbtn->Name = L"Byidcusbtn";
-			this->Byidcusbtn->Size = System::Drawing::Size(151, 39);
+			this->Byidcusbtn->Size = System::Drawing::Size(156, 39);
 			this->Byidcusbtn->TabIndex = 3;
 			this->Byidcusbtn->Text = L"BY ID";
 			this->Byidcusbtn->UseVisualStyleBackColor = false;
@@ -527,15 +531,15 @@
 			// 
 			// Bynamecusbtn
 			// 
-			this->Bynamecusbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->Bynamecusbtn->BackColor = System::Drawing::Color::Olive;
+			this->Bynamecusbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Bynamecusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Bynamecusbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->Bynamecusbtn->Location = System::Drawing::Point(0, 0);
 			this->Bynamecusbtn->Name = L"Bynamecusbtn";
-			this->Bynamecusbtn->Size = System::Drawing::Size(153, 39);
+			this->Bynamecusbtn->Size = System::Drawing::Size(156, 39);
 			this->Bynamecusbtn->TabIndex = 2;
 			this->Bynamecusbtn->Text = L"BY NAME";
 			this->Bynamecusbtn->UseVisualStyleBackColor = false;
@@ -549,7 +553,8 @@
 			this->Searchsuppemppanel->Controls->Add(this->Searchemptxtbox);
 			this->Searchsuppemppanel->Controls->Add(this->Searchemplabel);
 			this->Searchsuppemppanel->Controls->Add(this->label2);
-			this->Searchsuppemppanel->Location = System::Drawing::Point(34, 360);
+			this->Searchsuppemppanel->Controls->Add(this->Searchsuppcuspanel);
+			this->Searchsuppemppanel->Location = System::Drawing::Point(515, 377);
 			this->Searchsuppemppanel->Name = L"Searchsuppemppanel";
 			this->Searchsuppemppanel->Size = System::Drawing::Size(374, 165);
 			this->Searchsuppemppanel->TabIndex = 7;
@@ -611,27 +616,16 @@
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Search Employee";
 			// 
-			// Managermenupanel
-			// 
-			this->Managermenupanel->BackColor = System::Drawing::Color::Transparent;
-			this->Managermenupanel->Controls->Add(this->custransactionbtn);
-			this->Managermenupanel->Controls->Add(this->Customerbtn);
-			this->Managermenupanel->Controls->Add(this->Employeebtn);
-			this->Managermenupanel->Location = System::Drawing::Point(12, 119);
-			this->Managermenupanel->Name = L"Managermenupanel";
-			this->Managermenupanel->Size = System::Drawing::Size(951, 61);
-			this->Managermenupanel->TabIndex = 6;
-			// 
 			// custransactionbtn
 			// 
-			this->custransactionbtn->BackColor = System::Drawing::Color::Yellow;
+			this->custransactionbtn->BackColor = System::Drawing::Color::SteelBlue;
+			this->custransactionbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->custransactionbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->custransactionbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->custransactionbtn->Location = System::Drawing::Point(737, 19);
+			this->custransactionbtn->ForeColor = System::Drawing::Color::DarkBlue;
+			this->custransactionbtn->Location = System::Drawing::Point(0, 478);
 			this->custransactionbtn->Name = L"custransactionbtn";
-			this->custransactionbtn->Size = System::Drawing::Size(162, 39);
+			this->custransactionbtn->Size = System::Drawing::Size(240, 39);
 			this->custransactionbtn->TabIndex = 4;
 			this->custransactionbtn->Text = L"Transaction";
 			this->custransactionbtn->UseVisualStyleBackColor = false;
@@ -645,7 +639,7 @@
 			this->Searchsuppcuspanel->Controls->Add(this->Searchcustxtbox);
 			this->Searchsuppcuspanel->Controls->Add(this->Searchcuslabel);
 			this->Searchsuppcuspanel->Controls->Add(this->label4);
-			this->Searchsuppcuspanel->Location = System::Drawing::Point(453, 397);
+			this->Searchsuppcuspanel->Location = System::Drawing::Point(207, 46);
 			this->Searchsuppcuspanel->Name = L"Searchsuppcuspanel";
 			this->Searchsuppcuspanel->Size = System::Drawing::Size(374, 165);
 			this->Searchsuppcuspanel->TabIndex = 8;
@@ -716,7 +710,7 @@
 			this->Accountpanelcus->Controls->Add(this->Accountcustxt);
 			this->Accountpanelcus->Controls->Add(this->label3);
 			this->Accountpanelcus->Controls->Add(this->label5);
-			this->Accountpanelcus->Location = System::Drawing::Point(56, 547);
+			this->Accountpanelcus->Location = System::Drawing::Point(554, 567);
 			this->Accountpanelcus->Name = L"Accountpanelcus";
 			this->Accountpanelcus->Size = System::Drawing::Size(374, 153);
 			this->Accountpanelcus->TabIndex = 9;
@@ -780,42 +774,46 @@
 			// 
 			// transactionpanel
 			// 
+			this->transactionpanel->AutoSize = true;
 			this->transactionpanel->Controls->Add(this->Statementbtn);
 			this->transactionpanel->Controls->Add(this->Detailsbtn);
 			this->transactionpanel->Controls->Add(this->Depositbtn);
 			this->transactionpanel->Controls->Add(this->Withdrawbtn);
-			this->transactionpanel->Location = System::Drawing::Point(732, 176);
+			this->transactionpanel->Dock = System::Windows::Forms::DockStyle::Top;
+			this->transactionpanel->Location = System::Drawing::Point(0, 517);
 			this->transactionpanel->Name = L"transactionpanel";
-			this->transactionpanel->Size = System::Drawing::Size(200, 148);
+			this->transactionpanel->Size = System::Drawing::Size(240, 156);
 			this->transactionpanel->TabIndex = 10;
 			this->transactionpanel->Visible = false;
 			// 
 			// Statementbtn
 			// 
-			this->Statementbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Statementbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Statementbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Statementbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Statementbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Statementbtn->Location = System::Drawing::Point(0, 113);
+			this->Statementbtn->Location = System::Drawing::Point(0, 117);
 			this->Statementbtn->Name = L"Statementbtn";
-			this->Statementbtn->Size = System::Drawing::Size(200, 39);
+			this->Statementbtn->Size = System::Drawing::Size(240, 39);
 			this->Statementbtn->TabIndex = 5;
 			this->Statementbtn->Text = L"Statement";
 			this->Statementbtn->UseVisualStyleBackColor = false;
 			// 
 			// Detailsbtn
 			// 
-			this->Detailsbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Detailsbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Detailsbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Detailsbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Detailsbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Detailsbtn->Location = System::Drawing::Point(0, 76);
+			this->Detailsbtn->Location = System::Drawing::Point(0, 78);
 			this->Detailsbtn->Name = L"Detailsbtn";
-			this->Detailsbtn->Size = System::Drawing::Size(200, 39);
+			this->Detailsbtn->Size = System::Drawing::Size(240, 39);
 			this->Detailsbtn->TabIndex = 4;
 			this->Detailsbtn->Text = L"Details";
 			this->Detailsbtn->UseVisualStyleBackColor = false;
@@ -823,15 +821,16 @@
 			// 
 			// Depositbtn
 			// 
-			this->Depositbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Depositbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Depositbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Depositbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Depositbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Depositbtn->Location = System::Drawing::Point(0, 38);
+			this->Depositbtn->Location = System::Drawing::Point(0, 39);
 			this->Depositbtn->Name = L"Depositbtn";
-			this->Depositbtn->Size = System::Drawing::Size(200, 39);
+			this->Depositbtn->Size = System::Drawing::Size(240, 39);
 			this->Depositbtn->TabIndex = 3;
 			this->Depositbtn->Text = L"Deposit";
 			this->Depositbtn->UseVisualStyleBackColor = false;
@@ -839,15 +838,16 @@
 			// 
 			// Withdrawbtn
 			// 
-			this->Withdrawbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->Withdrawbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Withdrawbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Withdrawbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Withdrawbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->Withdrawbtn->Location = System::Drawing::Point(0, 0);
 			this->Withdrawbtn->Name = L"Withdrawbtn";
-			this->Withdrawbtn->Size = System::Drawing::Size(200, 39);
+			this->Withdrawbtn->Size = System::Drawing::Size(240, 39);
 			this->Withdrawbtn->TabIndex = 2;
 			this->Withdrawbtn->Text = L"Withdraw";
 			this->Withdrawbtn->UseVisualStyleBackColor = false;
@@ -858,7 +858,7 @@
 			this->Withdrawpanel->Controls->Add(this->Bypassbookbtn);
 			this->Withdrawpanel->Controls->Add(this->Bycardbtn);
 			this->Withdrawpanel->Controls->Add(this->Bycheckbtn);
-			this->Withdrawpanel->Location = System::Drawing::Point(938, 186);
+			this->Withdrawpanel->Location = System::Drawing::Point(522, 148);
 			this->Withdrawpanel->Name = L"Withdrawpanel";
 			this->Withdrawpanel->Size = System::Drawing::Size(215, 122);
 			this->Withdrawpanel->TabIndex = 11;
@@ -909,7 +909,7 @@
 			// 
 			this->Depositpanel->Controls->Add(this->Bycashdepositbtn);
 			this->Depositpanel->Controls->Add(this->Bycheckdepositbtn);
-			this->Depositpanel->Location = System::Drawing::Point(937, 314);
+			this->Depositpanel->Location = System::Drawing::Point(521, 276);
 			this->Depositpanel->Name = L"Depositpanel";
 			this->Depositpanel->Size = System::Drawing::Size(200, 77);
 			this->Depositpanel->TabIndex = 12;
@@ -942,26 +942,49 @@
 			this->Bycheckdepositbtn->Text = L"By Check";
 			this->Bycheckdepositbtn->UseVisualStyleBackColor = false;
 			// 
+			// ManagerMenuPanel
+			// 
+			this->ManagerMenuPanel->AutoScroll = true;
+			this->ManagerMenuPanel->BackColor = System::Drawing::SystemColors::InactiveCaption;
+			this->ManagerMenuPanel->Controls->Add(this->transactionpanel);
+			this->ManagerMenuPanel->Controls->Add(this->custransactionbtn);
+			this->ManagerMenuPanel->Controls->Add(this->Customerpanel);
+			this->ManagerMenuPanel->Controls->Add(this->Customerbtn);
+			this->ManagerMenuPanel->Controls->Add(this->Employeepanel);
+			this->ManagerMenuPanel->Controls->Add(this->Employeebtn);
+			this->ManagerMenuPanel->Controls->Add(this->label6);
+			this->ManagerMenuPanel->Dock = System::Windows::Forms::DockStyle::Left;
+			this->ManagerMenuPanel->Location = System::Drawing::Point(0, 0);
+			this->ManagerMenuPanel->Name = L"ManagerMenuPanel";
+			this->ManagerMenuPanel->Size = System::Drawing::Size(240, 720);
+			this->ManagerMenuPanel->TabIndex = 13;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Dock = System::Windows::Forms::DockStyle::Top;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 24, System::Drawing::FontStyle::Bold));
+			this->label6->ForeColor = System::Drawing::Color::BlueViolet;
+			this->label6->Location = System::Drawing::Point(0, 0);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(185, 36);
+			this->label6->TabIndex = 1;
+			this->label6->Text = L"    Manager";
+			// 
 			// ManagerMenu
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
+			this->Controls->Add(this->Searchemppanel);
+			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
 			this->Controls->Add(this->Withdrawpanel);
-			this->Controls->Add(this->transactionpanel);
 			this->Controls->Add(this->Accountpanelcus);
-			this->Controls->Add(this->Customerpanel);
-			this->Controls->Add(this->Searchsuppcuspanel);
-			this->Controls->Add(this->Managermenupanel);
-			this->Controls->Add(this->Searchemppanel);
 			this->Controls->Add(this->Searchsuppemppanel);
 			this->Controls->Add(this->Searchcuspanel);
-			this->Controls->Add(this->Employeepanel);
-			this->Controls->Add(this->label1);
 			this->DoubleBuffered = true;
 			this->Name = L"ManagerMenu";
 			this->Text = L"ManagerMenu";
@@ -969,12 +992,11 @@
 			this->Load += gcnew System::EventHandler(this, &ManagerMenu::ManagerMenu_Load);
 			this->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::ManagerMenu_MouseHover);
 			this->Employeepanel->ResumeLayout(false);
-			this->Customerpanel->ResumeLayout(false);
 			this->Searchemppanel->ResumeLayout(false);
+			this->Customerpanel->ResumeLayout(false);
 			this->Searchcuspanel->ResumeLayout(false);
 			this->Searchsuppemppanel->ResumeLayout(false);
 			this->Searchsuppemppanel->PerformLayout();
-			this->Managermenupanel->ResumeLayout(false);
 			this->Searchsuppcuspanel->ResumeLayout(false);
 			this->Searchsuppcuspanel->PerformLayout();
 			this->Accountpanelcus->ResumeLayout(false);
@@ -982,6 +1004,8 @@
 			this->transactionpanel->ResumeLayout(false);
 			this->Withdrawpanel->ResumeLayout(false);
 			this->Depositpanel->ResumeLayout(false);
+			this->ManagerMenuPanel->ResumeLayout(false);
+			this->ManagerMenuPanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1033,7 +1057,7 @@ private: System::Void Addemployeebtn_Click(System::Object^ sender, System::Event
 private: System::Void byempmobbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Searchsuppemppanel->Visible = true;
 	Searchemplabel->Text = "Enter Mob";
-	Managermenupanel->Visible = false;
+	ManagerMenuPanel->Visible = false;
 	Employeepanel->Visible = false;
 	Searchemppanel->Visible = false;
 	Flag = 3;
@@ -1058,7 +1082,7 @@ private: System::Void Searchcustomerbtn_MouseHover(System::Object^ sender, Syste
 private: System::Void Bynamebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Searchsuppemppanel->Visible = true;
 	Searchemplabel->Text = "Enter Name";
-	Managermenupanel->Visible = false;
+	ManagerMenuPanel->Visible = false;
 	Employeepanel->Visible = false;
 	Searchemppanel->Visible = false;
 	Flag = 1;
@@ -1066,7 +1090,7 @@ private: System::Void Bynamebtn_Click(System::Object^ sender, System::EventArgs^
 private: System::Void Byidbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Searchsuppemppanel->Visible = true;
 	Searchemplabel->Text = "Enter id";
-	Managermenupanel->Visible = false;
+	ManagerMenuPanel->Visible = false;
 	Employeepanel->Visible = false;
 	Searchemppanel->Visible = false;
 	Flag = 2;
@@ -1075,7 +1099,7 @@ private: System::Void Searchsuppemppanel_Paint(System::Object^ sender, System::W
 
 }
 private: System::Void Cancelempbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Managermenupanel->Visible = true;
+	ManagerMenuPanel->Visible = true;
 	Searchsuppemppanel->Visible = false;
 }
 private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1091,7 +1115,7 @@ private: System::Void Searchemployeebtn_Click(System::Object^ sender, System::Ev
 private: System::Void Bynamecusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Searchsuppcuspanel->Visible = true;
 	Searchcuslabel->Text = "Enter Name";
-	Managermenupanel->Visible = false;
+	ManagerMenuPanel->Visible = false;
 	Customerpanel->Visible = false;
 	Searchcuspanel->Visible = false;
 	Flag = 1;
@@ -1099,7 +1123,7 @@ private: System::Void Bynamecusbtn_Click(System::Object^ sender, System::EventAr
 private: System::Void Byidcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Searchsuppcuspanel->Visible = true;
 	Searchcuslabel->Text = "Enter id";
-	Managermenupanel->Visible = false;
+	ManagerMenuPanel->Visible = false;
 	Customerpanel->Visible = false;
 	Searchcuspanel->Visible = false;
 	Flag = 2;
@@ -1107,7 +1131,7 @@ private: System::Void Byidcusbtn_Click(System::Object^ sender, System::EventArgs
 private: System::Void Bymobcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Searchsuppcuspanel->Visible = true;
 	Searchcuslabel->Text = "Enter Mob";
-	Managermenupanel->Visible = false;
+	ManagerMenuPanel->Visible = false;
 	Customerpanel->Visible = false;
 	Searchcuspanel->Visible = false;
 	Flag = 3;
@@ -1120,7 +1144,7 @@ private: System::Void Searchcusbtn_Click(System::Object^ sender, System::EventAr
 
 }
 private: System::Void Cancelcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Managermenupanel->Visible = true;
+	ManagerMenuPanel->Visible = true;
 	Searchsuppcuspanel->Visible = false;
 
 
@@ -1195,7 +1219,7 @@ private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::Eve
 	
 }
 private: System::Void Accountcancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Managermenupanel->Visible = true;
+	ManagerMenuPanel->Visible = true;
 	Accountpanelcus->Visible = false;
 }
 private: System::Void Withdrawbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
