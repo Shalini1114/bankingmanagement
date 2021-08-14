@@ -8,6 +8,7 @@ namespace bankingmanagement {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Media;
 
 	/// <summary>
 	/// Summary for Mainmenu
@@ -15,6 +16,8 @@ namespace bankingmanagement {
 	public ref class Mainmenu : public System::Windows::Forms::Form
 	{
 	public:
+		SoundPlayer^ ClickSound = gcnew SoundPlayer("Click.wav");
+		SoundPlayer^ WarningSound = gcnew SoundPlayer("Warning.wav");
 		Mainmenu(void)
 		{
 			InitializeComponent();
@@ -60,9 +63,24 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::Button^ Signinbtn;
 	private: System::Windows::Forms::TextBox^ passwordtextbox;
 	private: System::Windows::Forms::TextBox^ usernametextbox;
-	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::Label^ label7;
+
+
 	private: System::Windows::Forms::Label^ Loginlabel;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Panel^ panel3;
+	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::Panel^ ErrorPanel;
+	private: System::Windows::Forms::Label^ ErrorLabel;
+	private: System::Windows::Forms::Button^ ErrorCancelBtn;
+
+
+
 
 
 
@@ -100,29 +118,47 @@ namespace bankingmanagement {
 			this->Customerloginbtn = (gcnew System::Windows::Forms::Button());
 			this->Employeeloginbtn = (gcnew System::Windows::Forms::Button());
 			this->Managerloginbtn = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->Commonloginpanel = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->Loginlabel = (gcnew System::Windows::Forms::Label());
 			this->Cancelbtn = (gcnew System::Windows::Forms::Button());
 			this->Signinbtn = (gcnew System::Windows::Forms::Button());
 			this->passwordtextbox = (gcnew System::Windows::Forms::TextBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->usernametextbox = (gcnew System::Windows::Forms::TextBox());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->ErrorPanel = (gcnew System::Windows::Forms::Panel());
+			this->ErrorCancelBtn = (gcnew System::Windows::Forms::Button());
+			this->ErrorLabel = (gcnew System::Windows::Forms::Label());
 			this->Aboutpanel->SuspendLayout();
 			this->Menupanel->SuspendLayout();
 			this->Loginpanel->SuspendLayout();
+			this->panel1->SuspendLayout();
 			this->Commonloginpanel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->ErrorPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// Loginbtn
 			// 
-			this->Loginbtn->BackColor = System::Drawing::Color::Red;
+			this->Loginbtn->BackColor = System::Drawing::Color::SteelBlue;
+			this->Loginbtn->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Loginbtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Loginbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Loginbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Loginbtn->Location = System::Drawing::Point(22, 3);
+			this->Loginbtn->ForeColor = System::Drawing::Color::DarkBlue;
+			this->Loginbtn->Location = System::Drawing::Point(0, 52);
 			this->Loginbtn->Name = L"Loginbtn";
-			this->Loginbtn->Size = System::Drawing::Size(123, 53);
+			this->Loginbtn->Size = System::Drawing::Size(226, 51);
 			this->Loginbtn->TabIndex = 0;
 			this->Loginbtn->Text = L"LOGIN";
 			this->Loginbtn->UseVisualStyleBackColor = false;
@@ -131,13 +167,14 @@ namespace bankingmanagement {
 			// 
 			// Registerbtn
 			// 
-			this->Registerbtn->BackColor = System::Drawing::Color::Red;
+			this->Registerbtn->BackColor = System::Drawing::Color::SteelBlue;
+			this->Registerbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Registerbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Registerbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Registerbtn->Location = System::Drawing::Point(252, 3);
+			this->Registerbtn->ForeColor = System::Drawing::Color::DarkBlue;
+			this->Registerbtn->Location = System::Drawing::Point(0, 246);
 			this->Registerbtn->Name = L"Registerbtn";
-			this->Registerbtn->Size = System::Drawing::Size(139, 53);
+			this->Registerbtn->Size = System::Drawing::Size(226, 53);
 			this->Registerbtn->TabIndex = 1;
 			this->Registerbtn->Text = L"REGISTER";
 			this->Registerbtn->UseVisualStyleBackColor = false;
@@ -145,13 +182,14 @@ namespace bankingmanagement {
 			// 
 			// Exitbtn
 			// 
-			this->Exitbtn->BackColor = System::Drawing::Color::Red;
+			this->Exitbtn->BackColor = System::Drawing::Color::SteelBlue;
+			this->Exitbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Exitbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Exitbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Exitbtn->Location = System::Drawing::Point(818, 3);
+			this->Exitbtn->ForeColor = System::Drawing::Color::DarkBlue;
+			this->Exitbtn->Location = System::Drawing::Point(0, 352);
 			this->Exitbtn->Name = L"Exitbtn";
-			this->Exitbtn->Size = System::Drawing::Size(137, 53);
+			this->Exitbtn->Size = System::Drawing::Size(226, 53);
 			this->Exitbtn->TabIndex = 2;
 			this->Exitbtn->Text = L"EXIT";
 			this->Exitbtn->UseVisualStyleBackColor = false;
@@ -159,13 +197,14 @@ namespace bankingmanagement {
 			// 
 			// Aboutbtn
 			// 
-			this->Aboutbtn->BackColor = System::Drawing::Color::Red;
+			this->Aboutbtn->BackColor = System::Drawing::Color::SteelBlue;
+			this->Aboutbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Aboutbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Aboutbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Aboutbtn->Location = System::Drawing::Point(529, 3);
+			this->Aboutbtn->ForeColor = System::Drawing::Color::DarkBlue;
+			this->Aboutbtn->Location = System::Drawing::Point(0, 299);
 			this->Aboutbtn->Name = L"Aboutbtn";
-			this->Aboutbtn->Size = System::Drawing::Size(139, 53);
+			this->Aboutbtn->Size = System::Drawing::Size(226, 53);
 			this->Aboutbtn->TabIndex = 3;
 			this->Aboutbtn->Text = L"ABOUT";
 			this->Aboutbtn->UseVisualStyleBackColor = false;
@@ -173,8 +212,8 @@ namespace bankingmanagement {
 			// 
 			// Aboutpanel
 			// 
-			this->Aboutpanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->Aboutpanel->AutoSize = true;
+			this->Aboutpanel->BackColor = System::Drawing::Color::Cyan;
 			this->Aboutpanel->Controls->Add(this->label6);
 			this->Aboutpanel->Controls->Add(this->label5);
 			this->Aboutpanel->Controls->Add(this->label4);
@@ -182,7 +221,7 @@ namespace bankingmanagement {
 			this->Aboutpanel->Controls->Add(this->Aboutokbtn);
 			this->Aboutpanel->Controls->Add(this->label2);
 			this->Aboutpanel->Controls->Add(this->label1);
-			this->Aboutpanel->Location = System::Drawing::Point(490, 143);
+			this->Aboutpanel->Location = System::Drawing::Point(419, 37);
 			this->Aboutpanel->Name = L"Aboutpanel";
 			this->Aboutpanel->Size = System::Drawing::Size(471, 334);
 			this->Aboutpanel->TabIndex = 4;
@@ -192,12 +231,11 @@ namespace bankingmanagement {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->label6->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 20.25F));
 			this->label6->ForeColor = System::Drawing::Color::Green;
 			this->label6->Location = System::Drawing::Point(241, 169);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(166, 29);
+			this->label6->Size = System::Drawing::Size(170, 30);
 			this->label6->TabIndex = 6;
 			this->label6->Text = L"22 JUNE 2021";
 			// 
@@ -229,27 +267,28 @@ namespace bankingmanagement {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::Red;
 			this->label3->Location = System::Drawing::Point(223, 117);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(211, 29);
+			this->label3->Size = System::Drawing::Size(236, 30);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Shalini and Amzad";
 			// 
 			// Aboutokbtn
 			// 
+			this->Aboutokbtn->BackColor = System::Drawing::Color::Gray;
 			this->Aboutokbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Aboutokbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			this->Aboutokbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->Aboutokbtn->Location = System::Drawing::Point(187, 272);
 			this->Aboutokbtn->Name = L"Aboutokbtn";
-			this->Aboutokbtn->Size = System::Drawing::Size(75, 40);
+			this->Aboutokbtn->Size = System::Drawing::Size(49, 43);
 			this->Aboutokbtn->TabIndex = 2;
-			this->Aboutokbtn->Text = L"OK";
-			this->Aboutokbtn->UseVisualStyleBackColor = true;
+			this->Aboutokbtn->Text = L"X";
+			this->Aboutokbtn->UseVisualStyleBackColor = false;
 			this->Aboutokbtn->Click += gcnew System::EventHandler(this, &Mainmenu::Aboutokbtn_Click);
 			// 
 			// label2
@@ -267,50 +306,53 @@ namespace bankingmanagement {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->label1->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 24, System::Drawing::FontStyle::Bold));
 			this->label1->ForeColor = System::Drawing::Color::Blue;
 			this->label1->Location = System::Drawing::Point(24, 36);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(431, 36);
+			this->label1->Size = System::Drawing::Size(422, 36);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"PIGGY MINI BANK OF INDIA";
 			// 
 			// Menupanel
 			// 
-			this->Menupanel->BackColor = System::Drawing::Color::Transparent;
-			this->Menupanel->Controls->Add(this->Loginbtn);
-			this->Menupanel->Controls->Add(this->Registerbtn);
+			this->Menupanel->AutoScroll = true;
+			this->Menupanel->BackColor = System::Drawing::Color::DarkSlateGray;
 			this->Menupanel->Controls->Add(this->Exitbtn);
 			this->Menupanel->Controls->Add(this->Aboutbtn);
-			this->Menupanel->Location = System::Drawing::Point(39, 59);
+			this->Menupanel->Controls->Add(this->Registerbtn);
+			this->Menupanel->Controls->Add(this->Loginpanel);
+			this->Menupanel->Controls->Add(this->Loginbtn);
+			this->Menupanel->Controls->Add(this->panel1);
+			this->Menupanel->Dock = System::Windows::Forms::DockStyle::Left;
+			this->Menupanel->Location = System::Drawing::Point(0, 0);
 			this->Menupanel->Name = L"Menupanel";
-			this->Menupanel->Size = System::Drawing::Size(1024, 57);
+			this->Menupanel->Size = System::Drawing::Size(226, 545);
 			this->Menupanel->TabIndex = 5;
 			// 
 			// Loginpanel
 			// 
-			this->Loginpanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Loginpanel->BackColor = System::Drawing::Color::DimGray;
 			this->Loginpanel->Controls->Add(this->Customerloginbtn);
 			this->Loginpanel->Controls->Add(this->Employeeloginbtn);
 			this->Loginpanel->Controls->Add(this->Managerloginbtn);
-			this->Loginpanel->Location = System::Drawing::Point(39, 113);
+			this->Loginpanel->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Loginpanel->Location = System::Drawing::Point(0, 103);
 			this->Loginpanel->Name = L"Loginpanel";
-			this->Loginpanel->Size = System::Drawing::Size(174, 130);
+			this->Loginpanel->Size = System::Drawing::Size(226, 143);
 			this->Loginpanel->TabIndex = 6;
 			this->Loginpanel->Visible = false;
 			// 
 			// Customerloginbtn
 			// 
-			this->Customerloginbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Customerloginbtn->BackColor = System::Drawing::Color::LightGreen;
+			this->Customerloginbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Customerloginbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Customerloginbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Customerloginbtn->Location = System::Drawing::Point(3, 84);
+			this->Customerloginbtn->ForeColor = System::Drawing::Color::Purple;
+			this->Customerloginbtn->Location = System::Drawing::Point(0, 92);
 			this->Customerloginbtn->Name = L"Customerloginbtn";
-			this->Customerloginbtn->Size = System::Drawing::Size(177, 46);
+			this->Customerloginbtn->Size = System::Drawing::Size(226, 46);
 			this->Customerloginbtn->TabIndex = 4;
 			this->Customerloginbtn->Text = L"CUSTOMER LOGIN";
 			this->Customerloginbtn->UseVisualStyleBackColor = false;
@@ -318,14 +360,14 @@ namespace bankingmanagement {
 			// 
 			// Employeeloginbtn
 			// 
-			this->Employeeloginbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Employeeloginbtn->BackColor = System::Drawing::Color::LightGreen;
+			this->Employeeloginbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Employeeloginbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Employeeloginbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Employeeloginbtn->Location = System::Drawing::Point(3, 42);
+			this->Employeeloginbtn->ForeColor = System::Drawing::Color::Purple;
+			this->Employeeloginbtn->Location = System::Drawing::Point(0, 46);
 			this->Employeeloginbtn->Name = L"Employeeloginbtn";
-			this->Employeeloginbtn->Size = System::Drawing::Size(177, 46);
+			this->Employeeloginbtn->Size = System::Drawing::Size(226, 46);
 			this->Employeeloginbtn->TabIndex = 3;
 			this->Employeeloginbtn->Text = L"EMPLOYEE LOGIN";
 			this->Employeeloginbtn->UseVisualStyleBackColor = false;
@@ -333,130 +375,266 @@ namespace bankingmanagement {
 			// 
 			// Managerloginbtn
 			// 
-			this->Managerloginbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Managerloginbtn->BackColor = System::Drawing::Color::LightGreen;
+			this->Managerloginbtn->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Managerloginbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Managerloginbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Managerloginbtn->Location = System::Drawing::Point(3, 0);
+			this->Managerloginbtn->ForeColor = System::Drawing::Color::Purple;
+			this->Managerloginbtn->Location = System::Drawing::Point(0, 0);
 			this->Managerloginbtn->Name = L"Managerloginbtn";
-			this->Managerloginbtn->Size = System::Drawing::Size(177, 46);
+			this->Managerloginbtn->Size = System::Drawing::Size(226, 46);
 			this->Managerloginbtn->TabIndex = 2;
 			this->Managerloginbtn->Text = L"MANAGER LOGIN";
 			this->Managerloginbtn->UseVisualStyleBackColor = false;
 			this->Managerloginbtn->Click += gcnew System::EventHandler(this, &Mainmenu::Managerloginbtn_Click);
 			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::DimGray;
+			this->panel1->Controls->Add(this->label9);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(226, 52);
+			this->panel1->TabIndex = 0;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->label9->Location = System::Drawing::Point(72, 12);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(70, 25);
+			this->label9->TabIndex = 6;
+			this->label9->Text = L"MENU";
+			// 
 			// Commonloginpanel
 			// 
-			this->Commonloginpanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Commonloginpanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->Commonloginpanel->Controls->Add(this->panel3);
+			this->Commonloginpanel->Controls->Add(this->panel2);
+			this->Commonloginpanel->Controls->Add(this->pictureBox3);
+			this->Commonloginpanel->Controls->Add(this->pictureBox4);
+			this->Commonloginpanel->Controls->Add(this->pictureBox2);
+			this->Commonloginpanel->Controls->Add(this->pictureBox1);
 			this->Commonloginpanel->Controls->Add(this->Loginlabel);
 			this->Commonloginpanel->Controls->Add(this->Cancelbtn);
 			this->Commonloginpanel->Controls->Add(this->Signinbtn);
 			this->Commonloginpanel->Controls->Add(this->passwordtextbox);
+			this->Commonloginpanel->Controls->Add(this->label10);
 			this->Commonloginpanel->Controls->Add(this->usernametextbox);
-			this->Commonloginpanel->Controls->Add(this->label8);
-			this->Commonloginpanel->Controls->Add(this->label7);
-			this->Commonloginpanel->Location = System::Drawing::Point(225, 122);
+			this->Commonloginpanel->Location = System::Drawing::Point(388, 92);
 			this->Commonloginpanel->Name = L"Commonloginpanel";
-			this->Commonloginpanel->Size = System::Drawing::Size(283, 263);
+			this->Commonloginpanel->Size = System::Drawing::Size(320, 380);
 			this->Commonloginpanel->TabIndex = 7;
 			this->Commonloginpanel->Visible = false;
 			this->Commonloginpanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Mainmenu::Commonloginpanel_Paint);
 			// 
+			// panel3
+			// 
+			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->panel3->Location = System::Drawing::Point(31, 255);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(236, 1);
+			this->panel3->TabIndex = 9;
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->panel2->Location = System::Drawing::Point(31, 190);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(236, 1);
+			this->panel2->TabIndex = 9;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+			this->pictureBox3->Location = System::Drawing::Point(28, 225);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(25, 25);
+			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox3->TabIndex = 8;
+			this->pictureBox3->TabStop = false;
+			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
+			this->pictureBox4->Location = System::Drawing::Point(271, 224);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(25, 25);
+			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox4->TabIndex = 8;
+			this->pictureBox4->TabStop = false;
+			this->pictureBox4->Click += gcnew System::EventHandler(this, &Mainmenu::pictureBox4_Click);
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			this->pictureBox2->Location = System::Drawing::Point(28, 160);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(25, 25);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox2->TabIndex = 8;
+			this->pictureBox2->TabStop = false;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(99, 28);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(100, 50);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 7;
+			this->pictureBox1->TabStop = false;
+			// 
 			// Loginlabel
 			// 
 			this->Loginlabel->AutoSize = true;
-			this->Loginlabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Loginlabel->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Loginlabel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Loginlabel->Location = System::Drawing::Point(13, 6);
+			this->Loginlabel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(124)));
+			this->Loginlabel->Location = System::Drawing::Point(27, 88);
 			this->Loginlabel->Name = L"Loginlabel";
-			this->Loginlabel->Size = System::Drawing::Size(243, 31);
+			this->Loginlabel->Size = System::Drawing::Size(258, 36);
 			this->Loginlabel->TabIndex = 6;
 			this->Loginlabel->Text = L"MANAGER LOGIN";
 			// 
 			// Cancelbtn
 			// 
-			this->Cancelbtn->BackColor = System::Drawing::Color::Red;
+			this->Cancelbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->Cancelbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Cancelbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Cancelbtn->Location = System::Drawing::Point(154, 190);
+			this->Cancelbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->Cancelbtn->Location = System::Drawing::Point(275, 2);
 			this->Cancelbtn->Name = L"Cancelbtn";
-			this->Cancelbtn->Size = System::Drawing::Size(102, 32);
+			this->Cancelbtn->Size = System::Drawing::Size(30, 32);
 			this->Cancelbtn->TabIndex = 5;
-			this->Cancelbtn->Text = L"Cancel";
+			this->Cancelbtn->Text = L"X";
 			this->Cancelbtn->UseVisualStyleBackColor = false;
 			this->Cancelbtn->Click += gcnew System::EventHandler(this, &Mainmenu::Cancelbtn_Click);
 			// 
 			// Signinbtn
 			// 
-			this->Signinbtn->BackColor = System::Drawing::Color::Red;
-			this->Signinbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->Signinbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->Signinbtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Signinbtn->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Signinbtn->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Signinbtn->Location = System::Drawing::Point(18, 191);
+			this->Signinbtn->ForeColor = System::Drawing::Color::White;
+			this->Signinbtn->Location = System::Drawing::Point(28, 307);
 			this->Signinbtn->Name = L"Signinbtn";
-			this->Signinbtn->Size = System::Drawing::Size(102, 32);
+			this->Signinbtn->Size = System::Drawing::Size(239, 35);
 			this->Signinbtn->TabIndex = 4;
-			this->Signinbtn->Text = L"Signin";
+			this->Signinbtn->Text = L"Login";
 			this->Signinbtn->UseVisualStyleBackColor = false;
 			this->Signinbtn->Click += gcnew System::EventHandler(this, &Mainmenu::Signinbtn_Click);
 			// 
 			// passwordtextbox
 			// 
-			this->passwordtextbox->Location = System::Drawing::Point(144, 115);
+			this->passwordtextbox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->passwordtextbox->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->passwordtextbox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->passwordtextbox->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->passwordtextbox->Location = System::Drawing::Point(59, 229);
+			this->passwordtextbox->Multiline = true;
 			this->passwordtextbox->Name = L"passwordtextbox";
-			this->passwordtextbox->Size = System::Drawing::Size(100, 20);
+			this->passwordtextbox->PasswordChar = '*';
+			this->passwordtextbox->Size = System::Drawing::Size(204, 24);
 			this->passwordtextbox->TabIndex = 3;
 			this->passwordtextbox->TextChanged += gcnew System::EventHandler(this, &Mainmenu::passwordtextbox_TextChanged);
 			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->label10->Location = System::Drawing::Point(179, 284);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(84, 16);
+			this->label10->TabIndex = 0;
+			this->label10->Text = L"Clear Field";
+			this->label10->Click += gcnew System::EventHandler(this, &Mainmenu::label10_Click);
+			// 
 			// usernametextbox
 			// 
-			this->usernametextbox->Location = System::Drawing::Point(144, 70);
+			this->usernametextbox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->usernametextbox->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->usernametextbox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->usernametextbox->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->usernametextbox->Location = System::Drawing::Point(59, 163);
+			this->usernametextbox->Multiline = true;
 			this->usernametextbox->Name = L"usernametextbox";
-			this->usernametextbox->Size = System::Drawing::Size(100, 20);
+			this->usernametextbox->Size = System::Drawing::Size(208, 24);
 			this->usernametextbox->TabIndex = 2;
 			this->usernametextbox->TextChanged += gcnew System::EventHandler(this, &Mainmenu::usernametextbox_TextChanged);
 			// 
-			// label8
+			// ErrorPanel
 			// 
-			this->label8->AutoSize = true;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->ErrorPanel->BackColor = System::Drawing::Color::Cyan;
+			this->ErrorPanel->Controls->Add(this->ErrorCancelBtn);
+			this->ErrorPanel->Controls->Add(this->ErrorLabel);
+			this->ErrorPanel->Location = System::Drawing::Point(248, 90);
+			this->ErrorPanel->Name = L"ErrorPanel";
+			this->ErrorPanel->Size = System::Drawing::Size(702, 199);
+			this->ErrorPanel->TabIndex = 8;
+			this->ErrorPanel->Visible = false;
+			// 
+			// ErrorCancelBtn
+			// 
+			this->ErrorCancelBtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->ErrorCancelBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(17, 115);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(85, 20);
-			this->label8->TabIndex = 1;
-			this->label8->Text = L"password";
-			this->label8->Click += gcnew System::EventHandler(this, &Mainmenu::label8_Click);
+			this->ErrorCancelBtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(117)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->ErrorCancelBtn->Location = System::Drawing::Point(322, 148);
+			this->ErrorCancelBtn->Name = L"ErrorCancelBtn";
+			this->ErrorCancelBtn->Size = System::Drawing::Size(30, 32);
+			this->ErrorCancelBtn->TabIndex = 6;
+			this->ErrorCancelBtn->Text = L"X";
+			this->ErrorCancelBtn->UseVisualStyleBackColor = false;
+			this->ErrorCancelBtn->Click += gcnew System::EventHandler(this, &Mainmenu::ErrorCancelBtn_Click);
 			// 
-			// label7
+			// ErrorLabel
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label7->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label7->Location = System::Drawing::Point(14, 73);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(88, 20);
-			this->label7->TabIndex = 0;
-			this->label7->Text = L"username";
+			this->ErrorLabel->AutoSize = true;
+			this->ErrorLabel->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 50, System::Drawing::FontStyle::Bold));
+			this->ErrorLabel->ForeColor = System::Drawing::Color::Chocolate;
+			this->ErrorLabel->Location = System::Drawing::Point(94, 33);
+			this->ErrorLabel->Name = L"ErrorLabel";
+			this->ErrorLabel->Size = System::Drawing::Size(536, 76);
+			this->ErrorLabel->TabIndex = 0;
+			this->ErrorLabel->Text = L"Wrong Username";
 			// 
 			// Mainmenu
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::White;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(56)),
+				static_cast<System::Int32>(static_cast<System::Byte>(79)));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1087, 528);
+			this->ClientSize = System::Drawing::Size(1244, 545);
+			this->Controls->Add(this->ErrorPanel);
 			this->Controls->Add(this->Commonloginpanel);
-			this->Controls->Add(this->Loginpanel);
-			this->Controls->Add(this->Menupanel);
 			this->Controls->Add(this->Aboutpanel);
+			this->Controls->Add(this->Menupanel);
 			this->DoubleBuffered = true;
 			this->Name = L"Mainmenu";
 			this->Text = L"Mainmenu";
@@ -467,9 +645,18 @@ namespace bankingmanagement {
 			this->Aboutpanel->PerformLayout();
 			this->Menupanel->ResumeLayout(false);
 			this->Loginpanel->ResumeLayout(false);
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->Commonloginpanel->ResumeLayout(false);
 			this->Commonloginpanel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->ErrorPanel->ResumeLayout(false);
+			this->ErrorPanel->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -512,10 +699,16 @@ private: System::Void Managerloginbtn_Click(System::Object^ sender, System::Even
 	Loginlabel->Text = "MANAGER LOGIN";
 }
 private: System::Void Cancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	ClickSound->Play();
 	Commonloginpanel->Visible = false;
 	Menupanel->Visible = true;
 }
 private: System::Void Signinbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	// Code for playing sound.
+	ClickSound->Play();
+
 	if (usernametextbox->Text == "Abhishek")
 	{
 		if (passwordtextbox->Text == "Shalini")
@@ -529,15 +722,23 @@ private: System::Void Signinbtn_Click(System::Object^ sender, System::EventArgs^
 		}
 		else
 		{
-			MessageBox::Show("wrong password", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			ErrorLabel->Text = "wrong password";
+			ErrorPanel->Visible = true;
+			WarningSound->Play();
+			Commonloginpanel->Visible = false;
 
+			
 		}
 	}
 	    else
 	    {
 
-	    MessageBox::Show("wrong ussrname", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
+		ErrorLabel->Text = "wrong ussrname";
+		ErrorPanel->Visible = true;
+		WarningSound->Play();
+		Commonloginpanel->Visible = false;
+		
+		
 	}
 	
 }
@@ -561,6 +762,31 @@ private: System::Void Customerloginbtn_Click(System::Object^ sender, System::Eve
 	Menupanel->Visible = false;
 	Loginpanel->Visible = false;
 	Loginlabel->Text = "CUSTOMER  LOGIN";
+}
+private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	usernametextbox->Clear();
+	passwordtextbox->Clear();
+	usernametextbox->Focus();
+}
+private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	
+	if(passwordtextbox->UseSystemPasswordChar == true)
+		passwordtextbox->UseSystemPasswordChar = false;
+	else if(passwordtextbox->UseSystemPasswordChar == false)
+		passwordtextbox->UseSystemPasswordChar = true;
+}
+private: System::Void ErrorCancelBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	ClickSound->Play();
+	ErrorPanel->Visible = false;
+	WarningSound->Stop();
+
+	Commonloginpanel->Visible = true;
+	usernametextbox->Clear();
+	passwordtextbox->Clear();
+	usernametextbox->Focus();
 }
 };
 }
