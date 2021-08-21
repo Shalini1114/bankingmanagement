@@ -23,8 +23,11 @@ namespace bankingmanagement {
 		bool FromEdit;
 		bool FromDelete;
 		String^ Data;
+		String^ Key;
 		int Flag;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::TextBox^ PanNoTextBox;
 
 	public:
 
@@ -42,6 +45,16 @@ namespace bankingmanagement {
 		AddCustomer(void)
 		{
 			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		AddCustomer(Form^form, String^ data, String^ key)
+		{
+			InitializeComponent();
+			managerMenu = form;
+			Data = data;
+			Key = key;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -157,6 +170,8 @@ namespace bankingmanagement {
 			this->Dobcus = (gcnew System::Windows::Forms::DateTimePicker());
 			this->OKcusbtn = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->PanNoTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// Customerlabel
@@ -190,7 +205,7 @@ namespace bankingmanagement {
 			// Educationcustxt
 			// 
 			this->Educationcustxt->BackColor = System::Drawing::Color::Fuchsia;
-			this->Educationcustxt->Location = System::Drawing::Point(570, 498);
+			this->Educationcustxt->Location = System::Drawing::Point(570, 546);
 			this->Educationcustxt->Name = L"Educationcustxt";
 			this->Educationcustxt->Size = System::Drawing::Size(268, 20);
 			this->Educationcustxt->TabIndex = 29;
@@ -227,7 +242,7 @@ namespace bankingmanagement {
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label10->ForeColor = System::Drawing::Color::Maroon;
-			this->label10->Location = System::Drawing::Point(210, 498);
+			this->label10->Location = System::Drawing::Point(210, 546);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(163, 31);
 			this->label10->TabIndex = 23;
@@ -241,7 +256,7 @@ namespace bankingmanagement {
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label9->ForeColor = System::Drawing::Color::Maroon;
-			this->label9->Location = System::Drawing::Point(210, 441);
+			this->label9->Location = System::Drawing::Point(210, 489);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(105, 31);
 			this->label9->TabIndex = 22;
@@ -376,7 +391,7 @@ namespace bankingmanagement {
 			this->Dobcus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Dobcus->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->Dobcus->Location = System::Drawing::Point(570, 441);
+			this->Dobcus->Location = System::Drawing::Point(570, 489);
 			this->Dobcus->Name = L"Dobcus";
 			this->Dobcus->Size = System::Drawing::Size(261, 26);
 			this->Dobcus->TabIndex = 37;
@@ -404,12 +419,34 @@ namespace bankingmanagement {
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(210, 559);
+			this->label1->Location = System::Drawing::Point(210, 605);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(131, 31);
 			this->label1->TabIndex = 39;
 			this->label1->Text = L"Datetime";
+			this->label1->Visible = false;
 			this->label1->Click += gcnew System::EventHandler(this, &AddCustomer::label1_Click);
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::Lime;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::Maroon;
+			this->label5->Location = System::Drawing::Point(206, 436);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(127, 31);
+			this->label5->TabIndex = 41;
+			this->label5->Text = L"PAN No.";
+			// 
+			// PanNoTextBox
+			// 
+			this->PanNoTextBox->BackColor = System::Drawing::Color::Fuchsia;
+			this->PanNoTextBox->Location = System::Drawing::Point(569, 436);
+			this->PanNoTextBox->Name = L"PanNoTextBox";
+			this->PanNoTextBox->Size = System::Drawing::Size(261, 20);
+			this->PanNoTextBox->TabIndex = 40;
 			// 
 			// AddCustomer
 			// 
@@ -417,6 +454,8 @@ namespace bankingmanagement {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Blue;
 			this->ClientSize = System::Drawing::Size(1064, 713);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->PanNoTextBox);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->OKcusbtn);
 			this->Controls->Add(this->Dobcus);
@@ -658,7 +697,36 @@ namespace bankingmanagement {
 private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs^ e) {
 	bool Dataexist = false;
 
-	if (FormDetail == true)
+	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
+	{
+		OKcusbtn->Visible = false;
+		Submitcusbtn->Text = "Proceed";
+		Submitcusbtn->Visible = true;
+		Cancelcusbtn->Visible = true;
+		Customerlabel->Text = "Customer Details";
+
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query;
+
+		// Write code for fetch data from database.
+
+	}
+	else if (Key == "FromUpdateMob")
+	{
+		OKcusbtn->Visible = false;
+		Submitcusbtn->Text = "Update";
+		Submitcusbtn->Visible = true;
+		Cancelcusbtn->Visible = true;
+		Customerlabel->Text = "Customer Details";
+
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query;
+
+		// Write code for fetch data from database.
+	}
+	else if (FormDetail == true)
 	{
 		Submitcusbtn->Visible = false;
 		Cancelcusbtn->Visible = false;
@@ -874,8 +942,10 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Submitcusbtn->Visible = true;
 		Cancelcusbtn->Visible = true;
 		OKcusbtn->Visible = false;
-		Customerlabel->Text = "NEW CUSTOMER FORM";
-
+		if(Key == "FromKyc")
+			Customerlabel->Text = "Update Kyc From";
+		else
+			Customerlabel->Text = "NEW CUSTOMER FORM";
 	}
 
 
