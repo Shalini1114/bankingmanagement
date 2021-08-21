@@ -75,6 +75,7 @@
 
 		   int Flag;
 		   Form^ MainMenu;
+		   String^ Key;
 	public: ManagerMenu(void)
 		{
 			InitializeComponent();
@@ -1041,6 +1042,7 @@
 			this->UpdateKycBtn->TabIndex = 6;
 			this->UpdateKycBtn->Text = L"Update Kyc";
 			this->UpdateKycBtn->UseVisualStyleBackColor = false;
+			this->UpdateKycBtn->Click += gcnew System::EventHandler(this, &ManagerMenu::UpdateKycBtn_Click);
 			// 
 			// UpdateMobileBtn
 			// 
@@ -1057,6 +1059,7 @@
 			this->UpdateMobileBtn->TabIndex = 5;
 			this->UpdateMobileBtn->Text = L"Update Mobile No.";
 			this->UpdateMobileBtn->UseVisualStyleBackColor = false;
+			this->UpdateMobileBtn->Click += gcnew System::EventHandler(this, &ManagerMenu::UpdateMobileBtn_Click);
 			// 
 			// ApplyChequeBookBtn
 			// 
@@ -1073,6 +1076,7 @@
 			this->ApplyChequeBookBtn->TabIndex = 7;
 			this->ApplyChequeBookBtn->Text = L"Apply Cheque Book";
 			this->ApplyChequeBookBtn->UseVisualStyleBackColor = false;
+			this->ApplyChequeBookBtn->Click += gcnew System::EventHandler(this, &ManagerMenu::ApplyChequeBookBtn_Click);
 			// 
 			// ApplyCreditCardBtn
 			// 
@@ -1089,6 +1093,7 @@
 			this->ApplyCreditCardBtn->TabIndex = 4;
 			this->ApplyCreditCardBtn->Text = L"Apply Credit Card";
 			this->ApplyCreditCardBtn->UseVisualStyleBackColor = false;
+			this->ApplyCreditCardBtn->Click += gcnew System::EventHandler(this, &ManagerMenu::ApplyCreditCardBtn_Click);
 			// 
 			// ApplyDebitCardBtn
 			// 
@@ -1105,6 +1110,7 @@
 			this->ApplyDebitCardBtn->TabIndex = 3;
 			this->ApplyDebitCardBtn->Text = L"Apply Debit Card";
 			this->ApplyDebitCardBtn->UseVisualStyleBackColor = false;
+			this->ApplyDebitCardBtn->Click += gcnew System::EventHandler(this, &ManagerMenu::ApplyDebitCardBtn_Click);
 			// 
 			// OtherServicesBtn
 			// 
@@ -1192,6 +1198,7 @@
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
+			this->Controls->Add(this->Searchsuppcuspanel);
 			this->Controls->Add(this->LogoutPanel);
 			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->Searchsuppemppanel);
@@ -1200,7 +1207,6 @@
 			this->Controls->Add(this->Depositpanel);
 			this->Controls->Add(this->Searchcuspanel);
 			this->Controls->Add(this->Withdrawpanel);
-			this->Controls->Add(this->Searchsuppcuspanel);
 			this->DoubleBuffered = true;
 			this->Name = L"ManagerMenu";
 			this->Text = L"ManagerMenu";
@@ -1366,6 +1372,16 @@ private: System::Void Bymobcusbtn_Click(System::Object^ sender, System::EventArg
 
 }
 private: System::Void Searchcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" || Key == "FromUpdateMob" || Key == "FromKyc")
+	{
+		AddCustomer^ form = gcnew AddCustomer(this, Searchcustxtbox->Text, Key);
+		form->Show();
+		this->Hide();
+	}
+
+	
+
 	AddCustomer^ form = gcnew AddCustomer(this, FromDetail, Searchcustxtbox->Text, Flag,FromEdit,FromDelete);
 	form->Show();
 	this->Hide();
@@ -1511,6 +1527,31 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 	MainMenu->Show();
 	this->Close();
+}
+private: System::Void ApplyDebitCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Searchsuppcuspanel->Visible = true;
+	Key = "FromDebitCard";
+}
+private: System::Void ApplyCreditCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Searchsuppcuspanel->Visible = true;
+	Key = "FromCreditCard";
+}
+private: System::Void ApplyChequeBookBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Searchsuppcuspanel->Visible = true;
+	Key = "FromChequeBook";
+}
+private: System::Void UpdateMobileBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Searchsuppcuspanel->Visible = true;
+	Key = "FromUpdateMob";
+}
+private: System::Void UpdateKycBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Searchsuppcuspanel->Visible = true;
+	Key = "FromKyc";
 }
 };
 }
