@@ -714,9 +714,9 @@ private: System::Void Signinbtn_Click(System::Object^ sender, System::EventArgs^
 		if (passwordtextbox->Text == "Shalini")
 		{
 			MessageBox::Show("signin successful", "sucess", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			ManagerMenu^Mmenu = gcnew ManagerMenu;
+			ManagerMenu^Mmenu = gcnew ManagerMenu(this);
 			Mmenu->Show();
-			this->Close();
+			this->Hide();
 
 
 		}
