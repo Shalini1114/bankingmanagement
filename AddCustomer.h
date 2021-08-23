@@ -261,7 +261,6 @@ namespace bankingmanagement {
 			this->label9->Size = System::Drawing::Size(105, 31);
 			this->label9->TabIndex = 22;
 			this->label9->Text = L"DOB:--";
-			this->label9->Click += gcnew System::EventHandler(this, &AddCustomer::label9_Click);
 			// 
 			// label13
 			// 
@@ -289,7 +288,6 @@ namespace bankingmanagement {
 			this->label12->Size = System::Drawing::Size(140, 31);
 			this->label12->TabIndex = 19;
 			this->label12->Text = L"Address:-";
-			this->label12->Click += gcnew System::EventHandler(this, &AddCustomer::label12_Click);
 			// 
 			// label11
 			// 
@@ -486,12 +484,32 @@ namespace bankingmanagement {
 
 		}
 #pragma endregion
-	private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
+	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
+	{
+		String^ number;
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
+		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+		MySqlDataReader^ reader;
+		Connect->Open();
+		reader = cmd->ExecuteReader();
+		if (reader->Read())
+		{
+			int id = System::Convert::ToInt16(reader[0]->ToString()) + 1;
+			number = id.ToString("0000");
+		}
+		else if (Convert::IsDBNull(reader))
+		{
+			number = "0001";
+		}
+		else
+		{
+			number = "0001";
+		}
+		Connect->Close();
+		return number;
 	}
-	private: System::Void label12_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	
-	
 	private: System::Void Cancelcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (MessageBox::Show("Are you sure want to cancel ?", "Warning", MessageBoxButtons::YesNo,
 			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
@@ -573,27 +591,36 @@ namespace bankingmanagement {
 		}
 		else
 		{
+			// Setting customer id
+			String^ customerid = "MP234";
+			// Setting password
+			String^ password = "Cus";
+			// Setting account number
+			String^ accountno = "2730";
+			try
+			{
+				customerid += GenerateNumber("Banking.Account", "Customerid");
+				password += GenerateNumber("Banking.Customer", "Password");
+				accountno += GenerateNumber("Banking.Customer", "Accountno");
+			}
+			catch (Exception^ ex)
+			{
+				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				managerMenu->Show();
+				this->Close();
+			}
 
 			// Setting username
-			String^ username = "Bank";
-			int number = rand() % 10000;
-			username += number.ToString();
+			String^ username = customerid;
 			
-			// Setting password
-			String^ password = "Emp";
-			number = rand() % 10000;
-			password += number.ToString();
-		
 			// Setting Branch Name
 			String^ branchname = "MINI PIGGY BANK ";
 
 			//Setting Branch Address
 			String^ branchaddress = "G.D COLLEGE BEGUSARI";
 
-			// Setting account number
-			String^ accountno = "2730";
-			number = rand() % 10000;
-			accountno += number.ToString();
+			
+			
 
 			// Setting account holder name
 			String^ accountholder = Namecustxt->Text;
@@ -604,23 +631,18 @@ namespace bankingmanagement {
 			// Setting account date and time
 			String^ datetime = label1->Text;
 
-			// Setting customer id
-			String^ customerid = "MP234";
-			number = rand() % 10000;
-			customerid += number.ToString();
+			
 
 			// Setting occupation
 			String^ occupation= Educationcustxt->Text;
 
 			// Setting ifsc code
-			String^ ifsccode = "ABCD";
-			number = rand() % 10000;
-			ifsccode += number.ToString();
+			String^ ifsccode = "PIGGY2730";
+			
 
 			// Setting micr code
 			String^ micrcode = "8765";
-			number = rand() % 10000;
-			micrcode += number.ToString();
+			
 
 			// Setting Address
 			String^ address = Adresscustxt->Text;
@@ -635,7 +657,7 @@ namespace bankingmanagement {
 				Namecustxt->Text + "','" + Fathernamecustxt->Text + "','" +
 				Mobcustxt->Text + "','" + Emailcustxt->Text + "', '" +
 				Aadharcustxt->Text + "', '" + Dobcus->Text + "', '" +
-				Educationcustxt->Text + "', '" + Adresscustxt->Text + "', '" +
+				customerid + "', '" + Adresscustxt->Text + "', '" +
 
 				username + "', '" + password + "')";
 			
@@ -675,14 +697,9 @@ namespace bankingmanagement {
 				catch (Exception^ ex)
 				{
 					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					
-
+					managerMenu->Show();
+					this->Close();
 				}
-
-
-				managerMenu->Show();
-				this->Close();
-	
 			}
 			catch (Exception^ ex)
 			{
