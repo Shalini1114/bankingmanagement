@@ -163,7 +163,6 @@ namespace bankingmanagement {
 			this->Employeelabel->Size = System::Drawing::Size(402, 39);
 			this->Employeelabel->TabIndex = 0;
 			this->Employeelabel->Text = L"NEW EMPLOYEE FORM";
-			this->Employeelabel->Click += gcnew System::EventHandler(this, &Addemployee::label1_Click);
 			// 
 			// label2
 			// 
@@ -177,7 +176,6 @@ namespace bankingmanagement {
 			this->label2->Size = System::Drawing::Size(117, 31);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Name :-";
-			this->label2->Click += gcnew System::EventHandler(this, &Addemployee::label2_Click);
 			// 
 			// label3
 			// 
@@ -215,7 +213,6 @@ namespace bankingmanagement {
 			this->label8->Size = System::Drawing::Size(166, 31);
 			this->label8->TabIndex = 7;
 			this->label8->Text = L"Aadhar no:-";
-			this->label8->Click += gcnew System::EventHandler(this, &Addemployee::label8_Click);
 			// 
 			// label9
 			// 
@@ -347,7 +344,6 @@ namespace bankingmanagement {
 			this->label7->Size = System::Drawing::Size(105, 31);
 			this->label7->TabIndex = 6;
 			this->label7->Text = L"Email:-";
-			this->label7->Click += gcnew System::EventHandler(this, &Addemployee::label7_Click);
 			// 
 			// label5
 			// 
@@ -362,7 +358,6 @@ namespace bankingmanagement {
 			this->label5->Size = System::Drawing::Size(140, 31);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Address:-";
-			this->label5->Click += gcnew System::EventHandler(this, &Addemployee::label5_Click);
 			// 
 			// label6
 			// 
@@ -441,15 +436,31 @@ namespace bankingmanagement {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e) {
+	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
+	{
+		String^ number;
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
+		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+		MySqlDataReader^ reader;
+		Connect->Open();
+		reader = cmd->ExecuteReader();
+		if (reader->Read())
+		{
+			int id = System::Convert::ToInt16(reader[0]->ToString()) + 1;
+			number = id.ToString("0000");
+		}
+		else if (Convert::IsDBNull(reader))
+		{
+			number = "0001";
+		}
+		else
+		{
+			number = "0001";
+		}
+		Connect->Close();
+		return number;
 	}
 	private: System::Void Addemployee_Load(System::Object^ sender, System::EventArgs^ e) {
 		bool Dataexist = false;
@@ -773,13 +784,31 @@ namespace bankingmanagement {
 		{
 			// Setting username
 			String^ username = "Bank";
-			int number = rand() % 10000;
-			username += number.ToString();
+			try
+			{
+				username += GenerateNumber("Banking.Employee", "Username");
+			}
+			catch (Exception^ ex)
+			{
+				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				managermenu->Show();
+				this->Close();
+			}
+			
 
 			// Setting password
 			String^ password = "Emp";
-			number = rand() % 10000;
-			password += number.ToString();
+			try
+			{
+				password += GenerateNumber("Banking.Employee", "Password");
+			}
+			catch (Exception^ ex)
+			{
+				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				managermenu->Show();
+				this->Close();
+			}
+			
 
 			// Connecting to database.
 			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";

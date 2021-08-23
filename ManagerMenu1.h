@@ -736,7 +736,7 @@
 			this->Accountpanelcus->Controls->Add(this->Accountcustxt);
 			this->Accountpanelcus->Controls->Add(this->label3);
 			this->Accountpanelcus->Controls->Add(this->label5);
-			this->Accountpanelcus->Location = System::Drawing::Point(435, 253);
+			this->Accountpanelcus->Location = System::Drawing::Point(460, 216);
 			this->Accountpanelcus->Name = L"Accountpanelcus";
 			this->Accountpanelcus->Size = System::Drawing::Size(374, 153);
 			this->Accountpanelcus->TabIndex = 9;
@@ -1199,15 +1199,15 @@
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
+			this->Controls->Add(this->Withdrawpanel);
+			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->Searchsuppcuspanel);
 			this->Controls->Add(this->LogoutPanel);
-			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->Searchsuppemppanel);
 			this->Controls->Add(this->Searchemppanel);
 			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
 			this->Controls->Add(this->Searchcuspanel);
-			this->Controls->Add(this->Withdrawpanel);
 			this->DoubleBuffered = true;
 			this->Name = L"ManagerMenu";
 			this->Text = L"ManagerMenu";

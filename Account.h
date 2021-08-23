@@ -46,6 +46,7 @@ namespace bankingmanagement {
 
 	private: System::Windows::Forms::Label^ validupto;
 	private: System::Windows::Forms::Label^ validfrom;
+	private: System::Windows::Forms::Button^ CardOkBtn;
 
 
 	private: System::Windows::Forms::Label^ label14;
@@ -182,6 +183,7 @@ namespace bankingmanagement {
 			this->Ammounttxt = (gcnew System::Windows::Forms::TextBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->Cardpanel = (gcnew System::Windows::Forms::Panel());
+			this->CardOkBtn = (gcnew System::Windows::Forms::Button());
 			this->validupto = (gcnew System::Windows::Forms::Label());
 			this->validfrom = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
@@ -595,6 +597,7 @@ namespace bankingmanagement {
 			// 
 			this->Cardpanel->BackColor = System::Drawing::Color::Black;
 			this->Cardpanel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Cardpanel.BackgroundImage")));
+			this->Cardpanel->Controls->Add(this->CardOkBtn);
 			this->Cardpanel->Controls->Add(this->validupto);
 			this->Cardpanel->Controls->Add(this->validfrom);
 			this->Cardpanel->Controls->Add(this->label16);
@@ -609,6 +612,21 @@ namespace bankingmanagement {
 			this->Cardpanel->TabIndex = 27;
 			this->Cardpanel->Visible = false;
 			// 
+			// CardOkBtn
+			// 
+			this->CardOkBtn->BackColor = System::Drawing::Color::SeaGreen;
+			this->CardOkBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->CardOkBtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->CardOkBtn->Location = System::Drawing::Point(202, 216);
+			this->CardOkBtn->Name = L"CardOkBtn";
+			this->CardOkBtn->Size = System::Drawing::Size(49, 41);
+			this->CardOkBtn->TabIndex = 16;
+			this->CardOkBtn->Text = L"OK";
+			this->CardOkBtn->UseVisualStyleBackColor = false;
+			this->CardOkBtn->Click += gcnew System::EventHandler(this, &Account::CardOkBtn_Click);
+			// 
 			// validupto
 			// 
 			this->validupto->AutoSize = true;
@@ -616,7 +634,7 @@ namespace bankingmanagement {
 			this->validupto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->validupto->ForeColor = System::Drawing::Color::LightSkyBlue;
-			this->validupto->Location = System::Drawing::Point(325, 128);
+			this->validupto->Location = System::Drawing::Point(340, 119);
 			this->validupto->Name = L"validupto";
 			this->validupto->Size = System::Drawing::Size(29, 20);
 			this->validupto->TabIndex = 15;
@@ -629,7 +647,7 @@ namespace bankingmanagement {
 			this->validfrom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->validfrom->ForeColor = System::Drawing::Color::LightSkyBlue;
-			this->validfrom->Location = System::Drawing::Point(111, 128);
+			this->validfrom->Location = System::Drawing::Point(126, 119);
 			this->validfrom->Name = L"validfrom";
 			this->validfrom->Size = System::Drawing::Size(28, 20);
 			this->validfrom->TabIndex = 14;
@@ -642,7 +660,7 @@ namespace bankingmanagement {
 			this->label16->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 22, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->label16->ForeColor = System::Drawing::Color::Cyan;
-			this->label16->Location = System::Drawing::Point(-1, 15);
+			this->label16->Location = System::Drawing::Point(4, 15);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(441, 31);
 			this->label16->TabIndex = 13;
@@ -655,7 +673,7 @@ namespace bankingmanagement {
 			this->accountholdername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->accountholdername->ForeColor = System::Drawing::Color::Navy;
-			this->accountholdername->Location = System::Drawing::Point(3, 192);
+			this->accountholdername->Location = System::Drawing::Point(18, 183);
 			this->accountholdername->Name = L"accountholdername";
 			this->accountholdername->Size = System::Drawing::Size(277, 31);
 			this->accountholdername->TabIndex = 12;
@@ -668,7 +686,7 @@ namespace bankingmanagement {
 			this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label20->ForeColor = System::Drawing::Color::Navy;
-			this->label20->Location = System::Drawing::Point(15, 128);
+			this->label20->Location = System::Drawing::Point(30, 119);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(90, 20);
 			this->label20->TabIndex = 11;
@@ -681,7 +699,7 @@ namespace bankingmanagement {
 			this->label19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label19->ForeColor = System::Drawing::Color::Navy;
-			this->label19->Location = System::Drawing::Point(231, 128);
+			this->label19->Location = System::Drawing::Point(246, 119);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(88, 20);
 			this->label19->TabIndex = 10;
@@ -694,7 +712,7 @@ namespace bankingmanagement {
 			this->cvv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cvv->ForeColor = System::Drawing::Color::Navy;
-			this->cvv->Location = System::Drawing::Point(352, 191);
+			this->cvv->Location = System::Drawing::Point(367, 182);
 			this->cvv->Name = L"cvv";
 			this->cvv->Size = System::Drawing::Size(50, 29);
 			this->cvv->TabIndex = 8;
@@ -707,7 +725,7 @@ namespace bankingmanagement {
 			this->cardnumber->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cardnumber->ForeColor = System::Drawing::Color::Navy;
-			this->cardnumber->Location = System::Drawing::Point(10, 73);
+			this->cardnumber->Location = System::Drawing::Point(25, 64);
 			this->cardnumber->Name = L"cardnumber";
 			this->cardnumber->Size = System::Drawing::Size(156, 28);
 			this->cardnumber->TabIndex = 6;
@@ -761,6 +779,32 @@ namespace bankingmanagement {
 
 		}
 #pragma endregion
+		public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
+		{
+			String^ number;
+			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+			String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			MySqlDataReader^ reader;
+			Connect->Open();
+			reader = cmd->ExecuteReader();
+			if (reader->Read())
+			{
+				int id = System::Convert::ToInt16(reader[0]->ToString()) + 1;
+				number = id.ToString("0000");
+			}
+			else if (Convert::IsDBNull(reader))
+			{
+				number = "0001";
+			}
+			else
+			{
+				number = "0001";
+			}
+			Connect->Close();
+			return number;
+		}
 	private: System::Void Account_Load(System::Object^ sender, System::EventArgs^ e) {
 		bool Dataexist = false;
 
@@ -861,61 +905,45 @@ namespace bankingmanagement {
 
 		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
 		{
-			// Setting Card Number
-
-			String^ CardNumber = "2739 1000 0012 ";
-			int number = rand() % 10000;
-			CardNumber += number.ToString();
-
-			// Setting Cvv
-			int Cvv = rand() % 1000;
-
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
-			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-			String^ Query;
-			Query = "select MAX(CardNumber) from Banking.Creditcard ";
-
-			// Setting Current
-			DateTime datetime = DateTime::Now;
-			String^ CurrentDate = datetime.ToString();			
-			try
-			{
-
-			}
-			catch(Exception^ ex)
-			{
-				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				ManagerMEnu->Show();
-				this->Close();
-
-
-			}				
-
-
-			// Setting Card Number
-			int i;
-			for(i=1;i<=20;i++)
-			{ 
-				String^ PassbookNo = "23";
-				int number = rand() % 10000;
-				PassbookNo += number.ToString();
-			}
-
-			// Setting AmountLimit
-			
-			int AmountLimit = 0;
-
-
-
 			if (Key == "FromDebitCard")
 			{
+				// Setting Card Number
+
+				String^ CardNumber = "2739 1000 0012 ";
+				try
+				{
+					CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber");
+				}
+				catch (Exception^ ex)
+				{
+					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					ManagerMEnu->Show();
+					this->Close();
+				}
+
+				// Setting Cvv
+				int Cvv = rand() % 1000;
+
+				// Setting Valid From
+				DateTime date = DateTime::Now;
+				String^ CurrentDate = date.ToString("MM");
+				CurrentDate += "/";
+				CurrentDate += date.ToString("yy");
+
+				// Setting Valid Upto
+				
+				String^ ExpiryDate = date.ToString("MM");
+				ExpiryDate += "/";
+				ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
+
+				// Inserting data into database.
 				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
 				Query = "insert into Banking.Debitcard (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo) values ('" +
 					Accountholdertxt->Text + "','" + CardNumber + "','" +
 					Cvv + "','" + CurrentDate + "', '" +
-					CurrentDate + "', '" + Accountnotxt->Text + "')";
+					ExpiryDate + "', '" + Accountnotxt->Text + "')";
 
 				// Inserting into database code...
 				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -930,9 +958,8 @@ namespace bankingmanagement {
 					validfrom->Text = CurrentDate;
 					validupto->Text = CurrentDate;
 					accountholdername->Text = Accountholdertxt->Text;
-					cvv->Text = Cvv;
-					ManagerMEnu->Show();
-					this->Close();
+					cvv->Text = Cvv.ToString();
+					Cardpanel->Visible = true;
 				}
 				catch (Exception^ ex)
 				{
@@ -945,6 +972,38 @@ namespace bankingmanagement {
 
 			if (Key == "FromCreditCard")
 			{
+
+				// Setting Card Number
+
+				String^ CardNumber = "6754 1000 0012 ";
+				try
+				{
+					CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber");
+				}
+				catch (Exception^ ex)
+				{
+					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					ManagerMEnu->Show();
+					this->Close();
+				}
+
+				// Setting Cvv
+				int Cvv = rand() % 1000;
+
+				// Setting Valid From
+				DateTime date = DateTime::Now;
+				String^ CurrentDate = date.ToString("MM");
+				CurrentDate += "/";
+				CurrentDate += date.ToString("yy");
+
+				// Setting Valid Upto
+				String^ ExpiryDate = date.ToString("MM");
+				ExpiryDate += "/";
+				ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
+
+				// Setting AmountLimit
+				int AmountLimit = 25000;
+
 				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
@@ -974,8 +1033,16 @@ namespace bankingmanagement {
 
 			}
 
-			if (Key == "FromChequeBook")
+		/*	if (Key == "FromChequeBook")
 			{
+
+				// Setting Cheque Number
+				int ChequeNumber[20];
+				for (int i = 1; i <= 20; i++)
+				{
+					ChequeNumber = GenerateNumber("Banking.Chequebook", "Chequeno")->ToInt16();
+				}
+
 				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
@@ -1003,24 +1070,8 @@ namespace bankingmanagement {
 					this->Close();
 				}
 
-			}
-
-
-			
-
-					
-
-
-
-				
-
-
-			}
-			
-
-
-		
-
+			}*/
+		}
 		else if (Okaccbtn->Text == "Proceed")
 		{
 			Proceedpanel->Visible = true;
@@ -1071,8 +1122,16 @@ namespace bankingmanagement {
 
 					// Setting Transactionid
 					String^ Transactionid = "8765";
-					int number = rand() % 10000;
-					Transactionid+= number.ToString();
+					try
+					{
+						Transactionid += GenerateNumber("Banking.Transaction", "Transactionid");
+					}
+					catch (Exception^ ex)
+					{
+						MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						ManagerMEnu->Show();
+						this->Close();
+					}
 
 					//Setting Date and Time
 					String^ dateandTime = label1->Text;
@@ -1118,11 +1177,11 @@ namespace bankingmanagement {
 					catch (Exception^ ex)
 					{
 						MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					
+						ManagerMEnu->Show();
+						this->Close();
 					
 					}
-					ManagerMEnu->Show();
-					this->Close();
+					
 
 				}
 				
@@ -1166,16 +1225,23 @@ namespace bankingmanagement {
 				Connect->Close();
 				// Setting Transactionid
 				String^ Transactionid = "8765";
-				int number = rand() % 10000;
-				Transactionid += number.ToString();
+				try
+				{
+					Transactionid += GenerateNumber("Banking.Transaction", "Transactionid");
+				}
+				catch (Exception^ ex)
+				{
+					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					ManagerMEnu->Show();
+					this->Close();
+				}
 
 				//Setting Date and Time
 				String^ dateandTime = label8->Text;
 
 				// Setting account number
-				String^ accountno = "2730";
-				number = rand() % 10000;
-				accountno += number.ToString();
+				String^ accountno = Accountnotxt->Text;
+				
 
 				// Setting amount 
 				String^ Amount = Ammounttxt->Text;
@@ -1215,11 +1281,11 @@ namespace bankingmanagement {
 				catch (Exception^ ex)
 				{
 					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-
+					ManagerMEnu->Show();
+					this->Close();
 
 				}
-				ManagerMEnu->Show();
-				this->Close();
+				
 
 
 
@@ -1233,12 +1299,11 @@ namespace bankingmanagement {
 				this->Close();
 			}
 		}
-
-
-
-		
-
-
 	}
+private: System::Void CardOkBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	ManagerMEnu->Show();
+	this->Close();
+}
 };
 }
