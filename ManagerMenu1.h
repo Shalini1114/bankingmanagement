@@ -876,6 +876,7 @@
 			this->Withdrawbtn->TabIndex = 2;
 			this->Withdrawbtn->Text = L"Withdraw";
 			this->Withdrawbtn->UseVisualStyleBackColor = false;
+			this->Withdrawbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Withdrawbtn_Click);
 			this->Withdrawbtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Withdrawbtn_MouseHover);
 			// 
 			// Withdrawpanel
@@ -1373,13 +1374,7 @@ private: System::Void Bymobcusbtn_Click(System::Object^ sender, System::EventArg
 }
 private: System::Void Searchcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" || Key == "FromUpdateMob" || Key == "FromKyc")
-	{
-		AddCustomer^ form = gcnew AddCustomer(this, Searchcustxtbox->Text, Key);
-		form->Show();
-		this->Hide();
-	}
-
+	
 	
 
 	AddCustomer^ form = gcnew AddCustomer(this, FromDetail, Searchcustxtbox->Text, Flag,FromEdit,FromDelete);
@@ -1446,6 +1441,15 @@ private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs
 }
 
 private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
+	{
+		FromAccount = true;
+		Account^ Form = gcnew Account(this,  Accountcustxt->Text,Key);
+
+		Form->Show();
+		this->Hide();
+
+	}
 	if(FromWithdraw==true||FromDeposit==true||FromAccount==true)
 	{
 		FromAccount = true;
@@ -1530,17 +1534,17 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void ApplyDebitCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Searchsuppcuspanel->Visible = true;
+	Accountpanelcus->Visible = true;
 	Key = "FromDebitCard";
 }
 private: System::Void ApplyCreditCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Searchsuppcuspanel->Visible = true;
+	Accountpanelcus->Visible = true;
 	Key = "FromCreditCard";
 }
 private: System::Void ApplyChequeBookBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Searchsuppcuspanel->Visible = true;
+	Accountpanelcus->Visible = true;
 	Key = "FromChequeBook";
 }
 private: System::Void UpdateMobileBtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1552,6 +1556,8 @@ private: System::Void UpdateKycBtn_Click(System::Object^ sender, System::EventAr
 
 	Searchsuppcuspanel->Visible = true;
 	Key = "FromKyc";
+}
+private: System::Void Withdrawbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
