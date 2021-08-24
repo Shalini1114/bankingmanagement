@@ -7,6 +7,7 @@ namespace bankingmanagement {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Summary for kyc
@@ -17,6 +18,8 @@ namespace bankingmanagement {
 		Form^ MANAGERmenu;
 		String^ Data;
 		String^ Key;
+
+
 		kyc(void)
 		{
 			InitializeComponent();
@@ -107,7 +110,7 @@ namespace bankingmanagement {
 			this->okkycbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->okkycbtn->ForeColor = System::Drawing::Color::Yellow;
-			this->okkycbtn->Location = System::Drawing::Point(70, 334);
+			this->okkycbtn->Location = System::Drawing::Point(72, 334);
 			this->okkycbtn->Name = L"okkycbtn";
 			this->okkycbtn->Size = System::Drawing::Size(147, 35);
 			this->okkycbtn->TabIndex = 0;
@@ -143,7 +146,7 @@ namespace bankingmanagement {
 			this->cancelkycbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cancelkycbtn->ForeColor = System::Drawing::Color::Yellow;
-			this->cancelkycbtn->Location = System::Drawing::Point(469, 334);
+			this->cancelkycbtn->Location = System::Drawing::Point(478, 334);
 			this->cancelkycbtn->Name = L"cancelkycbtn";
 			this->cancelkycbtn->Size = System::Drawing::Size(142, 35);
 			this->cancelkycbtn->TabIndex = 3;
@@ -239,7 +242,7 @@ namespace bankingmanagement {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Navy;
-			this->ClientSize = System::Drawing::Size(677, 381);
+			this->ClientSize = System::Drawing::Size(687, 381);
 			this->Controls->Add(this->Addresstxtbox);
 			this->Controls->Add(this->Pannotxtbox);
 			this->Controls->Add(this->Mobnotxtbox);
@@ -270,7 +273,7 @@ namespace bankingmanagement {
             String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
-			Query = "select * from Banking.Kyc where Name='" + Data + "'";
+			Query = "select * from Banking.Kyc where Accountno='" + Data + "'";
 
 			// Checking data into database.
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -289,7 +292,7 @@ namespace bankingmanagement {
 
 					Aadharnotxtbox->Enabled = false;
 					Mobnotxtbox->Enabled = false;
-					Pannotxtbox->Enabled = true;
+					Pannotxtbox->Enabled = false;
 					Addresstxtbox->Enabled = false;
 
 
@@ -347,6 +350,7 @@ namespace bankingmanagement {
 
 	}
 private: System::Void cancelkycbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	if (MessageBox::Show("Are you sure want to cancel ?", "Warning", MessageBoxButtons::YesNo,
 		MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 	{
