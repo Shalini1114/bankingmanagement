@@ -1,5 +1,6 @@
 #include <ctime>
 #include<cstdlib>
+#include"Kyc.h"
 
 namespace bankingmanagement {
 
@@ -47,6 +48,8 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::Label^ validupto;
 	private: System::Windows::Forms::Label^ validfrom;
 	private: System::Windows::Forms::Button^ CardOkBtn;
+	private: System::Windows::Forms::Label^ Amountlimit;
+	private: System::Windows::Forms::Label^ Amountlimitlabel;
 
 
 	private: System::Windows::Forms::Label^ label14;
@@ -183,6 +186,8 @@ namespace bankingmanagement {
 			this->Ammounttxt = (gcnew System::Windows::Forms::TextBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->Cardpanel = (gcnew System::Windows::Forms::Panel());
+			this->Amountlimit = (gcnew System::Windows::Forms::Label());
+			this->Amountlimitlabel = (gcnew System::Windows::Forms::Label());
 			this->CardOkBtn = (gcnew System::Windows::Forms::Button());
 			this->validupto = (gcnew System::Windows::Forms::Label());
 			this->validfrom = (gcnew System::Windows::Forms::Label());
@@ -597,6 +602,8 @@ namespace bankingmanagement {
 			// 
 			this->Cardpanel->BackColor = System::Drawing::Color::Black;
 			this->Cardpanel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Cardpanel.BackgroundImage")));
+			this->Cardpanel->Controls->Add(this->Amountlimit);
+			this->Cardpanel->Controls->Add(this->Amountlimitlabel);
 			this->Cardpanel->Controls->Add(this->CardOkBtn);
 			this->Cardpanel->Controls->Add(this->validupto);
 			this->Cardpanel->Controls->Add(this->validfrom);
@@ -611,6 +618,34 @@ namespace bankingmanagement {
 			this->Cardpanel->Size = System::Drawing::Size(451, 261);
 			this->Cardpanel->TabIndex = 27;
 			this->Cardpanel->Visible = false;
+			// 
+			// Amountlimit
+			// 
+			this->Amountlimit->AutoSize = true;
+			this->Amountlimit->BackColor = System::Drawing::Color::Transparent;
+			this->Amountlimit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Amountlimit->ForeColor = System::Drawing::Color::Cyan;
+			this->Amountlimit->Location = System::Drawing::Point(151, 157);
+			this->Amountlimit->Name = L"Amountlimit";
+			this->Amountlimit->Size = System::Drawing::Size(31, 20);
+			this->Amountlimit->TabIndex = 18;
+			this->Amountlimit->Text = L"AL";
+			this->Amountlimit->Visible = false;
+			// 
+			// Amountlimitlabel
+			// 
+			this->Amountlimitlabel->AutoSize = true;
+			this->Amountlimitlabel->BackColor = System::Drawing::Color::Transparent;
+			this->Amountlimitlabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Amountlimitlabel->ForeColor = System::Drawing::Color::Navy;
+			this->Amountlimitlabel->Location = System::Drawing::Point(30, 157);
+			this->Amountlimitlabel->Name = L"Amountlimitlabel";
+			this->Amountlimitlabel->Size = System::Drawing::Size(108, 20);
+			this->Amountlimitlabel->TabIndex = 17;
+			this->Amountlimitlabel->Text = L"Amount limit";
+			this->Amountlimitlabel->Visible = false;
 			// 
 			// CardOkBtn
 			// 
@@ -647,7 +682,7 @@ namespace bankingmanagement {
 			this->validfrom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->validfrom->ForeColor = System::Drawing::Color::LightSkyBlue;
-			this->validfrom->Location = System::Drawing::Point(126, 119);
+			this->validfrom->Location = System::Drawing::Point(126, 105);
 			this->validfrom->Name = L"validfrom";
 			this->validfrom->Size = System::Drawing::Size(28, 20);
 			this->validfrom->TabIndex = 14;
@@ -686,7 +721,7 @@ namespace bankingmanagement {
 			this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label20->ForeColor = System::Drawing::Color::Navy;
-			this->label20->Location = System::Drawing::Point(30, 119);
+			this->label20->Location = System::Drawing::Point(30, 105);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(90, 20);
 			this->label20->TabIndex = 11;
@@ -712,7 +747,7 @@ namespace bankingmanagement {
 			this->cvv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cvv->ForeColor = System::Drawing::Color::Navy;
-			this->cvv->Location = System::Drawing::Point(367, 182);
+			this->cvv->Location = System::Drawing::Point(359, 198);
 			this->cvv->Name = L"cvv";
 			this->cvv->Size = System::Drawing::Size(50, 29);
 			this->cvv->TabIndex = 8;
@@ -808,10 +843,23 @@ namespace bankingmanagement {
 	private: System::Void Account_Load(System::Object^ sender, System::EventArgs^ e) {
 		bool Dataexist = false;
 
-		if (FromAccount == true|| Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
+		if (FromAccount == true|| Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"|| Key=="FromKyc")
 		{
-			Cancelaccbtn->Visible = false;
-			Okaccbtn->Visible = true;
+			if (FromAccount==true)
+			{ 
+				Cancelaccbtn->Visible = false;
+				Okaccbtn->Visible = true;
+			}
+
+			else if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"|| Key=="FromKyc")
+			{
+				FromAccount = false;
+				Okaccbtn->Text = "Proceed";
+				Cancelaccbtn->Visible = true;
+
+			}
+
+			
 
 
 			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
@@ -861,12 +909,13 @@ namespace bankingmanagement {
 						Cancelaccbtn->Visible = true;
 					}
 
-					else if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
+				/*	else if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
 					{
 						Okaccbtn->Text = "Proceed";
 						Cancelaccbtn->Visible = true;
 						
 					}
+					*/
 					
 					
 
@@ -903,7 +952,7 @@ namespace bankingmanagement {
 	}
 	private: System::Void Okaccbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
+		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" || Key == "FromKyc")
 		{
 			if (Key == "FromDebitCard")
 			{
@@ -930,8 +979,9 @@ namespace bankingmanagement {
 				CurrentDate += "/";
 				CurrentDate += date.ToString("yy");
 
+
 				// Setting Valid Upto
-				
+
 				String^ ExpiryDate = date.ToString("MM");
 				ExpiryDate += "/";
 				ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
@@ -956,7 +1006,9 @@ namespace bankingmanagement {
 					Cardpanel->Visible = true;
 					cardnumber->Text = CardNumber;
 					validfrom->Text = CurrentDate;
-					validupto->Text = CurrentDate;
+					validupto->Text = ExpiryDate;;
+					Amountlimitlabel->Visible = false;
+					Amountlimit->Visible = false;
 					accountholdername->Text = Accountholdertxt->Text;
 					cvv->Text = Cvv.ToString();
 					Cardpanel->Visible = true;
@@ -970,7 +1022,7 @@ namespace bankingmanagement {
 
 			}
 
-			if (Key == "FromCreditCard")
+			else if (Key == "FromCreditCard")
 			{
 
 				// Setting Card Number
@@ -1007,10 +1059,10 @@ namespace bankingmanagement {
 				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
-				Query = "insert into Banking.Creditcard (AccountHolderName,CardNumberCvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
+				Query = "insert into Banking.Creditcard (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
 					Accountholdertxt->Text + "','" + CardNumber + "','" +
 					Cvv + "','" + CurrentDate + "', '" +
-					CurrentDate + "', '" + Accountnotxt->Text + "','" + AmountLimit + "',)";
+					ExpiryDate + "', '" + Accountnotxt->Text + "','" + AmountLimit + "',)";
 
 				// Inserting into database code...
 				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -1020,9 +1072,16 @@ namespace bankingmanagement {
 				{
 					Connect->Open();
 					reader = cmd->ExecuteReader();
-					MessageBox::Show("Data saved successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
-					ManagerMEnu->Show();
-					this->Close();
+					Cardpanel->Visible = true;
+					cardnumber->Text = CardNumber;
+					validfrom->Text = CurrentDate;
+					validupto->Text = CurrentDate;
+					Amountlimitlabel->Visible = true;
+					Amountlimit->Visible = true;
+					Amountlimit->Text = AmountLimit.ToString();
+					accountholdername->Text = Accountholdertxt->Text;
+					cvv->Text = Cvv.ToString();
+					Cardpanel->Visible = true;
 				}
 				catch (Exception^ ex)
 				{
@@ -1033,60 +1092,73 @@ namespace bankingmanagement {
 
 			}
 
-		/*	if (Key == "FromChequeBook")
+			/*	else if (Key == "FromChequeBook")
+				{
+
+					// Setting Cheque Number
+					int ChequeNumber[20];
+					for (int i = 1; i <= 20; i++)
+					{
+						ChequeNumber = GenerateNumber("Banking.Chequebook", "Chequeno")->ToInt16();
+					}
+
+					String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+					MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+					String^ Query;
+					Query = "insert into Banking.Chequebook (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
+						Accountholdertxt->Text + "','" + CardNumber + "','" +
+						Cvv + "','" + CurrentDate + "', '" +
+						CurrentDate + "', '" + Accountnotxt->Text + "','" + AmountLimit + "',)";
+
+					// Inserting into database code...
+					MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+					MySqlDataReader^ reader;
+
+					try
+					{
+						Connect->Open();
+						reader = cmd->ExecuteReader();
+						MessageBox::Show("Data saved successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+						ManagerMEnu->Show();
+						this->Close();
+					}
+					catch (Exception^ ex)
+					{
+						MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						ManagerMEnu->Show();
+						this->Close();
+					}
+
+				}*/
+
+			else if (Key == "FromKyc")
 			{
 
-				// Setting Cheque Number
-				int ChequeNumber[20];
-				for (int i = 1; i <= 20; i++)
-				{
-					ChequeNumber = GenerateNumber("Banking.Chequebook", "Chequeno")->ToInt16();
-				}
+			   kyc^ MENu = gcnew kyc(this,Key);
+			   MENu->Show();
+			   this->Hide();
 
-				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
-				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-				String^ Query;
-				Query = "insert into Banking.Chequebook (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
-					Accountholdertxt->Text + "','" + CardNumber + "','" +
-					Cvv + "','" + CurrentDate + "', '" +
-					CurrentDate + "', '" + Accountnotxt->Text + "','" + AmountLimit + "',)";
+			}
 
-				// Inserting into database code...
-				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-				MySqlDataReader^ reader;
 
-				try
-				{
-					Connect->Open();
-					reader = cmd->ExecuteReader();
-					MessageBox::Show("Data saved successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
-					ManagerMEnu->Show();
-					this->Close();
-				}
-				catch (Exception^ ex)
-				{
-					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					ManagerMEnu->Show();
-					this->Close();
-				}
 
-			}*/
+
+			else if (Okaccbtn->Text == "Proceed")
+			{
+				Proceedpanel->Visible = true;
+				Okaccbtn->Enabled = false;
+				Cancelaccbtn->Enabled = false;
+			}
+
+			else
+
+			{
+				ManagerMEnu->Show();
+				this->Close();
+			}
+
+
 		}
-		else if (Okaccbtn->Text == "Proceed")
-		{
-			Proceedpanel->Visible = true;
-			Okaccbtn->Enabled = false;
-			Cancelaccbtn->Enabled = false;
-		}
-
-		else
-
-		{
-			ManagerMEnu->Show();
-			this->Close();
-		}
-
-		
 	}
 	private: System::Void Cancelproceedbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (MessageBox::Show("Are you sure want to cancel ?", "Warning", MessageBoxButtons::YesNo,

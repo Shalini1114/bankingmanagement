@@ -3,6 +3,7 @@
 #include"AddCustomer.h"
 #include"Account.h"
 #include"Transaction.h"
+#include"Kyc.h"
    namespace bankingmanagement {
 
 	using namespace System;
@@ -736,7 +737,7 @@
 			this->Accountpanelcus->Controls->Add(this->Accountcustxt);
 			this->Accountpanelcus->Controls->Add(this->label3);
 			this->Accountpanelcus->Controls->Add(this->label5);
-			this->Accountpanelcus->Location = System::Drawing::Point(460, 216);
+			this->Accountpanelcus->Location = System::Drawing::Point(422, 325);
 			this->Accountpanelcus->Name = L"Accountpanelcus";
 			this->Accountpanelcus->Size = System::Drawing::Size(374, 153);
 			this->Accountpanelcus->TabIndex = 9;
@@ -1199,11 +1200,11 @@
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
-			this->Controls->Add(this->Withdrawpanel);
 			this->Controls->Add(this->Accountpanelcus);
-			this->Controls->Add(this->Searchsuppcuspanel);
-			this->Controls->Add(this->LogoutPanel);
 			this->Controls->Add(this->Searchsuppemppanel);
+			this->Controls->Add(this->Searchsuppcuspanel);
+			this->Controls->Add(this->Withdrawpanel);
+			this->Controls->Add(this->LogoutPanel);
 			this->Controls->Add(this->Searchemppanel);
 			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
@@ -1212,6 +1213,7 @@
 			this->Name = L"ManagerMenu";
 			this->Text = L"ManagerMenu";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &ManagerMenu::ManagerMenu_Load);
 			this->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::ManagerMenu_MouseHover);
 			this->Employeepanel->ResumeLayout(false);
 			this->Searchemppanel->ResumeLayout(false);
@@ -1441,9 +1443,9 @@ private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs
 }
 
 private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
+	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"|| Key=="FromKyc")
 	{
-		FromAccount = true;
+		FromAccount = false;
 		Account^ Form = gcnew Account(this,  Accountcustxt->Text,Key);
 
 		Form->Show();
@@ -1554,10 +1556,12 @@ private: System::Void UpdateMobileBtn_Click(System::Object^ sender, System::Even
 }
 private: System::Void UpdateKycBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Searchsuppcuspanel->Visible = true;
+	Accountpanelcus->Visible = true;
 	Key = "FromKyc";
 }
 private: System::Void Withdrawbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void ManagerMenu_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
