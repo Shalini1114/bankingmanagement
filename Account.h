@@ -1,5 +1,7 @@
 #include <ctime>
 #include<cstdlib>
+#include"Kyc.h"
+
 
 namespace bankingmanagement {
 
@@ -1124,14 +1126,14 @@ namespace bankingmanagement {
 
 				}*/
 
-			/*else if (Key == "FromKyc")
+			else if (Key == "FromKyc")
 			{
 
-			   kyc^ MENu = gcnew kyc(this,Key);
+			   Kyc^ MENu = gcnew Kyc (this,Key,Accountholdertxt->Text,Accountnotxt->Text);
 			   MENu->Show();
 			   this->Hide();
 
-			}*/
+			}
 
 
 
