@@ -344,7 +344,7 @@ private: System::Void Transaction_Load(System::Object^ sender, System::EventArgs
 		Oktransactionbtn->Visible = true;
 
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
