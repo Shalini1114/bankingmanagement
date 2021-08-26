@@ -77,7 +77,9 @@
 		   int Flag;
 		   Form^ MainMenu;
 		   String^ Key;
-	public: ManagerMenu(void)
+
+	public:
+		ManagerMenu(void)
 		{
 			InitializeComponent();
 			//
@@ -1200,9 +1202,9 @@
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
+			this->Controls->Add(this->Searchsuppcuspanel);
 			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->Searchsuppemppanel);
-			this->Controls->Add(this->Searchsuppcuspanel);
 			this->Controls->Add(this->Withdrawpanel);
 			this->Controls->Add(this->LogoutPanel);
 			this->Controls->Add(this->Searchemppanel);
@@ -1375,13 +1377,23 @@ private: System::Void Bymobcusbtn_Click(System::Object^ sender, System::EventArg
 
 }
 private: System::Void Searchcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	if(FromDetail==true||FromEdit==true||FromDelete==true)
+	{ 
+		AddCustomer^ form = gcnew AddCustomer(this, FromDetail, Searchcustxtbox->Text, Flag, FromEdit, FromDelete);
+		form->Show();
+		this->Hide();
+	}
+
+	if (Key == "FromUpdateMob"||Key=="FromKyc")
+	{
+		AddCustomer^ form = gcnew AddCustomer(this, Searchcustxtbox->Text, Key);
+		form->Show();
+		this->Hide();
+
+	}
+
 
 	
-	
-
-	AddCustomer^ form = gcnew AddCustomer(this, FromDetail, Searchcustxtbox->Text, Flag,FromEdit,FromDelete);
-	form->Show();
-	this->Hide();
 
 }
 private: System::Void Cancelcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1443,7 +1455,7 @@ private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs
 }
 
 private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"|| Key=="FromKyc")
+	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/* || Key == "FromKyc"*/ )
 	{
 		FromAccount = false;
 		Account^ Form = gcnew Account(this,  Accountcustxt->Text,Key);
@@ -1555,8 +1567,8 @@ private: System::Void UpdateMobileBtn_Click(System::Object^ sender, System::Even
 	Key = "FromUpdateMob";
 }
 private: System::Void UpdateKycBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	Accountpanelcus->Visible = true;
+	Searchsuppcuspanel->Visible = true;
+	/* Accountpanelcus->Visible = true;*/
 	Key = "FromKyc";
 }
 private: System::Void Withdrawbtn_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -2,6 +2,7 @@
 #include<cstdlib>
 
 
+
 namespace bankingmanagement {
 
 	using namespace System;
@@ -20,11 +21,12 @@ namespace bankingmanagement {
 	public:
 		Form^ managerMenu;
 		bool FormDetail;
+		String^ Data;
+		int Flag;
 		bool FromEdit;
 		bool FromDelete;
-		String^ Data;
 		String^ Key;
-		int Flag;
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TextBox^ PanNoTextBox;
@@ -42,6 +44,7 @@ namespace bankingmanagement {
 
 	private: System::Windows::Forms::Button^ OKcusbtn;
 	public:
+
 		AddCustomer(void)
 		{
 			InitializeComponent();
@@ -49,17 +52,8 @@ namespace bankingmanagement {
 			//TODO: Add the constructor code here
 			//
 		}
-		AddCustomer(Form^form, String^ data, String^ key)
-		{
-			InitializeComponent();
-			managerMenu = form;
-			Data = data;
-			Key = key;
-			//
-			//TODO: Add the constructor code here
-			//
-		}
-		AddCustomer(Form^obj,bool temp)
+
+		AddCustomer(Form^ obj, bool temp)
 		{
 			managerMenu = obj;
 			FormDetail = temp;
@@ -73,7 +67,7 @@ namespace bankingmanagement {
 			//TODO: Add the constructor code here
 			//
 		}
-		AddCustomer(Form^ obj,bool temp,String^ str,int flag, bool FromEditTemp, bool FromDeleteTemp)
+		AddCustomer(Form^ obj, bool temp, String^ str, int flag, bool FromEditTemp, bool FromDeleteTemp)
 		{
 			managerMenu = obj;
 			FormDetail = temp;
@@ -83,6 +77,17 @@ namespace bankingmanagement {
 			FromDelete = FromDeleteTemp;
 
 			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+		AddCustomer(Form^ form, String^ data, String^ key)
+		{
+			InitializeComponent();
+			managerMenu = form;
+			Data = data;
+			Key = key;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -487,7 +492,7 @@ namespace bankingmanagement {
 	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
 	{
 		String^ number;
-		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -523,7 +528,7 @@ namespace bankingmanagement {
 	private: System::Void Submitcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (FromEdit == true)
 		{
-			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -558,7 +563,7 @@ namespace bankingmanagement {
 
 		else if (Key == "FromUpdateMob")
 		{
-			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -584,10 +589,10 @@ namespace bankingmanagement {
 				this->Close();
 			}
 		}
-		
+
 		else if (FromDelete == true)
 		{
-			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -620,7 +625,45 @@ namespace bankingmanagement {
 			}
 
 		}
-		else
+
+
+		else if (Key == "FromKyc")
+		{
+		// Connecting to database.
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query;
+		Query = "insert into Banking.Kyc (Aadharnumber,Mobilenumber,Pannumber,Address,Accountholdername,Accountnumber) values ('" +
+			Aadharcustxt->Text + "','" + Mobcustxt->Text + "','" +
+			PanNoTextBox->Text + "','" + Adresscustxt->Text + "', '" +
+			Namecustxt->Text + "','" + Educationcustxt->Text + "')";
+
+		// Inserting into database code...
+		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+		MySqlDataReader^ reader;
+
+		try
+		{
+			Connect->Open();
+			reader = cmd->ExecuteReader();
+			MessageBox::Show("Data saved successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			managerMenu->Show();
+			this->Close();
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			managerMenu->Show();
+			this->Close();
+		}
+
+		}
+
+
+
+
+		else 
 		{
 			// Setting customer id
 			String^ customerid = "MP234";
@@ -643,15 +686,15 @@ namespace bankingmanagement {
 
 			// Setting username
 			String^ username = customerid;
-			
+
 			// Setting Branch Name
 			String^ branchname = "MINI PIGGY BANK ";
 
 			//Setting Branch Address
 			String^ branchaddress = "G.D COLLEGE BEGUSARI";
 
-			
-			
+
+
 
 			// Setting account holder name
 			String^ accountholder = Namecustxt->Text;
@@ -662,25 +705,25 @@ namespace bankingmanagement {
 			// Setting account date and time
 			String^ datetime = label1->Text;
 
-			
+
 
 			// Setting occupation
-			String^ occupation= Educationcustxt->Text;
+			String^ occupation = Educationcustxt->Text;
 
 			// Setting ifsc code
 			String^ ifsccode = "PIGGY2730";
-			
+
 
 			// Setting micr code
 			String^ micrcode = "8765";
-			
+
 
 			// Setting Address
 			String^ address = Adresscustxt->Text;
-			
+
 
 			// Connecting to database.
-			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
@@ -691,8 +734,8 @@ namespace bankingmanagement {
 				customerid + "', '" + Adresscustxt->Text + "', '" +
 
 				username + "', '" + password + "')";
-			
-			
+
+
 
 
 
@@ -714,7 +757,7 @@ namespace bankingmanagement {
 					ifsccode + "','" + micrcode + "', '" + address + "', '" +
 
 					username + "', '" + password + "')";
-				
+
 
 				// Inserting into database code...
 				cmd = gcnew MySqlCommand(Query, Connect);
@@ -739,13 +782,16 @@ namespace bankingmanagement {
 				this->Close();
 			}
 		}
+	
+		
 	}
+	
 
 
 private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs^ e) {
 	bool Dataexist = false;
 
-	
+
 	if (Key == "FromUpdateMob")
 	{
 		OKcusbtn->Visible = false;
@@ -754,7 +800,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "Customer Details";
 
-		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 		Query = "select * from Banking.Customer where Name='" + Data + "'";
@@ -814,7 +860,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		OKcusbtn->Visible = true;
 		Customerlabel->Text = "Customer Details";
 
-		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -885,7 +931,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "EDIT CUSTOMER DETAILS";
 
-		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -950,13 +996,13 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 	else if (FromDelete == true)
 	{
 
-	    Submitcusbtn->Visible = true;
-	    OKcusbtn->Visible = false;
+		Submitcusbtn->Visible = true;
+		OKcusbtn->Visible = false;
 		Submitcusbtn->Text = "DELETE";
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "DELETE CUSTOMER DETAILS";
 
-		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -993,7 +1039,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Educationcustxt->Enabled = false;
 				Adresscustxt->Enabled = false;
 
-				
+
 				Dataexist = true;
 
 			}
@@ -1018,40 +1064,102 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		}
 
 	}
+
+	else if (Key == "FromKyc")
+	{
+		OKcusbtn->Visible = false;
+		Submitcusbtn->Text = "Update";
+		Submitcusbtn->Visible = true;
+		Cancelcusbtn->Visible = true;
+		Customerlabel->Text = "Update KYC Form";
+
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query;
+		Query = "select * from Banking.Customer where Name='" + Data + "'";
+
+		// Checking data into database.
+		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+		MySqlDataReader^ reader;
+		try
+		{
+			Connect->Open();
+			reader = cmd->ExecuteReader();
+			while (reader->Read())
+			{
+
+				Namecustxt->Text = reader->GetString(0);
+				Fathernamecustxt->Text = reader->GetString(1);
+				Mobcustxt->Text = reader->GetString(2);
+				Emailcustxt->Text = reader->GetString(3);
+				Aadharcustxt->Text = reader->GetString(4);
+				Dobcus->Text = reader->GetString(5);
+				Educationcustxt->Text = reader->GetString(6);
+				Adresscustxt->Text = reader->GetString(7);
+				Namecustxt->Enabled = false;
+				Fathernamecustxt->Enabled = false;
+				Mobcustxt->Enabled = false;
+				Emailcustxt->Enabled = false;
+				Aadharcustxt->Enabled = false;
+				Dobcus->Enabled = false;
+				Educationcustxt->Enabled = false;
+				Adresscustxt->Enabled = false;
+
+				Dataexist = true;
+
+			}
+			reader->Close();
+			if (!Dataexist)
+				MessageBox::Show("Data Not Found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+			managerMenu->Show();
+
+		}
+
+	}
 	else
 	{
 		Submitcusbtn->Visible = true;
 		Cancelcusbtn->Visible = true;
 		OKcusbtn->Visible = false;
-		if(Key == "FromKyc")
+		if (Key == "FromKyc")
 			Customerlabel->Text = "Update Kyc From";
 		else
 			Customerlabel->Text = "NEW CUSTOMER FORM";
 	}
-
-
-
-
-
-
-
 }
-private: System::Void OKcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+
+
+
+
+
+
+private: System::Void OKcusbtn_Click(System::Object ^ sender, System::EventArgs ^ e) {
 	managerMenu->Show();
 	this->Close();
 }
-private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void timer1_Tick(System::Object ^ sender, System::EventArgs ^ e) {
 }
-private: System::Void labeldate_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void labeldate_Click(System::Object ^ sender, System::EventArgs ^ e) {
 }
-private: System::Void timer1_Tick_1(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void timer1_Tick_1(System::Object ^ sender, System::EventArgs ^ e) {
 }
-private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void label1_Click(System::Object ^ sender, System::EventArgs ^ e) {
 	DateTime datetime = DateTime::Now;
 	this->label1->Text = datetime.ToString();
 }
+
 };
 }
+
 
 
 
