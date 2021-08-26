@@ -139,7 +139,7 @@ namespace bankingmanagement {
 		}
 #pragma endregion
 	private: System::Void Statement_Load(System::Object^ sender, System::EventArgs^ e) {
-		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;

@@ -818,7 +818,7 @@ namespace bankingmanagement {
 		public: String^ GenerateNumber(String^ TableName, String^ DBVariableName, int index)
 		{
 			String^ number;
-			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -844,7 +844,7 @@ namespace bankingmanagement {
 	private: System::Void Account_Load(System::Object^ sender, System::EventArgs^ e) {
 		bool Dataexist = false;
 
-		if (FromAccount == true|| Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"|| Key=="FromKyc")
+		if (FromAccount == true|| Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/*|| Key=="FromKyc"*/)
 		{
 			if (FromAccount==true)
 			{ 
@@ -852,7 +852,7 @@ namespace bankingmanagement {
 				Okaccbtn->Visible = true;
 			}
 
-			else if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"|| Key=="FromKyc")
+			else if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/*|| Key == "FromKyc"*/ )
 			{
 				FromAccount = false;
 				Okaccbtn->Text = "Proceed";
@@ -863,7 +863,7 @@ namespace bankingmanagement {
 			
 
 
-			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
@@ -947,7 +947,7 @@ namespace bankingmanagement {
 	}
 	private: System::Void Okaccbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" || Key == "FromKyc")
+		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" /*|| Key == "FromKyc"*/)
 		{
 			if (Key == "FromDebitCard")
 			{
@@ -982,7 +982,7 @@ namespace bankingmanagement {
 				ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
 
 				// Inserting data into database.
-				String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
 				Query = "insert into Banking.Debitcard (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo) values ('" +
@@ -1051,7 +1051,7 @@ namespace bankingmanagement {
 				// Setting AmountLimit
 				int AmountLimit = 25000;
 
-				String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
 				Query = "insert into Banking.Creditcard (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
@@ -1097,7 +1097,7 @@ namespace bankingmanagement {
 						ChequeNumber = GenerateNumber("Banking.Chequebook", "Chequeno")->ToInt16();
 					}
 
-					String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+					String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 					MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 					String^ Query;
 					Query = "insert into Banking.Chequebook (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
@@ -1126,7 +1126,7 @@ namespace bankingmanagement {
 
 				}*/
 
-			else if (Key == "FromKyc")
+			/*else if (Key == "FromKyc")
 			{
 
 			   Kyc^ MENu = gcnew Kyc (this,Key,Accountholdertxt->Text,Accountnotxt->Text);
@@ -1135,7 +1135,7 @@ namespace bankingmanagement {
 
 			}
 
-
+*/
 
 
 			else if (Okaccbtn->Text == "Proceed")
@@ -1171,7 +1171,7 @@ namespace bankingmanagement {
 
 			if (Amount <= Balance)
 			{
-				String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
@@ -1219,7 +1219,7 @@ namespace bankingmanagement {
 					String^ Balance = Accountbalancetxt->Text;
 
 					// Connecting to database.
-					String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+					String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 
 					MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 					String^ Query;
@@ -1274,7 +1274,7 @@ namespace bankingmanagement {
 
 
 
-			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
@@ -1323,7 +1323,7 @@ namespace bankingmanagement {
 				String^ Balance = Accountbalancetxt->Text;
 
 				// Connecting to database.
-				String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
+				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
 
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
