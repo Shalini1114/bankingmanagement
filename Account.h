@@ -818,7 +818,7 @@ namespace bankingmanagement {
 		public: String^ GenerateNumber(String^ TableName, String^ DBVariableName, int index)
 		{
 			String^ number;
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -863,7 +863,7 @@ namespace bankingmanagement {
 			
 
 
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
@@ -982,7 +982,7 @@ namespace bankingmanagement {
 				ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
 
 				// Inserting data into database.
-				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+				String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
 				Query = "insert into Banking.Debitcard (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo) values ('" +
@@ -1051,7 +1051,7 @@ namespace bankingmanagement {
 				// Setting AmountLimit
 				int AmountLimit = 25000;
 
-				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+				String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
 				Query = "insert into Banking.Creditcard (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
@@ -1097,7 +1097,7 @@ namespace bankingmanagement {
 						ChequeNumber = GenerateNumber("Banking.Chequebook", "Chequeno")->ToInt16();
 					}
 
-					String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+					String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 					MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 					String^ Query;
 					Query = "insert into Banking.Chequebook (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
@@ -1171,7 +1171,7 @@ namespace bankingmanagement {
 
 			if (Amount <= Balance)
 			{
-				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+				String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
@@ -1219,7 +1219,7 @@ namespace bankingmanagement {
 					String^ Balance = Accountbalancetxt->Text;
 
 					// Connecting to database.
-					String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+					String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 					MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 					String^ Query;
@@ -1274,7 +1274,7 @@ namespace bankingmanagement {
 
 
 
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
@@ -1323,7 +1323,7 @@ namespace bankingmanagement {
 				String^ Balance = Accountbalancetxt->Text;
 
 				// Connecting to database.
-				String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+				String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;

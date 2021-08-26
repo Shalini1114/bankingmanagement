@@ -488,7 +488,7 @@ namespace bankingmanagement {
 	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
 	{
 		String^ number;
-		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -524,7 +524,7 @@ namespace bankingmanagement {
 	private: System::Void Submitcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (FromEdit == true)
 		{
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -559,7 +559,7 @@ namespace bankingmanagement {
 
 		else if (Key == "FromUpdateMob")
 		{
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -588,7 +588,7 @@ namespace bankingmanagement {
 		
 		else if (FromDelete == true)
 		{
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -681,7 +681,7 @@ namespace bankingmanagement {
 			
 
 			// Connecting to database.
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
@@ -755,7 +755,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "Customer Details";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 		Query = "select * from Banking.Customer where Name='" + Data + "'";
@@ -815,7 +815,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		OKcusbtn->Visible = true;
 		Customerlabel->Text = "Customer Details";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -886,7 +886,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "EDIT CUSTOMER DETAILS";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -957,7 +957,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "DELETE CUSTOMER DETAILS";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;

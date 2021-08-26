@@ -439,7 +439,7 @@ namespace bankingmanagement {
 	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
 	{
 		String^ number;
-		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -473,7 +473,7 @@ namespace bankingmanagement {
 			OKempbtn->Visible = true;
 			Employeelabel->Text = "Employee Details";
 
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 			MySqlDataReader^ reader;
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
@@ -545,7 +545,7 @@ namespace bankingmanagement {
 			Cancelempbtn->Visible = true;
 			Employeelabel->Text = "EDIT EMPLOYEE DETAILS";
 			
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 			MySqlDataReader^ reader;
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
@@ -615,7 +615,7 @@ namespace bankingmanagement {
 		Cancelempbtn->Visible = true;
 		Employeelabel->Text = "DELETE EMPLOYEE DETAILS";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+		String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -714,7 +714,7 @@ namespace bankingmanagement {
 
 		if(FromEdit == true)
 		{
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -748,7 +748,7 @@ namespace bankingmanagement {
 		}
     else if (FromDelete == true)
 		  {
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -811,7 +811,7 @@ namespace bankingmanagement {
 			
 
 			// Connecting to database.
-			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
+			String^ ConnectString = "datasource=192.168.43.26;port=3306;username=abhishek;password=abhisha@11";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
