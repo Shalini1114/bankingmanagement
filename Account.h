@@ -1,6 +1,5 @@
 #include <ctime>
 #include<cstdlib>
-#include"Kyc.h"
 
 namespace bankingmanagement {
 
@@ -814,7 +813,7 @@ namespace bankingmanagement {
 
 		}
 #pragma endregion
-		public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
+		public: String^ GenerateNumber(String^ TableName, String^ DBVariableName, int index)
 		{
 			String^ number;
 			String^ ConnectString = "datasource=localhost;port=3306;username=abhishek;password=abhisha@11";
@@ -826,7 +825,7 @@ namespace bankingmanagement {
 			reader = cmd->ExecuteReader();
 			if (reader->Read())
 			{
-				int id = System::Convert::ToInt16(reader[0]->ToString()) + 1;
+				int id = System::Convert::ToInt16(reader[index]->ToString()) + 1;
 				number = id.ToString("0000");
 			}
 			else if (Convert::IsDBNull(reader))
@@ -909,13 +908,7 @@ namespace bankingmanagement {
 						Cancelaccbtn->Visible = true;
 					}
 
-				/*	else if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
-					{
-						Okaccbtn->Text = "Proceed";
-						Cancelaccbtn->Visible = true;
-						
-					}
-					*/
+				
 					
 					
 
@@ -961,7 +954,7 @@ namespace bankingmanagement {
 				String^ CardNumber = "2739 1000 0012 ";
 				try
 				{
-					CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber");
+					CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber",0);
 				}
 				catch (Exception^ ex)
 				{
@@ -1030,7 +1023,7 @@ namespace bankingmanagement {
 				String^ CardNumber = "6754 1000 0012 ";
 				try
 				{
-					CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber");
+					CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber",1);
 				}
 				catch (Exception^ ex)
 				{
@@ -1131,14 +1124,14 @@ namespace bankingmanagement {
 
 				}*/
 
-			else if (Key == "FromKyc")
+			/*else if (Key == "FromKyc")
 			{
 
 			   kyc^ MENu = gcnew kyc(this,Key);
 			   MENu->Show();
 			   this->Hide();
 
-			}
+			}*/
 
 
 
@@ -1196,7 +1189,7 @@ namespace bankingmanagement {
 					String^ Transactionid = "8765";
 					try
 					{
-						Transactionid += GenerateNumber("Banking.Transaction", "Transactionid");
+						Transactionid += GenerateNumber("Banking.Transaction", "Transactionid",0);
 					}
 					catch (Exception^ ex)
 					{
@@ -1299,7 +1292,7 @@ namespace bankingmanagement {
 				String^ Transactionid = "8765";
 				try
 				{
-					Transactionid += GenerateNumber("Banking.Transaction", "Transactionid");
+					Transactionid += GenerateNumber("Banking.Transaction", "Transactionid",0);
 				}
 				catch (Exception^ ex)
 				{

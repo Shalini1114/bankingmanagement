@@ -3,7 +3,7 @@
 #include"AddCustomer.h"
 #include"Account.h"
 #include"Transaction.h"
-#include"Kyc.h"
+
    namespace bankingmanagement {
 
 	using namespace System;

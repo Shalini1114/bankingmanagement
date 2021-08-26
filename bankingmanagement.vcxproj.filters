@@ -39,7 +39,7 @@
     <ClCompile Include="Statement1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="kyc.cpp">
+    <ClCompile Include="Kyc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,7 +68,7 @@
     <ClInclude Include="Statement1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="kyc.h">
+    <ClInclude Include="Kyc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

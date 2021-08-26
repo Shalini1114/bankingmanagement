@@ -147,6 +147,7 @@ namespace bankingmanagement {
 		// Checking data into database.
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 		MySqlDataReader^ reader;
+
 		try
 		{
 			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter();
