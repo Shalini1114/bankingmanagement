@@ -124,6 +124,7 @@
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="AddCustomer.cpp" />
     <ClCompile Include="Addemployee.cpp" />
+    <ClCompile Include="Kyc.cpp" />
     <ClCompile Include="Mainmenu.cpp" />
     <ClCompile Include="ManagerMenu1.cpp" />
     <ClCompile Include="Statement1.cpp" />
@@ -138,6 +139,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Addemployee.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Kyc.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Mainmenu.h">
@@ -165,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Addemployee.resx">
       <DependentUpon>Addemployee.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kyc.resx">
+      <DependentUpon>Kyc.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mainmenu.resx">
       <DependentUpon>Mainmenu.h</DependentUpon>
