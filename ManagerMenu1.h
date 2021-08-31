@@ -68,7 +68,8 @@
 	private: System::Windows::Forms::Panel^ LogoutPanel;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ MessageLabel;
+
 
 
 
@@ -76,6 +77,15 @@
 
 		   int Flag;
 		   Form^ MainMenu;
+	private: System::Windows::Forms::Button^ ViewIdPassBtn;
+	private: System::Windows::Forms::Panel^ ViewIdPassPanel;
+	private: System::Windows::Forms::Label^ UsernameLabel;
+	private: System::Windows::Forms::Label^ PasswordLabel;
+	private: System::Windows::Forms::Button^ button3;
+
+
+
+
 		   String^ Key;
 
 	public:
@@ -213,6 +223,7 @@
 			this->ManagerMenuPanel = (gcnew System::Windows::Forms::Panel());
 			this->LogoutBtn = (gcnew System::Windows::Forms::Button());
 			this->OtherServicesPanel = (gcnew System::Windows::Forms::Panel());
+			this->ViewIdPassBtn = (gcnew System::Windows::Forms::Button());
 			this->UpdateKycBtn = (gcnew System::Windows::Forms::Button());
 			this->UpdateMobileBtn = (gcnew System::Windows::Forms::Button());
 			this->ApplyChequeBookBtn = (gcnew System::Windows::Forms::Button());
@@ -223,7 +234,11 @@
 			this->LogoutPanel = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->MessageLabel = (gcnew System::Windows::Forms::Label());
+			this->ViewIdPassPanel = (gcnew System::Windows::Forms::Panel());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->PasswordLabel = (gcnew System::Windows::Forms::Label());
+			this->UsernameLabel = (gcnew System::Windows::Forms::Label());
 			this->Employeepanel->SuspendLayout();
 			this->Searchemppanel->SuspendLayout();
 			this->Customerpanel->SuspendLayout();
@@ -237,6 +252,7 @@
 			this->ManagerMenuPanel->SuspendLayout();
 			this->OtherServicesPanel->SuspendLayout();
 			this->LogoutPanel->SuspendLayout();
+			this->ViewIdPassPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// Employeebtn
@@ -1009,7 +1025,7 @@
 			this->LogoutBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->LogoutBtn->ForeColor = System::Drawing::Color::DarkBlue;
-			this->LogoutBtn->Location = System::Drawing::Point(0, 907);
+			this->LogoutBtn->Location = System::Drawing::Point(0, 946);
 			this->LogoutBtn->Name = L"LogoutBtn";
 			this->LogoutBtn->Size = System::Drawing::Size(223, 39);
 			this->LogoutBtn->TabIndex = 15;
@@ -1020,6 +1036,7 @@
 			// OtherServicesPanel
 			// 
 			this->OtherServicesPanel->AutoSize = true;
+			this->OtherServicesPanel->Controls->Add(this->ViewIdPassBtn);
 			this->OtherServicesPanel->Controls->Add(this->UpdateKycBtn);
 			this->OtherServicesPanel->Controls->Add(this->UpdateMobileBtn);
 			this->OtherServicesPanel->Controls->Add(this->ApplyChequeBookBtn);
@@ -1028,8 +1045,25 @@
 			this->OtherServicesPanel->Dock = System::Windows::Forms::DockStyle::Top;
 			this->OtherServicesPanel->Location = System::Drawing::Point(0, 712);
 			this->OtherServicesPanel->Name = L"OtherServicesPanel";
-			this->OtherServicesPanel->Size = System::Drawing::Size(223, 195);
+			this->OtherServicesPanel->Size = System::Drawing::Size(223, 234);
 			this->OtherServicesPanel->TabIndex = 14;
+			// 
+			// ViewIdPassBtn
+			// 
+			this->ViewIdPassBtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->ViewIdPassBtn->Dock = System::Windows::Forms::DockStyle::Top;
+			this->ViewIdPassBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ViewIdPassBtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->ViewIdPassBtn->Location = System::Drawing::Point(0, 195);
+			this->ViewIdPassBtn->Name = L"ViewIdPassBtn";
+			this->ViewIdPassBtn->Size = System::Drawing::Size(223, 39);
+			this->ViewIdPassBtn->TabIndex = 15;
+			this->ViewIdPassBtn->Text = L"View id & Pass";
+			this->ViewIdPassBtn->UseVisualStyleBackColor = false;
+			this->ViewIdPassBtn->Click += gcnew System::EventHandler(this, &ManagerMenu::ViewIdPassBtn_Click);
 			// 
 			// UpdateKycBtn
 			// 
@@ -1148,7 +1182,7 @@
 			this->LogoutPanel->BackColor = System::Drawing::Color::DarkCyan;
 			this->LogoutPanel->Controls->Add(this->button1);
 			this->LogoutPanel->Controls->Add(this->button2);
-			this->LogoutPanel->Controls->Add(this->label1);
+			this->LogoutPanel->Controls->Add(this->MessageLabel);
 			this->LogoutPanel->Location = System::Drawing::Point(323, 77);
 			this->LogoutPanel->Name = L"LogoutPanel";
 			this->LogoutPanel->Size = System::Drawing::Size(609, 129);
@@ -1183,17 +1217,67 @@
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &ManagerMenu::button2_Click);
 			// 
-			// label1
+			// MessageLabel
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->MessageLabel->AutoSize = true;
+			this->MessageLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Coral;
-			this->label1->Location = System::Drawing::Point(90, 24);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(466, 34);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Are You Sure Want to Logout \?";
+			this->MessageLabel->ForeColor = System::Drawing::Color::Coral;
+			this->MessageLabel->Location = System::Drawing::Point(90, 24);
+			this->MessageLabel->Name = L"MessageLabel";
+			this->MessageLabel->Size = System::Drawing::Size(466, 34);
+			this->MessageLabel->TabIndex = 0;
+			this->MessageLabel->Text = L"Are You Sure Want to Logout \?";
+			// 
+			// ViewIdPassPanel
+			// 
+			this->ViewIdPassPanel->BackColor = System::Drawing::Color::DarkCyan;
+			this->ViewIdPassPanel->Controls->Add(this->button3);
+			this->ViewIdPassPanel->Controls->Add(this->PasswordLabel);
+			this->ViewIdPassPanel->Controls->Add(this->UsernameLabel);
+			this->ViewIdPassPanel->Location = System::Drawing::Point(301, 308);
+			this->ViewIdPassPanel->Name = L"ViewIdPassPanel";
+			this->ViewIdPassPanel->Size = System::Drawing::Size(509, 162);
+			this->ViewIdPassPanel->TabIndex = 15;
+			this->ViewIdPassPanel->Visible = false;
+			// 
+			// button3
+			// 
+			this->button3->BackColor = System::Drawing::Color::DarkTurquoise;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Cooper Black", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->ForeColor = System::Drawing::Color::DarkMagenta;
+			this->button3->Location = System::Drawing::Point(259, 112);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(42, 35);
+			this->button3->TabIndex = 7;
+			this->button3->Text = L"X";
+			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &ManagerMenu::button3_Click);
+			// 
+			// PasswordLabel
+			// 
+			this->PasswordLabel->AutoSize = true;
+			this->PasswordLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->PasswordLabel->ForeColor = System::Drawing::Color::Coral;
+			this->PasswordLabel->Location = System::Drawing::Point(37, 65);
+			this->PasswordLabel->Name = L"PasswordLabel";
+			this->PasswordLabel->Size = System::Drawing::Size(181, 34);
+			this->PasswordLabel->TabIndex = 0;
+			this->PasswordLabel->Text = L"Password = ";
+			// 
+			// UsernameLabel
+			// 
+			this->UsernameLabel->AutoSize = true;
+			this->UsernameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->UsernameLabel->ForeColor = System::Drawing::Color::Coral;
+			this->UsernameLabel->Location = System::Drawing::Point(37, 19);
+			this->UsernameLabel->Name = L"UsernameLabel";
+			this->UsernameLabel->Size = System::Drawing::Size(186, 34);
+			this->UsernameLabel->TabIndex = 0;
+			this->UsernameLabel->Text = L"Username = ";
 			// 
 			// ManagerMenu
 			// 
@@ -1202,11 +1286,12 @@
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
+			this->Controls->Add(this->LogoutPanel);
+			this->Controls->Add(this->ViewIdPassPanel);
+			this->Controls->Add(this->Searchsuppemppanel);
 			this->Controls->Add(this->Searchsuppcuspanel);
 			this->Controls->Add(this->Accountpanelcus);
-			this->Controls->Add(this->Searchsuppemppanel);
 			this->Controls->Add(this->Withdrawpanel);
-			this->Controls->Add(this->LogoutPanel);
 			this->Controls->Add(this->Searchemppanel);
 			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
@@ -1235,6 +1320,8 @@
 			this->OtherServicesPanel->ResumeLayout(false);
 			this->LogoutPanel->ResumeLayout(false);
 			this->LogoutPanel->PerformLayout();
+			this->ViewIdPassPanel->ResumeLayout(false);
+			this->ViewIdPassPanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1342,10 +1429,39 @@ private: System::Void Cancelempbtn_Click(System::Object^ sender, System::EventAr
 	Searchsuppemppanel->Visible = false;
 }
 private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (Key == "FromViewIdPass")
+	{
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query = "SELECT Username, Password FROM Banking.Employee WHERE Name = '" + Searchemptxtbox->Text + "'";
+		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+		Connect->Open();
+		MySqlDataReader^ reader = cmd->ExecuteReader();
+
+		if (reader->Read())
+		{
+			ViewIdPassPanel->Visible = true;
+			Searchsuppemppanel->Visible = false;
+			UsernameLabel->Text = "Username = "+reader[0]->ToString();
+			PasswordLabel->Text = "Password = "+reader[1]->ToString();
+		}
+		else
+		{
+			ViewIdPassPanel->Visible = true;
+			Searchsuppemppanel->Visible = false;
+			UsernameLabel->Text = "Username = Data Not Found";
+			PasswordLabel->Text = "Password = Data Not Found";
+		}
+		Connect->Close();
+	}
+	else
+	{
+		Addemployee^ form = gcnew Addemployee(this, FromDetail, Searchemptxtbox->Text, Flag, FromEdit, FromDelete);
+		form->Show();
+		this->Hide();
+	}
 	
-	Addemployee^ form = gcnew Addemployee(this,FromDetail,Searchemptxtbox->Text,Flag, FromEdit,FromDelete);
-	form->Show();
-	this->Hide();
 	
 }
 private: System::Void Searchemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1574,6 +1690,15 @@ private: System::Void UpdateKycBtn_Click(System::Object^ sender, System::EventAr
 private: System::Void Withdrawbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void ManagerMenu_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void ViewIdPassBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Searchsuppemppanel->Visible = true;
+	Key = "FromViewIdPass";
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	ViewIdPassPanel->Visible = false;
 }
 };
 }

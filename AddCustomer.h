@@ -494,7 +494,7 @@ namespace bankingmanagement {
 		String^ number;
 		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-		String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
+		String^ Query = "SELECT COUNT(" + DBVariableName + ") FROM " + TableName + " ";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 		MySqlDataReader^ reader;
 		Connect->Open();
@@ -727,7 +727,7 @@ namespace bankingmanagement {
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
-			Query = "insert into Banking.Customer (Name,Father,Mob,Email,Aadhar,DOB,Education,Address,Username,Password) values ('" +
+			Query = "insert into Banking.Customer (Name,Father,Mob,Email,Aadhar,DOB,CustomerId,Address,Username,Password) values ('" +
 				Namecustxt->Text + "','" + Fathernamecustxt->Text + "','" +
 				Mobcustxt->Text + "','" + Emailcustxt->Text + "', '" +
 				Aadharcustxt->Text + "', '" + Dobcus->Text + "', '" +
