@@ -492,9 +492,9 @@ namespace bankingmanagement {
 	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
 	{
 		String^ number;
-		String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-		String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
+		String^ Query = "SELECT COUNT(" + DBVariableName + ") FROM " + TableName + " ";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 		MySqlDataReader^ reader;
 		Connect->Open();
@@ -528,7 +528,7 @@ namespace bankingmanagement {
 	private: System::Void Submitcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (FromEdit == true)
 		{
-			String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+			String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -563,7 +563,7 @@ namespace bankingmanagement {
 
 		else if (Key == "FromUpdateMob")
 		{
-			String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+			String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -592,7 +592,7 @@ namespace bankingmanagement {
 
 		else if (FromDelete == true)
 		{
-			String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+			String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -630,7 +630,7 @@ namespace bankingmanagement {
 		else if (Key == "FromKyc")
 		{
 		// Connecting to database.
-		String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -723,11 +723,11 @@ namespace bankingmanagement {
 
 
 			// Connecting to database.
-			String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+			String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
-			Query = "insert into Banking.Customer (Name,Father,Mob,Email,Aadhar,DOB,Education,Address,Username,Password) values ('" +
+			Query = "insert into Banking.Customer (Name,Father,Mob,Email,Aadhar,DOB,CustomerId,Address,Username,Password) values ('" +
 				Namecustxt->Text + "','" + Fathernamecustxt->Text + "','" +
 				Mobcustxt->Text + "','" + Emailcustxt->Text + "', '" +
 				Aadharcustxt->Text + "', '" + Dobcus->Text + "', '" +
@@ -800,7 +800,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "Customer Details";
 
-		String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 		Query = "select * from Banking.Customer where Name='" + Data + "'";
@@ -860,7 +860,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		OKcusbtn->Visible = true;
 		Customerlabel->Text = "Customer Details";
 
-		String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -931,7 +931,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "EDIT CUSTOMER DETAILS";
 
-		String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -1002,7 +1002,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "DELETE CUSTOMER DETAILS";
 
-		String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -1073,7 +1073,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "Update KYC Form";
 
-		String^ ConnectString = "datasource=sql6.freemysqlhosting.net;port=3306;username=sql6433712;password=HLZ9vD1KIH";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 		Query = "select * from Banking.Customer where Name='" + Data + "'";
