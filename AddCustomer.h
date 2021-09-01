@@ -492,7 +492,7 @@ namespace bankingmanagement {
 	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
 	{
 		String^ number;
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query = "SELECT COUNT(" + DBVariableName + ") FROM " + TableName + " ";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -528,16 +528,16 @@ namespace bankingmanagement {
 	private: System::Void Submitcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (FromEdit == true)
 		{
-			String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
 			if (Flag == 1)
-				Query = "update Banking.Customer set Name='" + Namecustxt->Text + "',  Father='" + Fathernamecustxt->Text + "', Mob='" + Mobcustxt->Text + "', Email='" + Emailcustxt->Text + "', Dob='" + Dobcus->Text + "', Address='" + Adresscustxt->Text + "' WHERE Name='" + Data + "'";
+				Query = "update Banking.Customer set Name='" + Namecustxt->Text + "',  Father='" + Fathernamecustxt->Text + "', Mob='" + Mobcustxt->Text + "', Email='" + Emailcustxt->Text + "', Dob='" + Dobcus->Text + "', Address='" + Adresscustxt->Text + "',  Pannumber='" + PanNoTextBox->Text + "' WHERE Name='" + Data + "'";
 			else if (Flag == 2)
-				Query = "update Banking.Customer set Name='" + Namecustxt->Text + "',  Father='" + Fathernamecustxt->Text + "', Mob='" + Mobcustxt->Text + "', Email='" + Emailcustxt->Text + "', Dob='" + Dobcus->Text + "', Address='" + Adresscustxt->Text + "' WHERE Aadhar='" + Data + "'";
+				Query = "update Banking.Customer set Name='" + Namecustxt->Text + "',  Father='" + Fathernamecustxt->Text + "', Mob='" + Mobcustxt->Text + "', Email='" + Emailcustxt->Text + "', Dob='" + Dobcus->Text + "', Address='" + Adresscustxt->Text + "',  Pannumber='" + PanNoTextBox->Text + "' WHERE Aadhar='" + Data + "'";
 			else if (Flag == 3)
-				Query = "update Banking.Customer set Name='" + Namecustxt->Text + "',  Father='" + Fathernamecustxt->Text + "', Mob='" + Mobcustxt->Text + "', Email='" + Emailcustxt->Text + "', Dob='" + Dobcus->Text + "', Address='" + Adresscustxt->Text + "' WHERE Mob='" + Data + "'";
+				Query = "update Banking.Customer set Name='" + Namecustxt->Text + "',  Father='" + Fathernamecustxt->Text + "', Mob='" + Mobcustxt->Text + "', Email='" + Emailcustxt->Text + "', Dob='" + Dobcus->Text + "', Address='" + Adresscustxt->Text + "',  Pannumber='" + PanNoTextBox->Text + "' WHERE Mob='" + Data + "'";
 
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 			MySqlDataReader^ reader;
@@ -563,12 +563,12 @@ namespace bankingmanagement {
 
 		else if (Key == "FromUpdateMob")
 		{
-			String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
 
-			Query = "update Banking.Customer set Name='" + Namecustxt->Text + "',  Father='" + Fathernamecustxt->Text + "', Mob='" + Mobcustxt->Text + "', Email='" + Emailcustxt->Text + "', Dob='" + Dobcus->Text + "', Address='" + Adresscustxt->Text + "' WHERE Name='" + Data + "'";
+			Query = "update Banking.Customer set  Mob='" + Mobcustxt->Text + "' WHERE Name='" + Data + "'";
 
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 			MySqlDataReader^ reader;
@@ -592,7 +592,7 @@ namespace bankingmanagement {
 
 		else if (FromDelete == true)
 		{
-			String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
 
@@ -630,14 +630,14 @@ namespace bankingmanagement {
 		else if (Key == "FromKyc")
 		{
 		// Connecting to database.
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
-		Query = "insert into Banking.Kyc (Aadharnumber,Mobilenumber,Pannumber,Address,Accountholdername,Accountnumber) values ('" +
+		Query = "insert into Banking.Kyc (Aadharnumber,Mobilenumber,Pannumber,Address,Accountholdername,Accountnumber,Pannumber) values ('" +
 			Aadharcustxt->Text + "','" + Mobcustxt->Text + "','" +
 			PanNoTextBox->Text + "','" + Adresscustxt->Text + "', '" +
-			Namecustxt->Text + "','" + Educationcustxt->Text + "')";
+			Namecustxt->Text + "','" + Educationcustxt->Text + "' ,'" + PanNoTextBox->Text + "')";
 
 		// Inserting into database code...
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
@@ -723,15 +723,15 @@ namespace bankingmanagement {
 
 
 			// Connecting to database.
-			String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 
 			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 			String^ Query;
-			Query = "insert into Banking.Customer (Name,Father,Mob,Email,Aadhar,DOB,CustomerId,Address,Username,Password) values ('" +
+			Query = "insert into Banking.Customer (Name,Father,Mob,Email,Aadhar,DOB,CustomerId,Address,Pannumber,Username,Password) values ('" +
 				Namecustxt->Text + "','" + Fathernamecustxt->Text + "','" +
 				Mobcustxt->Text + "','" + Emailcustxt->Text + "', '" +
 				Aadharcustxt->Text + "', '" + Dobcus->Text + "', '" +
-				customerid + "', '" + Adresscustxt->Text + "', '" +
+				customerid + "', '" + Adresscustxt->Text + "',,'" + PanNoTextBox->Text + "', '" +
 
 				username + "', '" + password + "')";
 
@@ -800,7 +800,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "Customer Details";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 		Query = "select * from Banking.Customer where Name='" + Data + "'";
@@ -823,6 +823,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Text = reader->GetString(5);
 				Educationcustxt->Text = reader->GetString(6);
 				Adresscustxt->Text = reader->GetString(7);
+				PanNoTextBox->Text = reader->GetString(8);
 				Namecustxt->Enabled = false;
 				Fathernamecustxt->Enabled = false;
 				Mobcustxt->Enabled = true;
@@ -831,6 +832,9 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Enabled = false;
 				Educationcustxt->Enabled = false;
 				Adresscustxt->Enabled = false;
+				PanNoTextBox->Enabled = false;
+
+
 
 				Dataexist = true;
 
@@ -860,7 +864,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		OKcusbtn->Visible = true;
 		Customerlabel->Text = "Customer Details";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -897,6 +901,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Text = reader->GetString(5);
 				Educationcustxt->Text = reader->GetString(6);
 				Adresscustxt->Text = reader->GetString(7);
+				PanNoTextBox->Text = reader->GetString(8);
 				Namecustxt->Enabled = false;
 				Fathernamecustxt->Enabled = false;
 				Mobcustxt->Enabled = false;
@@ -905,6 +910,8 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Enabled = false;
 				Educationcustxt->Enabled = false;
 				Adresscustxt->Enabled = false;
+				PanNoTextBox->Enabled = false;
+
 
 				Dataexist = true;
 
@@ -931,7 +938,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "EDIT CUSTOMER DETAILS";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -960,6 +967,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Text = reader->GetString(5);
 				Educationcustxt->Text = reader->GetString(6);
 				Adresscustxt->Text = reader->GetString(7);
+				PanNoTextBox->Text = reader->GetString(8);
 				Namecustxt->Enabled = true;
 				Fathernamecustxt->Enabled = true;
 				Mobcustxt->Enabled = true;
@@ -968,6 +976,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Enabled = true;
 				Educationcustxt->Enabled = false;
 				Adresscustxt->Enabled = true;
+				PanNoTextBox->Enabled = false;
 
 				Dataexist = true;
 
@@ -1002,7 +1011,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "DELETE CUSTOMER DETAILS";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlDataReader^ reader;
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
@@ -1030,6 +1039,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Text = reader->GetString(5);
 				Educationcustxt->Text = reader->GetString(6);
 				Adresscustxt->Text = reader->GetString(7);
+				PanNoTextBox->Text = reader->GetString(8);
 				Namecustxt->Enabled = false;
 				Fathernamecustxt->Enabled = false;
 				Mobcustxt->Enabled = false;
@@ -1038,6 +1048,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Enabled = false;
 				Educationcustxt->Enabled = false;
 				Adresscustxt->Enabled = false;
+				PanNoTextBox->Enabled = false;
 
 
 				Dataexist = true;
@@ -1073,7 +1084,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 		Cancelcusbtn->Visible = true;
 		Customerlabel->Text = "Update KYC Form";
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 		Query = "select * from Banking.Customer where Name='" + Data + "'";
@@ -1096,6 +1107,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Text = reader->GetString(5);
 				Educationcustxt->Text = reader->GetString(6);
 				Adresscustxt->Text = reader->GetString(7);
+				PanNoTextBox->Text = reader->GetString(8);
 				Namecustxt->Enabled = false;
 				Fathernamecustxt->Enabled = false;
 				Mobcustxt->Enabled = false;
@@ -1104,6 +1116,7 @@ private: System::Void AddCustomer_Load(System::Object^ sender, System::EventArgs
 				Dobcus->Enabled = false;
 				Educationcustxt->Enabled = false;
 				Adresscustxt->Enabled = false;
+				PanNoTextBox->Enabled = false;
 
 				Dataexist = true;
 

@@ -1432,7 +1432,7 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 
 	if (Key == "FromViewIdPass")
 	{
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query = "SELECT Username, Password FROM Banking.Employee WHERE Name = '" + Searchemptxtbox->Text + "'";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
