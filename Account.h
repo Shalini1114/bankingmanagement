@@ -26,6 +26,7 @@ namespace bankingmanagement {
 		bool FromWithdraw;
 		bool FromDeposit;
 		String^ Key;
+		bool FromCardWithdraw;
 		
 
 	private: System::Windows::Forms::Panel^ Proceedpanel;
@@ -94,6 +95,18 @@ namespace bankingmanagement {
 			ManagerMEnu = obj;
 			Data = data;
 			Key = key;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+		Account(Form^ obj, String^ data, bool tempcard)
+		{
+
+			InitializeComponent();
+			ManagerMEnu = obj;
+			Data = data;
+			FromCardWithdraw = tempcard;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -947,7 +960,7 @@ namespace bankingmanagement {
 	}
 	private: System::Void Okaccbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" /*|| Key == "FromKyc"*/)
+		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" )
 		{
 			if (Key == "FromDebitCard")
 			{
@@ -1126,16 +1139,16 @@ namespace bankingmanagement {
 
 				}*/
 
-			/*else if (Key == "FromKyc")
-			{
+			else if (FromCardWithdraw)
+	         {
+	            FromCardWithdraw = true;
 
-			   Kyc^ MENu = gcnew Kyc (this,Key,Accountholdertxt->Text,Accountnotxt->Text);
-			   MENu->Show();
-			   this->Hide();
 
-			}
 
-*/
+
+	         }
+
+			
 
 
 			else if (Okaccbtn->Text == "Proceed")

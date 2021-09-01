@@ -19,7 +19,7 @@
 	public ref class ManagerMenu : public System::Windows::Forms::Form
 	{
 	public:
-		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction;
+		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
 	private: System::Windows::Forms::Panel^ Searchsuppcuspanel;
 	public:
 	private: System::Windows::Forms::Button^ Cancelcusbtn;
@@ -758,7 +758,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Accountpanelcus->Controls->Add(this->Accountcustxt);
 			this->Accountpanelcus->Controls->Add(this->label3);
 			this->Accountpanelcus->Controls->Add(this->label5);
-			this->Accountpanelcus->Location = System::Drawing::Point(422, 325);
+			this->Accountpanelcus->Location = System::Drawing::Point(505, 494);
 			this->Accountpanelcus->Name = L"Accountpanelcus";
 			this->Accountpanelcus->Size = System::Drawing::Size(374, 153);
 			this->Accountpanelcus->TabIndex = 9;
@@ -907,7 +907,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Withdrawpanel->Controls->Add(this->Bypassbookbtn);
 			this->Withdrawpanel->Controls->Add(this->Bycardbtn);
 			this->Withdrawpanel->Controls->Add(this->Bycheckbtn);
-			this->Withdrawpanel->Location = System::Drawing::Point(742, 12);
+			this->Withdrawpanel->Location = System::Drawing::Point(246, 476);
 			this->Withdrawpanel->Name = L"Withdrawpanel";
 			this->Withdrawpanel->Size = System::Drawing::Size(215, 122);
 			this->Withdrawpanel->TabIndex = 11;
@@ -943,6 +943,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Bycardbtn->TabIndex = 3;
 			this->Bycardbtn->Text = L"By card";
 			this->Bycardbtn->UseVisualStyleBackColor = false;
+			this->Bycardbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bycardbtn_Click);
 			// 
 			// Bycheckbtn
 			// 
@@ -1289,10 +1290,10 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
+			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->SearchPanel);
 			this->Controls->Add(this->ViewIdPassPanel);
 			this->Controls->Add(this->Searchsuppcuspanel);
-			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->Withdrawpanel);
 			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
@@ -1583,6 +1584,19 @@ private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::Eve
 
 	}
 
+
+	else if (FromCardWithdraw)
+	{
+		FromCardWithdraw = true;
+		Account^ Form = gcnew Account(this, Accountcustxt->Text, FromCardWithdraw);
+
+		Form->Show();
+		this->Hide();
+
+	}
+
+	
+
 	
 }
 private: System::Void Accountcancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1728,6 +1742,11 @@ private: System::Void Editemployeebtn_Click(System::Object^ sender, System::Even
 	SearchPanel->Visible = true;
 	ManagerMenuPanel->Visible = false;
 	SearchTextBox->Focus();
+}
+private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	FromWithdraw = true;
+	FromDeposit = false;
+	Accountpanelcus->Visible = true;
 }
 };
 }
