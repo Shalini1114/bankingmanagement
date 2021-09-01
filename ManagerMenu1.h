@@ -65,7 +65,8 @@
 	private: System::Windows::Forms::Button^ ApplyDebitCardBtn;
 	private: System::Windows::Forms::Button^ OtherServicesBtn;
 	private: System::Windows::Forms::Button^ LogoutBtn;
-	private: System::Windows::Forms::Panel^ LogoutPanel;
+	private: System::Windows::Forms::Panel^ MessagePanel;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ MessageLabel;
@@ -82,11 +83,17 @@
 	private: System::Windows::Forms::Label^ UsernameLabel;
 	private: System::Windows::Forms::Label^ PasswordLabel;
 	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::RadioButton^ radioButton3;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
 
 
 
 
-		   String^ Key;
+		   String^ Key, ^RadioBtn = "Name";
+		   String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		   MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		   String^ Query;
 
 	public:
 		ManagerMenu(void)
@@ -130,26 +137,31 @@
 	private: System::Windows::Forms::Button^ Searchcustomerbtn;
 	private: System::Windows::Forms::Button^ Deletecustomerbtn;
 	private: System::Windows::Forms::Button^ Addcustomerbtn;
-	private: System::Windows::Forms::Panel^ Searchemppanel;
-	private: System::Windows::Forms::Button^ Byempmobbtn;
 
 
 
-	private: System::Windows::Forms::Button^ Byidbtn;
 
-	private: System::Windows::Forms::Button^ Bynamebtn;
+
+
+
+
 	private: System::Windows::Forms::Panel^ Searchcuspanel;
 	private: System::Windows::Forms::Button^ Bymobcusbtn;
 
 	private: System::Windows::Forms::Button^ Byidcusbtn;
 
 	private: System::Windows::Forms::Button^ Bynamecusbtn;
-	private: System::Windows::Forms::Panel^ Searchsuppemppanel;
+private: System::Windows::Forms::Panel^ SearchPanel;
+
 	private: System::Windows::Forms::Button^ Cancelempbtn;
-	private: System::Windows::Forms::Button^ Searchempbtn;
-	private: System::Windows::Forms::TextBox^ Searchemptxtbox;
-	private: System::Windows::Forms::Label^ Searchemplabel;
-	private: System::Windows::Forms::Label^ label2;
+private: System::Windows::Forms::Button^ SearchBtn;
+private: System::Windows::Forms::TextBox^ SearchTextBox;
+
+
+private: System::Windows::Forms::Label^ SearchLabel;
+private: System::Windows::Forms::Label^ SearchPanelLabel;
+
+
 
 
 
@@ -175,10 +187,6 @@
 			this->Searchemployeebtn = (gcnew System::Windows::Forms::Button());
 			this->Deleteemployeebtn = (gcnew System::Windows::Forms::Button());
 			this->Addemployeebtn = (gcnew System::Windows::Forms::Button());
-			this->Searchemppanel = (gcnew System::Windows::Forms::Panel());
-			this->Byempmobbtn = (gcnew System::Windows::Forms::Button());
-			this->Byidbtn = (gcnew System::Windows::Forms::Button());
-			this->Bynamebtn = (gcnew System::Windows::Forms::Button());
 			this->Customerpanel = (gcnew System::Windows::Forms::Panel());
 			this->Accountcus = (gcnew System::Windows::Forms::Button());
 			this->Editcustomerbtn = (gcnew System::Windows::Forms::Button());
@@ -189,12 +197,15 @@
 			this->Bymobcusbtn = (gcnew System::Windows::Forms::Button());
 			this->Byidcusbtn = (gcnew System::Windows::Forms::Button());
 			this->Bynamecusbtn = (gcnew System::Windows::Forms::Button());
-			this->Searchsuppemppanel = (gcnew System::Windows::Forms::Panel());
+			this->SearchPanel = (gcnew System::Windows::Forms::Panel());
+			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->Cancelempbtn = (gcnew System::Windows::Forms::Button());
-			this->Searchempbtn = (gcnew System::Windows::Forms::Button());
-			this->Searchemptxtbox = (gcnew System::Windows::Forms::TextBox());
-			this->Searchemplabel = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->SearchBtn = (gcnew System::Windows::Forms::Button());
+			this->SearchTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->SearchLabel = (gcnew System::Windows::Forms::Label());
+			this->SearchPanelLabel = (gcnew System::Windows::Forms::Label());
 			this->Searchsuppcuspanel = (gcnew System::Windows::Forms::Panel());
 			this->Cancelcusbtn = (gcnew System::Windows::Forms::Button());
 			this->Searchcusbtn = (gcnew System::Windows::Forms::Button());
@@ -231,7 +242,7 @@
 			this->ApplyDebitCardBtn = (gcnew System::Windows::Forms::Button());
 			this->OtherServicesBtn = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->LogoutPanel = (gcnew System::Windows::Forms::Panel());
+			this->MessagePanel = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->MessageLabel = (gcnew System::Windows::Forms::Label());
@@ -240,10 +251,9 @@
 			this->PasswordLabel = (gcnew System::Windows::Forms::Label());
 			this->UsernameLabel = (gcnew System::Windows::Forms::Label());
 			this->Employeepanel->SuspendLayout();
-			this->Searchemppanel->SuspendLayout();
 			this->Customerpanel->SuspendLayout();
 			this->Searchcuspanel->SuspendLayout();
-			this->Searchsuppemppanel->SuspendLayout();
+			this->SearchPanel->SuspendLayout();
 			this->Searchsuppcuspanel->SuspendLayout();
 			this->Accountpanelcus->SuspendLayout();
 			this->transactionpanel->SuspendLayout();
@@ -251,7 +261,7 @@
 			this->Depositpanel->SuspendLayout();
 			this->ManagerMenuPanel->SuspendLayout();
 			this->OtherServicesPanel->SuspendLayout();
-			this->LogoutPanel->SuspendLayout();
+			this->MessagePanel->SuspendLayout();
 			this->ViewIdPassPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -316,7 +326,7 @@
 			this->Editemployeebtn->TabIndex = 5;
 			this->Editemployeebtn->Text = L"Edit Employee";
 			this->Editemployeebtn->UseVisualStyleBackColor = false;
-			this->Editemployeebtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Editemployeebtn_MouseHover);
+			this->Editemployeebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Editemployeebtn_Click);
 			// 
 			// Searchemployeebtn
 			// 
@@ -334,7 +344,6 @@
 			this->Searchemployeebtn->Text = L"Search Employee";
 			this->Searchemployeebtn->UseVisualStyleBackColor = false;
 			this->Searchemployeebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Searchemployeebtn_Click);
-			this->Searchemployeebtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Searchemployeebtn_MouseHover);
 			// 
 			// Deleteemployeebtn
 			// 
@@ -351,7 +360,7 @@
 			this->Deleteemployeebtn->TabIndex = 3;
 			this->Deleteemployeebtn->Text = L"Delete Employee";
 			this->Deleteemployeebtn->UseVisualStyleBackColor = false;
-			this->Deleteemployeebtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Deleteemployeebtn_MouseHover);
+			this->Deleteemployeebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Deleteemployeebtn_Click);
 			// 
 			// Addemployeebtn
 			// 
@@ -369,67 +378,6 @@
 			this->Addemployeebtn->Text = L"Add Employee";
 			this->Addemployeebtn->UseVisualStyleBackColor = false;
 			this->Addemployeebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Addemployeebtn_Click);
-			// 
-			// Searchemppanel
-			// 
-			this->Searchemppanel->AutoSize = true;
-			this->Searchemppanel->BackColor = System::Drawing::Color::Transparent;
-			this->Searchemppanel->Controls->Add(this->Byempmobbtn);
-			this->Searchemppanel->Controls->Add(this->Byidbtn);
-			this->Searchemppanel->Controls->Add(this->Bynamebtn);
-			this->Searchemppanel->Location = System::Drawing::Point(239, 127);
-			this->Searchemppanel->Name = L"Searchemppanel";
-			this->Searchemppanel->Size = System::Drawing::Size(216, 120);
-			this->Searchemppanel->TabIndex = 5;
-			this->Searchemppanel->Visible = false;
-			// 
-			// Byempmobbtn
-			// 
-			this->Byempmobbtn->BackColor = System::Drawing::Color::Olive;
-			this->Byempmobbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Byempmobbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Byempmobbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Byempmobbtn->Location = System::Drawing::Point(0, 78);
-			this->Byempmobbtn->Name = L"Byempmobbtn";
-			this->Byempmobbtn->Size = System::Drawing::Size(216, 42);
-			this->Byempmobbtn->TabIndex = 4;
-			this->Byempmobbtn->Text = L"BY MOB NO";
-			this->Byempmobbtn->UseVisualStyleBackColor = false;
-			this->Byempmobbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::byempmobbtn_Click);
-			// 
-			// Byidbtn
-			// 
-			this->Byidbtn->BackColor = System::Drawing::Color::Olive;
-			this->Byidbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Byidbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Byidbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Byidbtn->Location = System::Drawing::Point(0, 39);
-			this->Byidbtn->Name = L"Byidbtn";
-			this->Byidbtn->Size = System::Drawing::Size(216, 39);
-			this->Byidbtn->TabIndex = 3;
-			this->Byidbtn->Text = L"BY  ID";
-			this->Byidbtn->UseVisualStyleBackColor = false;
-			this->Byidbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Byidbtn_Click);
-			// 
-			// Bynamebtn
-			// 
-			this->Bynamebtn->BackColor = System::Drawing::Color::Olive;
-			this->Bynamebtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Bynamebtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bynamebtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bynamebtn->Location = System::Drawing::Point(0, 0);
-			this->Bynamebtn->Name = L"Bynamebtn";
-			this->Bynamebtn->Size = System::Drawing::Size(216, 39);
-			this->Bynamebtn->TabIndex = 2;
-			this->Bynamebtn->Text = L"BY NAME";
-			this->Bynamebtn->UseVisualStyleBackColor = false;
-			this->Bynamebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bynamebtn_Click);
 			// 
 			// Customerpanel
 			// 
@@ -540,7 +488,7 @@
 			this->Searchcuspanel->Controls->Add(this->Bymobcusbtn);
 			this->Searchcuspanel->Controls->Add(this->Byidcusbtn);
 			this->Searchcuspanel->Controls->Add(this->Bynamecusbtn);
-			this->Searchcuspanel->Location = System::Drawing::Point(240, 170);
+			this->Searchcuspanel->Location = System::Drawing::Point(256, 15);
 			this->Searchcuspanel->Name = L"Searchcuspanel";
 			this->Searchcuspanel->Size = System::Drawing::Size(156, 120);
 			this->Searchcuspanel->TabIndex = 6;
@@ -594,74 +542,129 @@
 			this->Bynamecusbtn->UseVisualStyleBackColor = false;
 			this->Bynamecusbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bynamecusbtn_Click);
 			// 
-			// Searchsuppemppanel
+			// SearchPanel
 			// 
-			this->Searchsuppemppanel->BackColor = System::Drawing::Color::Aqua;
-			this->Searchsuppemppanel->Controls->Add(this->Cancelempbtn);
-			this->Searchsuppemppanel->Controls->Add(this->Searchempbtn);
-			this->Searchsuppemppanel->Controls->Add(this->Searchemptxtbox);
-			this->Searchsuppemppanel->Controls->Add(this->Searchemplabel);
-			this->Searchsuppemppanel->Controls->Add(this->label2);
-			this->Searchsuppemppanel->Location = System::Drawing::Point(475, 211);
-			this->Searchsuppemppanel->Name = L"Searchsuppemppanel";
-			this->Searchsuppemppanel->Size = System::Drawing::Size(374, 165);
-			this->Searchsuppemppanel->TabIndex = 7;
-			this->Searchsuppemppanel->Visible = false;
+			this->SearchPanel->BackColor = System::Drawing::Color::Cornsilk;
+			this->SearchPanel->Controls->Add(this->radioButton3);
+			this->SearchPanel->Controls->Add(this->radioButton2);
+			this->SearchPanel->Controls->Add(this->radioButton1);
+			this->SearchPanel->Controls->Add(this->Cancelempbtn);
+			this->SearchPanel->Controls->Add(this->SearchBtn);
+			this->SearchPanel->Controls->Add(this->SearchTextBox);
+			this->SearchPanel->Controls->Add(this->SearchLabel);
+			this->SearchPanel->Controls->Add(this->SearchPanelLabel);
+			this->SearchPanel->Location = System::Drawing::Point(475, 211);
+			this->SearchPanel->Name = L"SearchPanel";
+			this->SearchPanel->Size = System::Drawing::Size(374, 212);
+			this->SearchPanel->TabIndex = 7;
+			this->SearchPanel->Visible = false;
+			// 
+			// radioButton3
+			// 
+			this->radioButton3->AutoSize = true;
+			this->radioButton3->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radioButton3->ForeColor = System::Drawing::Color::Purple;
+			this->radioButton3->Location = System::Drawing::Point(232, 61);
+			this->radioButton3->Name = L"radioButton3";
+			this->radioButton3->Size = System::Drawing::Size(89, 26);
+			this->radioButton3->TabIndex = 6;
+			this->radioButton3->Text = L"Aadhar";
+			this->radioButton3->UseVisualStyleBackColor = true;
+			this->radioButton3->CheckedChanged += gcnew System::EventHandler(this, &ManagerMenu::radioButton3_CheckedChanged);
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radioButton2->ForeColor = System::Drawing::Color::Purple;
+			this->radioButton2->Location = System::Drawing::Point(139, 61);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(51, 26);
+			this->radioButton2->TabIndex = 6;
+			this->radioButton2->Text = L"ID";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			this->radioButton2->CheckedChanged += gcnew System::EventHandler(this, &ManagerMenu::radioButton2_CheckedChanged);
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Checked = true;
+			this->radioButton1->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radioButton1->ForeColor = System::Drawing::Color::Purple;
+			this->radioButton1->Location = System::Drawing::Point(43, 61);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(74, 26);
+			this->radioButton1->TabIndex = 6;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"Name";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			this->radioButton1->CheckedChanged += gcnew System::EventHandler(this, &ManagerMenu::radioButton1_CheckedChanged);
 			// 
 			// Cancelempbtn
 			// 
-			this->Cancelempbtn->Location = System::Drawing::Point(239, 122);
+			this->Cancelempbtn->BackColor = System::Drawing::Color::Purple;
+			this->Cancelempbtn->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Cancelempbtn->ForeColor = System::Drawing::Color::Cornsilk;
+			this->Cancelempbtn->Location = System::Drawing::Point(339, 1);
 			this->Cancelempbtn->Name = L"Cancelempbtn";
-			this->Cancelempbtn->Size = System::Drawing::Size(75, 23);
+			this->Cancelempbtn->Size = System::Drawing::Size(34, 30);
 			this->Cancelempbtn->TabIndex = 5;
-			this->Cancelempbtn->Text = L"Cancel";
-			this->Cancelempbtn->UseVisualStyleBackColor = true;
+			this->Cancelempbtn->Text = L"X";
+			this->Cancelempbtn->UseVisualStyleBackColor = false;
 			this->Cancelempbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Cancelempbtn_Click);
 			// 
-			// Searchempbtn
+			// SearchBtn
 			// 
-			this->Searchempbtn->Location = System::Drawing::Point(39, 124);
-			this->Searchempbtn->Name = L"Searchempbtn";
-			this->Searchempbtn->Size = System::Drawing::Size(75, 23);
-			this->Searchempbtn->TabIndex = 4;
-			this->Searchempbtn->Text = L"Search";
-			this->Searchempbtn->UseVisualStyleBackColor = true;
-			this->Searchempbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Searchempbtn_Click);
-			// 
-			// Searchemptxtbox
-			// 
-			this->Searchemptxtbox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->SearchBtn->BackColor = System::Drawing::Color::Purple;
+			this->SearchBtn->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Searchemptxtbox->Location = System::Drawing::Point(140, 70);
-			this->Searchemptxtbox->Name = L"Searchemptxtbox";
-			this->Searchemptxtbox->Size = System::Drawing::Size(221, 32);
-			this->Searchemptxtbox->TabIndex = 3;
+			this->SearchBtn->ForeColor = System::Drawing::Color::Cornsilk;
+			this->SearchBtn->Location = System::Drawing::Point(139, 148);
+			this->SearchBtn->Name = L"SearchBtn";
+			this->SearchBtn->Size = System::Drawing::Size(122, 38);
+			this->SearchBtn->TabIndex = 4;
+			this->SearchBtn->Text = L"Search";
+			this->SearchBtn->UseVisualStyleBackColor = false;
+			this->SearchBtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Searchempbtn_Click);
 			// 
-			// Searchemplabel
+			// SearchTextBox
 			// 
-			this->Searchemplabel->AutoSize = true;
-			this->Searchemplabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+			this->SearchTextBox->BackColor = System::Drawing::Color::Purple;
+			this->SearchTextBox->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Searchemplabel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->Searchemplabel->Location = System::Drawing::Point(3, 74);
-			this->Searchemplabel->Name = L"Searchemplabel";
-			this->Searchemplabel->Size = System::Drawing::Size(111, 24);
-			this->Searchemplabel->TabIndex = 2;
-			this->Searchemplabel->Text = L"Enter Name";
+			this->SearchTextBox->ForeColor = System::Drawing::Color::Cornsilk;
+			this->SearchTextBox->Location = System::Drawing::Point(140, 110);
+			this->SearchTextBox->Name = L"SearchTextBox";
+			this->SearchTextBox->Size = System::Drawing::Size(221, 31);
+			this->SearchTextBox->TabIndex = 3;
 			// 
-			// label2
+			// SearchLabel
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
+			this->SearchLabel->AutoSize = true;
+			this->SearchLabel->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SearchLabel->ForeColor = System::Drawing::Color::Purple;
+			this->SearchLabel->Location = System::Drawing::Point(2, 114);
+			this->SearchLabel->Name = L"SearchLabel";
+			this->SearchLabel->Size = System::Drawing::Size(103, 21);
+			this->SearchLabel->TabIndex = 2;
+			this->SearchLabel->Text = L"Enter Name";
+			// 
+			// SearchPanelLabel
+			// 
+			this->SearchPanelLabel->AutoSize = true;
+			this->SearchPanelLabel->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(64, 12);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(219, 29);
-			this->label2->TabIndex = 0;
-			this->label2->Text = L"Search Employee";
+			this->SearchPanelLabel->ForeColor = System::Drawing::Color::Purple;
+			this->SearchPanelLabel->Location = System::Drawing::Point(64, 12);
+			this->SearchPanelLabel->Name = L"SearchPanelLabel";
+			this->SearchPanelLabel->Size = System::Drawing::Size(219, 29);
+			this->SearchPanelLabel->TabIndex = 0;
+			this->SearchPanelLabel->Text = L"Search Employee";
 			// 
 			// Searchsuppcuspanel
 			// 
@@ -904,7 +907,7 @@
 			this->Withdrawpanel->Controls->Add(this->Bypassbookbtn);
 			this->Withdrawpanel->Controls->Add(this->Bycardbtn);
 			this->Withdrawpanel->Controls->Add(this->Bycheckbtn);
-			this->Withdrawpanel->Location = System::Drawing::Point(240, 170);
+			this->Withdrawpanel->Location = System::Drawing::Point(742, 12);
 			this->Withdrawpanel->Name = L"Withdrawpanel";
 			this->Withdrawpanel->Size = System::Drawing::Size(215, 122);
 			this->Withdrawpanel->TabIndex = 11;
@@ -1177,17 +1180,17 @@
 			this->label6->TabIndex = 1;
 			this->label6->Text = L"    Manager";
 			// 
-			// LogoutPanel
+			// MessagePanel
 			// 
-			this->LogoutPanel->BackColor = System::Drawing::Color::DarkCyan;
-			this->LogoutPanel->Controls->Add(this->button1);
-			this->LogoutPanel->Controls->Add(this->button2);
-			this->LogoutPanel->Controls->Add(this->MessageLabel);
-			this->LogoutPanel->Location = System::Drawing::Point(323, 77);
-			this->LogoutPanel->Name = L"LogoutPanel";
-			this->LogoutPanel->Size = System::Drawing::Size(609, 129);
-			this->LogoutPanel->TabIndex = 14;
-			this->LogoutPanel->Visible = false;
+			this->MessagePanel->BackColor = System::Drawing::Color::DarkCyan;
+			this->MessagePanel->Controls->Add(this->button1);
+			this->MessagePanel->Controls->Add(this->button2);
+			this->MessagePanel->Controls->Add(this->MessageLabel);
+			this->MessagePanel->Location = System::Drawing::Point(323, 77);
+			this->MessagePanel->Name = L"MessagePanel";
+			this->MessagePanel->Size = System::Drawing::Size(609, 129);
+			this->MessagePanel->TabIndex = 14;
+			this->MessagePanel->Visible = false;
 			// 
 			// button1
 			// 
@@ -1286,16 +1289,15 @@
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
-			this->Controls->Add(this->LogoutPanel);
+			this->Controls->Add(this->SearchPanel);
 			this->Controls->Add(this->ViewIdPassPanel);
-			this->Controls->Add(this->Searchsuppemppanel);
 			this->Controls->Add(this->Searchsuppcuspanel);
 			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->Withdrawpanel);
-			this->Controls->Add(this->Searchemppanel);
 			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
 			this->Controls->Add(this->Searchcuspanel);
+			this->Controls->Add(this->MessagePanel);
 			this->DoubleBuffered = true;
 			this->Name = L"ManagerMenu";
 			this->Text = L"ManagerMenu";
@@ -1303,11 +1305,10 @@
 			this->Load += gcnew System::EventHandler(this, &ManagerMenu::ManagerMenu_Load);
 			this->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::ManagerMenu_MouseHover);
 			this->Employeepanel->ResumeLayout(false);
-			this->Searchemppanel->ResumeLayout(false);
 			this->Customerpanel->ResumeLayout(false);
 			this->Searchcuspanel->ResumeLayout(false);
-			this->Searchsuppemppanel->ResumeLayout(false);
-			this->Searchsuppemppanel->PerformLayout();
+			this->SearchPanel->ResumeLayout(false);
+			this->SearchPanel->PerformLayout();
 			this->Searchsuppcuspanel->ResumeLayout(false);
 			this->Searchsuppcuspanel->PerformLayout();
 			this->Accountpanelcus->ResumeLayout(false);
@@ -1318,8 +1319,8 @@
 			this->ManagerMenuPanel->ResumeLayout(false);
 			this->ManagerMenuPanel->PerformLayout();
 			this->OtherServicesPanel->ResumeLayout(false);
-			this->LogoutPanel->ResumeLayout(false);
-			this->LogoutPanel->PerformLayout();
+			this->MessagePanel->ResumeLayout(false);
+			this->MessagePanel->PerformLayout();
 			this->ViewIdPassPanel->ResumeLayout(false);
 			this->ViewIdPassPanel->PerformLayout();
 			this->ResumeLayout(false);
@@ -1330,7 +1331,6 @@
 
 	public: void HideAllSubMenu() {
 
-		Searchemppanel->Visible = false;
 		Searchcuspanel->Visible = false;
 		Withdrawpanel->Visible = false;
 		Depositpanel->Visible = false;
@@ -1370,29 +1370,14 @@ private: System::Void ManagerMenu_MouseHover(System::Object^ sender, System::Eve
 }
 
 private: System::Void Addemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	FromDetail = false;
-	Addemployee^ Menu = gcnew Addemployee(this,FromDetail);
+	Key = "FromAdd";
+	Addemployee^ Menu = gcnew Addemployee(this,Key);
 	Menu->Show();
 	this->Hide();
+	
+}
 
-}
-private: System::Void byempmobbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Searchsuppemppanel->Visible = true;
-	Searchemplabel->Text = "Enter Mob";
-	ManagerMenuPanel->Visible = false;
-	Employeepanel->Visible = false;
-	Searchemppanel->Visible = false;
-	Flag = 3;
 
-}
-private: System::Void Searchemployeebtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-	HideAllSubMenu();
-	Employeepanel->Visible = true;
-	Searchemppanel->Visible = true;
-	FromEdit = false;
-	FromDetail = true;
-	FromDelete = false;
-}
 private: System::Void Searchcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Searchcuspanel->Visible = true;
 }
@@ -1407,34 +1392,52 @@ private: System::Void Searchcustomerbtn_MouseHover(System::Object^ sender, Syste
 	FromDelete = false;
 }
 
-private: System::Void Bynamebtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Searchsuppemppanel->Visible = true;
-	Searchemplabel->Text = "Enter Name";
-	ManagerMenuPanel->Visible = false;
-	Employeepanel->Visible = false;
-	Searchemppanel->Visible = false;
-	Flag = 1;
-}
-private: System::Void Byidbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Searchsuppemppanel->Visible = true;
-	Searchemplabel->Text = "Enter id";
-	ManagerMenuPanel->Visible = false;
-	Employeepanel->Visible = false;
-	Searchemppanel->Visible = false;
-	Flag = 2;
-}
+
+
 
 private: System::Void Cancelempbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	ManagerMenuPanel->Visible = true;
-	Searchsuppemppanel->Visible = false;
+	SearchPanel->Visible = false;
 }
 private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	if (Key == "FromViewIdPass")
+	if (Key == "FromDelete" || Key == "FromSearch" || Key == "FromEdit")
 	{
-		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-		String^ Query = "SELECT Username, Password FROM Banking.Employee WHERE Name = '" + Searchemptxtbox->Text + "'";
+		Query = "SELECT " + RadioBtn + " FROM Banking.Employee WHERE " + RadioBtn + " = '" + SearchTextBox->Text + "'";
+		try
+		{
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			Connect->Open();
+			MySqlDataReader^ reader = cmd->ExecuteReader();
+			if (reader->Read())
+			{
+				Connect->Close();
+				Addemployee^ form = gcnew Addemployee(this, SearchTextBox->Text, Key, RadioBtn);
+				form->Show();
+				this->Hide();
+			}
+			else
+			{
+				Connect->Close();
+				MessagePanel->Visible = true;
+				SearchPanel->Visible = false;
+				MessageLabel->Text = "Data Not Found";
+				button1->Visible = false;
+				button2->Text = "OK";
+			}
+		}
+		catch (Exception^ ex)
+		{
+			MessagePanel->Visible = true;
+			MessageLabel->Text = ex->Message;
+			button1->Visible = false;
+			button2->Text = "OK";
+		}
+	}
+	else
+	{
+		
+		Query = "SELECT Username, Password FROM Banking.Employee WHERE "+RadioBtn+" = '" + SearchTextBox->Text + "'";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 		Connect->Open();
 		MySqlDataReader^ reader = cmd->ExecuteReader();
@@ -1442,30 +1445,28 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 		if (reader->Read())
 		{
 			ViewIdPassPanel->Visible = true;
-			Searchsuppemppanel->Visible = false;
+			SearchPanel->Visible = false;
 			UsernameLabel->Text = "Username = "+reader[0]->ToString();
 			PasswordLabel->Text = "Password = "+reader[1]->ToString();
 		}
 		else
 		{
 			ViewIdPassPanel->Visible = true;
-			Searchsuppemppanel->Visible = false;
+			SearchPanel->Visible = false;
 			UsernameLabel->Text = "Username = Data Not Found";
 			PasswordLabel->Text = "Password = Data Not Found";
 		}
 		Connect->Close();
 	}
-	else
-	{
-		Addemployee^ form = gcnew Addemployee(this, FromDetail, Searchemptxtbox->Text, Flag, FromEdit, FromDelete);
-		form->Show();
-		this->Hide();
-	}
-	
 	
 }
 private: System::Void Searchemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
+
+	Key = "FromSearch";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	SearchTextBox->Focus();
 }
 private: System::Void Bynamecusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Searchsuppcuspanel->Visible = true;
@@ -1520,25 +1521,8 @@ private: System::Void Cancelcusbtn_Click(System::Object^ sender, System::EventAr
 
 
 }
-private: System::Void Editemployeebtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-	HideAllSubMenu();
-	Employeepanel->Visible = true;
-	Searchemppanel->Visible = true;
-	FromEdit = true;
-	FromDetail = false;
-	FromDelete = false;
-}
 
 
-private: System::Void Deleteemployeebtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-	HideAllSubMenu();
-	Employeepanel->Visible = true;
-	Searchemppanel->Visible = true;
-	FromDelete = true;
-	FromDetail = false;
-	FromEdit = false;
-	
-}
 private: System::Void Deletecustomerbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	HideAllSubMenu();
 	Customerpanel->Visible = true;
@@ -1651,16 +1635,29 @@ private: System::Void OtherServicesBtn_MouseHover(System::Object^ sender, System
 }
 private: System::Void LogoutBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	LogoutPanel->Visible = true;
+	Key = "FromLogout";
+	MessagePanel->Visible = true;
+	button1->Visible = true;
+	button2->Text = "Yes";
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	LogoutPanel->Visible = false;
+	MessagePanel->Visible = false;
+	ManagerMenuPanel->Visible = true;
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	MainMenu->Show();
-	this->Close();
+	if (Key == "FromLogout")
+	{
+		MainMenu->Show();
+		this->Close();
+	}
+	else
+	{
+		MessagePanel->Visible = false;
+		ManagerMenuPanel->Visible = true;
+	}
+	
 }
 private: System::Void ApplyDebitCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1693,12 +1690,44 @@ private: System::Void ManagerMenu_Load(System::Object^ sender, System::EventArgs
 }
 private: System::Void ViewIdPassBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Searchsuppemppanel->Visible = true;
+	SearchPanel->Visible = true;
 	Key = "FromViewIdPass";
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	ViewIdPassPanel->Visible = false;
+}
+private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	RadioBtn = "Name";
+	SearchLabel->Text = "Enter Name";
+	SearchTextBox->Focus();
+}
+private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	RadioBtn = "Username";
+	SearchLabel->Text = "Enter ID";
+	SearchTextBox->Focus();
+}
+private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	RadioBtn = "Aadhar";
+	SearchLabel->Text = "Enter Aadhar";
+	SearchTextBox->Focus();
+}
+private: System::Void Deleteemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Key = "FromDelete";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	SearchTextBox->Focus();
+}
+private: System::Void Editemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Key = "FromEdit";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	SearchTextBox->Focus();
 }
 };
 }
