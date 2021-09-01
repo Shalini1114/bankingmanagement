@@ -20,11 +20,13 @@ namespace bankingmanagement {
 	{
 	public:
 		Form^ managermenu;
-		bool FormDetail;
-		bool FromEdit;
-		bool FromDelete;
-		String^ Data;
-		int Flag;
+		
+		String^ Data, ^Key, ^RadioBtn;
+		
+
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query;
 
 		Addemployee(void)
 		{
@@ -33,27 +35,25 @@ namespace bankingmanagement {
 			//TODO: Add the constructor code here
 			//
 		}
-		Addemployee(Form^ obj, bool temp)
+		Addemployee(Form^ obj, String^ key)
 		{
-			managermenu = obj;
-			FormDetail = temp;
+			
+			
 			
 			InitializeComponent();
+			managermenu = obj;
+			Key = key;
 			//
 			//TODO: Add the constructor code here
 			//
 		}
-		Addemployee(Form^ obj, bool temp, String^ str, int flag, bool FromEditTemp,bool FromDeleteTemp)
+		Addemployee(Form^ obj, String^ data, String^ key, String^ radiobtn)
 		{
-			managermenu = obj;
-			FormDetail = temp;
-			Data = str;
-			Flag = flag;
-			FromEdit = FromEditTemp;
-			FromDelete = FromDeleteTemp;
-
-
 			InitializeComponent();
+			managermenu = obj;
+			Data = data;
+			Key = key;
+			RadioBtn = radiobtn;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -439,8 +439,6 @@ namespace bankingmanagement {
 	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
 	{
 		String^ number;
-		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query = "SELECT COUNT(" + DBVariableName + ") FROM " + TableName + " ";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 		MySqlDataReader^ reader;
@@ -463,45 +461,21 @@ namespace bankingmanagement {
 		return number;
 	}
 	private: System::Void Addemployee_Load(System::Object^ sender, System::EventArgs^ e) {
-		bool Dataexist = false;
 
-		
-		if (FormDetail == true)
+		if (Key == "FromSearch" || Key == "FromDelete" || Key == "FromEdit")
 		{
-			Submitempbtn->Visible = false;
-			Cancelempbtn->Visible = false;
-			OKempbtn->Visible = true;
-			Employeelabel->Text = "Employee Details";
+			Query = "select * from Banking.Employee where " + RadioBtn + " = '" + Data + "'";
 
-			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-			MySqlDataReader^ reader;
-			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-			String^ Query;
-			if (Flag == 1)
-			{
-				Query = "select * from Banking.Employee where Name='" + Data + "'";
-
-			}
-			else if (Flag == 2)
-			{
-				Query = "select * from Banking.Employee where Aadhar='" + Data + "'";
-
-			}
-			else if (Flag == 3)
-			{
-				Query = "select * from Banking.Employee where Mob='" + Data + "'";
-
-			}
 			// Checking data into database.
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-			
+
 			try
 			{
 				Connect->Open();
-				reader = cmd->ExecuteReader();
+				MySqlDataReader^ reader = cmd->ExecuteReader();
 				while (reader->Read())
 				{
-					
+
 					Nameemptxt->Text = reader->GetString(0);
 					Fathernameemptxt->Text = reader->GetString(1);
 					Mobemptxt->Text = reader->GetString(2);
@@ -510,34 +484,39 @@ namespace bankingmanagement {
 					Dobemp->Text = reader->GetString(5);
 					Educationemptxt->Text = reader->GetString(6);
 					Addressemptxt->Text = reader->GetString(7);
-					Nameemptxt->Enabled =false;
-	                Fathernameemptxt->Enabled = false;
+					Nameemptxt->Enabled = false;
+					Fathernameemptxt->Enabled = false;
 					Mobemptxt->Enabled = false;
 					Emailemptxt->Enabled = false;
 					Aadharemptxt->Enabled = false;
 					Dobemp->Enabled = false;
 					Educationemptxt->Enabled = false;
-				    Addressemptxt->Enabled = false;
+					Addressemptxt->Enabled = false;
 
-					Dataexist = true;
-					
-                }
-				reader->Close();
-				if (!Dataexist)
-					MessageBox::Show("Data Not Found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 
+				}
+				Connect->Close();
 
 			}
-			catch(Exception^ ex)
+			catch (Exception^ ex)
 			{
+				Connect->Close();
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				this->Close();
 				managermenu->Show();
 
 			}
 		}
+		
+		if (Key == "FromSearch")
+		{
+			Submitempbtn->Visible = false;
+			Cancelempbtn->Visible = false;
+			OKempbtn->Visible = true;
+			Employeelabel->Text = "Employee Details";
 
-		else if(FromEdit == true)
+		}
+		else if(Key == "FromEdit")
 		{
 
 
@@ -545,139 +524,15 @@ namespace bankingmanagement {
 			Cancelempbtn->Visible = true;
 			Employeelabel->Text = "EDIT EMPLOYEE DETAILS";
 			
-			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-			MySqlDataReader^ reader;
-			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-			String^ Query;
-			if (Flag == 1)
-				Query = "select * from Banking.Employee where Name='" + Data + "'";
-			else if (Flag == 2)
-				Query = "select * from Banking.Employee where Aadhar='" + Data + "'";
-			else if (Flag == 3)
-				Query = "select * from Banking.Employee where Mob='" + Data + "'";
-
-			// Checking data into database.
-			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-			
-			try
-			{
-				Connect->Open();
-				reader = cmd->ExecuteReader();
-				while (reader->Read())
-				{
-					
-					Nameemptxt->Text = reader->GetString(0);
-					Fathernameemptxt->Text = reader->GetString(1);
-					Mobemptxt->Text = reader->GetString(2);
-					Emailemptxt->Text = reader->GetString(3);
-					Aadharemptxt->Text = reader->GetString(4);
-					Dobemp->Text = reader->GetString(5);
-					Educationemptxt->Text = reader->GetString(6);
-					Addressemptxt->Text = reader->GetString(7);
-					Nameemptxt->Enabled = true;
-	                Fathernameemptxt->Enabled = true;
-					Mobemptxt->Enabled = true;
-					Emailemptxt->Enabled = true;
-					Aadharemptxt->Enabled = false;
-					Dobemp->Enabled = true;
-					Educationemptxt->Enabled = false;
-				    Addressemptxt->Enabled = true;
-
-					Dataexist = true;
-					
-                }
-				reader->Close();
-				if (!Dataexist)
-				{
-					MessageBox::Show("Data Not Found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					this->Close();
-					managermenu->Show();
-					
-				}
-					
-
-
-			}
-			catch(Exception^ ex)
-			{
-				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				this->Close();
-				managermenu->Show();
-
-			}
-
 		}
-		else if (FromDelete == true)
+		else if (Key = "FromDelete")
 		{
-
-
-		Submitempbtn->Text = "DELETE";
-		Cancelempbtn->Visible = true;
-		Employeelabel->Text = "DELETE EMPLOYEE DETAILS";
-
-		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-		MySqlDataReader^ reader;
-		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-		String^ Query;
-		if (Flag == 1)
-			Query = "select * from Banking.Employee where Name='" + Data + "'";
-		else if (Flag == 2)
-			Query = "select * from Banking.Employee where Aadhar='" + Data + "'";
-		else if (Flag == 3)
-			Query = "select * from Banking.Employee where Mob='" + Data + "'";
-
-		// Checking data into database.
-		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-
-		try
-		{
-			Connect->Open();
-			reader = cmd->ExecuteReader();
-			while (reader->Read())
-			{
-
-				Nameemptxt->Text = reader->GetString(0);
-				Fathernameemptxt->Text = reader->GetString(1);
-				Mobemptxt->Text = reader->GetString(2);
-				Emailemptxt->Text = reader->GetString(3);
-				Aadharemptxt->Text = reader->GetString(4);
-				Dobemp->Text = reader->GetString(5);
-				Educationemptxt->Text = reader->GetString(6);
-				Addressemptxt->Text = reader->GetString(7);
-				Nameemptxt->Enabled = false;
-				Fathernameemptxt->Enabled = false;
-				Mobemptxt->Enabled = false;
-				Emailemptxt->Enabled = false;
-				Aadharemptxt->Enabled = false;
-				Dobemp->Enabled = false;
-				Educationemptxt->Enabled = false;
-				Addressemptxt->Enabled = false;
-
-				Dataexist = true;
-
-			}
-			reader->Close();
-			if (!Dataexist)
-			{
-				MessageBox::Show("Data Not Found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				this->Close();
-				managermenu->Show();
-
-			}
-
-
-
+			Submitempbtn->Text = "DELETE";
+			Cancelempbtn->Visible = true;
+			Employeelabel->Text = "DELETE EMPLOYEE DETAILS";
+			OKempbtn->Visible = false;
 		}
-		catch (Exception^ ex)
-		{
-			MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			this->Close();
-			managermenu->Show();
-
-		}
-
-		}
-		else
+		else if(Key == "FromAdd")
 		{
 			Submitempbtn->Text = "Submit";
 			Submitempbtn->Visible = true;
@@ -685,9 +540,6 @@ namespace bankingmanagement {
 			Employeelabel->Text = "NEW EMPLOYEE FORM";
 
 		}
-
-
-
 
 	}
 	private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -713,27 +565,19 @@ namespace bankingmanagement {
 		   
 	private: System::Void Submitempbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if(FromEdit == true)
+		if(Key == "FromEdit")
 		{
-			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-			String^ Query;
-
-			if (Flag == 1)
-				Query = "update Banking.Employee set Name='"+Nameemptxt->Text+"',  Father='"+Fathernameemptxt->Text+"', Mob='"+Mobemptxt->Text+"', Email='"+Emailemptxt->Text+"', Dob='"+Dobemp->Text+"', Address='"+Addressemptxt->Text+"' WHERE Name='" + Data + "'";
-			else if (Flag == 2)
-				Query = "update Banking.Employee set Name='"+Nameemptxt->Text+"',  Father='"+Fathernameemptxt->Text+"', Mob='"+Mobemptxt->Text+"', Email='"+Emailemptxt->Text+"', Dob='"+Dobemp->Text+"', Address='"+Addressemptxt->Text+"' WHERE Aadhar='" + Data + "'";
-			else if (Flag == 3)
-				Query = "update Banking.Employee set Name='"+Nameemptxt->Text+"',  Father='"+Fathernameemptxt->Text+"', Mob='"+Mobemptxt->Text+"', Email='"+Emailemptxt->Text+"', Dob='"+Dobemp->Text+"', Address='"+Addressemptxt->Text+"' WHERE Mob='" + Data + "'";
+			
+			Query = "update Banking.Employee set Name='" + Nameemptxt->Text + "',  Father='" + Fathernameemptxt->Text + "', Mob='" + Mobemptxt->Text + "', Email='" + Emailemptxt->Text + "', Dob='" + Dobemp->Text + "', Address='" + Addressemptxt->Text + "' WHERE "+RadioBtn+" = '" + Data + "'";
 
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-			MySqlDataReader^ reader;
+			
 			
 
 			try
 			{
 				Connect->Open();
-				reader = cmd->ExecuteReader();
+				MySqlDataReader^ reader = cmd->ExecuteReader();
 				MessageBox::Show("Data Updated Successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 				Connect->Close();
 				managermenu->Show();
@@ -741,24 +585,17 @@ namespace bankingmanagement {
 			}
 			catch (Exception^ ex)
 			{
+				Connect->Close();
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				managermenu->Show();
 				this->Close();
 			}
 
 		}
-    else if (FromDelete == true)
+		else if (Key == "FromDelete")
 		  {
-			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-			String^ Query;
-
-			if (Flag == 1)
-				Query = "delete from Banking.Employee WHERE Name='" + Data + "'";
-			else if (Flag == 2)
-				Query = "delete from Banking.Employee WHERE Aadhar='" + Data + "'";
-			else if (Flag == 3)
-				Query = "delete from Banking.Employee WHERE Mob='" + Data + "'";
+			
+			Query = "delete from Banking.Employee WHERE "+RadioBtn+" = '" + Data + "'";
 
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 			MySqlDataReader^ reader;
@@ -775,6 +612,7 @@ namespace bankingmanagement {
 			}
 			catch (Exception^ ex)
 			{
+				Connect->Close();
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				managermenu->Show();
 				this->Close();
@@ -785,37 +623,23 @@ namespace bankingmanagement {
 		{
 			// Setting username
 			String^ username = "Bank";
-			try
-			{
-				username += GenerateNumber("Banking.Employee", "Username");
-			}
-			catch (Exception^ ex)
-			{
-				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				managermenu->Show();
-				this->Close();
-			}
-			
-
-			// Setting password
 			String^ password = "Emp";
 			try
 			{
+				username += GenerateNumber("Banking.Employee", "Username");
 				password += GenerateNumber("Banking.Employee", "Password");
 			}
 			catch (Exception^ ex)
 			{
+				Connect->Close();
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				managermenu->Show();
 				this->Close();
 			}
-			
+
 
 			// Connecting to database.
-			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-
-			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-			String^ Query;
+			
 			Query = "insert into Banking.Employee (Name,Father,Mob,Email,Aadhar,DOB,Education,Address,Username,Password) values ('" +
 				Nameemptxt->Text + "','" + Fathernameemptxt->Text + "','" +
 				Mobemptxt->Text + "','" + Emailemptxt->Text + "', '" +
@@ -825,18 +649,20 @@ namespace bankingmanagement {
 
 			// Inserting into database code...
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-			MySqlDataReader^ reader;
+			
 
 			try
 			{
 				Connect->Open();
-				reader = cmd->ExecuteReader();
+				MySqlDataReader^ reader = cmd->ExecuteReader();
+				Connect->Close();
 				MessageBox::Show("Data saved successfully. Username = '" + username + "' and Password = '" + password + "'", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 				managermenu->Show();
 				this->Close();
 			}
 			catch (Exception^ ex)
 			{
+				Connect->Close();
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				managermenu->Show();
 				this->Close();
