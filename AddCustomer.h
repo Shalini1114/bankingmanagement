@@ -675,7 +675,7 @@ namespace bankingmanagement {
 			{
 				customerid += GenerateNumber("Banking.Account", "Customerid");
 				password += GenerateNumber("Banking.Customer", "Password");
-				accountno += GenerateNumber("Banking.Account", "Accountno");
+				accountno += GenerateNumber("Banking.Customer", "Accountno");
 			}
 			catch (Exception^ ex)
 			{
