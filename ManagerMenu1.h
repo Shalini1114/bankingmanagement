@@ -19,15 +19,10 @@
 	public ref class ManagerMenu : public System::Windows::Forms::Form
 	{
 	public:
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
 	private: System::Windows::Forms::Panel^ Searchsuppcuspanel;
->>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
+
 	public:
 
 
@@ -314,7 +309,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Editemployeebtn->TabIndex = 5;
 			this->Editemployeebtn->Text = L"Edit Employee";
 			this->Editemployeebtn->UseVisualStyleBackColor = false;
-			this->Editemployeebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Editemployeebtn_Click);
+			//this->Editemployeebtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Editemployeebtn_Click);
 			// 
 			// Searchemployeebtn
 			// 
