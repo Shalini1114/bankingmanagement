@@ -121,6 +121,18 @@ namespace bankingmanagement {
 			//
 		}
 
+		Account(Form^ obj, String^ data, bool tempcard)
+		{
+
+			InitializeComponent();
+			ManagerMEnu = obj;
+			Data = data;
+			FromCardWithdraw = tempcard;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.

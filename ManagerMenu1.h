@@ -20,8 +20,11 @@
 	{
 	public:
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
 	private: System::Windows::Forms::Panel^ Searchsuppcuspanel;
 >>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
@@ -1152,6 +1155,9 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 <<<<<<< HEAD
 =======
 			this->Controls->Add(this->Searchsuppcuspanel);
+<<<<<<< HEAD
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
+=======
 >>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 			this->Controls->Add(this->Withdrawpanel);
 			this->Controls->Add(this->ManagerMenuPanel);
@@ -1438,6 +1444,11 @@ private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::Eve
 
 	}
 
+<<<<<<< HEAD
+=======
+	
+
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 	
 
 >>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
@@ -1614,6 +1625,11 @@ private: System::Void Statementbtn_Click(System::Object^ sender, System::EventAr
 	ManagerMenuPanel->Visible = false;
 	radioButton2->Text = "Account";
 	SearchLabel->Text = "Search Customer";
+}
+private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	FromWithdraw = true;
+	FromDeposit = false;
+	Accountpanelcus->Visible = true;
 }
 private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	FromWithdraw = true;

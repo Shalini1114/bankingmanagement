@@ -531,7 +531,11 @@ namespace bankingmanagement {
 			
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 		else if (Key == "FromDelete Employee")
+=======
+		else if (Key == "FromDelete")
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 =======
 		else if (Key == "FromDelete")
 >>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
