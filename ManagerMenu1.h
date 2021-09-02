@@ -19,26 +19,27 @@
 	public ref class ManagerMenu : public System::Windows::Forms::Form
 	{
 	public:
-<<<<<<< HEAD
-		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
-=======
-		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction;
->>>>>>> parent of 5ca87be (transaction change)
-	private: System::Windows::Forms::Panel^ Searchsuppcuspanel;
-	public:
-	private: System::Windows::Forms::Button^ Cancelcusbtn;
-	private: System::Windows::Forms::Button^ Searchcusbtn;
-	private: System::Windows::Forms::TextBox^ Searchcustxtbox;
-	private: System::Windows::Forms::Label^ Searchcuslabel;
 
-	private: System::Windows::Forms::Label^ label4;
+		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
+
+		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction;
+
+	private: System::Windows::Forms::Panel^ Searchsuppcuspanel;
+
+	public:
+
+
+
+
+
+
 	private: System::Windows::Forms::Button^ Accountcus;
-	private: System::Windows::Forms::Panel^ Accountpanelcus;
-	private: System::Windows::Forms::Button^ Accountcancelbtn;
-	private: System::Windows::Forms::Button^ Accountsearchbtn;
-	private: System::Windows::Forms::TextBox^ Accountcustxt;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label5;
+
+
+
+
+
+
 	private: System::Windows::Forms::Button^ custransactionbtn;
 	private: System::Windows::Forms::Panel^ transactionpanel;
 	private: System::Windows::Forms::Button^ Statementbtn;
@@ -149,12 +150,12 @@
 
 
 
-	private: System::Windows::Forms::Panel^ Searchcuspanel;
-	private: System::Windows::Forms::Button^ Bymobcusbtn;
 
-	private: System::Windows::Forms::Button^ Byidcusbtn;
 
-	private: System::Windows::Forms::Button^ Bynamecusbtn;
+
+
+
+
 private: System::Windows::Forms::Panel^ SearchPanel;
 
 	private: System::Windows::Forms::Button^ Cancelempbtn;
@@ -197,10 +198,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Searchcustomerbtn = (gcnew System::Windows::Forms::Button());
 			this->Deletecustomerbtn = (gcnew System::Windows::Forms::Button());
 			this->Addcustomerbtn = (gcnew System::Windows::Forms::Button());
-			this->Searchcuspanel = (gcnew System::Windows::Forms::Panel());
-			this->Bymobcusbtn = (gcnew System::Windows::Forms::Button());
-			this->Byidcusbtn = (gcnew System::Windows::Forms::Button());
-			this->Bynamecusbtn = (gcnew System::Windows::Forms::Button());
 			this->SearchPanel = (gcnew System::Windows::Forms::Panel());
 			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
@@ -210,19 +207,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->SearchTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->SearchLabel = (gcnew System::Windows::Forms::Label());
 			this->SearchPanelLabel = (gcnew System::Windows::Forms::Label());
-			this->Searchsuppcuspanel = (gcnew System::Windows::Forms::Panel());
-			this->Cancelcusbtn = (gcnew System::Windows::Forms::Button());
-			this->Searchcusbtn = (gcnew System::Windows::Forms::Button());
-			this->Searchcustxtbox = (gcnew System::Windows::Forms::TextBox());
-			this->Searchcuslabel = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->custransactionbtn = (gcnew System::Windows::Forms::Button());
-			this->Accountpanelcus = (gcnew System::Windows::Forms::Panel());
-			this->Accountcancelbtn = (gcnew System::Windows::Forms::Button());
-			this->Accountsearchbtn = (gcnew System::Windows::Forms::Button());
-			this->Accountcustxt = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->transactionpanel = (gcnew System::Windows::Forms::Panel());
 			this->Statementbtn = (gcnew System::Windows::Forms::Button());
 			this->Detailsbtn = (gcnew System::Windows::Forms::Button());
@@ -256,10 +241,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->UsernameLabel = (gcnew System::Windows::Forms::Label());
 			this->Employeepanel->SuspendLayout();
 			this->Customerpanel->SuspendLayout();
-			this->Searchcuspanel->SuspendLayout();
 			this->SearchPanel->SuspendLayout();
-			this->Searchsuppcuspanel->SuspendLayout();
-			this->Accountpanelcus->SuspendLayout();
 			this->transactionpanel->SuspendLayout();
 			this->Withdrawpanel->SuspendLayout();
 			this->Depositpanel->SuspendLayout();
@@ -431,7 +413,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Editcustomerbtn->Text = L"Edit Customer";
 			this->Editcustomerbtn->UseVisualStyleBackColor = false;
 			this->Editcustomerbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Editcustomerbtn_Click);
-			this->Editcustomerbtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Editcustomerbtn_MouseHover);
 			// 
 			// Searchcustomerbtn
 			// 
@@ -449,7 +430,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Searchcustomerbtn->Text = L"Search Customer";
 			this->Searchcustomerbtn->UseVisualStyleBackColor = false;
 			this->Searchcustomerbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Searchcustomerbtn_Click);
-			this->Searchcustomerbtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Searchcustomerbtn_MouseHover);
 			// 
 			// Deletecustomerbtn
 			// 
@@ -466,7 +446,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Deletecustomerbtn->TabIndex = 3;
 			this->Deletecustomerbtn->Text = L"Delete Customer";
 			this->Deletecustomerbtn->UseVisualStyleBackColor = false;
-			this->Deletecustomerbtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Deletecustomerbtn_MouseHover);
+			this->Deletecustomerbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Deletecustomerbtn_Click);
 			// 
 			// Addcustomerbtn
 			// 
@@ -485,67 +465,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Addcustomerbtn->UseVisualStyleBackColor = false;
 			this->Addcustomerbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Addcustomerbtn_Click);
 			// 
-			// Searchcuspanel
-			// 
-			this->Searchcuspanel->AutoSize = true;
-			this->Searchcuspanel->BackColor = System::Drawing::Color::Transparent;
-			this->Searchcuspanel->Controls->Add(this->Bymobcusbtn);
-			this->Searchcuspanel->Controls->Add(this->Byidcusbtn);
-			this->Searchcuspanel->Controls->Add(this->Bynamecusbtn);
-			this->Searchcuspanel->Location = System::Drawing::Point(256, 15);
-			this->Searchcuspanel->Name = L"Searchcuspanel";
-			this->Searchcuspanel->Size = System::Drawing::Size(156, 120);
-			this->Searchcuspanel->TabIndex = 6;
-			this->Searchcuspanel->Visible = false;
-			// 
-			// Bymobcusbtn
-			// 
-			this->Bymobcusbtn->BackColor = System::Drawing::Color::Olive;
-			this->Bymobcusbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Bymobcusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bymobcusbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bymobcusbtn->Location = System::Drawing::Point(0, 78);
-			this->Bymobcusbtn->Name = L"Bymobcusbtn";
-			this->Bymobcusbtn->Size = System::Drawing::Size(156, 42);
-			this->Bymobcusbtn->TabIndex = 4;
-			this->Bymobcusbtn->Text = L"BY MOB NO";
-			this->Bymobcusbtn->UseVisualStyleBackColor = false;
-			this->Bymobcusbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bymobcusbtn_Click);
-			// 
-			// Byidcusbtn
-			// 
-			this->Byidcusbtn->BackColor = System::Drawing::Color::Olive;
-			this->Byidcusbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Byidcusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Byidcusbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Byidcusbtn->Location = System::Drawing::Point(0, 39);
-			this->Byidcusbtn->Name = L"Byidcusbtn";
-			this->Byidcusbtn->Size = System::Drawing::Size(156, 39);
-			this->Byidcusbtn->TabIndex = 3;
-			this->Byidcusbtn->Text = L"BY ID";
-			this->Byidcusbtn->UseVisualStyleBackColor = false;
-			this->Byidcusbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Byidcusbtn_Click);
-			// 
-			// Bynamecusbtn
-			// 
-			this->Bynamecusbtn->BackColor = System::Drawing::Color::Olive;
-			this->Bynamecusbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Bynamecusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bynamecusbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bynamecusbtn->Location = System::Drawing::Point(0, 0);
-			this->Bynamecusbtn->Name = L"Bynamecusbtn";
-			this->Bynamecusbtn->Size = System::Drawing::Size(156, 39);
-			this->Bynamecusbtn->TabIndex = 2;
-			this->Bynamecusbtn->Text = L"BY NAME";
-			this->Bynamecusbtn->UseVisualStyleBackColor = false;
-			this->Bynamecusbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bynamecusbtn_Click);
-			// 
 			// SearchPanel
 			// 
 			this->SearchPanel->BackColor = System::Drawing::Color::Cornsilk;
@@ -557,7 +476,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->SearchPanel->Controls->Add(this->SearchTextBox);
 			this->SearchPanel->Controls->Add(this->SearchLabel);
 			this->SearchPanel->Controls->Add(this->SearchPanelLabel);
-			this->SearchPanel->Location = System::Drawing::Point(475, 211);
+			this->SearchPanel->Location = System::Drawing::Point(443, 131);
 			this->SearchPanel->Name = L"SearchPanel";
 			this->SearchPanel->Size = System::Drawing::Size(374, 212);
 			this->SearchPanel->TabIndex = 7;
@@ -670,75 +589,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->SearchPanelLabel->TabIndex = 0;
 			this->SearchPanelLabel->Text = L"Search Employee";
 			// 
-			// Searchsuppcuspanel
-			// 
-			this->Searchsuppcuspanel->BackColor = System::Drawing::Color::Aqua;
-			this->Searchsuppcuspanel->Controls->Add(this->Cancelcusbtn);
-			this->Searchsuppcuspanel->Controls->Add(this->Searchcusbtn);
-			this->Searchsuppcuspanel->Controls->Add(this->Searchcustxtbox);
-			this->Searchsuppcuspanel->Controls->Add(this->Searchcuslabel);
-			this->Searchsuppcuspanel->Controls->Add(this->label4);
-			this->Searchsuppcuspanel->Location = System::Drawing::Point(522, 166);
-			this->Searchsuppcuspanel->Name = L"Searchsuppcuspanel";
-			this->Searchsuppcuspanel->Size = System::Drawing::Size(374, 165);
-			this->Searchsuppcuspanel->TabIndex = 8;
-			this->Searchsuppcuspanel->Visible = false;
-			// 
-			// Cancelcusbtn
-			// 
-			this->Cancelcusbtn->Location = System::Drawing::Point(239, 122);
-			this->Cancelcusbtn->Name = L"Cancelcusbtn";
-			this->Cancelcusbtn->Size = System::Drawing::Size(75, 23);
-			this->Cancelcusbtn->TabIndex = 5;
-			this->Cancelcusbtn->Text = L"Cancel";
-			this->Cancelcusbtn->UseVisualStyleBackColor = true;
-			this->Cancelcusbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Cancelcusbtn_Click);
-			// 
-			// Searchcusbtn
-			// 
-			this->Searchcusbtn->Location = System::Drawing::Point(39, 124);
-			this->Searchcusbtn->Name = L"Searchcusbtn";
-			this->Searchcusbtn->Size = System::Drawing::Size(75, 23);
-			this->Searchcusbtn->TabIndex = 4;
-			this->Searchcusbtn->Text = L"Search";
-			this->Searchcusbtn->UseVisualStyleBackColor = true;
-			this->Searchcusbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Searchcusbtn_Click);
-			// 
-			// Searchcustxtbox
-			// 
-			this->Searchcustxtbox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Searchcustxtbox->Location = System::Drawing::Point(140, 70);
-			this->Searchcustxtbox->Name = L"Searchcustxtbox";
-			this->Searchcustxtbox->Size = System::Drawing::Size(221, 32);
-			this->Searchcustxtbox->TabIndex = 3;
-			// 
-			// Searchcuslabel
-			// 
-			this->Searchcuslabel->AutoSize = true;
-			this->Searchcuslabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Searchcuslabel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->Searchcuslabel->Location = System::Drawing::Point(3, 74);
-			this->Searchcuslabel->Name = L"Searchcuslabel";
-			this->Searchcuslabel->Size = System::Drawing::Size(111, 24);
-			this->Searchcuslabel->TabIndex = 2;
-			this->Searchcuslabel->Text = L"Enter Name";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(62, 11);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(212, 29);
-			this->label4->TabIndex = 0;
-			this->label4->Text = L"Search Customer";
-			// 
 			// custransactionbtn
 			// 
 			this->custransactionbtn->BackColor = System::Drawing::Color::SteelBlue;
@@ -754,6 +604,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->custransactionbtn->UseVisualStyleBackColor = false;
 			this->custransactionbtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::custransactionbtn_MouseHover);
 			// 
+
 			// Accountpanelcus
 			// 
 			this->Accountpanelcus->BackColor = System::Drawing::Color::Aqua;
@@ -762,11 +613,11 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Accountpanelcus->Controls->Add(this->Accountcustxt);
 			this->Accountpanelcus->Controls->Add(this->label3);
 			this->Accountpanelcus->Controls->Add(this->label5);
-<<<<<<< HEAD
+
 			this->Accountpanelcus->Location = System::Drawing::Point(505, 494);
-=======
+
 			this->Accountpanelcus->Location = System::Drawing::Point(422, 325);
->>>>>>> parent of 5ca87be (transaction change)
+
 			this->Accountpanelcus->Name = L"Accountpanelcus";
 			this->Accountpanelcus->Size = System::Drawing::Size(374, 153);
 			this->Accountpanelcus->TabIndex = 9;
@@ -827,6 +678,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->label5->TabIndex = 0;
 			this->label5->Text = L"Account Information";
 			// 
+
 			// transactionpanel
 			// 
 			this->transactionpanel->AutoSize = true;
@@ -856,6 +708,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Statementbtn->TabIndex = 5;
 			this->Statementbtn->Text = L"Statement";
 			this->Statementbtn->UseVisualStyleBackColor = false;
+			this->Statementbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Statementbtn_Click);
 			// 
 			// Detailsbtn
 			// 
@@ -889,7 +742,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Depositbtn->TabIndex = 3;
 			this->Depositbtn->Text = L"Deposit";
 			this->Depositbtn->UseVisualStyleBackColor = false;
-			this->Depositbtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Depositbtn_MouseHover);
+			this->Depositbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Depositbtn_Click);
 			// 
 			// Withdrawbtn
 			// 
@@ -907,7 +760,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Withdrawbtn->Text = L"Withdraw";
 			this->Withdrawbtn->UseVisualStyleBackColor = false;
 			this->Withdrawbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Withdrawbtn_Click);
-			this->Withdrawbtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::Withdrawbtn_MouseHover);
 			// 
 			// Withdrawpanel
 			// 
@@ -1301,15 +1153,14 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->SearchPanel);
 			this->Controls->Add(this->ViewIdPassPanel);
+
 			this->Controls->Add(this->Searchsuppcuspanel);
-<<<<<<< HEAD
-=======
+
 			this->Controls->Add(this->Accountpanelcus);
->>>>>>> parent of 5ca87be (transaction change)
+
 			this->Controls->Add(this->Withdrawpanel);
 			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
-			this->Controls->Add(this->Searchcuspanel);
 			this->Controls->Add(this->MessagePanel);
 			this->DoubleBuffered = true;
 			this->Name = L"ManagerMenu";
@@ -1319,13 +1170,8 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::ManagerMenu_MouseHover);
 			this->Employeepanel->ResumeLayout(false);
 			this->Customerpanel->ResumeLayout(false);
-			this->Searchcuspanel->ResumeLayout(false);
 			this->SearchPanel->ResumeLayout(false);
 			this->SearchPanel->PerformLayout();
-			this->Searchsuppcuspanel->ResumeLayout(false);
-			this->Searchsuppcuspanel->PerformLayout();
-			this->Accountpanelcus->ResumeLayout(false);
-			this->Accountpanelcus->PerformLayout();
 			this->transactionpanel->ResumeLayout(false);
 			this->Withdrawpanel->ResumeLayout(false);
 			this->Depositpanel->ResumeLayout(false);
@@ -1344,7 +1190,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 
 	public: void HideAllSubMenu() {
 
-		Searchcuspanel->Visible = false;
 		Withdrawpanel->Visible = false;
 		Depositpanel->Visible = false;
 		Employeepanel->Visible = false;
@@ -1372,8 +1217,8 @@ private: System::Void Employeepanel_Paint(System::Object^ sender, System::Window
 }
 	private: System::Void Addcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		Employeepanel->Visible = false;
-		FromDetail = false;
-		AddCustomer^ mEnu = gcnew AddCustomer(this,FromDetail);
+		Key = "FromAdd Customer";
+		AddCustomer^ mEnu = gcnew AddCustomer(this,Key);
 		mEnu->Show();
 		this->Hide();
 	}
@@ -1383,7 +1228,7 @@ private: System::Void ManagerMenu_MouseHover(System::Object^ sender, System::Eve
 }
 
 private: System::Void Addemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Key = "FromAdd";
+	Key = "FromAdd Employee";
 	Addemployee^ Menu = gcnew Addemployee(this,Key);
 	Menu->Show();
 	this->Hide();
@@ -1392,18 +1237,14 @@ private: System::Void Addemployeebtn_Click(System::Object^ sender, System::Event
 
 
 private: System::Void Searchcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Searchcuspanel->Visible = true;
+
+	Key = "FromSearch Customer";
+	ManagerMenuPanel->Visible = false;
+	SearchPanel->Visible = true;
+	SearchLabel->Text = "Search Customer";
+	radioButton2->Text = "Account";
 }
-private: System::Void Searchcustomerbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-	HideAllSubMenu();
-	Customerpanel->Visible = true;
-	Searchcuspanel->Visible = true;
-	Searchcuspanel->Location.X = 240;
-	Searchcuspanel->Location.Y = 170;
-	FromEdit = false;
-	FromDetail = true;
-	FromDelete = false;
-}
+
 
 
 
@@ -1414,7 +1255,7 @@ private: System::Void Cancelempbtn_Click(System::Object^ sender, System::EventAr
 }
 private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	if (Key == "FromDelete" || Key == "FromSearch" || Key == "FromEdit")
+	if (Key == "FromDelete Employee" || Key == "FromSearch Employee" || Key == "FromEdit Employee")
 	{
 		Query = "SELECT " + RadioBtn + " FROM Banking.Employee WHERE " + RadioBtn + " = '" + SearchTextBox->Text + "'";
 		try
@@ -1447,7 +1288,7 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 			button2->Text = "OK";
 		}
 	}
-	else
+	else if(Key == "FromViewIdPass")
 	{
 		
 		Query = "SELECT Username, Password FROM Banking.Employee WHERE "+RadioBtn+" = '" + SearchTextBox->Text + "'";
@@ -1471,65 +1312,84 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 		}
 		Connect->Close();
 	}
-	
+	else if(Key == "FromDelete Customer" || Key == "FromSearch Customer" || Key == "FromEdit Customer")
+	{
+		Query = "SELECT " + RadioBtn + " FROM Banking.Customer WHERE " + RadioBtn + " = '" + SearchTextBox->Text + "'";
+		try
+		{
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			Connect->Open();
+			MySqlDataReader^ reader = cmd->ExecuteReader();
+			if (reader->Read())
+			{
+				Connect->Close();
+				AddCustomer^ form = gcnew AddCustomer(this, SearchTextBox->Text, Key, RadioBtn);
+				form->Show();
+				this->Hide();
+			}
+			else
+			{
+				Connect->Close();
+				MessagePanel->Visible = true;
+				SearchPanel->Visible = false;
+				MessageLabel->Text = "Data Not Found";
+				button1->Visible = false;
+				button2->Text = "OK";
+			}
+		}
+		catch (Exception^ ex)
+		{
+			MessagePanel->Visible = true;
+			MessageLabel->Text = ex->Message;
+			button1->Visible = false;
+			button2->Text = "OK";
+		}
+	}
+	else if (Key == "FromDetail Customer" || Key == "FromWithdraw" || Key == "FromDeposit" || Key == "FromTransactionDetail" || Key == "FromStatement")
+	{
+		Query = "SELECT " + RadioBtn + " FROM Banking.Account WHERE " + RadioBtn + " = '" + SearchTextBox->Text + "'";
+		try
+		{
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			Connect->Open();
+			MySqlDataReader^ reader = cmd->ExecuteReader();
+			if (reader->Read())
+			{
+				Connect->Close();
+				Account^ form = gcnew Account(this, SearchTextBox->Text, Key, RadioBtn);
+				form->Show();
+				this->Hide();
+			}
+			else
+			{
+				Connect->Close();
+				MessagePanel->Visible = true;
+				SearchPanel->Visible = false;
+				MessageLabel->Text = "Data Not Found";
+				button1->Visible = false;
+				button2->Text = "OK";
+			}
+		}
+		catch (Exception^ ex)
+		{
+			MessagePanel->Visible = true;
+			MessageLabel->Text = ex->Message;
+			button1->Visible = false;
+			button2->Text = "OK";
+		}
+	}
+
 }
 private: System::Void Searchemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
-	Key = "FromSearch";
+	Key = "FromSearch Employee";
 	SearchPanel->Visible = true;
 	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "ID";
 	SearchTextBox->Focus();
-}
-private: System::Void Bynamecusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Searchsuppcuspanel->Visible = true;
-	Searchcuslabel->Text = "Enter Name";
-	ManagerMenuPanel->Visible = false;
-	Customerpanel->Visible = false;
-	Searchcuspanel->Visible = false;
-	Flag = 1;
-}
-private: System::Void Byidcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Searchsuppcuspanel->Visible = true;
-	Searchcuslabel->Text = "Enter id";
-	ManagerMenuPanel->Visible = false;
-	Customerpanel->Visible = false;
-	Searchcuspanel->Visible = false;
-	Flag = 2;
-}
-private: System::Void Bymobcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Searchsuppcuspanel->Visible = true;
-	Searchcuslabel->Text = "Enter Mob";
-	ManagerMenuPanel->Visible = false;
-	Customerpanel->Visible = false;
-	Searchcuspanel->Visible = false;
-	Flag = 3;
-
-}
-private: System::Void Searchcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	if(FromDetail==true||FromEdit==true||FromDelete==true)
-	{ 
-		AddCustomer^ form = gcnew AddCustomer(this, FromDetail, Searchcustxtbox->Text, Flag, FromEdit, FromDelete);
-		form->Show();
-		this->Hide();
-	}
-
-	if (Key == "FromUpdateMob"||Key=="FromKyc")
-	{
-		AddCustomer^ form = gcnew AddCustomer(this, Searchcustxtbox->Text, Key);
-		form->Show();
-		this->Hide();
-
-	}
-
-
 	
-
 }
-private: System::Void Cancelcusbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	ManagerMenuPanel->Visible = true;
-	Searchsuppcuspanel->Visible = false;
-
 
 
 
@@ -1546,7 +1406,7 @@ private: System::Void Deletecustomerbtn_MouseHover(System::Object^ sender, Syste
 	FromEdit = false;
 	FromDetail = false;
 	FromDelete = true;
-<<<<<<< HEAD
+
 }
 private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	HideAllSubMenu();
@@ -1559,9 +1419,8 @@ private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System:
 	FromDelete = false;
 }
 private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-=======
->>>>>>> parent of 5ca87be (transaction change)
-}
+
+
 private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	HideAllSubMenu();
 	Customerpanel->Visible = true;
@@ -1571,16 +1430,19 @@ private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System:
 	FromEdit = true;
 	FromDetail = false;
 	FromDelete = false;
-}
-private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 
-private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
-	FromDeposit = false;
-	FromWithdraw = false;
-	FromAccount = true;
-	Accountpanelcus->Visible = true;
+private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Key = "FromEdit Customer";
+	ManagerMenuPanel->Visible = false;
+	SearchPanel->Visible = true;
+	SearchLabel->Text = "Search Customer";
+	radioButton2->Text = "Account";
 }
+
+
+private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
 
 private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/* || Key == "FromKyc"*/ )
@@ -1588,7 +1450,7 @@ private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::Eve
 		FromAccount = false;
 		Account^ Form = gcnew Account(this,  Accountcustxt->Text,Key);
 
-<<<<<<< HEAD
+
 private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
 	FromDeposit = false;
 	FromWithdraw = false;
@@ -1636,9 +1498,7 @@ private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::Eve
 
 	}
 
-	
 
-=======
 		Form->Show();
 		this->Hide();
 
@@ -1662,25 +1522,20 @@ private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::Eve
 
 	}
 
->>>>>>> parent of 5ca87be (transaction change)
-	
-}
-private: System::Void Accountcancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	ManagerMenuPanel->Visible = true;
-	Accountpanelcus->Visible = false;
-}
-private: System::Void Withdrawbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 
-	HideAllSubMenu();
-	transactionpanel->Visible = true;
-	Withdrawpanel->Location.X = 240;
-	Withdrawpanel->Location.Y = 170;
-	Withdrawpanel->Visible = true;
+	
+	Key = "FromDetail Customer";
+	ManagerMenuPanel->Visible = false;
+	SearchPanel->Visible = true;
+	SearchLabel->Text = "Search Customer";
+	radioButton2->Text = "Account";
 }
+
+
 private: System::Void Bypassbookbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	FromWithdraw = true;
 	FromDeposit = false;
-	Accountpanelcus->Visible = true;
+	SearchPanel->Visible = true;
 
 }
 private: System::Void custransactionbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
@@ -1689,24 +1544,20 @@ private: System::Void custransactionbtn_MouseHover(System::Object^ sender, Syste
 	transactionpanel->Visible = true;
 }
 
-private: System::Void Depositbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 
-	HideAllSubMenu();
-	transactionpanel->Visible = true;
-	Depositpanel->Location.X = 240;
-	Depositpanel->Location.Y = 210;
-	Depositpanel->Visible = true;
-}
 private: System::Void Bycashdepositbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	FromDeposit = true;
 	FromWithdraw = false;
-	Accountpanelcus->Visible = true;
+	SearchPanel->Visible = true;
 }
 
 
 private: System::Void Detailsbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	FromTransaction = true;
-	Accountpanelcus->Visible = true;
+	Key = "FromTransactionDetail";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "Account";
+	SearchLabel->Text = "Search Customer";
 }
 private: System::Void OtherServicesBtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1741,30 +1592,36 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void ApplyDebitCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Accountpanelcus->Visible = true;
+	SearchPanel->Visible = true;
 	Key = "FromDebitCard";
 }
 private: System::Void ApplyCreditCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Accountpanelcus->Visible = true;
+	SearchPanel->Visible = true;
 	Key = "FromCreditCard";
 }
 private: System::Void ApplyChequeBookBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Accountpanelcus->Visible = true;
+	SearchPanel->Visible = true;
 	Key = "FromChequeBook";
 }
 private: System::Void UpdateMobileBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Searchsuppcuspanel->Visible = true;
+	SearchPanel->Visible = true;
 	Key = "FromUpdateMob";
 }
 private: System::Void UpdateKycBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Searchsuppcuspanel->Visible = true;
+	SearchPanel->Visible = true;
 	/* Accountpanelcus->Visible = true;*/
 	Key = "FromKyc";
 }
 private: System::Void Withdrawbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Key = "FromWithdraw";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "Account";
+	SearchLabel->Text = "Search Customer";
 }
 private: System::Void ManagerMenu_Load(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -1785,8 +1642,11 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 }
 private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
-	RadioBtn = "Username";
-	SearchLabel->Text = "Enter ID";
+	if (Key == "FromDelete Employee" || Key == "FromSearch Employee" || Key == "FromEdit Employee")
+		RadioBtn = "Username";
+	else
+		RadioBtn = "Accountno";
+	SearchLabel->Text = "Enter Account";
 	SearchTextBox->Focus();
 }
 private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -1797,25 +1657,58 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 }
 private: System::Void Deleteemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Key = "FromDelete";
+	Key = "FromDelete Employee";
 	SearchPanel->Visible = true;
 	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "ID";
 	SearchTextBox->Focus();
+	
 }
 private: System::Void Editemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Key = "FromEdit";
+	Key = "FromEdit Employee";
 	SearchPanel->Visible = true;
 	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "ID";
 	SearchTextBox->Focus();
-<<<<<<< HEAD
+
+	
+}
+private: System::Void Deletecustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Key = "FromDelete Customer";
+	ManagerMenuPanel->Visible = false;
+	SearchPanel->Visible = true;
+	SearchLabel->Text = "Search Customer";
+	radioButton2->Text = "Account";
+}
+private: System::Void Depositbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Key = "FromDeposit";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "Account";
+	SearchLabel->Text = "Search Customer";
+}
+private: System::Void Statementbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Key = "FromStatement";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "Account";
+	SearchLabel->Text = "Search Customer";
 }
 private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	FromWithdraw = true;
 	FromDeposit = false;
 	Accountpanelcus->Visible = true;
-=======
->>>>>>> parent of 5ca87be (transaction change)
+
+}
+private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	FromWithdraw = true;
+	FromDeposit = false;
+	Accountpanelcus->Visible = true;
+
 }
 };
 }
