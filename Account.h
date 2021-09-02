@@ -22,7 +22,7 @@ namespace bankingmanagement {
 	public:
 		Form^ ManagerMEnu;
 		String^ Data;
-<<<<<<< HEAD
+
 		String^ Key, ^RadioBtn;
 		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
@@ -31,13 +31,13 @@ namespace bankingmanagement {
 	public:
 
 
-=======
+
 		bool FromWithdraw;
 		bool FromDeposit;
 		String^ Key;
 		bool FromCardWithdraw;
 		
->>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
+
 
 	public:
 	private: System::Windows::Forms::Button^ Cancelproceedbtn;
@@ -94,8 +94,8 @@ namespace bankingmanagement {
 			//
 		}
 
-<<<<<<< HEAD
-=======
+
+
 		Account(Form^ obj, String^ data, bool tempcard)
 		{
 
@@ -107,7 +107,7 @@ namespace bankingmanagement {
 			//TODO: Add the constructor code here
 			//
 		}
->>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
+
 
 		Account(Form^ obj, String^ data, bool tempcard)
 		{
