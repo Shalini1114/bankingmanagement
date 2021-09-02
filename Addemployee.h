@@ -439,7 +439,7 @@ namespace bankingmanagement {
 	public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
 	{
 		String^ number;
-		String^ Query = "SELECT COUNT(" + DBVariableName + ") FROM " + TableName + " ";
+		Query = "SELECT COUNT(" + DBVariableName + ") FROM " + TableName + " ";
 		MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 		MySqlDataReader^ reader;
 		Connect->Open();
@@ -462,7 +462,7 @@ namespace bankingmanagement {
 	}
 	private: System::Void Addemployee_Load(System::Object^ sender, System::EventArgs^ e) {
 
-		if (Key == "FromSearch" || Key == "FromDelete" || Key == "FromEdit")
+		if (Key == "FromSearch Employee" || Key == "FromDelete Employee" || Key == "FromEdit Employee")
 		{
 			Query = "select * from Banking.Employee where " + RadioBtn + " = '" + Data + "'";
 
@@ -507,8 +507,7 @@ namespace bankingmanagement {
 
 			}
 		}
-		
-		if (Key == "FromSearch")
+		if (Key == "FromSearch Employee")
 		{
 			Submitempbtn->Visible = false;
 			Cancelempbtn->Visible = false;
@@ -516,23 +515,29 @@ namespace bankingmanagement {
 			Employeelabel->Text = "Employee Details";
 
 		}
-		else if(Key == "FromEdit")
+		else if(Key == "FromEdit Employee")
 		{
 
 
 			Submitempbtn->Text = "UPDATE";
 			Cancelempbtn->Visible = true;
 			Employeelabel->Text = "EDIT EMPLOYEE DETAILS";
+			Nameemptxt->Enabled = true;
+			Fathernameemptxt->Enabled = true;
+			Mobemptxt->Enabled = true;
+			Emailemptxt->Enabled = true;
+			Dobemp->Enabled = true;
+			Addressemptxt->Enabled = true;
 			
 		}
-		else if (Key = "FromDelete")
+		else if (Key == "FromDelete Employee")
 		{
 			Submitempbtn->Text = "DELETE";
 			Cancelempbtn->Visible = true;
 			Employeelabel->Text = "DELETE EMPLOYEE DETAILS";
 			OKempbtn->Visible = false;
 		}
-		else if(Key == "FromAdd")
+		else if(Key == "FromAdd Employee")
 		{
 			Submitempbtn->Text = "Submit";
 			Submitempbtn->Visible = true;
@@ -565,7 +570,7 @@ namespace bankingmanagement {
 		   
 	private: System::Void Submitempbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if(Key == "FromEdit")
+		if(Key == "FromEdit Employee")
 		{
 			
 			Query = "update Banking.Employee set Name='" + Nameemptxt->Text + "',  Father='" + Fathernameemptxt->Text + "', Mob='" + Mobemptxt->Text + "', Email='" + Emailemptxt->Text + "', Dob='" + Dobemp->Text + "', Address='" + Addressemptxt->Text + "' WHERE "+RadioBtn+" = '" + Data + "'";
@@ -592,7 +597,7 @@ namespace bankingmanagement {
 			}
 
 		}
-		else if (Key == "FromDelete")
+		else if (Key == "FromDelete Employee")
 		  {
 			
 			Query = "delete from Banking.Employee WHERE "+RadioBtn+" = '" + Data + "'";
