@@ -1198,7 +1198,7 @@ namespace bankingmanagement {
 
 			else if (Okaccbtn->Text == "Proceed")
 			{
-				Proceedpanel->Visible = true;
+				//Proceedpanel->Visible = true;
 				Okaccbtn->Enabled = false;
 				Cancelaccbtn->Enabled = false;
 			}
