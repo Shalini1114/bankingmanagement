@@ -24,7 +24,7 @@ namespace bankingmanagement {
 		String^ Data, ^Key, ^RadioBtn;
 		
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 
@@ -530,15 +530,15 @@ namespace bankingmanagement {
 			Addressemptxt->Enabled = true;
 			
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		else if (Key == "FromDelete Employee")
-=======
+
 		else if (Key == "FromDelete")
->>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
-=======
+
 		else if (Key == "FromDelete")
->>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
+
+		else if (Key = "FromDelete")
+
 		{
 			Submitempbtn->Text = "DELETE";
 			Cancelempbtn->Visible = true;
