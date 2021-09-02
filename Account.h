@@ -26,7 +26,10 @@ namespace bankingmanagement {
 		bool FromWithdraw;
 		bool FromDeposit;
 		String^ Key;
+<<<<<<< HEAD
 		bool FromCardWithdraw;
+=======
+>>>>>>> parent of 5ca87be (transaction change)
 		
 
 	private: System::Windows::Forms::Panel^ Proceedpanel;
@@ -100,6 +103,7 @@ namespace bankingmanagement {
 			//
 		}
 
+<<<<<<< HEAD
 		Account(Form^ obj, String^ data, bool tempcard)
 		{
 
@@ -112,6 +116,8 @@ namespace bankingmanagement {
 			//
 		}
 
+=======
+>>>>>>> parent of 5ca87be (transaction change)
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.

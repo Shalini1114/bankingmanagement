@@ -19,7 +19,11 @@
 	public ref class ManagerMenu : public System::Windows::Forms::Form
 	{
 	public:
+<<<<<<< HEAD
 		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
+=======
+		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction;
+>>>>>>> parent of 5ca87be (transaction change)
 	private: System::Windows::Forms::Panel^ Searchsuppcuspanel;
 	public:
 	private: System::Windows::Forms::Button^ Cancelcusbtn;
@@ -758,7 +762,11 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Accountpanelcus->Controls->Add(this->Accountcustxt);
 			this->Accountpanelcus->Controls->Add(this->label3);
 			this->Accountpanelcus->Controls->Add(this->label5);
+<<<<<<< HEAD
 			this->Accountpanelcus->Location = System::Drawing::Point(505, 494);
+=======
+			this->Accountpanelcus->Location = System::Drawing::Point(422, 325);
+>>>>>>> parent of 5ca87be (transaction change)
 			this->Accountpanelcus->Name = L"Accountpanelcus";
 			this->Accountpanelcus->Size = System::Drawing::Size(374, 153);
 			this->Accountpanelcus->TabIndex = 9;
@@ -1294,6 +1302,10 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Controls->Add(this->SearchPanel);
 			this->Controls->Add(this->ViewIdPassPanel);
 			this->Controls->Add(this->Searchsuppcuspanel);
+<<<<<<< HEAD
+=======
+			this->Controls->Add(this->Accountpanelcus);
+>>>>>>> parent of 5ca87be (transaction change)
 			this->Controls->Add(this->Withdrawpanel);
 			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
@@ -1534,6 +1546,21 @@ private: System::Void Deletecustomerbtn_MouseHover(System::Object^ sender, Syste
 	FromEdit = false;
 	FromDetail = false;
 	FromDelete = true;
+<<<<<<< HEAD
+}
+private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	HideAllSubMenu();
+	Customerpanel->Visible = true;
+	Searchcuspanel->Visible = true;
+	Searchcuspanel->Location.X = 240;
+	Searchcuspanel->Location.Y = 170;
+	FromEdit = true;
+	FromDetail = false;
+	FromDelete = false;
+}
+private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+=======
+>>>>>>> parent of 5ca87be (transaction change)
 }
 private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	HideAllSubMenu();
@@ -1548,6 +1575,20 @@ private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System:
 private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 
+private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
+	FromDeposit = false;
+	FromWithdraw = false;
+	FromAccount = true;
+	Accountpanelcus->Visible = true;
+}
+
+private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/* || Key == "FromKyc"*/ )
+	{
+		FromAccount = false;
+		Account^ Form = gcnew Account(this,  Accountcustxt->Text,Key);
+
+<<<<<<< HEAD
 private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
 	FromDeposit = false;
 	FromWithdraw = false;
@@ -1597,6 +1638,31 @@ private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::Eve
 
 	
 
+=======
+		Form->Show();
+		this->Hide();
+
+	}
+	if(FromWithdraw==true||FromDeposit==true||FromAccount==true)
+	{
+		FromAccount = true;
+		Account^ Form = gcnew Account(this, FromAccount, Accountcustxt->Text, FromWithdraw, FromDeposit);
+
+		Form->Show();
+		this->Hide();
+	
+	}
+	else if(FromTransaction)
+	{
+		FromTransaction = true;
+		Transaction^ Form = gcnew Transaction(this, FromTransaction, Accountcustxt->Text);
+		Form->Show();
+		this->Hide();
+
+
+	}
+
+>>>>>>> parent of 5ca87be (transaction change)
 	
 }
 private: System::Void Accountcancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1742,11 +1808,14 @@ private: System::Void Editemployeebtn_Click(System::Object^ sender, System::Even
 	SearchPanel->Visible = true;
 	ManagerMenuPanel->Visible = false;
 	SearchTextBox->Focus();
+<<<<<<< HEAD
 }
 private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	FromWithdraw = true;
 	FromDeposit = false;
 	Accountpanelcus->Visible = true;
+=======
+>>>>>>> parent of 5ca87be (transaction change)
 }
 };
 }
