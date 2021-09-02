@@ -21,17 +21,21 @@ namespace bankingmanagement {
 	{
 	public:
 		Form^ ManagerMEnu;
+		bool FromAccount;
 		String^ Data;
 		bool FromWithdraw;
 		bool FromDeposit;
 		String^ Key;
+<<<<<<< HEAD
+		bool FromCardWithdraw;
+=======
+>>>>>>> parent of 5ca87be (transaction change)
 		
 
-
+	private: System::Windows::Forms::Panel^ Proceedpanel;
 	public:
 	private: System::Windows::Forms::Button^ Cancelproceedbtn;
-	private: System::Windows::Forms::Button^ ProceedBtn;
-
+	private: System::Windows::Forms::Button^ Proceedproceedbtn;
 	private: System::Windows::Forms::TextBox^ Ammounttxt;
 	private: System::Windows::Forms::TextBox^ DescriptionTxt;
 	private: System::Windows::Forms::Label^ label15;
@@ -51,11 +55,6 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::Button^ CardOkBtn;
 	private: System::Windows::Forms::Label^ Amountlimit;
 	private: System::Windows::Forms::Label^ Amountlimitlabel;
-	private: System::Windows::Forms::ComboBox^ TransactionBy;
-
-	private: System::Windows::Forms::ComboBox^ TransactionType;
-
-	private: System::Windows::Forms::Label^ label17;
 
 
 	private: System::Windows::Forms::Label^ label14;
@@ -70,19 +69,55 @@ namespace bankingmanagement {
 			//TODO: Add the constructor code here
 			//
 		}
-		Account(Form^ obj, String^ data, String^ key, String^ radiobtn)
+		Account(Form^ obj, bool temp)
 		{
-			
-			InitializeComponent();
 			ManagerMEnu = obj;
-			Data = data;
-			Key = key;
-			RadioBtn = radiobtn;
+			FromAccount = temp;
+			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
 		}
 
+		Account(Form^ obj, bool temp, String^ str, bool withtemp, bool deposittemp)
+		{
+			ManagerMEnu = obj;
+			FromAccount = temp;
+			Data = str;
+			FromWithdraw = withtemp;
+			FromDeposit = deposittemp;
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		Account(Form^obj,String^ data,String^ key)
+		{
+
+			InitializeComponent();
+			ManagerMEnu = obj;
+			Data = data;
+			Key = key;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+<<<<<<< HEAD
+		Account(Form^ obj, String^ data, bool tempcard)
+		{
+
+			InitializeComponent();
+			ManagerMEnu = obj;
+			Data = data;
+			FromCardWithdraw = tempcard;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+=======
+>>>>>>> parent of 5ca87be (transaction change)
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -163,11 +198,11 @@ namespace bankingmanagement {
 			this->Occupationtxt = (gcnew System::Windows::Forms::TextBox());
 			this->MICRCodetxt = (gcnew System::Windows::Forms::TextBox());
 			this->Addresstxt = (gcnew System::Windows::Forms::TextBox());
-			this->TransactionPanel = (gcnew System::Windows::Forms::Panel());
+			this->Proceedpanel = (gcnew System::Windows::Forms::Panel());
 			this->DescriptionTxt = (gcnew System::Windows::Forms::TextBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->Cancelproceedbtn = (gcnew System::Windows::Forms::Button());
-			this->ProceedBtn = (gcnew System::Windows::Forms::Button());
+			this->Proceedproceedbtn = (gcnew System::Windows::Forms::Button());
 			this->Ammounttxt = (gcnew System::Windows::Forms::TextBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->Cardpanel = (gcnew System::Windows::Forms::Panel());
@@ -182,10 +217,7 @@ namespace bankingmanagement {
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->cvv = (gcnew System::Windows::Forms::Label());
 			this->cardnumber = (gcnew System::Windows::Forms::Label());
-			this->label17 = (gcnew System::Windows::Forms::Label());
-			this->TransactionType = (gcnew System::Windows::Forms::ComboBox());
-			this->TransactionBy = (gcnew System::Windows::Forms::ComboBox());
-			this->TransactionPanel->SuspendLayout();
+			this->Proceedpanel->SuspendLayout();
 			this->Cardpanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -494,97 +526,95 @@ namespace bankingmanagement {
 			this->Addresstxt->Size = System::Drawing::Size(207, 23);
 			this->Addresstxt->TabIndex = 25;
 			// 
-			// TransactionPanel
+			// Proceedpanel
 			// 
-			this->TransactionPanel->BackColor = System::Drawing::Color::Cornsilk;
-			this->TransactionPanel->Controls->Add(this->TransactionBy);
-			this->TransactionPanel->Controls->Add(this->TransactionType);
-			this->TransactionPanel->Controls->Add(this->label17);
-			this->TransactionPanel->Controls->Add(this->DescriptionTxt);
-			this->TransactionPanel->Controls->Add(this->label15);
-			this->TransactionPanel->Controls->Add(this->Cancelproceedbtn);
-			this->TransactionPanel->Controls->Add(this->ProceedBtn);
-			this->TransactionPanel->Controls->Add(this->Ammounttxt);
-			this->TransactionPanel->Controls->Add(this->label14);
-			this->TransactionPanel->Location = System::Drawing::Point(250, 58);
-			this->TransactionPanel->Name = L"TransactionPanel";
-			this->TransactionPanel->Size = System::Drawing::Size(413, 296);
-			this->TransactionPanel->TabIndex = 26;
-			this->TransactionPanel->Visible = false;
+			this->Proceedpanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Proceedpanel->Controls->Add(this->DescriptionTxt);
+			this->Proceedpanel->Controls->Add(this->label15);
+			this->Proceedpanel->Controls->Add(this->Cancelproceedbtn);
+			this->Proceedpanel->Controls->Add(this->Proceedproceedbtn);
+			this->Proceedpanel->Controls->Add(this->Ammounttxt);
+			this->Proceedpanel->Controls->Add(this->label14);
+			this->Proceedpanel->Location = System::Drawing::Point(250, 91);
+			this->Proceedpanel->Name = L"Proceedpanel";
+			this->Proceedpanel->Size = System::Drawing::Size(413, 212);
+			this->Proceedpanel->TabIndex = 26;
+			this->Proceedpanel->Visible = false;
 			// 
 			// DescriptionTxt
 			// 
-			this->DescriptionTxt->BackColor = System::Drawing::Color::Purple;
-			this->DescriptionTxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->DescriptionTxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DescriptionTxt->ForeColor = System::Drawing::Color::Cornsilk;
-			this->DescriptionTxt->Location = System::Drawing::Point(210, 164);
+			this->DescriptionTxt->Location = System::Drawing::Point(254, 92);
 			this->DescriptionTxt->Name = L"DescriptionTxt";
-			this->DescriptionTxt->Size = System::Drawing::Size(165, 25);
+			this->DescriptionTxt->Size = System::Drawing::Size(123, 30);
 			this->DescriptionTxt->TabIndex = 20;
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->BackColor = System::Drawing::Color::Transparent;
-			this->label15->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label15->ForeColor = System::Drawing::Color::Purple;
-			this->label15->Location = System::Drawing::Point(23, 167);
+			this->label15->ForeColor = System::Drawing::Color::Yellow;
+			this->label15->Location = System::Drawing::Point(30, 92);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(104, 22);
+			this->label15->Size = System::Drawing::Size(109, 25);
 			this->label15->TabIndex = 19;
 			this->label15->Text = L"Description";
 			// 
 			// Cancelproceedbtn
 			// 
-			this->Cancelproceedbtn->BackColor = System::Drawing::Color::Purple;
-			this->Cancelproceedbtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Cancelproceedbtn->BackColor = System::Drawing::Color::Red;
+			this->Cancelproceedbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Cancelproceedbtn->ForeColor = System::Drawing::Color::Cornsilk;
-			this->Cancelproceedbtn->Location = System::Drawing::Point(375, 2);
+			this->Cancelproceedbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Cancelproceedbtn->Location = System::Drawing::Point(254, 171);
 			this->Cancelproceedbtn->Name = L"Cancelproceedbtn";
-			this->Cancelproceedbtn->Size = System::Drawing::Size(35, 33);
+			this->Cancelproceedbtn->Size = System::Drawing::Size(123, 33);
 			this->Cancelproceedbtn->TabIndex = 18;
-			this->Cancelproceedbtn->Text = L"X";
+			this->Cancelproceedbtn->Text = L"Cancel";
 			this->Cancelproceedbtn->UseVisualStyleBackColor = false;
 			this->Cancelproceedbtn->Click += gcnew System::EventHandler(this, &Account::Cancelproceedbtn_Click);
 			// 
-			// ProceedBtn
+			// Proceedproceedbtn
 			// 
-			this->ProceedBtn->BackColor = System::Drawing::Color::Purple;
-			this->ProceedBtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Proceedproceedbtn->BackColor = System::Drawing::Color::Red;
+			this->Proceedproceedbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->ProceedBtn->ForeColor = System::Drawing::Color::Cornsilk;
-			this->ProceedBtn->Location = System::Drawing::Point(136, 247);
-			this->ProceedBtn->Name = L"ProceedBtn";
-			this->ProceedBtn->Size = System::Drawing::Size(123, 33);
-			this->ProceedBtn->TabIndex = 17;
-			this->ProceedBtn->Text = L"Proceed";
-			this->ProceedBtn->UseVisualStyleBackColor = false;
-			this->ProceedBtn->Click += gcnew System::EventHandler(this, &Account::ProceedBtn_Click);
+			this->Proceedproceedbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Proceedproceedbtn->Location = System::Drawing::Point(35, 171);
+			this->Proceedproceedbtn->Name = L"Proceedproceedbtn";
+			this->Proceedproceedbtn->Size = System::Drawing::Size(123, 33);
+			this->Proceedproceedbtn->TabIndex = 17;
+			this->Proceedproceedbtn->Text = L"Proceed";
+			this->Proceedproceedbtn->UseVisualStyleBackColor = false;
+			this->Proceedproceedbtn->Click += gcnew System::EventHandler(this, &Account::Proceedproceedbtn_Click);
 			// 
 			// Ammounttxt
 			// 
-			this->Ammounttxt->BackColor = System::Drawing::Color::Purple;
-			this->Ammounttxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Ammounttxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Ammounttxt->ForeColor = System::Drawing::Color::Cornsilk;
-			this->Ammounttxt->Location = System::Drawing::Point(210, 119);
+			this->Ammounttxt->Location = System::Drawing::Point(280, 35);
 			this->Ammounttxt->Name = L"Ammounttxt";
-			this->Ammounttxt->Size = System::Drawing::Size(79, 25);
+			this->Ammounttxt->Size = System::Drawing::Size(79, 30);
 			this->Ammounttxt->TabIndex = 16;
 			// 
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->BackColor = System::Drawing::Color::Transparent;
-			this->label14->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label14->ForeColor = System::Drawing::Color::Purple;
-			this->label14->Location = System::Drawing::Point(23, 119);
+			this->label14->ForeColor = System::Drawing::Color::Yellow;
+			this->label14->Location = System::Drawing::Point(30, 35);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(142, 22);
+			this->label14->Size = System::Drawing::Size(147, 25);
 			this->label14->TabIndex = 9;
 			this->label14->Text = L"Enter Ammount";
 			// 
@@ -756,47 +786,6 @@ namespace bankingmanagement {
 			this->cardnumber->TabIndex = 6;
 			this->cardnumber->Text = L"Cardnumber";
 			// 
-			// label17
-			// 
-			this->label17->AutoSize = true;
-			this->label17->BackColor = System::Drawing::Color::Transparent;
-			this->label17->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 25, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label17->ForeColor = System::Drawing::Color::Purple;
-			this->label17->Location = System::Drawing::Point(132, 14);
-			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(179, 35);
-			this->label17->TabIndex = 21;
-			this->label17->Text = L"Transaction";
-			// 
-			// TransactionType
-			// 
-			this->TransactionType->BackColor = System::Drawing::Color::Purple;
-			this->TransactionType->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->TransactionType->ForeColor = System::Drawing::Color::Cornsilk;
-			this->TransactionType->FormattingEnabled = true;
-			this->TransactionType->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Withdraw", L"Deposit" });
-			this->TransactionType->Location = System::Drawing::Point(27, 71);
-			this->TransactionType->Name = L"TransactionType";
-			this->TransactionType->Size = System::Drawing::Size(180, 25);
-			this->TransactionType->TabIndex = 22;
-			this->TransactionType->Text = L"Select Transaction Type";
-			// 
-			// TransactionBy
-			// 
-			this->TransactionBy->BackColor = System::Drawing::Color::Purple;
-			this->TransactionBy->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->TransactionBy->ForeColor = System::Drawing::Color::Cornsilk;
-			this->TransactionBy->FormattingEnabled = true;
-			this->TransactionBy->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Cash", L"Card", L"Cheque" });
-			this->TransactionBy->Location = System::Drawing::Point(231, 71);
-			this->TransactionBy->Name = L"TransactionBy";
-			this->TransactionBy->Size = System::Drawing::Size(159, 25);
-			this->TransactionBy->TabIndex = 22;
-			this->TransactionBy->Text = L"Select Transaction By";
-			// 
 			// Account
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -804,8 +793,8 @@ namespace bankingmanagement {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(936, 557);
-			this->Controls->Add(this->TransactionPanel);
 			this->Controls->Add(this->Cardpanel);
+			this->Controls->Add(this->Proceedpanel);
 			this->Controls->Add(this->Addresstxt);
 			this->Controls->Add(this->MICRCodetxt);
 			this->Controls->Add(this->Occupationtxt);
@@ -836,8 +825,8 @@ namespace bankingmanagement {
 			this->Text = L"Account";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &Account::Account_Load);
-			this->TransactionPanel->ResumeLayout(false);
-			this->TransactionPanel->PerformLayout();
+			this->Proceedpanel->ResumeLayout(false);
+			this->Proceedpanel->PerformLayout();
 			this->Cardpanel->ResumeLayout(false);
 			this->Cardpanel->PerformLayout();
 			this->ResumeLayout(false);
@@ -872,20 +861,40 @@ namespace bankingmanagement {
 			return number;
 		}
 	private: System::Void Account_Load(System::Object^ sender, System::EventArgs^ e) {
+		bool Dataexist = false;
 
-		if (Key == "FromDetail Customer" || Key == "FromWithdraw" || Key == "FromDeposit" || Key == "FromTransactionDetail" || Key == "FromStatement" || Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/*|| Key=="FromKyc"*/)
+		if (FromAccount == true|| Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/*|| Key=="FromKyc"*/)
 		{
+			if (FromAccount==true)
+			{ 
+				Cancelaccbtn->Visible = false;
+				Okaccbtn->Visible = true;
+			}
+
+			else if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/*|| Key == "FromKyc"*/ )
+			{
+				FromAccount = false;
+				Okaccbtn->Text = "Proceed";
+				Cancelaccbtn->Visible = true;
+
+			}
+
 			
-			
-			Query = "select * from Banking.Account  where "+RadioBtn+" ='" + Data + "'";
+
+
+			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
+
+			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+			String^ Query;
+			Query = "select * from Banking.Account  where Accountno ='" + Data + "'";
 
 			// Checking data into database.
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-			
+			MySqlDataReader^ reader;
 			try
 			{
 				Connect->Open();
-				MySqlDataReader^ reader = cmd->ExecuteReader();
+				reader = cmd->ExecuteReader();
 				while (reader->Read())
 				{
 
@@ -912,32 +921,39 @@ namespace bankingmanagement {
 					MICRCodetxt->Enabled = false;
 					Addresstxt->Enabled = false;
 
+					Dataexist = true;
+					if (FromWithdraw == true||FromDeposit==true)
+					{
+
+						Okaccbtn->Text = "Proceed";
+						Cancelaccbtn->Visible = true;
+					}
+
+				
+					
+					
+
+
+
 				}
 				Connect->Close();
-				
+				if (!Dataexist)
+					MessageBox::Show("Data Not Found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+
 
 			}
 			catch (Exception^ ex)
 			{
-				Connect->Close();
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				this->Close();
 				ManagerMEnu->Show();
 
 			}
 		}
-		if (Key == "FromDetail Customer")
-		{
-			Cancelaccbtn->Visible = false;
-			Okaccbtn->Visible = true;
-		}
-		else if (Key == "FromWithdraw" || Key == "FromDeposit" || Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
-		{
 
-			Okaccbtn->Text = "Proceed";
-			Cancelaccbtn->Visible = true;
-		}
-		
+
+
+
 	}
 	private: System::Void Cancelaccbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (MessageBox::Show("Are you sure want to cancel ?", "Warning", MessageBoxButtons::YesNo,
@@ -1157,13 +1173,7 @@ namespace bankingmanagement {
 
 
 		}
-		else if (Key == "FromDetail Customer")
-		{
-			ManagerMEnu->Show();
-			this->Close();
-		}
-		
-}
+	}
 	private: System::Void Cancelproceedbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (MessageBox::Show("Are you sure want to cancel ?", "Warning", MessageBoxButtons::YesNo,
 			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
@@ -1173,7 +1183,7 @@ namespace bankingmanagement {
 
 		}
 	}
-	private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void Proceedproceedbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		int Balance = System::Convert::ToInt16(Accountbalancetxt->Text);
 		int Amount = System::Convert::ToInt16(Ammounttxt->Text);
 		if (FromWithdraw) {
