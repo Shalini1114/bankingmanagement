@@ -599,7 +599,7 @@ private: System::Void Submitcusbtn_Click(System::Object^ sender, System::EventAr
 			{
 				customerid += GenerateNumber("Banking.Account", "Customerid");
 				password += GenerateNumber("Banking.Customer", "Password");
-				accountno += GenerateNumber("Banking.Customer", "Accountno");
+				accountno += GenerateNumber("Banking.Account", "Accountno");
 			}
 			catch (Exception^ ex)
 			{

@@ -19,7 +19,12 @@
 	public ref class ManagerMenu : public System::Windows::Forms::Form
 	{
 	public:
+<<<<<<< HEAD
 
+=======
+		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
+	private: System::Windows::Forms::Panel^ Searchsuppcuspanel;
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 	public:
 
 
@@ -90,7 +95,7 @@
 
 
 		   String^ Key, ^RadioBtn = "Name";
-		   String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		   String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		   MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		   String^ Query;
 
@@ -598,6 +603,78 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->custransactionbtn->UseVisualStyleBackColor = false;
 			this->custransactionbtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::custransactionbtn_MouseHover);
 			// 
+<<<<<<< HEAD
+=======
+			// Accountpanelcus
+			// 
+			this->Accountpanelcus->BackColor = System::Drawing::Color::Aqua;
+			this->Accountpanelcus->Controls->Add(this->Accountcancelbtn);
+			this->Accountpanelcus->Controls->Add(this->Accountsearchbtn);
+			this->Accountpanelcus->Controls->Add(this->Accountcustxt);
+			this->Accountpanelcus->Controls->Add(this->label3);
+			this->Accountpanelcus->Controls->Add(this->label5);
+			this->Accountpanelcus->Location = System::Drawing::Point(505, 494);
+			this->Accountpanelcus->Name = L"Accountpanelcus";
+			this->Accountpanelcus->Size = System::Drawing::Size(374, 153);
+			this->Accountpanelcus->TabIndex = 9;
+			this->Accountpanelcus->Visible = false;
+			// 
+			// Accountcancelbtn
+			// 
+			this->Accountcancelbtn->Location = System::Drawing::Point(239, 122);
+			this->Accountcancelbtn->Name = L"Accountcancelbtn";
+			this->Accountcancelbtn->Size = System::Drawing::Size(75, 23);
+			this->Accountcancelbtn->TabIndex = 5;
+			this->Accountcancelbtn->Text = L"Cancel";
+			this->Accountcancelbtn->UseVisualStyleBackColor = true;
+			this->Accountcancelbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Accountcancelbtn_Click);
+			// 
+			// Accountsearchbtn
+			// 
+			this->Accountsearchbtn->Location = System::Drawing::Point(39, 124);
+			this->Accountsearchbtn->Name = L"Accountsearchbtn";
+			this->Accountsearchbtn->Size = System::Drawing::Size(75, 23);
+			this->Accountsearchbtn->TabIndex = 4;
+			this->Accountsearchbtn->Text = L"Search";
+			this->Accountsearchbtn->UseVisualStyleBackColor = true;
+			this->Accountsearchbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Accountsearchbtn_Click);
+			// 
+			// Accountcustxt
+			// 
+			this->Accountcustxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Accountcustxt->Location = System::Drawing::Point(140, 70);
+			this->Accountcustxt->Name = L"Accountcustxt";
+			this->Accountcustxt->Size = System::Drawing::Size(221, 32);
+			this->Accountcustxt->TabIndex = 3;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(3, 74);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(125, 24);
+			this->label3->TabIndex = 2;
+			this->label3->Text = L"Enter Acc no.";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(66, 13);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(267, 29);
+			this->label5->TabIndex = 0;
+			this->label5->Text = L"Account Information";
+			// 
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 			// transactionpanel
 			// 
 			this->transactionpanel->AutoSize = true;
@@ -686,7 +763,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Withdrawpanel->Controls->Add(this->Bypassbookbtn);
 			this->Withdrawpanel->Controls->Add(this->Bycardbtn);
 			this->Withdrawpanel->Controls->Add(this->Bycheckbtn);
-			this->Withdrawpanel->Location = System::Drawing::Point(742, 12);
+			this->Withdrawpanel->Location = System::Drawing::Point(246, 476);
 			this->Withdrawpanel->Name = L"Withdrawpanel";
 			this->Withdrawpanel->Size = System::Drawing::Size(215, 122);
 			this->Withdrawpanel->TabIndex = 11;
@@ -722,6 +799,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Bycardbtn->TabIndex = 3;
 			this->Bycardbtn->Text = L"By card";
 			this->Bycardbtn->UseVisualStyleBackColor = false;
+			this->Bycardbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bycardbtn_Click);
 			// 
 			// Bycheckbtn
 			// 
@@ -1068,8 +1146,13 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1149, 720);
+			this->Controls->Add(this->Accountpanelcus);
 			this->Controls->Add(this->SearchPanel);
 			this->Controls->Add(this->ViewIdPassPanel);
+<<<<<<< HEAD
+=======
+			this->Controls->Add(this->Searchsuppcuspanel);
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 			this->Controls->Add(this->Withdrawpanel);
 			this->Controls->Add(this->ManagerMenuPanel);
 			this->Controls->Add(this->Depositpanel);
@@ -1312,7 +1395,52 @@ private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::Even
 	radioButton2->Text = "Account";
 }
 
+<<<<<<< HEAD
 private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
+=======
+private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/* || Key == "FromKyc"*/ )
+	{
+		FromAccount = false;
+		Account^ Form = gcnew Account(this,  Accountcustxt->Text,Key);
+
+		Form->Show();
+		this->Hide();
+
+	}
+	if(FromWithdraw==true||FromDeposit==true||FromAccount==true)
+	{
+		FromAccount = true;
+		Account^ Form = gcnew Account(this, FromAccount, Accountcustxt->Text, FromWithdraw, FromDeposit);
+
+		Form->Show();
+		this->Hide();
+	
+	}
+	else if(FromTransaction)
+	{
+		FromTransaction = true;
+		Transaction^ Form = gcnew Transaction(this, FromTransaction, Accountcustxt->Text);
+		Form->Show();
+		this->Hide();
+
+
+	}
+
+
+	else if (FromCardWithdraw)
+	{
+		FromCardWithdraw = true;
+		Account^ Form = gcnew Account(this, Accountcustxt->Text, FromCardWithdraw);
+
+		Form->Show();
+		this->Hide();
+
+	}
+
+	
+
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 	
 	Key = "FromDetail Customer";
 	ManagerMenuPanel->Visible = false;
@@ -1486,6 +1614,11 @@ private: System::Void Statementbtn_Click(System::Object^ sender, System::EventAr
 	ManagerMenuPanel->Visible = false;
 	radioButton2->Text = "Account";
 	SearchLabel->Text = "Search Customer";
+}
+private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	FromWithdraw = true;
+	FromDeposit = false;
+	Accountpanelcus->Visible = true;
 }
 };
 }

@@ -22,6 +22,7 @@ namespace bankingmanagement {
 	public:
 		Form^ ManagerMEnu;
 		String^ Data;
+<<<<<<< HEAD
 		String^ Key, ^RadioBtn;
 		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
@@ -30,6 +31,13 @@ namespace bankingmanagement {
 	public:
 
 
+=======
+		bool FromWithdraw;
+		bool FromDeposit;
+		String^ Key;
+		bool FromCardWithdraw;
+		
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 
 	public:
 	private: System::Windows::Forms::Button^ Cancelproceedbtn;
@@ -86,6 +94,20 @@ namespace bankingmanagement {
 			//
 		}
 
+<<<<<<< HEAD
+=======
+		Account(Form^ obj, String^ data, bool tempcard)
+		{
+
+			InitializeComponent();
+			ManagerMEnu = obj;
+			Data = data;
+			FromCardWithdraw = tempcard;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+>>>>>>> e0d897cad6673219bae35bd401b0a47c442383a7
 
 	protected:
 		/// <summary>
@@ -954,7 +976,7 @@ namespace bankingmanagement {
 	}
 	private: System::Void Okaccbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" /*|| Key == "FromKyc"*/)
+		if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook" )
 		{
 			if (Key == "FromDebitCard")
 			{
@@ -1133,16 +1155,16 @@ namespace bankingmanagement {
 
 				}*/
 
-			/*else if (Key == "FromKyc")
-			{
+			else if (FromCardWithdraw)
+	         {
+	            FromCardWithdraw = true;
 
-			   Kyc^ MENu = gcnew Kyc (this,Key,Accountholdertxt->Text,Accountnotxt->Text);
-			   MENu->Show();
-			   this->Hide();
 
-			}
 
-*/
+
+	         }
+
+			
 
 
 			else if (Okaccbtn->Text == "Proceed")
