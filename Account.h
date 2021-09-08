@@ -32,11 +32,7 @@ namespace bankingmanagement {
 
 
 
-		bool FromWithdraw;
-		bool FromDeposit;
-		String^ Key;
-
-		bool FromCardWithdraw;
+		
 
 
 		
@@ -70,6 +66,17 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::ComboBox^ TransactionType;
 
 	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::TextBox^ PinTextBox;
+
+	private: System::Windows::Forms::Label^ PinLabel;
+
+	private: System::Windows::Forms::TextBox^ TransactionTypeTextBox;
+
+	private: System::Windows::Forms::Label^ TransactionTypeLabel;
+	private: System::Windows::Forms::Panel^ MessagePanel;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Label^ MessageLabel;
+
 
 
 	private: System::Windows::Forms::Label^ label14;
@@ -99,43 +106,7 @@ namespace bankingmanagement {
 
 
 
-		Account(Form^ obj, String^ data, bool tempcard)
-		{
-
-			InitializeComponent();
-			ManagerMEnu = obj;
-			Data = data;
-			FromCardWithdraw = tempcard;
-			//
-			//TODO: Add the constructor code here
-			//
-		}
-
-
-		Account(Form^ obj, String^ data, bool tempcard)
-		{
-
-			InitializeComponent();
-			ManagerMEnu = obj;
-			Data = data;
-			FromCardWithdraw = tempcard;
-			//
-			//TODO: Add the constructor code here
-			//
-		}
-
-
-		Account(Form^ obj, String^ data, bool tempcard)
-		{
-
-			InitializeComponent();
-			ManagerMEnu = obj;
-			Data = data;
-			FromCardWithdraw = tempcard;
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+		
 
 
 	protected:
@@ -219,6 +190,13 @@ namespace bankingmanagement {
 			this->MICRCodetxt = (gcnew System::Windows::Forms::TextBox());
 			this->Addresstxt = (gcnew System::Windows::Forms::TextBox());
 			this->TransactionPanel = (gcnew System::Windows::Forms::Panel());
+			this->PinTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->PinLabel = (gcnew System::Windows::Forms::Label());
+			this->TransactionTypeTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->TransactionTypeLabel = (gcnew System::Windows::Forms::Label());
+			this->TransactionBy = (gcnew System::Windows::Forms::ComboBox());
+			this->TransactionType = (gcnew System::Windows::Forms::ComboBox());
+			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->DescriptionTxt = (gcnew System::Windows::Forms::TextBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->Cancelproceedbtn = (gcnew System::Windows::Forms::Button());
@@ -237,11 +215,12 @@ namespace bankingmanagement {
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->cvv = (gcnew System::Windows::Forms::Label());
 			this->cardnumber = (gcnew System::Windows::Forms::Label());
-			this->label17 = (gcnew System::Windows::Forms::Label());
-			this->TransactionType = (gcnew System::Windows::Forms::ComboBox());
-			this->TransactionBy = (gcnew System::Windows::Forms::ComboBox());
+			this->MessagePanel = (gcnew System::Windows::Forms::Panel());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->MessageLabel = (gcnew System::Windows::Forms::Label());
 			this->TransactionPanel->SuspendLayout();
 			this->Cardpanel->SuspendLayout();
+			this->MessagePanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -552,6 +531,10 @@ namespace bankingmanagement {
 			// TransactionPanel
 			// 
 			this->TransactionPanel->BackColor = System::Drawing::Color::Cornsilk;
+			this->TransactionPanel->Controls->Add(this->PinTextBox);
+			this->TransactionPanel->Controls->Add(this->PinLabel);
+			this->TransactionPanel->Controls->Add(this->TransactionTypeTextBox);
+			this->TransactionPanel->Controls->Add(this->TransactionTypeLabel);
 			this->TransactionPanel->Controls->Add(this->TransactionBy);
 			this->TransactionPanel->Controls->Add(this->TransactionType);
 			this->TransactionPanel->Controls->Add(this->label17);
@@ -563,9 +546,104 @@ namespace bankingmanagement {
 			this->TransactionPanel->Controls->Add(this->label14);
 			this->TransactionPanel->Location = System::Drawing::Point(250, 58);
 			this->TransactionPanel->Name = L"TransactionPanel";
-			this->TransactionPanel->Size = System::Drawing::Size(413, 296);
+			this->TransactionPanel->Size = System::Drawing::Size(413, 345);
 			this->TransactionPanel->TabIndex = 26;
 			this->TransactionPanel->Visible = false;
+			// 
+			// PinTextBox
+			// 
+			this->PinTextBox->BackColor = System::Drawing::Color::Purple;
+			this->PinTextBox->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->PinTextBox->ForeColor = System::Drawing::Color::Cornsilk;
+			this->PinTextBox->Location = System::Drawing::Point(86, 252);
+			this->PinTextBox->Name = L"PinTextBox";
+			this->PinTextBox->Size = System::Drawing::Size(79, 25);
+			this->PinTextBox->TabIndex = 26;
+			this->PinTextBox->Visible = false;
+			// 
+			// PinLabel
+			// 
+			this->PinLabel->AutoSize = true;
+			this->PinLabel->BackColor = System::Drawing::Color::Transparent;
+			this->PinLabel->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->PinLabel->ForeColor = System::Drawing::Color::Purple;
+			this->PinLabel->Location = System::Drawing::Point(23, 252);
+			this->PinLabel->Name = L"PinLabel";
+			this->PinLabel->Size = System::Drawing::Size(40, 22);
+			this->PinLabel->TabIndex = 25;
+			this->PinLabel->Text = L"Pin";
+			this->PinLabel->Visible = false;
+			// 
+			// TransactionTypeTextBox
+			// 
+			this->TransactionTypeTextBox->BackColor = System::Drawing::Color::Purple;
+			this->TransactionTypeTextBox->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->TransactionTypeTextBox->ForeColor = System::Drawing::Color::Cornsilk;
+			this->TransactionTypeTextBox->Location = System::Drawing::Point(210, 124);
+			this->TransactionTypeTextBox->Name = L"TransactionTypeTextBox";
+			this->TransactionTypeTextBox->Size = System::Drawing::Size(180, 25);
+			this->TransactionTypeTextBox->TabIndex = 24;
+			this->TransactionTypeTextBox->Visible = false;
+			// 
+			// TransactionTypeLabel
+			// 
+			this->TransactionTypeLabel->AutoSize = true;
+			this->TransactionTypeLabel->BackColor = System::Drawing::Color::Transparent;
+			this->TransactionTypeLabel->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->TransactionTypeLabel->ForeColor = System::Drawing::Color::Purple;
+			this->TransactionTypeLabel->Location = System::Drawing::Point(23, 124);
+			this->TransactionTypeLabel->Name = L"TransactionTypeLabel";
+			this->TransactionTypeLabel->Size = System::Drawing::Size(133, 22);
+			this->TransactionTypeLabel->TabIndex = 23;
+			this->TransactionTypeLabel->Text = L"Enter Card No.";
+			this->TransactionTypeLabel->Visible = false;
+			// 
+			// TransactionBy
+			// 
+			this->TransactionBy->BackColor = System::Drawing::Color::Purple;
+			this->TransactionBy->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->TransactionBy->ForeColor = System::Drawing::Color::Cornsilk;
+			this->TransactionBy->FormattingEnabled = true;
+			this->TransactionBy->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Cash", L"Debit Card", L"Credit Card", L"Cheque" });
+			this->TransactionBy->Location = System::Drawing::Point(231, 71);
+			this->TransactionBy->Name = L"TransactionBy";
+			this->TransactionBy->Size = System::Drawing::Size(159, 25);
+			this->TransactionBy->TabIndex = 22;
+			this->TransactionBy->Text = L"Select Transaction By";
+			this->TransactionBy->SelectedIndexChanged += gcnew System::EventHandler(this, &Account::TransactionBy_SelectedIndexChanged);
+			// 
+			// TransactionType
+			// 
+			this->TransactionType->BackColor = System::Drawing::Color::Purple;
+			this->TransactionType->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->TransactionType->ForeColor = System::Drawing::Color::Cornsilk;
+			this->TransactionType->FormattingEnabled = true;
+			this->TransactionType->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Withdraw", L"Deposit" });
+			this->TransactionType->Location = System::Drawing::Point(27, 71);
+			this->TransactionType->Name = L"TransactionType";
+			this->TransactionType->Size = System::Drawing::Size(180, 25);
+			this->TransactionType->TabIndex = 22;
+			this->TransactionType->Text = L"Select Transaction Type";
+			this->TransactionType->SelectedIndexChanged += gcnew System::EventHandler(this, &Account::TransactionType_SelectedIndexChanged);
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->BackColor = System::Drawing::Color::Transparent;
+			this->label17->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 25, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label17->ForeColor = System::Drawing::Color::Purple;
+			this->label17->Location = System::Drawing::Point(132, 14);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(179, 35);
+			this->label17->TabIndex = 21;
+			this->label17->Text = L"Transaction";
 			// 
 			// DescriptionTxt
 			// 
@@ -573,9 +651,10 @@ namespace bankingmanagement {
 			this->DescriptionTxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->DescriptionTxt->ForeColor = System::Drawing::Color::Cornsilk;
-			this->DescriptionTxt->Location = System::Drawing::Point(210, 164);
+			this->DescriptionTxt->Location = System::Drawing::Point(210, 211);
+			this->DescriptionTxt->Multiline = true;
 			this->DescriptionTxt->Name = L"DescriptionTxt";
-			this->DescriptionTxt->Size = System::Drawing::Size(165, 25);
+			this->DescriptionTxt->Size = System::Drawing::Size(180, 63);
 			this->DescriptionTxt->TabIndex = 20;
 			// 
 			// label15
@@ -585,7 +664,7 @@ namespace bankingmanagement {
 			this->label15->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label15->ForeColor = System::Drawing::Color::Purple;
-			this->label15->Location = System::Drawing::Point(23, 167);
+			this->label15->Location = System::Drawing::Point(23, 214);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(104, 22);
 			this->label15->TabIndex = 19;
@@ -611,7 +690,7 @@ namespace bankingmanagement {
 			this->ProceedBtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ProceedBtn->ForeColor = System::Drawing::Color::Cornsilk;
-			this->ProceedBtn->Location = System::Drawing::Point(136, 247);
+			this->ProceedBtn->Location = System::Drawing::Point(136, 294);
 			this->ProceedBtn->Name = L"ProceedBtn";
 			this->ProceedBtn->Size = System::Drawing::Size(123, 33);
 			this->ProceedBtn->TabIndex = 17;
@@ -625,7 +704,7 @@ namespace bankingmanagement {
 			this->Ammounttxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Ammounttxt->ForeColor = System::Drawing::Color::Cornsilk;
-			this->Ammounttxt->Location = System::Drawing::Point(210, 119);
+			this->Ammounttxt->Location = System::Drawing::Point(210, 166);
 			this->Ammounttxt->Name = L"Ammounttxt";
 			this->Ammounttxt->Size = System::Drawing::Size(79, 25);
 			this->Ammounttxt->TabIndex = 16;
@@ -637,7 +716,7 @@ namespace bankingmanagement {
 			this->label14->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label14->ForeColor = System::Drawing::Color::Purple;
-			this->label14->Location = System::Drawing::Point(23, 119);
+			this->label14->Location = System::Drawing::Point(23, 166);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(142, 22);
 			this->label14->TabIndex = 9;
@@ -811,46 +890,42 @@ namespace bankingmanagement {
 			this->cardnumber->TabIndex = 6;
 			this->cardnumber->Text = L"Cardnumber";
 			// 
-			// label17
+			// MessagePanel
 			// 
-			this->label17->AutoSize = true;
-			this->label17->BackColor = System::Drawing::Color::Transparent;
-			this->label17->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 25, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+			this->MessagePanel->BackColor = System::Drawing::Color::DarkCyan;
+			this->MessagePanel->Controls->Add(this->button2);
+			this->MessagePanel->Controls->Add(this->MessageLabel);
+			this->MessagePanel->Location = System::Drawing::Point(172, 72);
+			this->MessagePanel->Name = L"MessagePanel";
+			this->MessagePanel->Size = System::Drawing::Size(609, 129);
+			this->MessagePanel->TabIndex = 28;
+			this->MessagePanel->Visible = false;
+			// 
+			// button2
+			// 
+			this->button2->BackColor = System::Drawing::Color::DarkTurquoise;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Cooper Black", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label17->ForeColor = System::Drawing::Color::Purple;
-			this->label17->Location = System::Drawing::Point(132, 14);
-			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(179, 35);
-			this->label17->TabIndex = 21;
-			this->label17->Text = L"Transaction";
+			this->button2->ForeColor = System::Drawing::Color::Crimson;
+			this->button2->Location = System::Drawing::Point(261, 80);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(106, 35);
+			this->button2->TabIndex = 6;
+			this->button2->Text = L"OK";
+			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &Account::button2_Click);
 			// 
-			// TransactionType
+			// MessageLabel
 			// 
-			this->TransactionType->BackColor = System::Drawing::Color::Purple;
-			this->TransactionType->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->MessageLabel->AutoSize = true;
+			this->MessageLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TransactionType->ForeColor = System::Drawing::Color::Cornsilk;
-			this->TransactionType->FormattingEnabled = true;
-			this->TransactionType->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Withdraw", L"Deposit" });
-			this->TransactionType->Location = System::Drawing::Point(27, 71);
-			this->TransactionType->Name = L"TransactionType";
-			this->TransactionType->Size = System::Drawing::Size(180, 25);
-			this->TransactionType->TabIndex = 22;
-			this->TransactionType->Text = L"Select Transaction Type";
-			// 
-			// TransactionBy
-			// 
-			this->TransactionBy->BackColor = System::Drawing::Color::Purple;
-			this->TransactionBy->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->TransactionBy->ForeColor = System::Drawing::Color::Cornsilk;
-			this->TransactionBy->FormattingEnabled = true;
-			this->TransactionBy->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Cash", L"Card", L"Cheque" });
-			this->TransactionBy->Location = System::Drawing::Point(231, 71);
-			this->TransactionBy->Name = L"TransactionBy";
-			this->TransactionBy->Size = System::Drawing::Size(159, 25);
-			this->TransactionBy->TabIndex = 22;
-			this->TransactionBy->Text = L"Select Transaction By";
+			this->MessageLabel->ForeColor = System::Drawing::Color::Coral;
+			this->MessageLabel->Location = System::Drawing::Point(90, 24);
+			this->MessageLabel->Name = L"MessageLabel";
+			this->MessageLabel->Size = System::Drawing::Size(466, 34);
+			this->MessageLabel->TabIndex = 0;
+			this->MessageLabel->Text = L"Are You Sure Want to Logout \?";
 			// 
 			// Account
 			// 
@@ -860,7 +935,6 @@ namespace bankingmanagement {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(936, 557);
 			this->Controls->Add(this->TransactionPanel);
-			this->Controls->Add(this->Cardpanel);
 			this->Controls->Add(this->Addresstxt);
 			this->Controls->Add(this->MICRCodetxt);
 			this->Controls->Add(this->Occupationtxt);
@@ -887,6 +961,8 @@ namespace bankingmanagement {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Controls->Add(this->Cardpanel);
+			this->Controls->Add(this->MessagePanel);
 			this->Name = L"Account";
 			this->Text = L"Account";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -895,24 +971,24 @@ namespace bankingmanagement {
 			this->TransactionPanel->PerformLayout();
 			this->Cardpanel->ResumeLayout(false);
 			this->Cardpanel->PerformLayout();
+			this->MessagePanel->ResumeLayout(false);
+			this->MessagePanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-		public: String^ GenerateNumber(String^ TableName, String^ DBVariableName, int index)
+		public: String^ GenerateNumber(String^ TableName, String^ DBVariableName)
 		{
 			String^ number;
-			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-			String^ Query = "SELECT " + DBVariableName + " FROM " + TableName + " ORDER BY " + DBVariableName + " DESC";
+			Query = "SELECT COUNT(" + DBVariableName + ") FROM " + TableName + " ";
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 			MySqlDataReader^ reader;
 			Connect->Open();
 			reader = cmd->ExecuteReader();
 			if (reader->Read())
 			{
-				int id = System::Convert::ToInt16(reader[index]->ToString()) + 1;
+				int id = System::Convert::ToInt16(reader[0]->ToString()) + 1;
 				number = id.ToString("0000");
 			}
 			else if (Convert::IsDBNull(reader))
@@ -925,6 +1001,59 @@ namespace bankingmanagement {
 			}
 			Connect->Close();
 			return number;
+		}
+		public: void Transaction()
+		{
+			// Setting Transactionid
+			String^ Transactionid = "8765";
+			//Setting Date and Time
+			String^ dateandTime = label1->Text;
+			// Setting account number
+			String^ Accountno = Accountnotxt->Text;
+
+			// Setting Transaction Type
+			String^ Transactiontype = "Withdraw";
+			// Setting Description
+			String^ Description = DescriptionTxt->Text;
+			// Setting Balance
+			int Amount = System::Convert::ToInt16(Ammounttxt->Text);
+			int Balance =  System::Convert::ToInt16(Accountbalancetxt->Text);
+
+			Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance - Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			try
+			{
+				Connect->Open();
+				MySqlDataReader^ reader = cmd->ExecuteReader();
+				Balance = Balance - Amount;
+				Connect->Close();
+				Transactionid += GenerateNumber("Banking.Transaction", "Transactionid");
+
+				Query = "insert into Banking.Transaction (Transactionid,DateandTime,Accountno,Amount,TransactionType,Description,Balance) values ('" +
+					Transactionid + "','" + dateandTime + "','" +
+					Accountno + "','" + Amount + "', '" +
+					Transactiontype + "', '" + Description + "', '" +
+					Balance + "')";
+
+				// Inserting into database code...
+				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+				MySqlDataReader^ reader;
+				Connect->Open();
+				reader = cmd->ExecuteReader();
+				MessageLabel->Text = "Transaction Successfull. Balance = '" + Balance + "'";
+				Key = "Transaction Success";
+				MessagePanel->Visible = true;
+				TransactionPanel->Visible = false;
+				Connect->Close();
+			}
+			catch (Exception^ ex)
+			{
+				Connect->Close();
+				MessageLabel->Text = ex->Message;
+				MessagePanel->Visible = true;
+				TransactionPanel->Visible = false;
+			}
+
 		}
 	private: System::Void Account_Load(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1198,7 +1327,7 @@ namespace bankingmanagement {
 
 			else if (Okaccbtn->Text == "Proceed")
 			{
-				Proceedpanel->Visible = true;
+				//Proceedpanel->Visible = true;
 				Okaccbtn->Enabled = false;
 				Cancelaccbtn->Enabled = false;
 			}
@@ -1217,10 +1346,19 @@ namespace bankingmanagement {
 			ManagerMEnu->Show();
 			this->Close();
 		}
-		
+		else if (Key == "FromWithdraw" || Key == "FromDeposit")
+		{
+			TransactionPanel->Visible = true;
+
+		}
 }
 	private: System::Void Cancelproceedbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (MessageBox::Show("Are you sure want to cancel ?", "Warning", MessageBoxButtons::YesNo,
+		
+		if ("Key == FromWithdraw" || Key == "FromDeposit")
+		{
+			TransactionPanel->Visible = false;
+		}
+		else if (MessageBox::Show("Are you sure want to cancel ?", "Warning", MessageBoxButtons::YesNo,
 			MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
 			ManagerMEnu->Show();
@@ -1228,213 +1366,203 @@ namespace bankingmanagement {
 
 		}
 	}
-	private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		int Balance = System::Convert::ToInt16(Accountbalancetxt->Text);
 		int Amount = System::Convert::ToInt16(Ammounttxt->Text);
-		if (FromWithdraw) {
-
-			if (Amount <= Balance)
+		
+		if (TransactionType->Text == "Select Transaction Type" || TransactionBy->Text == "Select Transaction By")
+		{
+			MessagePanel->Visible = true;
+			TransactionPanel->Visible = false;
+			MessageLabel->Text = "Please select transaction type and transaction by";
+		}
+		else if (Key == "FromWithdraw")
+		{
+			if (TransactionBy->Text == "Cash")
 			{
-				String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-
-				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-				String^ Query;
-				Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance - Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
+				if (Amount <= Balance)
+				{
+					Transaction();
+				}
+				else
+				{
+					MessageLabel->Text = "Insufficient Balance";
+					MessagePanel->Visible = true;
+					TransactionPanel->Visible = false;
+				}
+			}
+			else if (TransactionBy->Text == "Debit Card")
+			{
+				Query = "Select CardNumber,Pin from Banking.DebitCard where CardNumber = '" + TransactionTypeTextBox->Text + "' ";
 				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-				MySqlDataReader^ reader;
-
-
 				try
 				{
 					Connect->Open();
-					reader = cmd->ExecuteReader();
-					MessageBox::Show("Transaction Successfull", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
-                    Connect->Close();
-
-					// Setting Transactionid
-					String^ Transactionid = "8765";
-					try
+					MySqlDataReader^ reader = cmd->ExecuteReader();
+					if (reader[0] == TransactionTypeTextBox->Text && reader[1] == PinTextBox->Text)
 					{
-						Transactionid += GenerateNumber("Banking.Transaction", "Transactionid",0);
+						if(Amount <= Balance)
+							Transaction();
+						else
+						{
+							MessageLabel->Text = "Insufficient Balance";
+							MessagePanel->Visible = true;
+							TransactionPanel->Visible = false;
+						}
 					}
-					catch (Exception^ ex)
+					else
 					{
-						MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-						ManagerMEnu->Show();
-						this->Close();
+						Connect->Close();
+						MessageLabel->Text = "Invalid Card Number or Pin";
+						MessagePanel->Visible = true;
+						TransactionPanel->Visible = false;
 					}
-
-					//Setting Date and Time
-					String^ dateandTime = label1->Text;
-
-					// Setting account number
-					String^ Accountno = Accountnotxt->Text;
-
-					// Setting amount 
-					String^ Amount = Ammounttxt->Text;
-
-					// Setting Transaction Type
-					String^ Transactiontype = "Withdraw";
-
-					// Setting Description
-					String^ Description = DescriptionTxt->Text;
-
-					// Setting Remaining Balance
-					String^ Balance = Accountbalancetxt->Text;
-
-					// Connecting to database.
-					String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-
-					MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-					String^ Query;
-					Query = "insert into Banking.Transaction (Transactionid,DateandTime,Accountno,Amount,TransactionType,Description,Balance) values ('" +
-						Transactionid+ "','" + dateandTime + "','" +
-						 Accountno+ "','" + Amount+ "', '" +
-						Transactiontype+ "', '" + Description + "', '" +
-						Balance + "')";
-
-					// Inserting into database code...
-					MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-					MySqlDataReader^ reader;
-
-					try
-					{
-						Connect->Open();
-						reader = cmd->ExecuteReader();
-						MessageBox::Show("Data saved successfully", "Success" , MessageBoxButtons::OK, MessageBoxIcon::Information);
-						ManagerMEnu->Show();
-						this->Close();
-					}
-					catch (Exception^ ex)
-					{
-						MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-						ManagerMEnu->Show();
-						this->Close();
-					
-					}
-					
-
+					Connect->Close();
 				}
-				
 				catch (Exception^ ex)
 				{
-					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					ManagerMEnu->Show();
-					this->Close();
+					Connect->Close();
+					MessageLabel->Text = ex->Message;
+					MessagePanel->Visible = true;
+					TransactionPanel->Visible = false;
 				}
-
-
 			}
-			else
+			else if (TransactionBy->Text == "Credit Card")
 			{
-				MessageBox::Show("Insufficient Balance", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
-				ManagerMEnu->Show();
-				this->Close();
-
+				Query = "Select CardNumber,Pin from Banking.CreditCard where CardNumber = '" + TransactionTypeTextBox->Text + "' ";
+				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+				try
+				{
+					Connect->Open();
+					MySqlDataReader^ reader = cmd->ExecuteReader();
+					if (reader[0] == TransactionTypeTextBox->Text && reader[1] == PinTextBox->Text)
+					{
+						if (Amount <= Balance)
+							Transaction();
+						else
+						{
+							MessageLabel->Text = "Insufficient Balance";
+							MessagePanel->Visible = true;
+							TransactionPanel->Visible = false;
+						}
+					}
+					else
+					{
+						Connect->Close();
+						MessageLabel->Text = "Invalid Card Number or Pin";
+						MessagePanel->Visible = true;
+						TransactionPanel->Visible = false;
+					}
+					Connect->Close();
+				}
+				catch (Exception^ ex)
+				{
+					Connect->Close();
+					MessageLabel->Text = ex->Message;
+					MessagePanel->Visible = true;
+					TransactionPanel->Visible = false;
+				}
+			}
+			else if (TransactionBy->Text == "Cheque")
+			{
+				Query = "Select ChequeNumber from Banking.Cheque where ChequeNumber = '" + TransactionTypeTextBox->Text + "' ";
+				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+				try
+				{
+					Connect->Open();
+					MySqlDataReader^ reader = cmd->ExecuteReader();
+					if (reader->Read())
+					{
+						if (Amount <= Balance)
+							Transaction();
+						else
+						{
+							MessageLabel->Text = "Insufficient Balance";
+							MessagePanel->Visible = true;
+							TransactionPanel->Visible = false;
+						}
+					}
+					else
+					{
+						Connect->Close();
+						MessageLabel->Text = "Invalid Cheque Number";
+						MessagePanel->Visible = true;
+						TransactionPanel->Visible = false;
+					}
+					Connect->Close();
+				}
+				catch (Exception^ ex)
+				{
+					Connect->Close();
+					MessageLabel->Text = ex->Message;
+					MessagePanel->Visible = true;
+					TransactionPanel->Visible = false;
+				}
 			}
 		}
-		else if (FromDeposit)
+		else if (Key == "FromDeposit")
 		{
-
-
-
-			String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-
-			MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-			String^ Query;
-			Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance + Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
 			
-			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-			MySqlDataReader^ reader;
-
-
-			try
-			{
-				Connect->Open();
-				reader = cmd->ExecuteReader();
-				MessageBox::Show("Deposition Successfull", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
-				Connect->Close();
-				// Setting Transactionid
-				String^ Transactionid = "8765";
-				try
-				{
-					Transactionid += GenerateNumber("Banking.Transaction", "Transactionid",0);
-				}
-				catch (Exception^ ex)
-				{
-					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					ManagerMEnu->Show();
-					this->Close();
-				}
-
-				//Setting Date and Time
-				String^ dateandTime = label8->Text;
-
-				// Setting account number
-				String^ accountno = Accountnotxt->Text;
-				
-
-				// Setting amount 
-				String^ Amount = Ammounttxt->Text;
-
-				// Setting Transaction Type
-				String^ Transactiontype = "Deposit";
-
-				// Setting Description
-				String^ Description = DescriptionTxt->Text;
-
-				// Setting Remaining Balance
-				String^ Balance = Accountbalancetxt->Text;
-
-				// Connecting to database.
-				String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-
-				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-				String^ Query;
-				Query = "insert into Banking.Transaction (Transactionid,DateandTime,Accountno,Amount,TransactionType,Description,Balance) values ('" +
-					Transactionid + "','" + dateandTime + "','" +
-					accountno + "','" + Amount + "', '" +
-					Transactiontype + "', '" + Description + "', '" +
-					Balance + "')";
-
-				// Inserting into database code...
-				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-				MySqlDataReader^ reader;
-
-				try
-				{
-					Connect->Open();
-					reader = cmd->ExecuteReader();
-					MessageBox::Show("Data saved successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
-					ManagerMEnu->Show();
-					this->Close();
-				}
-				catch (Exception^ ex)
-				{
-					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					ManagerMEnu->Show();
-					this->Close();
-
-				}
-				
-
-
-
-				ManagerMEnu->Show();
-				this->Close();
-			}
-			catch (Exception^ ex)
-			{
-				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				ManagerMEnu->Show();
-				this->Close();
-			}
 		}
 	}
 private: System::Void CardOkBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	ManagerMEnu->Show();
 	this->Close();
+}
+private: System::Void TransactionType_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	if (TransactionType->Text == "Withdraw")
+		Key = "FromWithdraw";
+	else if (TransactionType->Text == "Deposit")
+		Key = "FromDeposit";
+}
+private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	if (TransactionBy->Text == "Cash")
+	{
+		Key = "ByCash";
+		TransactionTypeLabel->Visible = false;
+		TransactionTypeTextBox->Visible = false;
+		PinLabel->Visible = false;
+		PinTextBox->Visible = false;
+	}
+	else if (TransactionBy->Text == "Debit Card" || TransactionBy->Text == "Credit Card")
+	{
+		if(TransactionBy->Text == "Debit Card")
+			Key = "ByDebitCard";
+		else
+			Key = "ByCreditCard";
+		TransactionTypeLabel->Visible = true;
+		TransactionTypeLabel->Text = "Enter Card No.";
+		TransactionTypeTextBox->Visible = true;
+		PinLabel->Visible = true;
+		PinTextBox->Visible = true;
+	}
+	else if (TransactionBy->Text == "Cheque")
+	{
+		Key = "ByCheque";
+		TransactionTypeLabel->Visible = true;
+		TransactionTypeLabel->Text = "Enter Cheque No.";
+		TransactionTypeTextBox->Visible = true;
+		PinLabel->Visible = false;
+		PinTextBox->Visible = false;
+	}
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (Key == "Transaction Success")
+	{
+		ManagerMEnu->Show();
+		this->Close();
+	}
+	else
+	{
+		MessagePanel->Visible = false;
+		TransactionPanel->Visible = true;
+	}
+	
 }
 };
 }
