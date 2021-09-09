@@ -24,7 +24,8 @@ namespace bankingmanagement {
 		String^ Data;
 
 		String^ Key, ^RadioBtn;
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ Transactionby;
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 	private: System::Windows::Forms::Panel^ TransactionPanel;
@@ -1002,14 +1003,28 @@ namespace bankingmanagement {
 			String^ Accountno = Accountnotxt->Text;
 
 			// Setting Transaction Type
-			String^ Transactiontype = "Withdraw";
+			String^ Transactiontype ;
+			
 			// Setting Description
 			String^ Description = DescriptionTxt->Text;
 			// Setting Balance
 			int Amount = System::Convert::ToInt16(Ammounttxt->Text);
 			int Balance =  System::Convert::ToInt16(Accountbalancetxt->Text);
 
-			Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance - Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
+			if (Key == "FromDeposit")
+			{
+			    Transactiontype = "Deposit";
+				Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance + Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
+
+			}
+			else if (Key == "FromWithdraw")
+			{
+			    Transactiontype = "Withdraw";
+                Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance - Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
+
+			}
+
+			
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 			try
 			{
@@ -1486,7 +1501,7 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 		{
 			if (TransactionBy->Text == "Cash")
 			{
-
+				Transaction();
 			}
 			else if (TransactionBy->Text == "Debit Card")
 			{
@@ -1530,7 +1545,7 @@ private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender,
 
 	if (TransactionBy->Text == "Cash")
 	{
-		Key = "ByCash";
+		Transactionby = "ByCash";
 		TransactionTypeLabel->Visible = false;
 		TransactionTypeTextBox->Visible = false;
 		PinLabel->Visible = false;
@@ -1539,9 +1554,9 @@ private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender,
 	else if (TransactionBy->Text == "Debit Card" || TransactionBy->Text == "Credit Card")
 	{
 		if(TransactionBy->Text == "Debit Card")
-			Key = "ByDebitCard";
+	        Transactionby = "ByDebitCard";
 		else
-			Key = "ByCreditCard";
+			Transactionby = "ByCreditCard";
 		TransactionTypeLabel->Visible = true;
 		TransactionTypeLabel->Text = "Enter Card No.";
 		TransactionTypeTextBox->Visible = true;
@@ -1550,7 +1565,7 @@ private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender,
 	}
 	else if (TransactionBy->Text == "Cheque")
 	{
-		Key = "ByCheque";
+		Transactionby = "ByCheque";
 		TransactionTypeLabel->Visible = true;
 		TransactionTypeLabel->Text = "Enter Cheque No.";
 		TransactionTypeTextBox->Visible = true;
