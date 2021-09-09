@@ -1,7 +1,7 @@
 
 #include"Addemployee.h"
 #include"AddCustomer.h"
-#include"Account.h"
+//#include"Account.h"
 #include"Transaction.h"
 
    namespace bankingmanagement {
@@ -22,7 +22,7 @@
 
 		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
 
-		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction;
+		
 
 	
 
@@ -46,19 +46,19 @@
 	private: System::Windows::Forms::Button^ Detailsbtn;
 	private: System::Windows::Forms::Button^ Depositbtn;
 	private: System::Windows::Forms::Button^ Withdrawbtn;
-	private: System::Windows::Forms::Panel^ Withdrawpanel;
-
-	private: System::Windows::Forms::Button^ Bypassbookbtn;
-	private: System::Windows::Forms::Button^ Bycardbtn;
-	private: System::Windows::Forms::Button^ Bycheckbtn;
-	private: System::Windows::Forms::Panel^ Depositpanel;
 
 
 
 
-	private: System::Windows::Forms::Button^ Bycashdepositbtn;
 
-	private: System::Windows::Forms::Button^ Bycheckdepositbtn;
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Panel^ ManagerMenuPanel;
 
 	private: System::Windows::Forms::Label^ label6;
@@ -213,13 +213,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Detailsbtn = (gcnew System::Windows::Forms::Button());
 			this->Depositbtn = (gcnew System::Windows::Forms::Button());
 			this->Withdrawbtn = (gcnew System::Windows::Forms::Button());
-			this->Withdrawpanel = (gcnew System::Windows::Forms::Panel());
-			this->Bypassbookbtn = (gcnew System::Windows::Forms::Button());
-			this->Bycardbtn = (gcnew System::Windows::Forms::Button());
-			this->Bycheckbtn = (gcnew System::Windows::Forms::Button());
-			this->Depositpanel = (gcnew System::Windows::Forms::Panel());
-			this->Bycashdepositbtn = (gcnew System::Windows::Forms::Button());
-			this->Bycheckdepositbtn = (gcnew System::Windows::Forms::Button());
 			this->ManagerMenuPanel = (gcnew System::Windows::Forms::Panel());
 			this->LogoutBtn = (gcnew System::Windows::Forms::Button());
 			this->OtherServicesPanel = (gcnew System::Windows::Forms::Panel());
@@ -243,8 +236,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Customerpanel->SuspendLayout();
 			this->SearchPanel->SuspendLayout();
 			this->transactionpanel->SuspendLayout();
-			this->Withdrawpanel->SuspendLayout();
-			this->Depositpanel->SuspendLayout();
 			this->ManagerMenuPanel->SuspendLayout();
 			this->OtherServicesPanel->SuspendLayout();
 			this->MessagePanel->SuspendLayout();
@@ -686,107 +677,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Withdrawbtn->UseVisualStyleBackColor = false;
 			this->Withdrawbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Withdrawbtn_Click);
 			// 
-			// Withdrawpanel
-			// 
-			this->Withdrawpanel->AutoSize = true;
-			this->Withdrawpanel->Controls->Add(this->Bypassbookbtn);
-			this->Withdrawpanel->Controls->Add(this->Bycardbtn);
-			this->Withdrawpanel->Controls->Add(this->Bycheckbtn);
-			this->Withdrawpanel->Location = System::Drawing::Point(246, 476);
-			this->Withdrawpanel->Name = L"Withdrawpanel";
-			this->Withdrawpanel->Size = System::Drawing::Size(215, 122);
-			this->Withdrawpanel->TabIndex = 11;
-			this->Withdrawpanel->Visible = false;
-			// 
-			// Bypassbookbtn
-			// 
-			this->Bypassbookbtn->BackColor = System::Drawing::Color::Olive;
-			this->Bypassbookbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Bypassbookbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bypassbookbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bypassbookbtn->Location = System::Drawing::Point(0, 78);
-			this->Bypassbookbtn->Name = L"Bypassbookbtn";
-			this->Bypassbookbtn->Size = System::Drawing::Size(215, 44);
-			this->Bypassbookbtn->TabIndex = 4;
-			this->Bypassbookbtn->Text = L"By passbook";
-			this->Bypassbookbtn->UseVisualStyleBackColor = false;
-			this->Bypassbookbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bypassbookbtn_Click);
-			// 
-			// Bycardbtn
-			// 
-			this->Bycardbtn->BackColor = System::Drawing::Color::Olive;
-			this->Bycardbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Bycardbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bycardbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bycardbtn->Location = System::Drawing::Point(0, 39);
-			this->Bycardbtn->Name = L"Bycardbtn";
-			this->Bycardbtn->Size = System::Drawing::Size(215, 39);
-			this->Bycardbtn->TabIndex = 3;
-			this->Bycardbtn->Text = L"By card";
-			this->Bycardbtn->UseVisualStyleBackColor = false;
-			this->Bycardbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bycardbtn_Click);
-			// 
-			// Bycheckbtn
-			// 
-			this->Bycheckbtn->BackColor = System::Drawing::Color::Olive;
-			this->Bycheckbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Bycheckbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bycheckbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bycheckbtn->Location = System::Drawing::Point(0, 0);
-			this->Bycheckbtn->Name = L"Bycheckbtn";
-			this->Bycheckbtn->Size = System::Drawing::Size(215, 39);
-			this->Bycheckbtn->TabIndex = 2;
-			this->Bycheckbtn->Text = L"By check";
-			this->Bycheckbtn->UseVisualStyleBackColor = false;
-			// 
-			// Depositpanel
-			// 
-			this->Depositpanel->AutoSize = true;
-			this->Depositpanel->Controls->Add(this->Bycashdepositbtn);
-			this->Depositpanel->Controls->Add(this->Bycheckdepositbtn);
-			this->Depositpanel->Location = System::Drawing::Point(241, 210);
-			this->Depositpanel->Name = L"Depositpanel";
-			this->Depositpanel->Size = System::Drawing::Size(200, 78);
-			this->Depositpanel->TabIndex = 12;
-			this->Depositpanel->Visible = false;
-			// 
-			// Bycashdepositbtn
-			// 
-			this->Bycashdepositbtn->BackColor = System::Drawing::Color::Olive;
-			this->Bycashdepositbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Bycashdepositbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bycashdepositbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bycashdepositbtn->Location = System::Drawing::Point(0, 39);
-			this->Bycashdepositbtn->Name = L"Bycashdepositbtn";
-			this->Bycashdepositbtn->Size = System::Drawing::Size(200, 39);
-			this->Bycashdepositbtn->TabIndex = 3;
-			this->Bycashdepositbtn->Text = L"By Cash";
-			this->Bycashdepositbtn->UseVisualStyleBackColor = false;
-			this->Bycashdepositbtn->Click += gcnew System::EventHandler(this, &ManagerMenu::Bycashdepositbtn_Click);
-			// 
-			// Bycheckdepositbtn
-			// 
-			this->Bycheckdepositbtn->BackColor = System::Drawing::Color::Olive;
-			this->Bycheckdepositbtn->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Bycheckdepositbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Bycheckdepositbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Bycheckdepositbtn->Location = System::Drawing::Point(0, 0);
-			this->Bycheckdepositbtn->Name = L"Bycheckdepositbtn";
-			this->Bycheckdepositbtn->Size = System::Drawing::Size(200, 39);
-			this->Bycheckdepositbtn->TabIndex = 2;
-			this->Bycheckdepositbtn->Text = L"By Check";
-			this->Bycheckdepositbtn->UseVisualStyleBackColor = false;
-			// 
 			// ManagerMenuPanel
 			// 
 			this->ManagerMenuPanel->AutoScroll = true;
@@ -1024,7 +914,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->ViewIdPassPanel->Controls->Add(this->button3);
 			this->ViewIdPassPanel->Controls->Add(this->PasswordLabel);
 			this->ViewIdPassPanel->Controls->Add(this->UsernameLabel);
-			this->ViewIdPassPanel->Location = System::Drawing::Point(301, 308);
+			this->ViewIdPassPanel->Location = System::Drawing::Point(324, 214);
 			this->ViewIdPassPanel->Name = L"ViewIdPassPanel";
 			this->ViewIdPassPanel->Size = System::Drawing::Size(509, 162);
 			this->ViewIdPassPanel->TabIndex = 15;
@@ -1077,9 +967,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->ClientSize = System::Drawing::Size(1149, 720);
 			this->Controls->Add(this->SearchPanel);
 			this->Controls->Add(this->ViewIdPassPanel);
-			this->Controls->Add(this->Withdrawpanel);
 			this->Controls->Add(this->ManagerMenuPanel);
-			this->Controls->Add(this->Depositpanel);
 			this->Controls->Add(this->MessagePanel);
 			this->DoubleBuffered = true;
 			this->Name = L"ManagerMenu";
@@ -1092,8 +980,6 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->SearchPanel->ResumeLayout(false);
 			this->SearchPanel->PerformLayout();
 			this->transactionpanel->ResumeLayout(false);
-			this->Withdrawpanel->ResumeLayout(false);
-			this->Depositpanel->ResumeLayout(false);
 			this->ManagerMenuPanel->ResumeLayout(false);
 			this->ManagerMenuPanel->PerformLayout();
 			this->OtherServicesPanel->ResumeLayout(false);
@@ -1102,15 +988,13 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->ViewIdPassPanel->ResumeLayout(false);
 			this->ViewIdPassPanel->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
 
 	public: void HideAllSubMenu() {
 
-		Withdrawpanel->Visible = false;
-		Depositpanel->Visible = false;
+		
 		Employeepanel->Visible = false;
 		Customerpanel->Visible = false;
 		transactionpanel->Visible = false;
@@ -1231,7 +1115,7 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 		}
 		Connect->Close();
 	}
-	else if(Key == "FromDelete Customer" || Key == "FromSearch Customer" || Key == "FromEdit Customer")
+	else if(Key == "FromDelete Customer" || Key == "FromSearch Customer" || Key == "FromEdit Customer" || Key == "FromUpdateMob")
 	{
 		Query = "SELECT " + RadioBtn + " FROM Banking.Customer WHERE " + RadioBtn + " = '" + SearchTextBox->Text + "'";
 		try
@@ -1264,7 +1148,7 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 			button2->Text = "OK";
 		}
 	}
-	else if (Key == "FromDetail Customer" || Key == "FromWithdraw" || Key == "FromDeposit" || Key == "FromTransactionDetail" || Key == "FromStatement")
+	else if (Key == "FromDetail Customer" || Key == "FromWithdraw" || Key == "FromDeposit" || Key == "FromTransactionDetail" || Key == "FromStatement" || Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook")
 	{
 		Query = "SELECT " + RadioBtn + " FROM Banking.Account WHERE " + RadioBtn + " = '" + SearchTextBox->Text + "'";
 		try
@@ -1276,6 +1160,39 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 			{
 				Connect->Close();
 				Account^ form = gcnew Account(this, SearchTextBox->Text, Key, RadioBtn);
+				form->Show();
+				this->Hide();
+			}
+			else
+			{
+				Connect->Close();
+				MessagePanel->Visible = true;
+				SearchPanel->Visible = false;
+				MessageLabel->Text = "Data Not Found";
+				button1->Visible = false;
+				button2->Text = "OK";
+			}
+		}
+		catch (Exception^ ex)
+		{
+			MessagePanel->Visible = true;
+			MessageLabel->Text = ex->Message;
+			button1->Visible = false;
+			button2->Text = "OK";
+		}
+	}
+	else if (Key == "FromKyc")
+	{
+		Query = "SELECT " + RadioBtn + " FROM Banking.Customer WHERE " + RadioBtn + " = '" + SearchTextBox->Text + "'";
+		try
+		{
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			Connect->Open();
+			MySqlDataReader^ reader = cmd->ExecuteReader();
+			if (reader->Read())
+			{
+				Connect->Close();
+				Kyc^ form = gcnew Kyc(this, SearchTextBox->Text, Key, RadioBtn);
 				form->Show();
 				this->Hide();
 			}
@@ -1335,17 +1252,7 @@ private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System:
 	FromDetail = false;
 	FromDelete = false;
 }
-private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
-private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-	HideAllSubMenu();
-	Customerpanel->Visible = true;
-		
-	FromEdit = true;
-	FromDetail = false;
-	FromDelete = false;
-}
 
 private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1357,9 +1264,7 @@ private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::Even
 }
 
 
-private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
 private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/* || Key == "FromKyc"*/)
 	{
@@ -1367,73 +1272,6 @@ private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::Eve
 		Account^ Form = gcnew Account(this, SearchTextBox->Text, Key, RadioBtn);
 	}
 }
-private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
-	FromDeposit = false;
-	FromWithdraw = false;
-	FromAccount = true;
-	//Accountpanelcus->Visible = true;
-}
-
-private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/* || Key == "FromKyc"*/ )
-	{
-		FromAccount = false;
-		Account^ Form = gcnew Account(this,  SearchTextBox->Text,Key, RadioBtn);
-
-		Form->Show();
-		this->Hide();
-
-	}
-	if(FromWithdraw==true||FromDeposit==true||FromAccount==true)
-	{
-		FromAccount = true;
-		Account^ Form = gcnew Account(this, SearchTextBox->Text, Key, RadioBtn);
-
-		Form->Show();
-		this->Hide();
-	
-	}
-	else if(FromTransaction)
-	{
-		FromTransaction = true;
-		//Transaction^ Form = gcnew Transaction(this, SearchTextBox->Text, Key, RadioBtn);
-		//Form->Show();
-		this->Hide();
-	}
-	else if (FromCardWithdraw)
-	{
-		FromCardWithdraw = true;
-		Account^ Form = gcnew Account(this, SearchTextBox->Text, Key, RadioBtn);
-
-		Form->Show();
-		this->Hide();
-
-	}		
-	if(FromWithdraw==true||FromDeposit==true||FromAccount==true)
-	{
-		FromAccount = true;
-		Account^ Form = gcnew Account(this, SearchTextBox->Text, Key, RadioBtn);
-
-		Form->Show();
-		this->Hide();
-	
-	}
-	else if(FromTransaction)
-	{
-		FromTransaction = true;
-		//Transaction^ Form = gcnew Transaction(this, FromTransaction, Accountcustxt->Text);
-		//Form->Show();
-		this->Hide();
-
-	}
-		
-	Key = "FromDetail Customer";
-	ManagerMenuPanel->Visible = false;
-	SearchPanel->Visible = true;
-	SearchLabel->Text = "Search Customer";
-	radioButton2->Text = "Account";
-}
-
 
 private: System::Void Bypassbookbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	FromWithdraw = true;
@@ -1496,26 +1334,30 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void ApplyDebitCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
 	Key = "FromDebitCard";
 }
 private: System::Void ApplyCreditCardBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
 	Key = "FromCreditCard";
 }
 private: System::Void ApplyChequeBookBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
 	Key = "FromChequeBook";
 }
 private: System::Void UpdateMobileBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
 	Key = "FromUpdateMob";
 }
 private: System::Void UpdateKycBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	SearchPanel->Visible = true;
-	/* Accountpanelcus->Visible = true;*/
+	ManagerMenuPanel->Visible = false;
 	Key = "FromKyc";
 }
 private: System::Void Withdrawbtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1601,17 +1443,13 @@ private: System::Void Statementbtn_Click(System::Object^ sender, System::EventAr
 	radioButton2->Text = "Account";
 	SearchLabel->Text = "Search Customer";
 }
-private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	FromWithdraw = true;
-	FromDeposit = false;
-	//Accountpanelcus->Visible = true;
+private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
-private: System::Void Bycardbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	FromWithdraw = true;
-	FromDeposit = false;
-	//Accountpanelcus->Visible = true;
-
+	Key = "FromDetail Customer";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "Account";
+	SearchLabel->Text = "Search Customer";
 }
 };
 }

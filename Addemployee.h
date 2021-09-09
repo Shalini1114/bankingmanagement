@@ -531,12 +531,7 @@ namespace bankingmanagement {
 			
 		}
 
-		else if (Key == "FromDelete Employee")
-
-		else if (Key == "FromDelete")
-
-		else if (Key == "FromDelete")
-
+		
 		else if (Key = "FromDelete")
 
 		{
