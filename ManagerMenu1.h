@@ -96,7 +96,7 @@
 
 
 		   String^ Key, ^RadioBtn = "Name";
-		   String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		   String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		   MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		   String^ Query;
 
@@ -386,6 +386,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Accountcus->TabIndex = 6;
 			this->Accountcus->Text = L"Account Details";
 			this->Accountcus->UseVisualStyleBackColor = false;
+			this->Accountcus->Click += gcnew System::EventHandler(this, &ManagerMenu::Accountcus_Click);
 			// 
 			// Editcustomerbtn
 			// 
@@ -1084,6 +1085,7 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 		}
 		catch (Exception^ ex)
 		{
+			Connect->Close();
 			MessagePanel->Visible = true;
 			MessageLabel->Text = ex->Message;
 			button1->Visible = false;
@@ -1141,6 +1143,7 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 		}
 		catch (Exception^ ex)
 		{
+			Connect->Close();
 			MessagePanel->Visible = true;
 			MessageLabel->Text = ex->Message;
 			button1->Visible = false;
@@ -1174,6 +1177,7 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 		}
 		catch (Exception^ ex)
 		{
+			Connect->Close();
 			MessagePanel->Visible = true;
 			MessageLabel->Text = ex->Message;
 			button1->Visible = false;
@@ -1207,6 +1211,7 @@ private: System::Void Searchempbtn_Click(System::Object^ sender, System::EventAr
 		}
 		catch (Exception^ ex)
 		{
+			Connect->Close();
 			MessagePanel->Visible = true;
 			MessageLabel->Text = ex->Message;
 			button1->Visible = false;
@@ -1440,6 +1445,14 @@ private: System::Void Statementbtn_Click(System::Object^ sender, System::EventAr
 	SearchPanel->Visible = true;
 	ManagerMenuPanel->Visible = false;
 	radioButton2->Text = "Account";
+	SearchLabel->Text = "Search Customer";
+}
+private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs^ e) {
+	Key = "FromDetail Customer";
+	SearchPanel->Visible = true;
+	ManagerMenuPanel->Visible = false;
+	radioButton2->Text = "Account";
+	SearchPanelLabel->Text = "Search Customer";
 	SearchLabel->Text = "Search Customer";
 }
 };
