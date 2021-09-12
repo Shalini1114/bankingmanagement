@@ -24,21 +24,12 @@ namespace bankingmanagement {
 		String^ Data;
 
 		String^ Key, ^RadioBtn;
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ Transactionby;
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 	private: System::Windows::Forms::Panel^ TransactionPanel;
-	public:
-
-
-
-		
-
-
-		
-
-
-	public:
+	
 	private: System::Windows::Forms::Button^ Cancelproceedbtn;
 	private: System::Windows::Forms::Button^ ProceedBtn;
 
@@ -737,7 +728,7 @@ namespace bankingmanagement {
 			this->Cardpanel->Controls->Add(this->label19);
 			this->Cardpanel->Controls->Add(this->cvv);
 			this->Cardpanel->Controls->Add(this->cardnumber);
-			this->Cardpanel->Location = System::Drawing::Point(223, 193);
+			this->Cardpanel->Location = System::Drawing::Point(174, 269);
 			this->Cardpanel->Name = L"Cardpanel";
 			this->Cardpanel->Size = System::Drawing::Size(451, 261);
 			this->Cardpanel->TabIndex = 27;
@@ -895,7 +886,7 @@ namespace bankingmanagement {
 			this->MessagePanel->BackColor = System::Drawing::Color::DarkCyan;
 			this->MessagePanel->Controls->Add(this->button2);
 			this->MessagePanel->Controls->Add(this->MessageLabel);
-			this->MessagePanel->Location = System::Drawing::Point(172, 72);
+			this->MessagePanel->Location = System::Drawing::Point(126, 62);
 			this->MessagePanel->Name = L"MessagePanel";
 			this->MessagePanel->Size = System::Drawing::Size(609, 129);
 			this->MessagePanel->TabIndex = 28;
@@ -934,6 +925,8 @@ namespace bankingmanagement {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(936, 557);
+			this->Controls->Add(this->Cardpanel);
+			this->Controls->Add(this->MessagePanel);
 			this->Controls->Add(this->TransactionPanel);
 			this->Controls->Add(this->Addresstxt);
 			this->Controls->Add(this->MICRCodetxt);
@@ -961,8 +954,6 @@ namespace bankingmanagement {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->Cardpanel);
-			this->Controls->Add(this->MessagePanel);
 			this->Name = L"Account";
 			this->Text = L"Account";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -1012,20 +1003,34 @@ namespace bankingmanagement {
 			String^ Accountno = Accountnotxt->Text;
 
 			// Setting Transaction Type
-			String^ Transactiontype = "Withdraw";
+			String^ Transactiontype ;
+			
 			// Setting Description
 			String^ Description = DescriptionTxt->Text;
 			// Setting Balance
 			int Amount = System::Convert::ToInt16(Ammounttxt->Text);
 			int Balance =  System::Convert::ToInt16(Accountbalancetxt->Text);
 
-			Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance - Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
+			if (Key == "FromDeposit")
+			{
+			    Transactiontype = "Deposit";
+				Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance + Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
+				Balance = Balance + Amount;
+			}
+			else if (Key == "FromWithdraw")
+			{
+			    Transactiontype = "Withdraw";
+                Query = "update Banking.Account set Accountbalance ='" + System::Convert::ToString(Balance - Amount) + "' WHERE Accountno ='" + Accountnotxt->Text + "'";
+				Balance = Balance - Amount;
+			}
+
+			
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 			try
 			{
 				Connect->Open();
 				MySqlDataReader^ reader = cmd->ExecuteReader();
-				Balance = Balance - Amount;
+				
 				Connect->Close();
 				Transactionid += GenerateNumber("Banking.Transaction", "Transactionid");
 
@@ -1037,7 +1042,7 @@ namespace bankingmanagement {
 
 				// Inserting into database code...
 				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-				MySqlDataReader^ reader;
+				
 				Connect->Open();
 				reader = cmd->ExecuteReader();
 				MessageLabel->Text = "Transaction Successfull. Balance = '" + Balance + "'";
@@ -1141,9 +1146,13 @@ namespace bankingmanagement {
 				// Setting Card Number
 
 				String^ CardNumber = "2739 1000 0012 ";
+				String^ Pin;
 				try
 				{
-					CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber",0);
+					CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber");
+					//Setting pin
+					 Pin = GenerateNumber("Banking.Debitcard", "Pin");
+
 				}
 				catch (Exception^ ex)
 				{
@@ -1155,6 +1164,7 @@ namespace bankingmanagement {
 				// Setting Cvv
 				int Cvv = rand() % 1000;
 
+				
 				// Setting Valid From
 				DateTime date = DateTime::Now;
 				String^ CurrentDate = date.ToString("MM");
@@ -1172,9 +1182,9 @@ namespace bankingmanagement {
 				String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
-				Query = "insert into Banking.Debitcard (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo) values ('" +
+				Query = "insert into Banking.Debitcard (AccountHolderName,CardNumber,Cvv,Pin,ValidFrom,ValidUpto,AccountNo) values ('" +
 					Accountholdertxt->Text + "','" + CardNumber + "','" +
-					Cvv + "','" + CurrentDate + "', '" +
+					Cvv + "','" + Pin + "','" + CurrentDate + "', '" +
 					ExpiryDate + "', '" + Accountnotxt->Text + "')";
 
 				// Inserting into database code...
@@ -1210,9 +1220,13 @@ namespace bankingmanagement {
 				// Setting Card Number
 
 				String^ CardNumber = "6754 1000 0012 ";
+				String^ Pin;
 				try
 				{
-					CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber",1);
+					CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber");
+					//Setting pin
+					Pin = GenerateNumber("Banking.Debitcard", "Pin");
+
 				}
 				catch (Exception^ ex)
 				{
@@ -1224,6 +1238,7 @@ namespace bankingmanagement {
 				// Setting Cvv
 				int Cvv = rand() % 1000;
 
+				
 				// Setting Valid From
 				DateTime date = DateTime::Now;
 				String^ CurrentDate = date.ToString("MM");
@@ -1241,9 +1256,9 @@ namespace bankingmanagement {
 				String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 				String^ Query;
-				Query = "insert into Banking.Creditcard (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
+				Query = "insert into Banking.Creditcard (AccountHolderName,CardNumber,Cvv,Pin,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
 					Accountholdertxt->Text + "','" + CardNumber + "','" +
-					Cvv + "','" + CurrentDate + "', '" +
+					Cvv + "','" + Pin + "','" + CurrentDate + "', '" +
 					ExpiryDate + "', '" + Accountnotxt->Text + "','" + AmountLimit + "',)";
 
 				// Inserting into database code...
@@ -1313,16 +1328,7 @@ namespace bankingmanagement {
 
 				}*/
 
-			else if (FromCardWithdraw)
-	         {
-	            FromCardWithdraw = true;
-
-
-
-
-	         }
-
-			
+				
 
 
 			else if (Okaccbtn->Text == "Proceed")
@@ -1503,7 +1509,34 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 		}
 		else if (Key == "FromDeposit")
 		{
-			
+			if (TransactionBy->Text == "Cash")
+			{
+				Transaction();
+			}
+			else if (TransactionBy->Text == "Debit Card")
+			{
+
+			}
+			else if (TransactionBy->Text == "Credit Card")
+			{
+
+			}
+			else if (TransactionBy->Text == "Cheque")
+			{
+
+			}
+		}
+		else if (Key == "FromDebitCard")
+		{
+
+		}
+		else if (Key == "FromCreditCard")
+		{
+
+		}
+		else if (Key == "FromChequeBook")
+		{
+
 		}
 	}
 private: System::Void CardOkBtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1522,7 +1555,7 @@ private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender,
 
 	if (TransactionBy->Text == "Cash")
 	{
-		Key = "ByCash";
+		Transactionby = "ByCash";
 		TransactionTypeLabel->Visible = false;
 		TransactionTypeTextBox->Visible = false;
 		PinLabel->Visible = false;
@@ -1531,9 +1564,9 @@ private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender,
 	else if (TransactionBy->Text == "Debit Card" || TransactionBy->Text == "Credit Card")
 	{
 		if(TransactionBy->Text == "Debit Card")
-			Key = "ByDebitCard";
+	        Transactionby = "ByDebitCard";
 		else
-			Key = "ByCreditCard";
+			Transactionby = "ByCreditCard";
 		TransactionTypeLabel->Visible = true;
 		TransactionTypeLabel->Text = "Enter Card No.";
 		TransactionTypeTextBox->Visible = true;
@@ -1542,7 +1575,7 @@ private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender,
 	}
 	else if (TransactionBy->Text == "Cheque")
 	{
-		Key = "ByCheque";
+		Transactionby = "ByCheque";
 		TransactionTypeLabel->Visible = true;
 		TransactionTypeLabel->Text = "Enter Cheque No.";
 		TransactionTypeTextBox->Visible = true;

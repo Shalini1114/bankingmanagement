@@ -1,6 +1,6 @@
 #include <ctime>
 #include<cstdlib>
-#include"Account.h";
+#include"Account.h"
 
 
 namespace bankingmanagement {
@@ -22,7 +22,7 @@ namespace bankingmanagement {
 		Form^ managerMenu;
 		String^ Data;
 		String^ Key, ^RadioBtn;
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 
@@ -540,7 +540,7 @@ private: System::Void Submitcusbtn_Click(System::Object^ sender, System::EventAr
 	else if (Key == "FromUpdateMob")
 	{
 			Query = "update Banking.Customer set  Mob='" + Mobcustxt->Text + "' WHERE "+RadioBtn+" = '" + Data + "'";
-						MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 			try
 			{
 				Connect->Open();

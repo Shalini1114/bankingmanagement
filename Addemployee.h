@@ -24,7 +24,7 @@ namespace bankingmanagement {
 		String^ Data, ^Key, ^RadioBtn;
 		
 
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 
@@ -531,12 +531,7 @@ namespace bankingmanagement {
 			
 		}
 
-		else if (Key == "FromDelete Employee")
-
-		else if (Key == "FromDelete")
-
-		else if (Key == "FromDelete")
-
+		
 		else if (Key = "FromDelete")
 
 		{
