@@ -467,7 +467,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->SearchPanel->Controls->Add(this->SearchTextBox);
 			this->SearchPanel->Controls->Add(this->SearchLabel);
 			this->SearchPanel->Controls->Add(this->SearchPanelLabel);
-			this->SearchPanel->Location = System::Drawing::Point(443, 131);
+			this->SearchPanel->Location = System::Drawing::Point(455, 227);
 			this->SearchPanel->Name = L"SearchPanel";
 			this->SearchPanel->Size = System::Drawing::Size(374, 212);
 			this->SearchPanel->TabIndex = 7;
@@ -914,7 +914,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->ViewIdPassPanel->Controls->Add(this->button3);
 			this->ViewIdPassPanel->Controls->Add(this->PasswordLabel);
 			this->ViewIdPassPanel->Controls->Add(this->UsernameLabel);
-			this->ViewIdPassPanel->Location = System::Drawing::Point(324, 214);
+			this->ViewIdPassPanel->Location = System::Drawing::Point(336, 310);
 			this->ViewIdPassPanel->Name = L"ViewIdPassPanel";
 			this->ViewIdPassPanel->Size = System::Drawing::Size(509, 162);
 			this->ViewIdPassPanel->TabIndex = 15;
@@ -1437,6 +1437,7 @@ private: System::Void Depositbtn_Click(System::Object^ sender, System::EventArgs
 	SearchPanel->Visible = true;
 	ManagerMenuPanel->Visible = false;
 	radioButton2->Text = "Account";
+	SearchPanelLabel->Text = "SEARCH CUSTOMER";
 	SearchLabel->Text = "Search Customer";
 }
 private: System::Void Statementbtn_Click(System::Object^ sender, System::EventArgs^ e) {

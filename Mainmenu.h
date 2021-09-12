@@ -631,8 +631,8 @@ namespace bankingmanagement {
 				static_cast<System::Int32>(static_cast<System::Byte>(79)));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1244, 545);
-			this->Controls->Add(this->ErrorPanel);
 			this->Controls->Add(this->Commonloginpanel);
+			this->Controls->Add(this->ErrorPanel);
 			this->Controls->Add(this->Aboutpanel);
 			this->Controls->Add(this->Menupanel);
 			this->DoubleBuffered = true;
