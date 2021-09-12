@@ -28,7 +28,17 @@ namespace bankingmanagement {
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 	private: System::Windows::Forms::Panel^ TransactionPanel;
-	
+	public:
+
+
+
+		
+
+
+		
+
+
+	public:
 	private: System::Windows::Forms::Button^ Cancelproceedbtn;
 	private: System::Windows::Forms::Button^ ProceedBtn;
 
@@ -1027,7 +1037,7 @@ namespace bankingmanagement {
 
 				// Inserting into database code...
 				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-				
+				MySqlDataReader^ reader;
 				Connect->Open();
 				reader = cmd->ExecuteReader();
 				MessageLabel->Text = "Transaction Successfull. Balance = '" + Balance + "'";
@@ -1133,7 +1143,7 @@ namespace bankingmanagement {
 				String^ CardNumber = "2739 1000 0012 ";
 				try
 				{
-					CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber");
+					CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber",0);
 				}
 				catch (Exception^ ex)
 				{
@@ -1202,7 +1212,7 @@ namespace bankingmanagement {
 				String^ CardNumber = "6754 1000 0012 ";
 				try
 				{
-					CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber");
+					CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber",1);
 				}
 				catch (Exception^ ex)
 				{
@@ -1303,7 +1313,16 @@ namespace bankingmanagement {
 
 				}*/
 
-				
+			else if (FromCardWithdraw)
+	         {
+	            FromCardWithdraw = true;
+
+
+
+
+	         }
+
+			
 
 
 			else if (Okaccbtn->Text == "Proceed")
@@ -1484,34 +1503,7 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 		}
 		else if (Key == "FromDeposit")
 		{
-			if (TransactionBy->Text == "Cash")
-			{
-
-			}
-			else if (TransactionBy->Text == "Debit Card")
-			{
-
-			}
-			else if (TransactionBy->Text == "Credit Card")
-			{
-
-			}
-			else if (TransactionBy->Text == "Cheque")
-			{
-
-			}
-		}
-		else if (Key == "FromDebitCard")
-		{
-
-		}
-		else if (Key == "FromCreditCard")
-		{
-
-		}
-		else if (Key == "FromChequeBook")
-		{
-
+			
 		}
 	}
 private: System::Void CardOkBtn_Click(System::Object^ sender, System::EventArgs^ e) {

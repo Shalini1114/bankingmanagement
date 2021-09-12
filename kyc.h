@@ -21,7 +21,7 @@ namespace bankingmanagement {
 
 		Form^ MANAGERmenu;
 		String^ Key;
-		String^ Data, ^RadioBtn;
+		String^ Data1;
 	private: System::Windows::Forms::Label^ label2;
 	public:
 	private: System::Windows::Forms::Label^ label3;
@@ -29,7 +29,7 @@ namespace bankingmanagement {
 	private: System::Windows::Forms::TextBox^ Addresstxtbox;
 	private: System::Windows::Forms::TextBox^ Mobiletxtbox;
 	private: System::Windows::Forms::TextBox^ Aadharnumbertxtbox;
-		   
+		   String^ Data2;
 	public:
 
 		Kyc(void)
@@ -38,13 +38,25 @@ namespace bankingmanagement {
 			//
 			//TODO: Add the constructor code here
 			//
-		}	
-		Kyc(Form^ obj, String^ data, String^ key,String^ radiobtn)
+		}
+
+
+		Kyc(Form^ obj, String^ key)
 		{
 			MANAGERmenu = obj;
 			Key = key;
-			Data = data;
-			RadioBtn = radiobtn;
+
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		Kyc(Form^ obj, String^ key, String^ Accountholder,String^ Accountnumber)
+		{
+			MANAGERmenu = obj;
+			Key = key;
+			Data1 = Accountholder;
+			Data2 = Accountnumber;
 
 			InitializeComponent();
 			//
@@ -282,7 +294,33 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	
-	
+	// Connecting to database.
+	String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
+
+	MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+	String^ Query;
+	Query = "insert into Banking.Kyc (Aadharnumber,Mobilenumber,Pannumber,Address,Accountholdername,Accountnumber) values ('" +
+		Aadharnumbertxtbox->Text + "','" + Mobiletxtbox->Text + "','" +
+		Pannotxtbox->Text + "','" + Addresstxtbox->Text + "','" + Data1 + "','" + Data2 + "')";
+
+	// Inserting into database code...
+	MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+	MySqlDataReader^ reader;
+
+	try
+	{
+		Connect->Open();
+		reader = cmd->ExecuteReader();
+		MessageBox::Show("Data saved successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		MANAGERmenu->Show();
+		this->Close();
+	}
+	catch (Exception^ ex)
+	{
+		MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MANAGERmenu->Show();
+		this->Close();
+	}
 
 }
 
