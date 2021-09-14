@@ -103,7 +103,6 @@ namespace bankingmanagement {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Transaction::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -125,163 +124,184 @@ namespace bankingmanagement {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 21.75F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label1->Location = System::Drawing::Point(311, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(328, 39);
+			this->label1->Size = System::Drawing::Size(244, 31);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Transaction Details";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Red;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(136, 60);
+			this->label2->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label2->Location = System::Drawing::Point(136, 71);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(178, 31);
+			this->label2->Size = System::Drawing::Size(167, 29);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Transactionid";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::Color::Red;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->BackColor = System::Drawing::Color::Transparent;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(136, 388);
+			this->label3->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label3->Location = System::Drawing::Point(136, 367);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(112, 31);
+			this->label3->Size = System::Drawing::Size(104, 29);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Balance";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::Red;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->BackColor = System::Drawing::Color::Transparent;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(136, 334);
+			this->label4->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label4->Location = System::Drawing::Point(136, 316);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(151, 31);
+			this->label4->Size = System::Drawing::Size(141, 29);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Description";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->BackColor = System::Drawing::Color::Red;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label5->BackColor = System::Drawing::Color::Transparent;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(136, 279);
+			this->label5->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label5->Location = System::Drawing::Point(136, 268);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(218, 31);
+			this->label5->Size = System::Drawing::Size(197, 29);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"TransactionType\t";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::Red;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->BackColor = System::Drawing::Color::Transparent;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(136, 228);
+			this->label6->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label6->Location = System::Drawing::Point(136, 219);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(107, 31);
+			this->label6->Size = System::Drawing::Size(102, 29);
 			this->label6->TabIndex = 5;
 			this->label6->Text = L"Amount";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::Color::Red;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->BackColor = System::Drawing::Color::Transparent;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->ForeColor = System::Drawing::Color::White;
-			this->label7->Location = System::Drawing::Point(136, 177);
+			this->label7->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label7->Location = System::Drawing::Point(136, 171);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(143, 31);
+			this->label7->Size = System::Drawing::Size(130, 29);
 			this->label7->TabIndex = 6;
 			this->label7->Text = L"Accountno";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->BackColor = System::Drawing::Color::Red;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label8->BackColor = System::Drawing::Color::Transparent;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->ForeColor = System::Drawing::Color::White;
-			this->label8->Location = System::Drawing::Point(123, 119);
+			this->label8->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label8->Location = System::Drawing::Point(136, 123);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(191, 31);
+			this->label8->Size = System::Drawing::Size(179, 29);
 			this->label8->TabIndex = 7;
 			this->label8->Text = L"Date and Time";
 			this->label8->Click += gcnew System::EventHandler(this, &Transaction::label8_Click);
 			// 
 			// Transactionidtxt
 			// 
+			this->Transactionidtxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Transactionidtxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Transactionidtxt->ForeColor = System::Drawing::Color::Purple;
 			this->Transactionidtxt->Location = System::Drawing::Point(539, 71);
 			this->Transactionidtxt->Name = L"Transactionidtxt";
-			this->Transactionidtxt->Size = System::Drawing::Size(236, 20);
+			this->Transactionidtxt->Size = System::Drawing::Size(236, 33);
 			this->Transactionidtxt->TabIndex = 8;
 			this->Transactionidtxt->TextChanged += gcnew System::EventHandler(this, &Transaction::textBox1_TextChanged);
 			// 
 			// BalanceTxt
 			// 
-			this->BalanceTxt->Location = System::Drawing::Point(539, 399);
+			this->BalanceTxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->BalanceTxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->BalanceTxt->ForeColor = System::Drawing::Color::Purple;
+			this->BalanceTxt->Location = System::Drawing::Point(539, 367);
 			this->BalanceTxt->Name = L"BalanceTxt";
-			this->BalanceTxt->Size = System::Drawing::Size(236, 20);
+			this->BalanceTxt->Size = System::Drawing::Size(236, 33);
 			this->BalanceTxt->TabIndex = 9;
 			// 
 			// AmountTxt
 			// 
-			this->AmountTxt->Location = System::Drawing::Point(539, 239);
+			this->AmountTxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->AmountTxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->AmountTxt->ForeColor = System::Drawing::Color::Purple;
+			this->AmountTxt->Location = System::Drawing::Point(539, 219);
 			this->AmountTxt->Name = L"AmountTxt";
-			this->AmountTxt->Size = System::Drawing::Size(236, 20);
+			this->AmountTxt->Size = System::Drawing::Size(236, 33);
 			this->AmountTxt->TabIndex = 10;
 			// 
 			// Descriptiontxt
 			// 
-			this->Descriptiontxt->Location = System::Drawing::Point(539, 345);
+			this->Descriptiontxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Descriptiontxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Descriptiontxt->ForeColor = System::Drawing::Color::Purple;
+			this->Descriptiontxt->Location = System::Drawing::Point(539, 316);
 			this->Descriptiontxt->Name = L"Descriptiontxt";
-			this->Descriptiontxt->Size = System::Drawing::Size(236, 20);
+			this->Descriptiontxt->Size = System::Drawing::Size(236, 33);
 			this->Descriptiontxt->TabIndex = 11;
 			// 
 			// Typetxt
 			// 
-			this->Typetxt->Location = System::Drawing::Point(539, 290);
+			this->Typetxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Typetxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Typetxt->ForeColor = System::Drawing::Color::Purple;
+			this->Typetxt->Location = System::Drawing::Point(539, 268);
 			this->Typetxt->Name = L"Typetxt";
-			this->Typetxt->Size = System::Drawing::Size(236, 20);
+			this->Typetxt->Size = System::Drawing::Size(236, 33);
 			this->Typetxt->TabIndex = 12;
 			// 
 			// AccountNotxt
 			// 
-			this->AccountNotxt->Location = System::Drawing::Point(539, 177);
+			this->AccountNotxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->AccountNotxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->AccountNotxt->ForeColor = System::Drawing::Color::Purple;
+			this->AccountNotxt->Location = System::Drawing::Point(539, 171);
 			this->AccountNotxt->Name = L"AccountNotxt";
-			this->AccountNotxt->Size = System::Drawing::Size(236, 20);
+			this->AccountNotxt->Size = System::Drawing::Size(236, 33);
 			this->AccountNotxt->TabIndex = 13;
 			// 
 			// Oktransactionbtn
 			// 
-			this->Oktransactionbtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->Oktransactionbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Oktransactionbtn->BackColor = System::Drawing::Color::Cornsilk;
+			this->Oktransactionbtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Oktransactionbtn->ForeColor = System::Drawing::Color::Blue;
-			this->Oktransactionbtn->Location = System::Drawing::Point(379, 425);
+			this->Oktransactionbtn->ForeColor = System::Drawing::Color::Purple;
+			this->Oktransactionbtn->Location = System::Drawing::Point(383, 425);
 			this->Oktransactionbtn->Name = L"Oktransactionbtn";
-			this->Oktransactionbtn->Size = System::Drawing::Size(164, 49);
+			this->Oktransactionbtn->Size = System::Drawing::Size(91, 52);
 			this->Oktransactionbtn->TabIndex = 14;
 			this->Oktransactionbtn->Text = L"OK";
 			this->Oktransactionbtn->UseVisualStyleBackColor = false;
@@ -289,16 +309,20 @@ namespace bankingmanagement {
 			// 
 			// DateandTimeTxt
 			// 
+			this->DateandTimeTxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->DateandTimeTxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DateandTimeTxt->ForeColor = System::Drawing::Color::Purple;
 			this->DateandTimeTxt->Location = System::Drawing::Point(539, 119);
 			this->DateandTimeTxt->Name = L"DateandTimeTxt";
-			this->DateandTimeTxt->Size = System::Drawing::Size(236, 20);
+			this->DateandTimeTxt->Size = System::Drawing::Size(236, 33);
 			this->DateandTimeTxt->TabIndex = 15;
 			// 
 			// Transaction
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackColor = System::Drawing::Color::Purple;
 			this->ClientSize = System::Drawing::Size(972, 489);
 			this->Controls->Add(this->DateandTimeTxt);
 			this->Controls->Add(this->Oktransactionbtn);
@@ -406,5 +430,7 @@ private: System::Void Transaction_Load(System::Object^ sender, System::EventArgs
 
 
 }
+
+
 };
 }
