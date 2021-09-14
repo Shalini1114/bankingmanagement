@@ -22,11 +22,11 @@ namespace bankingmanagement {
 		Form^ managerMenu;
 		String^ Data;
 		String^ Key, ^RadioBtn;
-		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 
-	private: System::Windows::Forms::Label^ label1;
+
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TextBox^ PanNoTextBox;
 
@@ -59,8 +59,8 @@ namespace bankingmanagement {
 			InitializeComponent();
 			managerMenu = obj;
 			Key = key;
-			DateTime datetime = DateTime::Now;
-			this->label1->Text = datetime.ToString();
+			
+			
 			//
 			//TODO: Add the constructor code here
 			//
@@ -163,7 +163,6 @@ namespace bankingmanagement {
 			this->Cancelcusbtn = (gcnew System::Windows::Forms::Button());
 			this->Dobcus = (gcnew System::Windows::Forms::DateTimePicker());
 			this->OKcusbtn = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->PanNoTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
@@ -171,190 +170,203 @@ namespace bankingmanagement {
 			// Customerlabel
 			// 
 			this->Customerlabel->AutoSize = true;
-			this->Customerlabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->Customerlabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Customerlabel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Customerlabel->BackColor = System::Drawing::Color::Transparent;
+			this->Customerlabel->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 25, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->Customerlabel->ForeColor = System::Drawing::Color::Cornsilk;
 			this->Customerlabel->Location = System::Drawing::Point(332, 9);
 			this->Customerlabel->Name = L"Customerlabel";
-			this->Customerlabel->Size = System::Drawing::Size(411, 39);
+			this->Customerlabel->Size = System::Drawing::Size(404, 35);
 			this->Customerlabel->TabIndex = 1;
 			this->Customerlabel->Text = L"NEW CUSTOMER FORM\r\n";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Aqua;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::Maroon;
+			this->label2->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label2->Location = System::Drawing::Point(207, 111);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(117, 31);
+			this->label2->Size = System::Drawing::Size(100, 29);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Name :-";
 			// 
 			// OccupationTextBox
 			// 
-			this->OccupationTextBox->BackColor = System::Drawing::Color::Fuchsia;
-			this->OccupationTextBox->Location = System::Drawing::Point(570, 546);
+			this->OccupationTextBox->BackColor = System::Drawing::Color::Cornsilk;
+			this->OccupationTextBox->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->OccupationTextBox->ForeColor = System::Drawing::Color::Purple;
+			this->OccupationTextBox->Location = System::Drawing::Point(570, 549);
 			this->OccupationTextBox->Name = L"OccupationTextBox";
-			this->OccupationTextBox->Size = System::Drawing::Size(268, 20);
+			this->OccupationTextBox->Size = System::Drawing::Size(268, 28);
 			this->OccupationTextBox->TabIndex = 29;
 			// 
 			// Aadharcustxt
 			// 
-			this->Aadharcustxt->BackColor = System::Drawing::Color::Fuchsia;
-			this->Aadharcustxt->Location = System::Drawing::Point(570, 384);
+			this->Aadharcustxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Aadharcustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Aadharcustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Aadharcustxt->Location = System::Drawing::Point(570, 387);
 			this->Aadharcustxt->Name = L"Aadharcustxt";
-			this->Aadharcustxt->Size = System::Drawing::Size(261, 20);
+			this->Aadharcustxt->Size = System::Drawing::Size(268, 28);
 			this->Aadharcustxt->TabIndex = 28;
 			// 
 			// Adresscustxt
 			// 
-			this->Adresscustxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->Adresscustxt->Location = System::Drawing::Point(570, 218);
+			this->Adresscustxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Adresscustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Adresscustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Adresscustxt->Location = System::Drawing::Point(570, 221);
 			this->Adresscustxt->Name = L"Adresscustxt";
-			this->Adresscustxt->Size = System::Drawing::Size(261, 20);
+			this->Adresscustxt->Size = System::Drawing::Size(268, 28);
 			this->Adresscustxt->TabIndex = 27;
 			// 
 			// Fathernamecustxt
 			// 
-			this->Fathernamecustxt->BackColor = System::Drawing::Color::Fuchsia;
-			this->Fathernamecustxt->Location = System::Drawing::Point(570, 164);
+			this->Fathernamecustxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Fathernamecustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Fathernamecustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Fathernamecustxt->Location = System::Drawing::Point(570, 167);
 			this->Fathernamecustxt->Name = L"Fathernamecustxt";
-			this->Fathernamecustxt->Size = System::Drawing::Size(261, 20);
+			this->Fathernamecustxt->Size = System::Drawing::Size(268, 28);
 			this->Fathernamecustxt->TabIndex = 26;
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->BackColor = System::Drawing::Color::Lime;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label10->BackColor = System::Drawing::Color::Transparent;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->ForeColor = System::Drawing::Color::Maroon;
+			this->label10->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label10->Location = System::Drawing::Point(210, 546);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(162, 31);
+			this->label10->Size = System::Drawing::Size(136, 29);
 			this->label10->TabIndex = 23;
 			this->label10->Text = L"Occupation";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label9->BackColor = System::Drawing::Color::Transparent;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->ForeColor = System::Drawing::Color::Maroon;
+			this->label9->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label9->Location = System::Drawing::Point(210, 489);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(105, 31);
+			this->label9->Size = System::Drawing::Size(93, 29);
 			this->label9->TabIndex = 22;
 			this->label9->Text = L"DOB:--";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->BackColor = System::Drawing::Color::Lime;
-			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label13->BackColor = System::Drawing::Color::Transparent;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label13->ForeColor = System::Drawing::Color::Maroon;
+			this->label13->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label13->Location = System::Drawing::Point(207, 274);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(128, 31);
+			this->label13->Size = System::Drawing::Size(111, 29);
 			this->label13->TabIndex = 20;
 			this->label13->Text = L"Mob no:-";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label12->BackColor = System::Drawing::Color::Transparent;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label12->ForeColor = System::Drawing::Color::Maroon;
+			this->label12->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label12->Location = System::Drawing::Point(207, 218);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(140, 31);
+			this->label12->Size = System::Drawing::Size(113, 29);
 			this->label12->TabIndex = 19;
 			this->label12->Text = L"Address:-";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->BackColor = System::Drawing::Color::Lime;
-			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label11->BackColor = System::Drawing::Color::Transparent;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->ForeColor = System::Drawing::Color::Maroon;
+			this->label11->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label11->Location = System::Drawing::Point(207, 164);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(223, 31);
+			this->label11->Size = System::Drawing::Size(190, 29);
 			this->label11->TabIndex = 18;
 			this->label11->Text = L"Father\'s Name:-";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::Color::Lime;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->BackColor = System::Drawing::Color::Transparent;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::Maroon;
+			this->label3->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label3->Location = System::Drawing::Point(207, 384);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(166, 31);
+			this->label3->Size = System::Drawing::Size(147, 29);
 			this->label3->TabIndex = 30;
 			this->label3->Text = L"Aadhar no:-";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label4->BackColor = System::Drawing::Color::Transparent;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::Maroon;
+			this->label4->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label4->Location = System::Drawing::Point(207, 330);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(105, 31);
+			this->label4->Size = System::Drawing::Size(99, 29);
 			this->label4->TabIndex = 31;
 			this->label4->Text = L"Email:-";
 			// 
 			// Emailcustxt
 			// 
-			this->Emailcustxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->Emailcustxt->Location = System::Drawing::Point(570, 330);
+			this->Emailcustxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Emailcustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Emailcustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Emailcustxt->Location = System::Drawing::Point(570, 331);
 			this->Emailcustxt->Name = L"Emailcustxt";
-			this->Emailcustxt->Size = System::Drawing::Size(268, 20);
+			this->Emailcustxt->Size = System::Drawing::Size(268, 28);
 			this->Emailcustxt->TabIndex = 32;
 			// 
 			// Namecustxt
 			// 
-			this->Namecustxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->Namecustxt->Location = System::Drawing::Point(570, 111);
+			this->Namecustxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Namecustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Namecustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Namecustxt->Location = System::Drawing::Point(570, 114);
 			this->Namecustxt->Name = L"Namecustxt";
-			this->Namecustxt->Size = System::Drawing::Size(268, 20);
+			this->Namecustxt->Size = System::Drawing::Size(268, 28);
 			this->Namecustxt->TabIndex = 33;
 			// 
 			// Mobcustxt
 			// 
-			this->Mobcustxt->BackColor = System::Drawing::Color::Fuchsia;
-			this->Mobcustxt->Location = System::Drawing::Point(570, 274);
+			this->Mobcustxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Mobcustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Mobcustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Mobcustxt->Location = System::Drawing::Point(570, 277);
 			this->Mobcustxt->Name = L"Mobcustxt";
-			this->Mobcustxt->Size = System::Drawing::Size(261, 20);
+			this->Mobcustxt->Size = System::Drawing::Size(268, 28);
 			this->Mobcustxt->TabIndex = 34;
 			// 
 			// Submitcusbtn
 			// 
-			this->Submitcusbtn->BackColor = System::Drawing::Color::Red;
-			this->Submitcusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Submitcusbtn->BackColor = System::Drawing::Color::Cornsilk;
+			this->Submitcusbtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Submitcusbtn->ForeColor = System::Drawing::Color::Navy;
+			this->Submitcusbtn->ForeColor = System::Drawing::Color::Purple;
 			this->Submitcusbtn->Location = System::Drawing::Point(110, 639);
 			this->Submitcusbtn->Name = L"Submitcusbtn";
 			this->Submitcusbtn->Size = System::Drawing::Size(158, 50);
@@ -365,10 +377,10 @@ namespace bankingmanagement {
 			// 
 			// Cancelcusbtn
 			// 
-			this->Cancelcusbtn->BackColor = System::Drawing::Color::Red;
-			this->Cancelcusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Cancelcusbtn->BackColor = System::Drawing::Color::Cornsilk;
+			this->Cancelcusbtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Cancelcusbtn->ForeColor = System::Drawing::Color::Navy;
+			this->Cancelcusbtn->ForeColor = System::Drawing::Color::Purple;
 			this->Cancelcusbtn->Location = System::Drawing::Point(775, 642);
 			this->Cancelcusbtn->Name = L"Cancelcusbtn";
 			this->Cancelcusbtn->Size = System::Drawing::Size(157, 47);
@@ -380,20 +392,20 @@ namespace bankingmanagement {
 			// Dobcus
 			// 
 			this->Dobcus->CustomFormat = L"yyyy-MM-dd";
-			this->Dobcus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Dobcus->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Dobcus->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->Dobcus->Location = System::Drawing::Point(570, 489);
+			this->Dobcus->Location = System::Drawing::Point(570, 490);
 			this->Dobcus->Name = L"Dobcus";
-			this->Dobcus->Size = System::Drawing::Size(261, 26);
+			this->Dobcus->Size = System::Drawing::Size(268, 28);
 			this->Dobcus->TabIndex = 37;
 			// 
 			// OKcusbtn
 			// 
-			this->OKcusbtn->BackColor = System::Drawing::Color::Red;
-			this->OKcusbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->OKcusbtn->BackColor = System::Drawing::Color::Cornsilk;
+			this->OKcusbtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->OKcusbtn->ForeColor = System::Drawing::Color::Navy;
+			this->OKcusbtn->ForeColor = System::Drawing::Color::Purple;
 			this->OKcusbtn->Location = System::Drawing::Point(437, 639);
 			this->OKcusbtn->Name = L"OKcusbtn";
 			this->OKcusbtn->Size = System::Drawing::Size(158, 50);
@@ -402,53 +414,38 @@ namespace bankingmanagement {
 			this->OKcusbtn->UseVisualStyleBackColor = false;
 			this->OKcusbtn->Click += gcnew System::EventHandler(this, &AddCustomer::OKcusbtn_Click);
 			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(210, 605);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(131, 31);
-			this->label1->TabIndex = 39;
-			this->label1->Text = L"Datetime";
-			this->label1->Visible = false;
-			this->label1->Click += gcnew System::EventHandler(this, &AddCustomer::label1_Click);
-			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->BackColor = System::Drawing::Color::Lime;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label5->BackColor = System::Drawing::Color::Transparent;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::Color::Maroon;
+			this->label5->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label5->Location = System::Drawing::Point(206, 436);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(127, 31);
+			this->label5->Size = System::Drawing::Size(113, 29);
 			this->label5->TabIndex = 41;
 			this->label5->Text = L"PAN No.";
 			// 
 			// PanNoTextBox
 			// 
-			this->PanNoTextBox->BackColor = System::Drawing::Color::Fuchsia;
-			this->PanNoTextBox->Location = System::Drawing::Point(569, 436);
+			this->PanNoTextBox->BackColor = System::Drawing::Color::Cornsilk;
+			this->PanNoTextBox->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->PanNoTextBox->ForeColor = System::Drawing::Color::Purple;
+			this->PanNoTextBox->Location = System::Drawing::Point(570, 439);
 			this->PanNoTextBox->Name = L"PanNoTextBox";
-			this->PanNoTextBox->Size = System::Drawing::Size(261, 20);
+			this->PanNoTextBox->Size = System::Drawing::Size(268, 28);
 			this->PanNoTextBox->TabIndex = 40;
 			// 
 			// AddCustomer
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Blue;
+			this->BackColor = System::Drawing::Color::Purple;
 			this->ClientSize = System::Drawing::Size(1064, 713);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->PanNoTextBox);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->OKcusbtn);
 			this->Controls->Add(this->Dobcus);
 			this->Controls->Add(this->Cancelcusbtn);
@@ -628,7 +625,8 @@ private: System::Void Submitcusbtn_Click(System::Object^ sender, System::EventAr
 			int  accountbalance = 0;
 
 			// Setting account date and time
-			String^ datetime = label1->Text;
+			DateTime date = DateTime::Now;
+			String^ datetime = date.ToString();
 
 
 
@@ -670,7 +668,7 @@ private: System::Void Submitcusbtn_Click(System::Object^ sender, System::EventAr
 				reader = cmd->ExecuteReader();
 				Connect->Close();
 				MessageBox::Show("Account Openned successfully. Name = '" + accountholder + "' and Account No. = '" + accountno + "'", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
-				Query = "INSERT INTO Banking.Account (Branchname,BAddress,Accountno,AccHolder,Accountbalance, Accountopendateandtime,Customerid,Occupation,IFSCcode,MICRcode,Address,Username,Password) VALUES ('" +
+				Query = "INSERT INTO Banking.Account (Branchname,BAddress,Accountno,Name,Accountbalance, Accountopendateandtime,Customerid,Occupation,IFSCcode,MICRcode,Address,Username,Password) VALUES ('" +
 					branchname + "','" + branchaddress + "','" +
 					accountno + "','" + accountholder + "','" + accountbalance + "','" + datetime + "', '" +
 					customerid + "', '" + occupation + "', '" +
@@ -817,10 +815,7 @@ private: System::Void labeldate_Click(System::Object ^ sender, System::EventArgs
 }
 private: System::Void timer1_Tick_1(System::Object ^ sender, System::EventArgs ^ e) {
 }
-private: System::Void label1_Click(System::Object ^ sender, System::EventArgs ^ e) {
-	DateTime datetime = DateTime::Now;
-	this->label1->Text = datetime.ToString();
-}
+
 
 };
 }

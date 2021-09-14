@@ -96,7 +96,7 @@
 
 
 		   String^ Key, ^RadioBtn = "Name";
-		   String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
+		   String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		   MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		   String^ Query;
 
@@ -899,12 +899,12 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			// MessageLabel
 			// 
 			this->MessageLabel->AutoSize = true;
-			this->MessageLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->MessageLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MessageLabel->ForeColor = System::Drawing::Color::Coral;
-			this->MessageLabel->Location = System::Drawing::Point(90, 24);
+			this->MessageLabel->Location = System::Drawing::Point(7, 24);
 			this->MessageLabel->Name = L"MessageLabel";
-			this->MessageLabel->Size = System::Drawing::Size(466, 34);
+			this->MessageLabel->Size = System::Drawing::Size(361, 26);
 			this->MessageLabel->TabIndex = 0;
 			this->MessageLabel->Text = L"Are You Sure Want to Logout \?";
 			// 
@@ -1312,6 +1312,7 @@ private: System::Void OtherServicesBtn_MouseHover(System::Object^ sender, System
 private: System::Void LogoutBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	Key = "FromLogout";
+	MessageLabel->Text = "Are you sure want to logout?";
 	MessagePanel->Visible = true;
 	button1->Visible = true;
 	button2->Text = "Yes";

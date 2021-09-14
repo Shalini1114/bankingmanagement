@@ -25,7 +25,7 @@ namespace bankingmanagement {
 
 		String^ Key, ^RadioBtn;
 		String^ Transactionby;
-		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 	private: System::Windows::Forms::Panel^ TransactionPanel;
@@ -217,93 +217,91 @@ namespace bankingmanagement {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Navy;
+			this->label1->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label1->Location = System::Drawing::Point(371, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(254, 39);
+			this->label1->Size = System::Drawing::Size(169, 25);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Account Details";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Yellow;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::Red;
+			this->label2->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label2->Location = System::Drawing::Point(181, 58);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(131, 25);
+			this->label2->Size = System::Drawing::Size(148, 25);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Branch Name";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->BackColor = System::Drawing::Color::Transparent;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::Red;
-			this->label3->Location = System::Drawing::Point(186, 101);
+			this->label3->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label3->Location = System::Drawing::Point(181, 103);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(152, 25);
+			this->label3->Size = System::Drawing::Size(168, 25);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Branch Address";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::Yellow;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->BackColor = System::Drawing::Color::Transparent;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::Red;
-			this->label4->Location = System::Drawing::Point(200, 391);
+			this->label4->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label4->Location = System::Drawing::Point(181, 378);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(111, 25);
+			this->label4->Size = System::Drawing::Size(116, 25);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"IFSC Code";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->BackColor = System::Drawing::Color::Yellow;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label5->BackColor = System::Drawing::Color::Transparent;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::Color::Red;
-			this->label5->Location = System::Drawing::Point(200, 316);
+			this->label5->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label5->Location = System::Drawing::Point(181, 297);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(118, 25);
+			this->label5->Size = System::Drawing::Size(130, 25);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Customer Id";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::Yellow;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->BackColor = System::Drawing::Color::Transparent;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::Red;
-			this->label6->Location = System::Drawing::Point(200, 227);
+			this->label6->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label6->Location = System::Drawing::Point(181, 221);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(160, 25);
+			this->label6->Size = System::Drawing::Size(180, 25);
 			this->label6->TabIndex = 5;
 			this->label6->Text = L"Account Balance";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::Color::Yellow;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->BackColor = System::Drawing::Color::Transparent;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->ForeColor = System::Drawing::Color::Red;
-			this->label7->Location = System::Drawing::Point(197, 142);
+			this->label7->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label7->Location = System::Drawing::Point(181, 142);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(114, 25);
+			this->label7->Size = System::Drawing::Size(128, 25);
 			this->label7->TabIndex = 6;
 			this->label7->Text = L"Account No";
 			// 
@@ -324,79 +322,74 @@ namespace bankingmanagement {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label9->BackColor = System::Drawing::Color::Transparent;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->ForeColor = System::Drawing::Color::Red;
-			this->label9->Location = System::Drawing::Point(192, 183);
+			this->label9->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label9->Location = System::Drawing::Point(181, 183);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(146, 25);
+			this->label9->Size = System::Drawing::Size(170, 25);
 			this->label9->TabIndex = 8;
 			this->label9->Text = L"Account Holder";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label10->BackColor = System::Drawing::Color::Transparent;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->ForeColor = System::Drawing::Color::Red;
-			this->label10->Location = System::Drawing::Point(200, 272);
+			this->label10->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label10->Location = System::Drawing::Point(181, 257);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(138, 25);
+			this->label10->Size = System::Drawing::Size(150, 25);
 			this->label10->TabIndex = 9;
 			this->label10->Text = L"Account Open";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label11->BackColor = System::Drawing::Color::Transparent;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->ForeColor = System::Drawing::Color::Red;
-			this->label11->Location = System::Drawing::Point(199, 357);
+			this->label11->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label11->Location = System::Drawing::Point(181, 337);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(112, 25);
+			this->label11->Size = System::Drawing::Size(122, 25);
 			this->label11->TabIndex = 10;
 			this->label11->Text = L"Occupation";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label12->BackColor = System::Drawing::Color::Transparent;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label12->ForeColor = System::Drawing::Color::Red;
-			this->label12->Location = System::Drawing::Point(196, 429);
+			this->label12->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label12->Location = System::Drawing::Point(181, 420);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(115, 25);
+			this->label12->Size = System::Drawing::Size(126, 25);
 			this->label12->TabIndex = 11;
 			this->label12->Text = L"MICR Code";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->BackColor = System::Drawing::Color::Yellow;
-			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label13->BackColor = System::Drawing::Color::Transparent;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label13->ForeColor = System::Drawing::Color::Red;
-			this->label13->Location = System::Drawing::Point(197, 470);
+			this->label13->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label13->Location = System::Drawing::Point(181, 461);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(90, 25);
+			this->label13->Size = System::Drawing::Size(95, 25);
 			this->label13->TabIndex = 12;
 			this->label13->Text = L"Address ";
 			// 
 			// Okaccbtn
 			// 
-			this->Okaccbtn->BackColor = System::Drawing::Color::Red;
-			this->Okaccbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Okaccbtn->BackColor = System::Drawing::Color::Cornsilk;
+			this->Okaccbtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Okaccbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Okaccbtn->ForeColor = System::Drawing::Color::Purple;
 			this->Okaccbtn->Location = System::Drawing::Point(108, 512);
 			this->Okaccbtn->Name = L"Okaccbtn";
 			this->Okaccbtn->Size = System::Drawing::Size(123, 33);
@@ -407,11 +400,10 @@ namespace bankingmanagement {
 			// 
 			// Cancelaccbtn
 			// 
-			this->Cancelaccbtn->BackColor = System::Drawing::Color::Red;
-			this->Cancelaccbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Cancelaccbtn->BackColor = System::Drawing::Color::Cornsilk;
+			this->Cancelaccbtn->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Cancelaccbtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Cancelaccbtn->ForeColor = System::Drawing::Color::Purple;
 			this->Cancelaccbtn->Location = System::Drawing::Point(756, 512);
 			this->Cancelaccbtn->Name = L"Cancelaccbtn";
 			this->Cancelaccbtn->Size = System::Drawing::Size(123, 33);
@@ -422,101 +414,123 @@ namespace bankingmanagement {
 			// 
 			// Branchnametxt
 			// 
-			this->Branchnametxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Branchnametxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Branchnametxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Branchnametxt->Location = System::Drawing::Point(587, 62);
+			this->Branchnametxt->ForeColor = System::Drawing::Color::Purple;
+			this->Branchnametxt->Location = System::Drawing::Point(586, 56);
 			this->Branchnametxt->Name = L"Branchnametxt";
-			this->Branchnametxt->Size = System::Drawing::Size(207, 23);
+			this->Branchnametxt->Size = System::Drawing::Size(207, 29);
 			this->Branchnametxt->TabIndex = 15;
 			// 
 			// Customeridtxt
 			// 
-			this->Customeridtxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Customeridtxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Customeridtxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Customeridtxt->Location = System::Drawing::Point(587, 316);
+			this->Customeridtxt->ForeColor = System::Drawing::Color::Purple;
+			this->Customeridtxt->Location = System::Drawing::Point(587, 301);
 			this->Customeridtxt->Name = L"Customeridtxt";
-			this->Customeridtxt->Size = System::Drawing::Size(207, 23);
+			this->Customeridtxt->Size = System::Drawing::Size(207, 29);
 			this->Customeridtxt->TabIndex = 16;
 			// 
 			// Accountopentxt
 			// 
-			this->Accountopentxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Accountopentxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Accountopentxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Accountopentxt->Location = System::Drawing::Point(587, 272);
+			this->Accountopentxt->ForeColor = System::Drawing::Color::Purple;
+			this->Accountopentxt->Location = System::Drawing::Point(587, 259);
 			this->Accountopentxt->Name = L"Accountopentxt";
-			this->Accountopentxt->Size = System::Drawing::Size(207, 23);
+			this->Accountopentxt->Size = System::Drawing::Size(207, 29);
 			this->Accountopentxt->TabIndex = 17;
 			// 
 			// Accountbalancetxt
 			// 
-			this->Accountbalancetxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Accountbalancetxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Accountbalancetxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Accountbalancetxt->Location = System::Drawing::Point(587, 227);
+			this->Accountbalancetxt->ForeColor = System::Drawing::Color::Purple;
+			this->Accountbalancetxt->Location = System::Drawing::Point(587, 223);
 			this->Accountbalancetxt->Name = L"Accountbalancetxt";
-			this->Accountbalancetxt->Size = System::Drawing::Size(207, 23);
+			this->Accountbalancetxt->Size = System::Drawing::Size(207, 29);
 			this->Accountbalancetxt->TabIndex = 18;
 			// 
 			// Accountholdertxt
 			// 
-			this->Accountholdertxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Accountholdertxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Accountholdertxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Accountholdertxt->Location = System::Drawing::Point(587, 183);
+			this->Accountholdertxt->ForeColor = System::Drawing::Color::Purple;
+			this->Accountholdertxt->Location = System::Drawing::Point(587, 187);
 			this->Accountholdertxt->Name = L"Accountholdertxt";
-			this->Accountholdertxt->Size = System::Drawing::Size(207, 23);
+			this->Accountholdertxt->Size = System::Drawing::Size(207, 29);
 			this->Accountholdertxt->TabIndex = 19;
 			// 
 			// Accountnotxt
 			// 
-			this->Accountnotxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Accountnotxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Accountnotxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Accountnotxt->Location = System::Drawing::Point(587, 142);
+			this->Accountnotxt->ForeColor = System::Drawing::Color::Purple;
+			this->Accountnotxt->Location = System::Drawing::Point(587, 146);
 			this->Accountnotxt->Name = L"Accountnotxt";
-			this->Accountnotxt->Size = System::Drawing::Size(207, 23);
+			this->Accountnotxt->Size = System::Drawing::Size(207, 29);
 			this->Accountnotxt->TabIndex = 20;
 			// 
 			// Branchaddresstxt
 			// 
-			this->Branchaddresstxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Branchaddresstxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Branchaddresstxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Branchaddresstxt->Location = System::Drawing::Point(587, 105);
+			this->Branchaddresstxt->ForeColor = System::Drawing::Color::Purple;
+			this->Branchaddresstxt->Location = System::Drawing::Point(587, 101);
 			this->Branchaddresstxt->Name = L"Branchaddresstxt";
-			this->Branchaddresstxt->Size = System::Drawing::Size(207, 23);
+			this->Branchaddresstxt->Size = System::Drawing::Size(207, 29);
 			this->Branchaddresstxt->TabIndex = 21;
 			// 
 			// IFSCCodetxt
 			// 
-			this->IFSCCodetxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->IFSCCodetxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->IFSCCodetxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->IFSCCodetxt->Location = System::Drawing::Point(587, 391);
+			this->IFSCCodetxt->ForeColor = System::Drawing::Color::Purple;
+			this->IFSCCodetxt->Location = System::Drawing::Point(587, 382);
 			this->IFSCCodetxt->Name = L"IFSCCodetxt";
-			this->IFSCCodetxt->Size = System::Drawing::Size(207, 23);
+			this->IFSCCodetxt->Size = System::Drawing::Size(207, 29);
 			this->IFSCCodetxt->TabIndex = 22;
 			// 
 			// Occupationtxt
 			// 
-			this->Occupationtxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Occupationtxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Occupationtxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Occupationtxt->Location = System::Drawing::Point(587, 347);
+			this->Occupationtxt->ForeColor = System::Drawing::Color::Purple;
+			this->Occupationtxt->Location = System::Drawing::Point(587, 341);
 			this->Occupationtxt->Name = L"Occupationtxt";
-			this->Occupationtxt->Size = System::Drawing::Size(207, 23);
+			this->Occupationtxt->Size = System::Drawing::Size(207, 29);
 			this->Occupationtxt->TabIndex = 23;
 			// 
 			// MICRCodetxt
 			// 
-			this->MICRCodetxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->MICRCodetxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->MICRCodetxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MICRCodetxt->Location = System::Drawing::Point(587, 431);
+			this->MICRCodetxt->ForeColor = System::Drawing::Color::Purple;
+			this->MICRCodetxt->Location = System::Drawing::Point(587, 424);
 			this->MICRCodetxt->Name = L"MICRCodetxt";
-			this->MICRCodetxt->Size = System::Drawing::Size(207, 23);
+			this->MICRCodetxt->Size = System::Drawing::Size(207, 29);
 			this->MICRCodetxt->TabIndex = 24;
 			// 
 			// Addresstxt
 			// 
-			this->Addresstxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Addresstxt->BackColor = System::Drawing::Color::Cornsilk;
+			this->Addresstxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Addresstxt->Location = System::Drawing::Point(587, 470);
+			this->Addresstxt->ForeColor = System::Drawing::Color::Purple;
+			this->Addresstxt->Location = System::Drawing::Point(587, 465);
 			this->Addresstxt->Name = L"Addresstxt";
-			this->Addresstxt->Size = System::Drawing::Size(207, 23);
+			this->Addresstxt->Size = System::Drawing::Size(207, 29);
 			this->Addresstxt->TabIndex = 25;
 			// 
 			// TransactionPanel
@@ -535,7 +549,7 @@ namespace bankingmanagement {
 			this->TransactionPanel->Controls->Add(this->ProceedBtn);
 			this->TransactionPanel->Controls->Add(this->Ammounttxt);
 			this->TransactionPanel->Controls->Add(this->label14);
-			this->TransactionPanel->Location = System::Drawing::Point(250, 58);
+			this->TransactionPanel->Location = System::Drawing::Point(355, 91);
 			this->TransactionPanel->Name = L"TransactionPanel";
 			this->TransactionPanel->Size = System::Drawing::Size(413, 345);
 			this->TransactionPanel->TabIndex = 26;
@@ -728,7 +742,7 @@ namespace bankingmanagement {
 			this->Cardpanel->Controls->Add(this->label19);
 			this->Cardpanel->Controls->Add(this->cvv);
 			this->Cardpanel->Controls->Add(this->cardnumber);
-			this->Cardpanel->Location = System::Drawing::Point(174, 269);
+			this->Cardpanel->Location = System::Drawing::Point(303, 170);
 			this->Cardpanel->Name = L"Cardpanel";
 			this->Cardpanel->Size = System::Drawing::Size(451, 261);
 			this->Cardpanel->TabIndex = 27;
@@ -738,12 +752,12 @@ namespace bankingmanagement {
 			// 
 			this->Amountlimit->AutoSize = true;
 			this->Amountlimit->BackColor = System::Drawing::Color::Transparent;
-			this->Amountlimit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->Amountlimit->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Amountlimit->ForeColor = System::Drawing::Color::Cyan;
+			this->Amountlimit->ForeColor = System::Drawing::Color::Cornsilk;
 			this->Amountlimit->Location = System::Drawing::Point(151, 157);
 			this->Amountlimit->Name = L"Amountlimit";
-			this->Amountlimit->Size = System::Drawing::Size(31, 20);
+			this->Amountlimit->Size = System::Drawing::Size(38, 24);
 			this->Amountlimit->TabIndex = 18;
 			this->Amountlimit->Text = L"AL";
 			this->Amountlimit->Visible = false;
@@ -752,23 +766,22 @@ namespace bankingmanagement {
 			// 
 			this->Amountlimitlabel->AutoSize = true;
 			this->Amountlimitlabel->BackColor = System::Drawing::Color::Transparent;
-			this->Amountlimitlabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->Amountlimitlabel->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Amountlimitlabel->ForeColor = System::Drawing::Color::Navy;
+			this->Amountlimitlabel->ForeColor = System::Drawing::Color::Cornsilk;
 			this->Amountlimitlabel->Location = System::Drawing::Point(30, 157);
 			this->Amountlimitlabel->Name = L"Amountlimitlabel";
-			this->Amountlimitlabel->Size = System::Drawing::Size(108, 20);
+			this->Amountlimitlabel->Size = System::Drawing::Size(126, 24);
 			this->Amountlimitlabel->TabIndex = 17;
 			this->Amountlimitlabel->Text = L"Amount limit";
 			this->Amountlimitlabel->Visible = false;
 			// 
 			// CardOkBtn
 			// 
-			this->CardOkBtn->BackColor = System::Drawing::Color::SeaGreen;
+			this->CardOkBtn->BackColor = System::Drawing::Color::Cornsilk;
 			this->CardOkBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->CardOkBtn->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->CardOkBtn->ForeColor = System::Drawing::Color::Purple;
 			this->CardOkBtn->Location = System::Drawing::Point(202, 216);
 			this->CardOkBtn->Name = L"CardOkBtn";
 			this->CardOkBtn->Size = System::Drawing::Size(49, 41);
@@ -781,12 +794,12 @@ namespace bankingmanagement {
 			// 
 			this->validupto->AutoSize = true;
 			this->validupto->BackColor = System::Drawing::Color::Transparent;
-			this->validupto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->validupto->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->validupto->ForeColor = System::Drawing::Color::LightSkyBlue;
+			this->validupto->ForeColor = System::Drawing::Color::Cornsilk;
 			this->validupto->Location = System::Drawing::Point(340, 119);
 			this->validupto->Name = L"validupto";
-			this->validupto->Size = System::Drawing::Size(29, 20);
+			this->validupto->Size = System::Drawing::Size(28, 24);
 			this->validupto->TabIndex = 15;
 			this->validupto->Text = L"ed";
 			// 
@@ -794,12 +807,12 @@ namespace bankingmanagement {
 			// 
 			this->validfrom->AutoSize = true;
 			this->validfrom->BackColor = System::Drawing::Color::Transparent;
-			this->validfrom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->validfrom->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->validfrom->ForeColor = System::Drawing::Color::LightSkyBlue;
+			this->validfrom->ForeColor = System::Drawing::Color::Cornsilk;
 			this->validfrom->Location = System::Drawing::Point(126, 105);
 			this->validfrom->Name = L"validfrom";
-			this->validfrom->Size = System::Drawing::Size(28, 20);
+			this->validfrom->Size = System::Drawing::Size(28, 24);
 			this->validfrom->TabIndex = 14;
 			this->validfrom->Text = L"cd";
 			// 
@@ -820,12 +833,12 @@ namespace bankingmanagement {
 			// 
 			this->accountholdername->AutoSize = true;
 			this->accountholdername->BackColor = System::Drawing::Color::Transparent;
-			this->accountholdername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->accountholdername->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->accountholdername->ForeColor = System::Drawing::Color::Navy;
+			this->accountholdername->ForeColor = System::Drawing::Color::Cornsilk;
 			this->accountholdername->Location = System::Drawing::Point(18, 183);
 			this->accountholdername->Name = L"accountholdername";
-			this->accountholdername->Size = System::Drawing::Size(277, 31);
+			this->accountholdername->Size = System::Drawing::Size(181, 24);
 			this->accountholdername->TabIndex = 12;
 			this->accountholdername->Text = L"AccountHoldername";
 			// 
@@ -833,12 +846,12 @@ namespace bankingmanagement {
 			// 
 			this->label20->AutoSize = true;
 			this->label20->BackColor = System::Drawing::Color::Transparent;
-			this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label20->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label20->ForeColor = System::Drawing::Color::Navy;
+			this->label20->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label20->Location = System::Drawing::Point(30, 105);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(90, 20);
+			this->label20->Size = System::Drawing::Size(104, 24);
 			this->label20->TabIndex = 11;
 			this->label20->Text = L"ValidFrom";
 			// 
@@ -846,12 +859,12 @@ namespace bankingmanagement {
 			// 
 			this->label19->AutoSize = true;
 			this->label19->BackColor = System::Drawing::Color::Transparent;
-			this->label19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label19->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label19->ForeColor = System::Drawing::Color::Navy;
+			this->label19->ForeColor = System::Drawing::Color::Cornsilk;
 			this->label19->Location = System::Drawing::Point(246, 119);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(88, 20);
+			this->label19->Size = System::Drawing::Size(98, 24);
 			this->label19->TabIndex = 10;
 			this->label19->Text = L"ValidUpto";
 			// 
@@ -859,12 +872,12 @@ namespace bankingmanagement {
 			// 
 			this->cvv->AutoSize = true;
 			this->cvv->BackColor = System::Drawing::Color::Transparent;
-			this->cvv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->cvv->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->cvv->ForeColor = System::Drawing::Color::Navy;
+			this->cvv->ForeColor = System::Drawing::Color::Cornsilk;
 			this->cvv->Location = System::Drawing::Point(359, 198);
 			this->cvv->Name = L"cvv";
-			this->cvv->Size = System::Drawing::Size(50, 29);
+			this->cvv->Size = System::Drawing::Size(36, 24);
 			this->cvv->TabIndex = 8;
 			this->cvv->Text = L"cvv";
 			// 
@@ -872,12 +885,12 @@ namespace bankingmanagement {
 			// 
 			this->cardnumber->AutoSize = true;
 			this->cardnumber->BackColor = System::Drawing::Color::Transparent;
-			this->cardnumber->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->cardnumber->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->cardnumber->ForeColor = System::Drawing::Color::Navy;
+			this->cardnumber->ForeColor = System::Drawing::Color::Cornsilk;
 			this->cardnumber->Location = System::Drawing::Point(25, 64);
 			this->cardnumber->Name = L"cardnumber";
-			this->cardnumber->Size = System::Drawing::Size(156, 28);
+			this->cardnumber->Size = System::Drawing::Size(158, 31);
 			this->cardnumber->TabIndex = 6;
 			this->cardnumber->Text = L"Cardnumber";
 			// 
@@ -886,7 +899,7 @@ namespace bankingmanagement {
 			this->MessagePanel->BackColor = System::Drawing::Color::DarkCyan;
 			this->MessagePanel->Controls->Add(this->button2);
 			this->MessagePanel->Controls->Add(this->MessageLabel);
-			this->MessagePanel->Location = System::Drawing::Point(126, 62);
+			this->MessagePanel->Location = System::Drawing::Point(315, 136);
 			this->MessagePanel->Name = L"MessagePanel";
 			this->MessagePanel->Size = System::Drawing::Size(609, 129);
 			this->MessagePanel->TabIndex = 28;
@@ -909,12 +922,12 @@ namespace bankingmanagement {
 			// MessageLabel
 			// 
 			this->MessageLabel->AutoSize = true;
-			this->MessageLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->MessageLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MessageLabel->ForeColor = System::Drawing::Color::Coral;
-			this->MessageLabel->Location = System::Drawing::Point(90, 24);
+			this->MessageLabel->Location = System::Drawing::Point(12, 24);
 			this->MessageLabel->Name = L"MessageLabel";
-			this->MessageLabel->Size = System::Drawing::Size(466, 34);
+			this->MessageLabel->Size = System::Drawing::Size(361, 26);
 			this->MessageLabel->TabIndex = 0;
 			this->MessageLabel->Text = L"Are You Sure Want to Logout \?";
 			// 
@@ -922,14 +935,11 @@ namespace bankingmanagement {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->BackColor = System::Drawing::Color::Purple;
 			this->ClientSize = System::Drawing::Size(936, 557);
-			this->Controls->Add(this->Cardpanel);
-			this->Controls->Add(this->MessagePanel);
-			this->Controls->Add(this->TransactionPanel);
 			this->Controls->Add(this->Addresstxt);
 			this->Controls->Add(this->MICRCodetxt);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->Occupationtxt);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->IFSCCodetxt);
@@ -951,9 +961,11 @@ namespace bankingmanagement {
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Controls->Add(this->TransactionPanel);
+			this->Controls->Add(this->MessagePanel);
+			this->Controls->Add(this->Cardpanel);
 			this->Name = L"Account";
 			this->Text = L"Account";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -998,7 +1010,8 @@ namespace bankingmanagement {
 			// Setting Transactionid
 			String^ Transactionid = "8765";
 			//Setting Date and Time
-			String^ dateandTime = label1->Text;
+			DateTime date = DateTime::Now;
+			String^ dateandTime = date.ToString();
 			// Setting account number
 			String^ Accountno = Accountnotxt->Text;
 
@@ -1143,149 +1156,165 @@ namespace bankingmanagement {
 		{
 			if (Key == "FromDebitCard")
 			{
-				// Setting Card Number
 
-				String^ CardNumber = "2739 1000 0012 ";
-				String^ Pin;
-				try
-				{
-					CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber");
-					//Setting pin
-					 Pin = GenerateNumber("Banking.Debitcard", "Pin");
-
-				}
-				catch (Exception^ ex)
-				{
-					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					ManagerMEnu->Show();
-					this->Close();
-				}
-
-				// Setting Cvv
-				int Cvv = rand() % 1000;
-
-				
-				// Setting Valid From
-				DateTime date = DateTime::Now;
-				String^ CurrentDate = date.ToString("MM");
-				CurrentDate += "/";
-				CurrentDate += date.ToString("yy");
-
-
-				// Setting Valid Upto
-
-				String^ ExpiryDate = date.ToString("MM");
-				ExpiryDate += "/";
-				ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
-
-				// Inserting data into database.
-				String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-				String^ Query;
-				Query = "insert into Banking.Debitcard (AccountHolderName,CardNumber,Cvv,Pin,ValidFrom,ValidUpto,AccountNo) values ('" +
-					Accountholdertxt->Text + "','" + CardNumber + "','" +
-					Cvv + "','" + Pin + "','" + CurrentDate + "', '" +
-					ExpiryDate + "', '" + Accountnotxt->Text + "')";
-
-				// Inserting into database code...
+				Query = "select AccountNo from Banking.DebitCard where AccountNo = '" + Accountnotxt->Text + "'";
 				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 				MySqlDataReader^ reader;
-
+				
 				try
 				{
 					Connect->Open();
 					reader = cmd->ExecuteReader();
-					Cardpanel->Visible = true;
-					cardnumber->Text = CardNumber;
-					validfrom->Text = CurrentDate;
-					validupto->Text = ExpiryDate;;
-					Amountlimitlabel->Visible = false;
-					Amountlimit->Visible = false;
-					accountholdername->Text = Accountholdertxt->Text;
-					cvv->Text = Cvv.ToString();
-					Cardpanel->Visible = true;
+					if (reader->Read())
+					{
+						MessageLabel->Text = "Debit Card is already available for this account.";
+						MessagePanel->Visible = true;
+						Connect->Close();
+					}
+					else
+					{
+						Connect->Close();
+						// Setting Card Number
+
+						String^ CardNumber = "2739 1000 0012 ";
+						String^ Pin;
+
+						CardNumber += GenerateNumber("Banking.Debitcard", "CardNumber");
+						//Setting pin
+						Pin = GenerateNumber("Banking.Debitcard", "Pin");
+						
+
+						// Setting Cvv
+						int Cvv = rand() % 1000;
+
+
+						// Setting Valid From
+						DateTime date = DateTime::Now;
+						String^ CurrentDate = date.ToString("MM");
+						CurrentDate += "/";
+						CurrentDate += date.ToString("yy");
+
+
+						// Setting Valid Upto
+
+						String^ ExpiryDate = date.ToString("MM");
+						ExpiryDate += "/";
+						ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
+
+						// Inserting data into database.
+
+
+						Query = "insert into Banking.Debitcard (Name,CardNumber,Cvv,Pin,ValidFrom,ValidUpto,AccountNo) values ('" +
+							Accountholdertxt->Text + "','" + CardNumber + "','" +
+							Cvv + "','" + Pin + "','" + CurrentDate + "', '" +
+							ExpiryDate + "', '" + Accountnotxt->Text + "')";
+
+						// Inserting into database code...
+						cmd = gcnew MySqlCommand(Query, Connect);
+						
+						Connect->Open();
+						reader = cmd->ExecuteReader();
+						Cardpanel->Visible = true;
+						cardnumber->Text = CardNumber;
+						validfrom->Text = CurrentDate;
+						validupto->Text = ExpiryDate;;
+						Amountlimitlabel->Visible = false;
+						Amountlimit->Visible = false;
+						accountholdername->Text = Accountholdertxt->Text;
+						cvv->Text = Cvv.ToString();
+						Cardpanel->Visible = true;
+						Connect->Close();
+					}
+
 				}
 				catch (Exception^ ex)
 				{
+					Connect->Close();
 					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					ManagerMEnu->Show();
 					this->Close();
 				}
+
+
 
 			}
 
 			else if (Key == "FromCreditCard")
 			{
-
-				// Setting Card Number
-
-				String^ CardNumber = "6754 1000 0012 ";
-				String^ Pin;
-				try
-				{
-					CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber");
-					//Setting pin
-					Pin = GenerateNumber("Banking.Debitcard", "Pin");
-
-				}
-				catch (Exception^ ex)
-				{
-					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					ManagerMEnu->Show();
-					this->Close();
-				}
-
-				// Setting Cvv
-				int Cvv = rand() % 1000;
-
-				
-				// Setting Valid From
-				DateTime date = DateTime::Now;
-				String^ CurrentDate = date.ToString("MM");
-				CurrentDate += "/";
-				CurrentDate += date.ToString("yy");
-
-				// Setting Valid Upto
-				String^ ExpiryDate = date.ToString("MM");
-				ExpiryDate += "/";
-				ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
-
-				// Setting AmountLimit
-				int AmountLimit = 25000;
-
-				String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-				MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-				String^ Query;
-				Query = "insert into Banking.Creditcard (AccountHolderName,CardNumber,Cvv,Pin,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
-					Accountholdertxt->Text + "','" + CardNumber + "','" +
-					Cvv + "','" + Pin + "','" + CurrentDate + "', '" +
-					ExpiryDate + "', '" + Accountnotxt->Text + "','" + AmountLimit + "',)";
-
-				// Inserting into database code...
+				Query = "select AccountNo from Banking.CreditCard where AccountNo = '" + Accountnotxt->Text + "'";
 				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 				MySqlDataReader^ reader;
-
 				try
 				{
 					Connect->Open();
 					reader = cmd->ExecuteReader();
-					Cardpanel->Visible = true;
-					cardnumber->Text = CardNumber;
-					validfrom->Text = CurrentDate;
-					validupto->Text = CurrentDate;
-					Amountlimitlabel->Visible = true;
-					Amountlimit->Visible = true;
-					Amountlimit->Text = AmountLimit.ToString();
-					accountholdername->Text = Accountholdertxt->Text;
-					cvv->Text = Cvv.ToString();
-					Cardpanel->Visible = true;
+					if (reader->Read())
+					{
+						MessageLabel->Text = "Credit Card is already available for this account.";
+						MessagePanel->Visible = true;
+						Connect->Close();
+					}
+					else
+					{
+						Connect->Close();
+						// Setting Card Number
+
+						String^ CardNumber = "6754 1000 0012 ";
+						String^ Pin;
+						CardNumber += GenerateNumber("Banking.Creditcard", "CardNumber");
+						//Setting pin
+						Pin = GenerateNumber("Banking.Debitcard", "Pin");
+						
+
+						// Setting Cvv
+						int Cvv = rand() % 1000;
+
+
+						// Setting Valid From
+						DateTime date = DateTime::Now;
+						String^ CurrentDate = date.ToString("MM");
+						CurrentDate += "/";
+						CurrentDate += date.ToString("yy");
+
+						// Setting Valid Upto
+						String^ ExpiryDate = date.ToString("MM");
+						ExpiryDate += "/";
+						ExpiryDate += System::Convert::ToInt16(date.ToString("yy")) + 5;
+
+						// Setting AmountLimit
+						int AmountLimit = 25000;
+
+
+						Query = "insert into Banking.Creditcard (Name,CardNumber,Cvv,Pin,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
+							Accountholdertxt->Text + "','" + CardNumber + "','" +
+							Cvv + "','" + Pin + "','" + CurrentDate + "', '" +
+							ExpiryDate + "', '" + Accountnotxt->Text + "','" + AmountLimit.ToString() + "',)";
+
+						// Inserting into database code...
+						cmd = gcnew MySqlCommand(Query, Connect);
+						Connect->Open();
+						reader = cmd->ExecuteReader();
+						Cardpanel->Visible = true;
+						cardnumber->Text = CardNumber;
+						validfrom->Text = CurrentDate;
+						validupto->Text = CurrentDate;
+						Amountlimitlabel->Visible = true;
+						Amountlimit->Visible = true;
+						Amountlimit->Text = AmountLimit.ToString();
+						accountholdername->Text = Accountholdertxt->Text;
+						cvv->Text = Cvv.ToString();
+						Cardpanel->Visible = true;
+												
+					}
 				}
 				catch (Exception^ ex)
 				{
+					Connect->Close();
 					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					ManagerMEnu->Show();
 					this->Close();
 				}
+				
 
 			}
 
@@ -1377,11 +1406,11 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 		int Balance = System::Convert::ToInt16(Accountbalancetxt->Text);
 		int Amount = System::Convert::ToInt16(Ammounttxt->Text);
 		
-		if (TransactionType->Text == "Select Transaction Type" || TransactionBy->Text == "Select Transaction By")
+		if (TransactionType->Text == "Select Transaction Type" || TransactionBy->Text == "Select Transaction By" || Ammounttxt->Text == "")
 		{
 			MessagePanel->Visible = true;
 			TransactionPanel->Visible = false;
-			MessageLabel->Text = "Please select transaction type and transaction by";
+			MessageLabel->Text = "All fields are required.";
 		}
 		else if (Key == "FromWithdraw")
 		{
@@ -1406,12 +1435,18 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 				{
 					Connect->Open();
 					MySqlDataReader^ reader = cmd->ExecuteReader();
-					if (reader[0] == TransactionTypeTextBox->Text && reader[1] == PinTextBox->Text)
+					
+					if (reader->Read()/*reader[0] == TransactionTypeTextBox->Text && reader[1] == PinTextBox->Text*/)
 					{
-						if(Amount <= Balance)
+						if (Amount <= Balance)
+						{
+							Connect->Close();
 							Transaction();
+						}
+							
 						else
 						{
+							Connect->Close();
 							MessageLabel->Text = "Insufficient Balance";
 							MessagePanel->Visible = true;
 							TransactionPanel->Visible = false;
@@ -1442,12 +1477,17 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 				{
 					Connect->Open();
 					MySqlDataReader^ reader = cmd->ExecuteReader();
-					if (reader[0] == TransactionTypeTextBox->Text && reader[1] == PinTextBox->Text)
+					if (reader->Read())
 					{
 						if (Amount <= Balance)
+						{
+							Connect->Close();
 							Transaction();
+						}
+							
 						else
 						{
+							Connect->Close();
 							MessageLabel->Text = "Insufficient Balance";
 							MessagePanel->Visible = true;
 							TransactionPanel->Visible = false;
@@ -1481,9 +1521,15 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 					if (reader->Read())
 					{
 						if (Amount <= Balance)
+						{
+							Connect->Close();
 							Transaction();
+						}
+							
 						else
 						{
+							Connect->Close();
+
 							MessageLabel->Text = "Insufficient Balance";
 							MessagePanel->Visible = true;
 							TransactionPanel->Visible = false;
@@ -1585,7 +1631,7 @@ private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender,
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	if (Key == "Transaction Success")
+	if (Key == "Transaction Success" || Key == "FromDebitCard" || Key == "FromCreditCard")
 	{
 		ManagerMEnu->Show();
 		this->Close();
