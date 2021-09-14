@@ -20,7 +20,7 @@
 	{
 	public:
 
-		bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
+		//bool FromDetail, FromEdit, FromDelete, FromAccount, FromWithdraw, FromDeposit ,FromTransaction, FromCardWithdraw;
 
 		
 
@@ -104,6 +104,7 @@
 		ManagerMenu(void)
 		{
 			InitializeComponent();
+			SearchAutoComplete();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -111,6 +112,7 @@
 		  ManagerMenu(Form^ form)
 		  {
 			  InitializeComponent();
+			  SearchAutoComplete();
 			  MainMenu = form;
 			  //
 			  //TODO: Add the constructor code here
@@ -547,6 +549,8 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			// 
 			// SearchTextBox
 			// 
+			this->SearchTextBox->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::SuggestAppend;
+			this->SearchTextBox->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::CustomSource;
 			this->SearchTextBox->BackColor = System::Drawing::Color::Purple;
 			this->SearchTextBox->Font = (gcnew System::Drawing::Font(L"Bauhaus 93", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -555,6 +559,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->SearchTextBox->Name = L"SearchTextBox";
 			this->SearchTextBox->Size = System::Drawing::Size(221, 31);
 			this->SearchTextBox->TabIndex = 3;
+			this->SearchTextBox->TextChanged += gcnew System::EventHandler(this, &ManagerMenu::SearchTextBox_TextChanged);
 			// 
 			// SearchLabel
 			// 
@@ -1241,20 +1246,11 @@ private: System::Void Deletecustomerbtn_MouseHover(System::Object^ sender, Syste
 	Customerpanel->Visible = true;
 	//Searchcuspanel->Visible = true;
 	
-	
-	FromEdit = false;
-	FromDetail = false;
-	FromDelete = true;
-
 }
 private: System::Void Editcustomerbtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	HideAllSubMenu();
 	Customerpanel->Visible = true;
-	//Searchcuspanel->Visible = true;
 	
-	FromEdit = true;
-	FromDetail = false;
-	FromDelete = false;
 }
 
 
@@ -1272,14 +1268,13 @@ private: System::Void Editcustomerbtn_Click(System::Object^ sender, System::Even
 private: System::Void Accountsearchbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/* || Key == "FromKyc"*/)
 	{
-		FromAccount = false;
+		
 		Account^ Form = gcnew Account(this, SearchTextBox->Text, Key, RadioBtn);
 	}
 }
 
 private: System::Void Bypassbookbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	FromWithdraw = true;
-	FromDeposit = false;
+	
 	SearchPanel->Visible = true;
 
 }
@@ -1291,8 +1286,7 @@ private: System::Void custransactionbtn_MouseHover(System::Object^ sender, Syste
 
 
 private: System::Void Bycashdepositbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	FromDeposit = true;
-	FromWithdraw = false;
+	
 	SearchPanel->Visible = true;
 }
 
@@ -1389,6 +1383,7 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 	RadioBtn = "Name";
 	SearchLabel->Text = "Enter Name";
 	SearchTextBox->Focus();
+	SearchAutoComplete();
 }
 private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1398,12 +1393,14 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 		RadioBtn = "Accountno";
 	SearchLabel->Text = "Enter Account";
 	SearchTextBox->Focus();
+	SearchAutoComplete();
 }
 private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
 	RadioBtn = "Aadhar";
 	SearchLabel->Text = "Enter Aadhar";
 	SearchTextBox->Focus();
+	SearchAutoComplete();
 }
 private: System::Void Deleteemployeebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1456,6 +1453,35 @@ private: System::Void Accountcus_Click(System::Object^ sender, System::EventArgs
 	radioButton2->Text = "Account";
 	SearchPanelLabel->Text = "Search Customer";
 	SearchLabel->Text = "Search Customer";
+}
+	   public: void SearchAutoComplete()
+	   {
+		   try
+		   {
+			   AutoCompleteStringCollection^ Collection = gcnew AutoCompleteStringCollection();
+
+			   Query = "select " + RadioBtn + " from Banking.Customer";
+			   MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			   Connect->Open();
+			   MySqlDataReader^ reader = cmd->ExecuteReader();
+			   while (reader->Read())
+			   {
+				   Collection->Add(reader->GetString(RadioBtn));
+			   }
+			   Connect->Close();
+			   SearchTextBox->AutoCompleteCustomSource = Collection;
+		   }
+		   catch (Exception^ ex)
+		   {
+			   MessageBox::Show(ex->Message);
+			   Connect->Close();
+		   }
+
+	   }
+private: System::Void SearchTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	
+	
 }
 };
 }
