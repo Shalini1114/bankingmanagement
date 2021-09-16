@@ -899,7 +899,7 @@ namespace bankingmanagement {
 			this->MessagePanel->BackColor = System::Drawing::Color::DarkCyan;
 			this->MessagePanel->Controls->Add(this->button2);
 			this->MessagePanel->Controls->Add(this->MessageLabel);
-			this->MessagePanel->Location = System::Drawing::Point(315, 136);
+			this->MessagePanel->Location = System::Drawing::Point(286, 124);
 			this->MessagePanel->Name = L"MessagePanel";
 			this->MessagePanel->Size = System::Drawing::Size(609, 129);
 			this->MessagePanel->TabIndex = 28;
@@ -937,6 +937,9 @@ namespace bankingmanagement {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Purple;
 			this->ClientSize = System::Drawing::Size(936, 557);
+			this->Controls->Add(this->TransactionPanel);
+			this->Controls->Add(this->Cardpanel);
+			this->Controls->Add(this->MessagePanel);
 			this->Controls->Add(this->Addresstxt);
 			this->Controls->Add(this->MICRCodetxt);
 			this->Controls->Add(this->label3);
@@ -963,9 +966,6 @@ namespace bankingmanagement {
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->TransactionPanel);
-			this->Controls->Add(this->MessagePanel);
-			this->Controls->Add(this->Cardpanel);
 			this->Name = L"Account";
 			this->Text = L"Account";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -1074,6 +1074,7 @@ namespace bankingmanagement {
 
 		}
 	private: System::Void Account_Load(System::Object^ sender, System::EventArgs^ e) {
+
 
 		if (Key == "FromDetail Customer" || Key == "FromWithdraw" || Key == "FromDeposit" || Key == "FromTransactionDetail" || Key == "FromStatement" || Key == "FromDebitCard" || Key == "FromCreditCard" || Key == "FromChequeBook"/*|| Key=="FromKyc"*/)
 		{
@@ -1318,44 +1319,40 @@ namespace bankingmanagement {
 
 			}
 
-			/*	else if (Key == "FromChequeBook")
-				{
+			else if (Key == "FromChequeBook")
+			{
 
 					// Setting Cheque Number
-					int ChequeNumber[20];
-					for (int i = 1; i <= 20; i++)
-					{
-						ChequeNumber = GenerateNumber("Banking.Chequebook", "Chequeno")->ToInt16();
-					}
-
-					String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
-					MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
-					String^ Query;
-					Query = "insert into Banking.Chequebook (AccountHolderName,CardNumber,Cvv,ValidFrom,ValidUpto,AccountNo,AmountLimit) values ('" +
-						Accountholdertxt->Text + "','" + CardNumber + "','" +
-						Cvv + "','" + CurrentDate + "', '" +
-						CurrentDate + "', '" + Accountnotxt->Text + "','" + AmountLimit + "',)";
-
-					// Inserting into database code...
-					MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
-					MySqlDataReader^ reader;
-
+					String^ ChequeNumber;
+					
 					try
 					{
-						Connect->Open();
-						reader = cmd->ExecuteReader();
-						MessageBox::Show("Data saved successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+						
+						MySqlCommand^ cmd;
+						for (int i = 1; i <= 20; i++)
+						{
+							ChequeNumber = "27";
+							ChequeNumber += GenerateNumber("Banking.Cheque", "ChequeNumber");
+							Connect->Open();
+							Query = "insert into Banking.Cheque (ChequeNumber, Accountno) values ('" + ChequeNumber + "', '" + Accountnotxt->Text + "')";							
+							cmd = gcnew MySqlCommand(Query, Connect);
+							MySqlDataReader^ reader = cmd->ExecuteReader();
+							Connect->Close();
+						}
+						
+						MessageBox::Show("Cheque Generated successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 						ManagerMEnu->Show();
 						this->Close();
 					}
 					catch (Exception^ ex)
 					{
+						Connect->Close();
 						MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 						ManagerMEnu->Show();
 						this->Close();
 					}
-
-				}*/
+										
+			}
 
 				
 
@@ -1389,7 +1386,7 @@ namespace bankingmanagement {
 }
 	private: System::Void Cancelproceedbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		if ("Key == FromWithdraw" || Key == "FromDeposit")
+		if (Key == "FromWithdraw" || Key == "FromDeposit")
 		{
 			TransactionPanel->Visible = false;
 		}
@@ -1436,7 +1433,7 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 					Connect->Open();
 					MySqlDataReader^ reader = cmd->ExecuteReader();
 					
-					if (reader->Read()/*reader[0] == TransactionTypeTextBox->Text && reader[1] == PinTextBox->Text*/)
+					if (reader->Read())
 					{
 						if (Amount <= Balance)
 						{
@@ -1524,6 +1521,13 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 						{
 							Connect->Close();
 							Transaction();
+
+							Query = "delete from Banking.Cheque where ChequeNumber = '" + RadioBtn +"' ";
+							MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+							Connect->Open();
+							MySqlDataReader^ reader = cmd->ExecuteReader();
+
+							Connect->Close();
 						}
 							
 						else
@@ -1561,29 +1565,140 @@ private: System::Void ProceedBtn_Click(System::Object^ sender, System::EventArgs
 			}
 			else if (TransactionBy->Text == "Debit Card")
 			{
+				
+				Query = "Select CardNumber,Pin from Banking.DebitCard where CardNumber = '" + TransactionTypeTextBox->Text + "' ";
+				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+				try
+				{
+					Connect->Open();
+					MySqlDataReader^ reader = cmd->ExecuteReader();
 
+					if (reader->Read())
+					{
+						if (Amount <= Balance)
+						{
+							Connect->Close();
+							Transaction();
+						}
+
+						else
+						{
+							Connect->Close();
+							MessageLabel->Text = "Insufficient Balance";
+							MessagePanel->Visible = true;
+							TransactionPanel->Visible = false;
+						}
+					}
+					else
+					{
+						Connect->Close();
+						MessageLabel->Text = "Invalid Card Number or Pin";
+						MessagePanel->Visible = true;
+						TransactionPanel->Visible = false;
+					}
+					Connect->Close();
+				}
+				catch (Exception^ ex)
+				{
+					Connect->Close();
+					MessageLabel->Text = ex->Message;
+					MessagePanel->Visible = true;
+					TransactionPanel->Visible = false;
+				}
 			}
 			else if (TransactionBy->Text == "Credit Card")
 			{
+				Query = "Select CardNumber,Pin from Banking.CreditCard where CardNumber = '" + TransactionTypeTextBox->Text + "' ";
+				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+				try
+				{
+					Connect->Open();
+					MySqlDataReader^ reader = cmd->ExecuteReader();
 
+					if (reader->Read())
+					{
+						if (Amount <= Balance)
+						{
+							Connect->Close();
+							Transaction();
+						}
+
+						else
+						{
+							Connect->Close();
+							MessageLabel->Text = "Insufficient Balance";
+							MessagePanel->Visible = true;
+							TransactionPanel->Visible = false;
+						}
+					}
+					else
+					{
+						Connect->Close();
+						MessageLabel->Text = "Invalid Card Number or Pin";
+						MessagePanel->Visible = true;
+						TransactionPanel->Visible = false;
+					}
+					Connect->Close();
+				}
+				catch (Exception^ ex)
+				{
+					Connect->Close();
+					MessageLabel->Text = ex->Message;
+					MessagePanel->Visible = true;
+					TransactionPanel->Visible = false;
+				}
 			}
 			else if (TransactionBy->Text == "Cheque")
 			{
+				Query = "Select ChequeNumber from Banking.Cheque where ChequeNumber = '" + TransactionTypeTextBox->Text + "' ";
+				MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+				try
+				{
+					Connect->Open();
+					MySqlDataReader^ reader = cmd->ExecuteReader();
+					if (reader->Read())
+					{
+						if (Amount <= Balance)
+						{
+							Connect->Close();
+							Transaction();
 
+							Query = "delete from Banking.Cheque where ChequeNumber = '" + RadioBtn + "' ";
+							MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+							Connect->Open();
+							MySqlDataReader^ reader = cmd->ExecuteReader();
+
+							Connect->Close();
+						}
+
+						else
+						{
+							Connect->Close();
+
+							MessageLabel->Text = "Insufficient Balance";
+							MessagePanel->Visible = true;
+							TransactionPanel->Visible = false;
+						}
+					}
+					else
+					{
+						Connect->Close();
+						MessageLabel->Text = "Invalid Cheque Number";
+						MessagePanel->Visible = true;
+						TransactionPanel->Visible = false;
+					}
+					Connect->Close();
+				}
+				catch (Exception^ ex)
+				{
+					Connect->Close();
+					MessageLabel->Text = ex->Message;
+					MessagePanel->Visible = true;
+					TransactionPanel->Visible = false;
+				}
 			}
 		}
-		else if (Key == "FromDebitCard")
-		{
-
-		}
-		else if (Key == "FromCreditCard")
-		{
-
-		}
-		else if (Key == "FromChequeBook")
-		{
-
-		}
+		
 	}
 private: System::Void CardOkBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1622,6 +1737,7 @@ private: System::Void TransactionBy_SelectedIndexChanged(System::Object^ sender,
 	else if (TransactionBy->Text == "Cheque")
 	{
 		Transactionby = "ByCheque";
+		RadioBtn = "ChequeNumber";
 		TransactionTypeLabel->Visible = true;
 		TransactionTypeLabel->Text = "Enter Cheque No.";
 		TransactionTypeTextBox->Visible = true;
