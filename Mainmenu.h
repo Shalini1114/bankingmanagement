@@ -10,6 +10,9 @@ namespace bankingmanagement {
 	using namespace System::Drawing;
 	using namespace System::Media;
 
+
+	
+
 	/// <summary>
 	/// Summary for Mainmenu
 	/// </summary>
@@ -18,6 +21,11 @@ namespace bankingmanagement {
 	public:
 		SoundPlayer^ ClickSound = gcnew SoundPlayer("Click.wav");
 		SoundPlayer^ WarningSound = gcnew SoundPlayer("Warning.wav");
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
+		String^ Query, ^Key;
+		
+
 		Mainmenu(void)
 		{
 			InitializeComponent();
@@ -697,6 +705,7 @@ private: System::Void Managerloginbtn_Click(System::Object^ sender, System::Even
 	Menupanel->Visible = false;
 	Loginpanel->Visible = false;
 	Loginlabel->Text = "MANAGER LOGIN";
+	Key = "FromManager";
 }
 private: System::Void Cancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	
@@ -708,38 +717,75 @@ private: System::Void Signinbtn_Click(System::Object^ sender, System::EventArgs^
 
 	// Code for playing sound.
 	ClickSound->Play();
-
-	if (usernametextbox->Text == "Abhishek")
+	if (Key == "FromEmployee")
 	{
-		if (passwordtextbox->Text == "Shalini")
+		try
 		{
-			MessageBox::Show("signin successful", "sucess", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			ManagerMenu^Mmenu = gcnew ManagerMenu(this);
-			Mmenu->Show();
-			this->Hide();
+			Connect->Open();
+			Query = "select Username, Password from Banking.Employee where Username = '" + usernametextbox->Text + "' and Password = '" + passwordtextbox->Text + "'";
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			MySqlDataReader^ reader = cmd->ExecuteReader();
+			
+			if (reader->Read())
+			{
+				Connect->Close();
+				MessageBox::Show("signin successful", "sucess", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			else
+			{
+				Connect->Close();
+				ErrorLabel->Text = "Invalid Username or Password";
+				ErrorPanel->Visible = true;
+				WarningSound->Play();
+				Commonloginpanel->Visible = false;
+			}
+		}
+		catch (Exception^ ex)
+		{
+			Connect->Close();
+			MessageBox::Show(ex->Message);
+			Commonloginpanel->Visible = false; 
+			ErrorPanel->Visible = true;
+		}
+		
+	}
+	else if(Key == "FromManager")
+	{
+		if (usernametextbox->Text == "Abhishek")
+		{
+			if (passwordtextbox->Text == "Shalini")
+			{
+				MessageBox::Show("signin successful", "sucess", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				ManagerMenu^ Mmenu = gcnew ManagerMenu(this);
+				Mmenu->Show();
+				this->Hide();
 
 
+			}
+			else
+			{
+				ErrorLabel->Text = "wrong password";
+				ErrorPanel->Visible = true;
+				WarningSound->Play();
+				Commonloginpanel->Visible = false;
+
+
+			}
 		}
 		else
 		{
-			ErrorLabel->Text = "wrong password";
+
+			ErrorLabel->Text = "wrong ussrname";
 			ErrorPanel->Visible = true;
 			WarningSound->Play();
 			Commonloginpanel->Visible = false;
 
-			
+
 		}
 	}
-	    else
-	    {
+	
 
-		ErrorLabel->Text = "wrong ussrname";
-		ErrorPanel->Visible = true;
-		WarningSound->Play();
-		Commonloginpanel->Visible = false;
-		
-		
-	}
+	
 	
 }
 private: System::Void usernametextbox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -756,6 +802,7 @@ private: System::Void Employeeloginbtn_Click(System::Object^ sender, System::Eve
 	Menupanel->Visible = false;
 	Loginpanel->Visible = false;
 	Loginlabel->Text = "EMPLOYEE LOGIN";
+	Key = "FromEmployee";
 }
 private: System::Void Customerloginbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Commonloginpanel->Visible = true;
