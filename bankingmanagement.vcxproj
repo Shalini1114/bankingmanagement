@@ -112,7 +112,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -123,6 +123,7 @@
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="AddCustomer.cpp" />
     <ClCompile Include="Addemployee.cpp" />
+    <ClCompile Include="Employeemenu.cpp" />
     <ClCompile Include="Kyc.cpp" />
     <ClCompile Include="Mainmenu.cpp" />
     <ClCompile Include="ManagerMenu1.cpp" />
@@ -138,6 +139,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Addemployee.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Employeemenu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Kyc.h">
@@ -168,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Addemployee.resx">
       <DependentUpon>Addemployee.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employeemenu.resx">
+      <DependentUpon>Employeemenu.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kyc.resx">
       <DependentUpon>Kyc.h</DependentUpon>
