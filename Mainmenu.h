@@ -1,3 +1,4 @@
+#pragma once
 #include"ManagerMenu1.h"
 #include"Employeemenu.h"
 
@@ -22,7 +23,7 @@ namespace bankingmanagement {
 	public:
 		SoundPlayer^ ClickSound = gcnew SoundPlayer("Click.wav");
 		SoundPlayer^ WarningSound = gcnew SoundPlayer("Warning.wav");
-		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query, ^Key;
 		
@@ -731,8 +732,8 @@ private: System::Void Signinbtn_Click(System::Object^ sender, System::EventArgs^
 			{
 				Connect->Close();
 				MessageBox::Show("signin successful", "sucess", MessageBoxButtons::OK, MessageBoxIcon::Information);
-				Employeemenu^ MMenu = gcnew Employeemenu(this);
-				MMenu->Show();
+				Employeemenu^ EMenu = gcnew Employeemenu(this);
+				EMenu->Show();
 				this->Hide();
 
 			}
