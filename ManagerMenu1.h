@@ -96,7 +96,7 @@
 
 
 		   String^ Key, ^RadioBtn = "Name";
-		   String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		   String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		   MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		   String^ Query;
 
@@ -369,7 +369,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->Customerpanel->Dock = System::Windows::Forms::DockStyle::Top;
 			this->Customerpanel->Location = System::Drawing::Point(0, 283);
 			this->Customerpanel->Name = L"Customerpanel";
-			this->Customerpanel->Size = System::Drawing::Size(223, 195);
+			this->Customerpanel->Size = System::Drawing::Size(223, 190);
 			this->Customerpanel->TabIndex = 4;
 			this->Customerpanel->Visible = false;
 			// 
@@ -382,9 +382,9 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 				static_cast<System::Byte>(0)));
 			this->Accountcus->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Accountcus->Location = System::Drawing::Point(0, 156);
+			this->Accountcus->Location = System::Drawing::Point(0, 157);
 			this->Accountcus->Name = L"Accountcus";
-			this->Accountcus->Size = System::Drawing::Size(223, 39);
+			this->Accountcus->Size = System::Drawing::Size(223, 33);
 			this->Accountcus->TabIndex = 6;
 			this->Accountcus->Text = L"Account Details";
 			this->Accountcus->UseVisualStyleBackColor = false;
@@ -401,7 +401,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->Editcustomerbtn->Location = System::Drawing::Point(0, 117);
 			this->Editcustomerbtn->Name = L"Editcustomerbtn";
-			this->Editcustomerbtn->Size = System::Drawing::Size(223, 39);
+			this->Editcustomerbtn->Size = System::Drawing::Size(223, 40);
 			this->Editcustomerbtn->TabIndex = 5;
 			this->Editcustomerbtn->Text = L"Edit Customer";
 			this->Editcustomerbtn->UseVisualStyleBackColor = false;
@@ -592,7 +592,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->custransactionbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->custransactionbtn->ForeColor = System::Drawing::Color::DarkBlue;
-			this->custransactionbtn->Location = System::Drawing::Point(0, 478);
+			this->custransactionbtn->Location = System::Drawing::Point(0, 473);
 			this->custransactionbtn->Name = L"custransactionbtn";
 			this->custransactionbtn->Size = System::Drawing::Size(223, 39);
 			this->custransactionbtn->TabIndex = 4;
@@ -608,7 +608,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->transactionpanel->Controls->Add(this->Depositbtn);
 			this->transactionpanel->Controls->Add(this->Withdrawbtn);
 			this->transactionpanel->Dock = System::Windows::Forms::DockStyle::Top;
-			this->transactionpanel->Location = System::Drawing::Point(0, 517);
+			this->transactionpanel->Location = System::Drawing::Point(0, 512);
 			this->transactionpanel->Name = L"transactionpanel";
 			this->transactionpanel->Size = System::Drawing::Size(223, 156);
 			this->transactionpanel->TabIndex = 10;
@@ -709,7 +709,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->LogoutBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->LogoutBtn->ForeColor = System::Drawing::Color::DarkBlue;
-			this->LogoutBtn->Location = System::Drawing::Point(0, 946);
+			this->LogoutBtn->Location = System::Drawing::Point(0, 941);
 			this->LogoutBtn->Name = L"LogoutBtn";
 			this->LogoutBtn->Size = System::Drawing::Size(223, 39);
 			this->LogoutBtn->TabIndex = 15;
@@ -727,7 +727,7 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->OtherServicesPanel->Controls->Add(this->ApplyCreditCardBtn);
 			this->OtherServicesPanel->Controls->Add(this->ApplyDebitCardBtn);
 			this->OtherServicesPanel->Dock = System::Windows::Forms::DockStyle::Top;
-			this->OtherServicesPanel->Location = System::Drawing::Point(0, 712);
+			this->OtherServicesPanel->Location = System::Drawing::Point(0, 707);
 			this->OtherServicesPanel->Name = L"OtherServicesPanel";
 			this->OtherServicesPanel->Size = System::Drawing::Size(223, 234);
 			this->OtherServicesPanel->TabIndex = 14;
@@ -841,12 +841,13 @@ private: System::Windows::Forms::Label^ SearchPanelLabel;
 			this->OtherServicesBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->OtherServicesBtn->ForeColor = System::Drawing::Color::DarkBlue;
-			this->OtherServicesBtn->Location = System::Drawing::Point(0, 673);
+			this->OtherServicesBtn->Location = System::Drawing::Point(0, 668);
 			this->OtherServicesBtn->Name = L"OtherServicesBtn";
 			this->OtherServicesBtn->Size = System::Drawing::Size(223, 39);
 			this->OtherServicesBtn->TabIndex = 14;
 			this->OtherServicesBtn->Text = L"Other Serivces";
 			this->OtherServicesBtn->UseVisualStyleBackColor = false;
+			this->OtherServicesBtn->Click += gcnew System::EventHandler(this, &ManagerMenu::OtherServicesBtn_Click);
 			this->OtherServicesBtn->MouseHover += gcnew System::EventHandler(this, &ManagerMenu::OtherServicesBtn_MouseHover);
 			// 
 			// label6
@@ -1482,6 +1483,8 @@ private: System::Void SearchTextBox_TextChanged(System::Object^ sender, System::
 
 	
 	
+}
+private: System::Void OtherServicesBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
