@@ -1,3 +1,4 @@
+#pragma once
 #include"ManagerMenu1.h"
 #include"Employeemenu.h"
 
@@ -22,7 +23,7 @@ namespace bankingmanagement {
 	public:
 		SoundPlayer^ ClickSound = gcnew SoundPlayer("Click.wav");
 		SoundPlayer^ WarningSound = gcnew SoundPlayer("Warning.wav");
-		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
+		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query, ^Key;
 		
@@ -640,9 +641,9 @@ namespace bankingmanagement {
 				static_cast<System::Int32>(static_cast<System::Byte>(79)));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1244, 545);
+			this->Controls->Add(this->Aboutpanel);
 			this->Controls->Add(this->Commonloginpanel);
 			this->Controls->Add(this->ErrorPanel);
-			this->Controls->Add(this->Aboutpanel);
 			this->Controls->Add(this->Menupanel);
 			this->DoubleBuffered = true;
 			this->Name = L"Mainmenu";
@@ -731,8 +732,8 @@ private: System::Void Signinbtn_Click(System::Object^ sender, System::EventArgs^
 			{
 				Connect->Close();
 				MessageBox::Show("signin successful", "sucess", MessageBoxButtons::OK, MessageBoxIcon::Information);
-				Employeemenu^ MMenu = gcnew Employeemenu(this);
-				MMenu->Show();
+				Employeemenu^ EMenu = gcnew Employeemenu(this);
+				EMenu->Show();
 				this->Hide();
 
 			}
