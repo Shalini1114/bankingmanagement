@@ -21,7 +21,7 @@ namespace bankingmanagement {
 		Form^ EMenu;
 		String^ Key;
 		String^ RadioBtn;
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 
 	private: System::Windows::Forms::Panel^ SearchPanel;
@@ -751,14 +751,15 @@ namespace bankingmanagement {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Gray;
 			this->ClientSize = System::Drawing::Size(911, 446);
-			this->Controls->Add(this->SearchPanel);
 			this->Controls->Add(this->MessagePanel);
+			this->Controls->Add(this->SearchPanel);
 			this->Controls->Add(this->Employeemenupanel);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Name = L"Employeemenu";
 			this->Text = L"Employeemenu";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &Employeemenu::Employeemenu_Load);
 			this->MouseHover += gcnew System::EventHandler(this, &Employeemenu::Employeemenu_MouseHover);
 			this->Employeemenupanel->ResumeLayout(false);
 			this->Employeemenupanel->PerformLayout();
@@ -1095,6 +1096,8 @@ private: System::Void Cancelempbtn_Click(System::Object^ sender, System::EventAr
 
 	Employeemenupanel->Visible = true;
 	SearchPanel->Visible = false;
+}
+private: System::Void Employeemenu_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

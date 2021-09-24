@@ -1,6 +1,7 @@
 #pragma once
 #include"ManagerMenu1.h"
 #include"Employeemenu.h"
+#include"Customermenu.h"
 
 namespace bankingmanagement {
 
@@ -23,7 +24,7 @@ namespace bankingmanagement {
 	public:
 		SoundPlayer^ ClickSound = gcnew SoundPlayer("Click.wav");
 		SoundPlayer^ WarningSound = gcnew SoundPlayer("Warning.wav");
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query, ^Key;
 		
@@ -641,8 +642,8 @@ namespace bankingmanagement {
 				static_cast<System::Int32>(static_cast<System::Byte>(79)));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1244, 545);
-			this->Controls->Add(this->Aboutpanel);
 			this->Controls->Add(this->Commonloginpanel);
+			this->Controls->Add(this->Aboutpanel);
 			this->Controls->Add(this->ErrorPanel);
 			this->Controls->Add(this->Menupanel);
 			this->DoubleBuffered = true;
@@ -755,6 +756,43 @@ private: System::Void Signinbtn_Click(System::Object^ sender, System::EventArgs^
 		}
 		
 	}
+
+	if (Key == "FromCustomer")
+	{
+		try
+		{
+			Connect->Open();
+			Query = "select Username, Password from Banking.Customer where Username = '" + usernametextbox->Text + "' and Password = '" + passwordtextbox->Text + "'";
+			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
+			MySqlDataReader^ reader = cmd->ExecuteReader();
+
+			if (reader->Read())
+			{
+				Connect->Close();
+				MessageBox::Show("signin successful", "sucess", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				Customermenu^ EMenu = gcnew Customermenu(this);
+				EMenu->Show();
+				this->Hide();
+
+			}
+			else
+			{
+				Connect->Close();
+				ErrorLabel->Text = "Invalid Username or Password";
+				ErrorPanel->Visible = true;
+				WarningSound->Play();
+				Commonloginpanel->Visible = false;
+			}
+		}
+		catch (Exception^ ex)
+		{
+			Connect->Close();
+			MessageBox::Show(ex->Message);
+			Commonloginpanel->Visible = false;
+			ErrorPanel->Visible = true;
+		}
+
+	}
 	else if(Key == "FromManager")
 	{
 		if (usernametextbox->Text == "Abhishek")
@@ -815,6 +853,7 @@ private: System::Void Customerloginbtn_Click(System::Object^ sender, System::Eve
 	Menupanel->Visible = false;
 	Loginpanel->Visible = false;
 	Loginlabel->Text = "CUSTOMER  LOGIN";
+	Key = "FromCustomer";
 }
 private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
 
