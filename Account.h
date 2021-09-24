@@ -26,7 +26,7 @@ namespace bankingmanagement {
 
 		String^ Key, ^RadioBtn;
 		String^ Transactionby;
-		String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		String^ Query;
 	private: System::Windows::Forms::Panel^ TransactionPanel;

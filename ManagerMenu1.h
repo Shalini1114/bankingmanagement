@@ -96,7 +96,7 @@
 
 
 		   String^ Key, ^RadioBtn = "Name";
-		   String^ ConnectString = "datasource=localhost;port=3306;username=amzad786;password=Amzad@123";
+		   String^ ConnectString = "datasource=localhost;port=3306;username=Abhishek;password=Shalini";
 		   MySqlConnection^ Connect = gcnew MySqlConnection(ConnectString);
 		   String^ Query;
 

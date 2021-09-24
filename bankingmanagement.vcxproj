@@ -112,7 +112,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -123,6 +123,7 @@
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="AddCustomer.cpp" />
     <ClCompile Include="Addemployee.cpp" />
+    <ClCompile Include="Customermenu.cpp" />
     <ClCompile Include="Employeemenu.cpp" />
     <ClCompile Include="Kyc.cpp" />
     <ClCompile Include="Mainmenu.cpp" />
@@ -139,6 +140,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Addemployee.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Customermenu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Employeemenu.h">
@@ -173,6 +177,9 @@
     <EmbeddedResource Include="Addemployee.resx">
       <DependentUpon>Addemployee.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Customermenu.resx">
+      <DependentUpon>Customermenu.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employeemenu.resx">
       <DependentUpon>Employeemenu.h</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerMenu1.resx">
       <DependentUpon>ManagerMenu1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statement1.resx">
+      <DependentUpon>Statement1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction.resx">
       <DependentUpon>Transaction.h</DependentUpon>

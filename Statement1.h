@@ -106,6 +106,7 @@ namespace bankingmanagement {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(885, 324);
 			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Statement::dataGridView1_CellContentClick);
 			// 
 			// Openbtn
 			// 
@@ -173,5 +174,7 @@ namespace bankingmanagement {
 		this->Close();
 		MAnagermenu->Show();
 	}
-	};
+	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	}
+};
 }
