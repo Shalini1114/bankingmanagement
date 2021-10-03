@@ -936,7 +936,8 @@ namespace bankingmanagement {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Purple;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(37)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->ClientSize = System::Drawing::Size(936, 557);
 			this->Controls->Add(this->TransactionPanel);
 			this->Controls->Add(this->Cardpanel);
@@ -967,6 +968,7 @@ namespace bankingmanagement {
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Account";
 			this->Text = L"Account";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
