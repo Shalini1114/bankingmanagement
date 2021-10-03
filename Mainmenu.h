@@ -647,6 +647,7 @@ namespace bankingmanagement {
 			this->Controls->Add(this->ErrorPanel);
 			this->Controls->Add(this->Menupanel);
 			this->DoubleBuffered = true;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Mainmenu";
 			this->Text = L"Mainmenu";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -762,15 +763,16 @@ private: System::Void Signinbtn_Click(System::Object^ sender, System::EventArgs^
 		try
 		{
 			Connect->Open();
-			Query = "select Username, Password from Banking.Customer where Username = '" + usernametextbox->Text + "' and Password = '" + passwordtextbox->Text + "'";
+			Query = "select Name, Accountno, Accountbalance from Banking.Account where Username = '" + usernametextbox->Text + "' and Password = '" + passwordtextbox->Text + "'";
 			MySqlCommand^ cmd = gcnew MySqlCommand(Query, Connect);
 			MySqlDataReader^ reader = cmd->ExecuteReader();
 
 			if (reader->Read())
 			{
+				
+				MessageBox::Show("signin successful", "success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				Customermenu^ EMenu = gcnew Customermenu(this, usernametextbox->Text, reader->GetString(0), reader->GetString(1), reader->GetString(2));
 				Connect->Close();
-				MessageBox::Show("signin successful", "sucess", MessageBoxButtons::OK, MessageBoxIcon::Information);
-				Customermenu^ EMenu = gcnew Customermenu(this);
 				EMenu->Show();
 				this->Hide();
 

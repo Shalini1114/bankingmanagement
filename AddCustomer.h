@@ -187,7 +187,8 @@ namespace bankingmanagement {
 			this->label2->BackColor = System::Drawing::Color::Transparent;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label2->Location = System::Drawing::Point(207, 111);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(100, 29);
@@ -199,7 +200,8 @@ namespace bankingmanagement {
 			this->OccupationTextBox->BackColor = System::Drawing::Color::Cornsilk;
 			this->OccupationTextBox->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->OccupationTextBox->ForeColor = System::Drawing::Color::Purple;
+			this->OccupationTextBox->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
 			this->OccupationTextBox->Location = System::Drawing::Point(570, 549);
 			this->OccupationTextBox->Name = L"OccupationTextBox";
 			this->OccupationTextBox->Size = System::Drawing::Size(268, 28);
@@ -210,7 +212,8 @@ namespace bankingmanagement {
 			this->Aadharcustxt->BackColor = System::Drawing::Color::Cornsilk;
 			this->Aadharcustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Aadharcustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Aadharcustxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
 			this->Aadharcustxt->Location = System::Drawing::Point(570, 387);
 			this->Aadharcustxt->Name = L"Aadharcustxt";
 			this->Aadharcustxt->Size = System::Drawing::Size(268, 28);
@@ -221,7 +224,8 @@ namespace bankingmanagement {
 			this->Adresscustxt->BackColor = System::Drawing::Color::Cornsilk;
 			this->Adresscustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Adresscustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Adresscustxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
 			this->Adresscustxt->Location = System::Drawing::Point(570, 221);
 			this->Adresscustxt->Name = L"Adresscustxt";
 			this->Adresscustxt->Size = System::Drawing::Size(268, 28);
@@ -232,7 +236,8 @@ namespace bankingmanagement {
 			this->Fathernamecustxt->BackColor = System::Drawing::Color::Cornsilk;
 			this->Fathernamecustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Fathernamecustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Fathernamecustxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
 			this->Fathernamecustxt->Location = System::Drawing::Point(570, 167);
 			this->Fathernamecustxt->Name = L"Fathernamecustxt";
 			this->Fathernamecustxt->Size = System::Drawing::Size(268, 28);
@@ -244,7 +249,8 @@ namespace bankingmanagement {
 			this->label10->BackColor = System::Drawing::Color::Transparent;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label10->Location = System::Drawing::Point(210, 546);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(136, 29);
@@ -257,7 +263,8 @@ namespace bankingmanagement {
 			this->label9->BackColor = System::Drawing::Color::Transparent;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label9->Location = System::Drawing::Point(210, 489);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(93, 29);
@@ -270,7 +277,8 @@ namespace bankingmanagement {
 			this->label13->BackColor = System::Drawing::Color::Transparent;
 			this->label13->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label13->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label13->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label13->Location = System::Drawing::Point(207, 274);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(111, 29);
@@ -283,7 +291,8 @@ namespace bankingmanagement {
 			this->label12->BackColor = System::Drawing::Color::Transparent;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label12->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label12->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label12->Location = System::Drawing::Point(207, 218);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(113, 29);
@@ -296,7 +305,8 @@ namespace bankingmanagement {
 			this->label11->BackColor = System::Drawing::Color::Transparent;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label11->Location = System::Drawing::Point(207, 164);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(190, 29);
@@ -309,7 +319,8 @@ namespace bankingmanagement {
 			this->label3->BackColor = System::Drawing::Color::Transparent;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label3->Location = System::Drawing::Point(207, 384);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(147, 29);
@@ -322,7 +333,8 @@ namespace bankingmanagement {
 			this->label4->BackColor = System::Drawing::Color::Transparent;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label4->Location = System::Drawing::Point(207, 330);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(99, 29);
@@ -334,7 +346,8 @@ namespace bankingmanagement {
 			this->Emailcustxt->BackColor = System::Drawing::Color::Cornsilk;
 			this->Emailcustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Emailcustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Emailcustxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
 			this->Emailcustxt->Location = System::Drawing::Point(570, 331);
 			this->Emailcustxt->Name = L"Emailcustxt";
 			this->Emailcustxt->Size = System::Drawing::Size(268, 28);
@@ -345,7 +358,8 @@ namespace bankingmanagement {
 			this->Namecustxt->BackColor = System::Drawing::Color::Cornsilk;
 			this->Namecustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Namecustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Namecustxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
 			this->Namecustxt->Location = System::Drawing::Point(570, 114);
 			this->Namecustxt->Name = L"Namecustxt";
 			this->Namecustxt->Size = System::Drawing::Size(268, 28);
@@ -356,7 +370,8 @@ namespace bankingmanagement {
 			this->Mobcustxt->BackColor = System::Drawing::Color::Cornsilk;
 			this->Mobcustxt->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Mobcustxt->ForeColor = System::Drawing::Color::Purple;
+			this->Mobcustxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
 			this->Mobcustxt->Location = System::Drawing::Point(570, 277);
 			this->Mobcustxt->Name = L"Mobcustxt";
 			this->Mobcustxt->Size = System::Drawing::Size(268, 28);
@@ -421,7 +436,8 @@ namespace bankingmanagement {
 			this->label5->BackColor = System::Drawing::Color::Transparent;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::Color::Cornsilk;
+			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(126)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->label5->Location = System::Drawing::Point(206, 436);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(113, 29);
@@ -433,7 +449,8 @@ namespace bankingmanagement {
 			this->PanNoTextBox->BackColor = System::Drawing::Color::Cornsilk;
 			this->PanNoTextBox->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->PanNoTextBox->ForeColor = System::Drawing::Color::Purple;
+			this->PanNoTextBox->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
 			this->PanNoTextBox->Location = System::Drawing::Point(570, 439);
 			this->PanNoTextBox->Name = L"PanNoTextBox";
 			this->PanNoTextBox->Size = System::Drawing::Size(268, 28);
@@ -443,7 +460,8 @@ namespace bankingmanagement {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Purple;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(37)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->ClientSize = System::Drawing::Size(1064, 713);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->PanNoTextBox);
@@ -467,6 +485,9 @@ namespace bankingmanagement {
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->Customerlabel);
+			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(156)),
+				static_cast<System::Int32>(static_cast<System::Byte>(149)));
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"AddCustomer";
 			this->Text = L"AddCustomer";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
